@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.LoginPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Qluod ID"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<ScrollView>
+		<StackLayout
+			Padding="20"
+			Spacing="20"
+			VerticalOptions="CenterAndExpand">
+			<Label
+				FontAttributes="Italic"
+				FontSize="40"
+				HorizontalOptions="CenterAndExpand"
+				Text="Noffa +"
+				TextColor="#FE2828"
+				TextDecorations="Underline" />
+
+			<StackLayout Padding="1" BackgroundColor="#d3d3d3">
+				<StackLayout Padding="10,0,0,0" BackgroundColor="White">
+					<controls:CustomEntry
+						Keyboard="Email"
+						Placeholder="Username"
+						Text="{Binding Username}" />
+				</StackLayout>
+			</StackLayout>
+
+			<StackLayout Padding="1" BackgroundColor="#d3d3d3">
+				<StackLayout Padding="10,0,0,0" BackgroundColor="White">
+					<controls:CustomEntry
+						IsPassword="True"
+						Placeholder="Password"
+						Text="{Binding Password}" />
+				</StackLayout>
+			</StackLayout>
+
+			<StackLayout
+				HorizontalOptions="StartAndExpand"
+				Orientation="Horizontal"
+				Spacing="10">
+				<Image
+					Aspect="AspectFit"
+					HeightRequest="25"
+					HorizontalOptions="Start"
+					Source="iconRadioOn.png"
+					VerticalOptions="Center"
+					WidthRequest="25" />
+
+				<Label
+					FontSize="17"
+					HorizontalOptions="Start"
+					Text="Remember Me"
+					TextColor="Gray"
+					VerticalOptions="Center" />
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnTapRememberMeGestureRecognizer" />
+				</StackLayout.GestureRecognizers>
+			</StackLayout>
+
+			<controls:CustomButton Command="{Binding LoginCommand}" Text="Sign in" />
+
+			<Label
+				FontSize="17"
+				HorizontalOptions="CenterAndExpand"
+				Text="Forgot Password?"
+				TextColor="Black" />
+
+			<StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+				<Label
+					FontSize="17"
+					HorizontalOptions="CenterAndExpand"
+					Text="Don't have an account?"
+					TextColor="#b6b6b6" />
+
+				<Label
+					FontAttributes="Bold"
+					FontSize="17"
+					HorizontalOptions="CenterAndExpand"
+					Text="Sign Up"
+					TextColor="Black" />
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

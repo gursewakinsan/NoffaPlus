@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.ChildrenMissingDetailsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Children Missing Details"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<ScrollView HorizontalScrollBarVisibility="Never">
+			<StackLayout Padding="20" Spacing="10">
+				<Image
+					Aspect="AspectFill"
+					HeightRequest="400"
+					HorizontalOptions="Center"
+					Source="{Binding ChildrenDetails.ImagePath}"
+					VerticalOptions="Start"
+					WidthRequest="400" />
+
+				<Label
+					FontAttributes="Bold"
+					FontSize="Large"
+					HorizontalOptions="Center"
+					Text="{Binding ChildrenDetails.DisplayName}"
+					VerticalOptions="Start" />
+
+				<Label
+					Margin="0,0,0,20"
+					FontSize="Large"
+					HorizontalOptions="Center"
+					HorizontalTextAlignment="Center"
+					Text="{Binding ChildrenDetails.Address}"
+					VerticalOptions="Start" />
+
+
+				<controls:CustomButton Text="I Found Him" />
+
+				<controls:CustomButton Text="I Know Where He Is" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

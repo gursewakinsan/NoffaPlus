@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.InformMissingChildrenPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Inform Missing Children"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<StackLayout Padding="20" Spacing="5">
+			<Label
+				FontSize="40"
+				HorizontalOptions="CenterAndExpand"
+				Text="Noffa"
+				TextColor="Black" />
+
+			<Label
+				Margin="0,0,0,40"
+				FontSize="20"
+				HorizontalOptions="CenterAndExpand"
+				Text="Report missing children"
+				TextColor="Black" />
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="80" />
+					<RowDefinition Height="80" />
+				</Grid.RowDefinitions>
+				<Grid
+					Grid.Row="0"
+					Padding="10,0,0,0"
+					BackgroundColor="#F5F5F5"
+					RowSpacing="0">
+					<Grid.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding InformToEmployeesCommand}" />
+					</Grid.GestureRecognizers>
+					<Label
+						Grid.Row="0"
+						FontAttributes="Bold"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Inform"
+						TextColor="Black"
+						VerticalTextAlignment="End" />
+
+					<Label
+						Grid.Row="1"
+						FontSize="15"
+						HorizontalTextAlignment="Start"
+						Text="Employees"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+				</Grid>
+
+				<Grid
+					Grid.Row="1"
+					Padding="10,0,0,0"
+					BackgroundColor="#F5F5F5"
+					RowSpacing="0">
+					<Label
+						Grid.Row="0"
+						FontAttributes="Bold"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Inform"
+						TextColor="Black"
+						VerticalTextAlignment="End" />
+
+					<Label
+						Grid.Row="1"
+						FontSize="15"
+						HorizontalTextAlignment="Start"
+						Text="Noffa"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+				</Grid>
+			</Grid>
+
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

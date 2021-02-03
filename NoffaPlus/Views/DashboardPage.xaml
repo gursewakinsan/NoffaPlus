@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.DashboardPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Dashboard"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<!--<ContentPage.ToolbarItems>
+		<ToolbarItem
+			Command="{Binding LogoutCommand}"
+			Order="Primary"
+			Priority="0"
+			Text="Logout" />
+	</ContentPage.ToolbarItems>-->
+	<ContentPage.Content>
+		<StackLayout Padding="20" Spacing="5">
+			<Label
+				FontSize="40"
+				HorizontalOptions="CenterAndExpand"
+				Text="Noffa"
+				TextColor="Black" />
+
+			<Label
+				Margin="0,0,0,40"
+				FontSize="20"
+				HorizontalOptions="CenterAndExpand"
+				Text="Report missing children"
+				TextColor="Black" />
+
+			<StackLayout Padding="1" BackgroundColor="#d3d3d3">
+				<StackLayout BackgroundColor="White">
+					<Grid Padding="10,0,10,0" ColumnSpacing="2">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<controls:CustomPicker
+							x:Name="pickerCompany"
+							Title="Select"
+							Grid.Row="0"
+							Grid.Column="0"
+							FontSize="16"
+							HeightRequest="50"
+							ItemDisplayBinding="{Binding CompanyName}"
+							ItemsSource="{Binding CompanyList}"
+							SelectedIndexChanged="OnPickerCompanySelectedIndexChanged"
+							TitleColor="Black" />
+
+						<Image
+							Grid.Row="0"
+							Grid.Column="1"
+							Aspect="AspectFit"
+							HeightRequest="12"
+							HorizontalOptions="Center"
+							Source="iconDropDownArrow.png"
+							VerticalOptions="Center"
+							WidthRequest="12" />
+					</Grid>
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
