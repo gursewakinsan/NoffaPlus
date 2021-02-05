@@ -1,25 +1,39 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace NoffaPlus
 {
 	public partial class App : Application
 	{
+		#region App Constructor.
 		public App()
 		{
 			InitializeComponent();
 			MainPage = new Views.LoginPage();
 		}
+		#endregion
 
-		protected override void OnStart()
-		{
+		#region Login With Session For iOS.
+		public void LoginWithSession(string session)
+		{ 
 		}
+		#endregion
 
-		protected override void OnSleep()
+		#region Login With Session For Android.
+		protected override void OnAppLinkRequestReceived(Uri uri)
 		{
+			if (uri.Host.EndsWith("NoffaPlusApp.com", StringComparison.OrdinalIgnoreCase))
+			{
+				if (uri.Segments != null && uri.Segments.Length == 3)
+				{
+					Helper.Helper.SessionId = uri.Segments[2];
+					MainPage = new Views.LoginPage();
+				}
+			}
+			else
+				MainPage = new Views.LoginPage();
+			base.OnAppLinkRequestReceived(uri);
 		}
-
-		protected override void OnResume()
-		{
-		}
+		#endregion
 	}
 }

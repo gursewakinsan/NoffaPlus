@@ -17,7 +17,10 @@ namespace NoffaPlus.Views
 		}
 		protected override void OnAppearing()
 		{
-			loginViewModel.IsAlreadyLoginCommand.Execute(null);
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.SessionId))
+				loginViewModel.LoginWithSessionCommand.Execute(null);
+			else
+				loginViewModel.IsAlreadyLoginCommand.Execute(null);
 			base.OnAppearing();
 		}
 		private void OnTapRememberMeGestureRecognizer(object sender, EventArgs e)

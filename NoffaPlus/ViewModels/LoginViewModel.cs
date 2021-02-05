@@ -1,10 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using NoffaPlus.Helper;
-using System.Windows.Input;
-using System.Threading.Tasks;
-using NoffaPlus.Interfaces;
 using NoffaPlus.Service;
-using System;
+using Xamarin.Essentials;
+using System.Windows.Input;
+using NoffaPlus.Interfaces;
+using System.Threading.Tasks;
 
 namespace NoffaPlus.ViewModels
 {
@@ -70,6 +71,61 @@ namespace NoffaPlus.ViewModels
 					await Alert.DisplayAlert("Invalid Username or Password.");
 				DependencyService.Get<IProgressBar>().Hide();
 			}
+		}
+		#endregion
+
+		#region Login With Session Command.
+		private ICommand loginWithSessionCommand;
+		public ICommand LoginWithSessionCommand
+		{
+			get => loginWithSessionCommand ?? (loginWithSessionCommand = new Command(async () => await ExecuteLoginWithSessionCommand()));
+		}
+		private async Task ExecuteLoginWithSessionCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			ILoginService service = new LoginService();
+			Models.InterAppSessionResponse response = await service.LoginWithSessionAsync(new Models.InterAppSessionRequest() 
+			{ 
+				Session = Helper.Helper.SessionId 
+			});
+			if (response == null)
+				await Alert.DisplayAlert("Something went wrong, Please try after some time.");
+			else if (response.Result == 0)
+				await Alert.DisplayAlert("You have enter wrong password, Please try again.");
+			else if (response.Result == 1)
+			{
+				Helper.Helper.LoggedInUserId = response.UserId;
+				Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Login With QloudId App Command.
+		private ICommand loginWithQloudIdAppCommand;
+		public ICommand LoginWithQloudIdAppCommand
+		{
+			get => loginWithQloudIdAppCommand ?? (loginWithQloudIdAppCommand = new Command(async () => await ExecuteLoginWithQloudIdAppCommand()));
+		}
+		private async Task ExecuteLoginWithQloudIdAppCommand()
+		{
+			if (Device.RuntimePlatform == Device.iOS)
+			{
+				var supportsUri = await Launcher.CanOpenAsync("QloudidUrl://");
+				if (supportsUri)
+					await Launcher.OpenAsync("QloudidUrl://");
+				else
+					await Alert.DisplayAlert("QloudID app not install on your mobile phone.");
+			}
+			else
+			{
+				var supportsUri = await Launcher.CanOpenAsync("https://qloudid.com/ip/");
+				if (supportsUri)
+					await Launcher.OpenAsync("https://qloudid.com/ip/");
+				else
+					await Alert.DisplayAlert("QloudID app not install on your mobile phone.");
+			}
+			await Task.CompletedTask;
 		}
 		#endregion
 

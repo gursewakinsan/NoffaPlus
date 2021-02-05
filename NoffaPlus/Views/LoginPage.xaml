@@ -65,6 +65,8 @@
 
 			<controls:CustomButton Command="{Binding LoginCommand}" Text="Sign in" />
 
+			<controls:CustomButton Command="{Binding LoginWithQloudIdAppCommand}" Text="Login With QloudID" />
+
 			<Label
 				FontSize="17"
 				HorizontalOptions="CenterAndExpand"
