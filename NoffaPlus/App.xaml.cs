@@ -15,7 +15,10 @@ namespace NoffaPlus
 
 		#region Login With Session For iOS.
 		public void LoginWithSession(string session)
-		{ 
+		{
+			if (!string.IsNullOrWhiteSpace(session))
+				Helper.Helper.SessionId = session;
+			MainPage = new Views.LoginPage();
 		}
 		#endregion
 

@@ -111,11 +111,11 @@ namespace NoffaPlus.ViewModels
 		{
 			if (Device.RuntimePlatform == Device.iOS)
 			{
-				var supportsUri = await Launcher.CanOpenAsync("QloudidUrl://");
-				if (supportsUri)
-					await Launcher.OpenAsync("QloudidUrl://");
-				else
-					await Alert.DisplayAlert("QloudID app not install on your mobile phone.");
+				//var supportsUri = await Launcher.CanOpenAsync("QloudidUrl://");
+				//if (supportsUri)
+					await Launcher.OpenAsync("QloudidUrl://NoffaPlusApp");
+				//else
+					//await Alert.DisplayAlert("QloudID app not install on your mobile phone.");
 			}
 			else
 			{

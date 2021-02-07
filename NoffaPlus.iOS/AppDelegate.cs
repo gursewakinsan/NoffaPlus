@@ -16,7 +16,7 @@ namespace NoffaPlus.iOS
 		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
 			var App = (App)Xamarin.Forms.Application.Current;
-			App.LoginWithSession(url.PathComponents[2]);
+			App.LoginWithSession(url.PathComponents[1]);
 			return false;
 		}
 	}
