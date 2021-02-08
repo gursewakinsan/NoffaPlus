@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.AdminInfoPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Admin"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid Padding="20" RowSpacing="50">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="40" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Label
+				Grid.Row="0"
+				FontSize="20"
+				HorizontalTextAlignment="Center"
+				Text="For location 1 (HQ)?"
+				TextColor="Black"
+				VerticalTextAlignment="End" />
+
+			<ListView
+				x:Name="listAdminInfo"
+				Grid.Row="1"
+				BackgroundColor="Transparent"
+				HasUnevenRows="True"
+				ItemTapped="OnAdminInfoItemTapped"
+				ItemsSource="{Binding AdminInfoList}"
+				SeparatorVisibility="None"
+				VerticalScrollBarVisibility="Never">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="80" />
+									<RowDefinition Height="1" />
+								</Grid.RowDefinitions>
+								<Label
+									FontSize="18"
+									HorizontalTextAlignment="Center"
+									Text="{Binding InfoName}"
+									TextColor="Black"
+									VerticalTextAlignment="Center" />
+
+								<BoxView
+									Grid.Row="1"
+									BackgroundColor="#6F7FAF"
+									Opacity="0.2" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

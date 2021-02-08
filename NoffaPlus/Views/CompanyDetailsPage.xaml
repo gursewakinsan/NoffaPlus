@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.CompanyDetailsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Punjabi"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid
+			Padding="0,0,0,20"
+			ColumnSpacing="0"
+			RowSpacing="10"
+			VerticalOptions="EndAndExpand">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1" />
+				<RowDefinition Height="80" />
+				<RowDefinition Height="80" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<BoxView
+				Grid.Row="0"
+				Grid.ColumnSpan="3"
+				Margin="20,0,20,0"
+				BackgroundColor="#6F7FAF"
+				Opacity="0.2" />
+
+			<Label
+				Grid.Row="1"
+				Grid.Column="0"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				Text="News"
+				TextColor="#6F7FAF"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="1"
+				Grid.Column="1"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				Text="Message"
+				TextColor="#6F7FAF"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="1"
+				Grid.Column="2"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				Text="Employees"
+				TextColor="#6F7FAF"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="2"
+				Grid.Column="0"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				Text="Busniees card"
+				TextColor="#6F7FAF"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="2"
+				Grid.Column="1"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				Text="Apps"
+				TextColor="#6F7FAF"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="2"
+				Grid.Column="2"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				Text="Admins"
+				TextColor="#6F7FAF"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding AdminCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

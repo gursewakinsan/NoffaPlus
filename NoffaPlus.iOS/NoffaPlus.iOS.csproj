@@ -158,4 +158,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconTickRed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconTickInsideCircle.png" />
+  </ItemGroup>
 </Project>

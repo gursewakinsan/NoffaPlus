@@ -5,11 +5,92 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	Title="Qluod ID"
-	BackgroundColor="White"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#3623B7"
+	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
-	<ScrollView>
+	<ScrollView VerticalScrollBarVisibility="Never">
+		<StackLayout Padding="0,40,0,40" Spacing="50">
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				Spacing="0"
+				VerticalOptions="StartAndExpand">
+				<ImageButton
+					Padding="45"
+					BackgroundColor="Transparent"
+					BorderColor="#05CBE7"
+					BorderWidth="2"
+					CornerRadius="75"
+					HeightRequest="150"
+					HorizontalOptions="Center"
+					Source="iconTickInsideCircle.png"
+					VerticalOptions="Center"
+					WidthRequest="150" />
+
+				<Label
+					Margin="0,40,0,0"
+					FontSize="25"
+					HorizontalTextAlignment="Center"
+					Text="Noffa +"
+					TextColor="#A4D354"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontSize="35"
+					HorizontalTextAlignment="Center"
+					Text="Your digital ID"
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+			</StackLayout>
+
+			<StackLayout Spacing="30" VerticalOptions="EndAndExpand">
+				<controls:CustomButton
+					Margin="20"
+					BackgroundColor="#05CBE7"
+					BorderColor="#05CBE7"
+					Command="{Binding LoginWithQloudIdAppCommand}"
+					CornerRadius="25"
+					Text="Login With QloudID"
+					TextColor="White" />
+
+				<StackLayout
+					Padding="10"
+					HorizontalOptions="CenterAndExpand"
+					IsVisible="False"
+					Orientation="Horizontal"
+					Spacing="0">
+					<Label
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Already have an account? "
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Sign in"
+						TextColor="#05CBE7"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding UserRestoreCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+
+				<controls:CustomButton
+					BackgroundColor="#05CBE7"
+					BorderColor="#05CBE7"
+					IsVisible="False"
+					Text="Restore Account"
+					TextColor="White" />
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+
+	<!--<ScrollView>
 		<StackLayout
 			Padding="20"
 			Spacing="20"
@@ -88,5 +169,5 @@
 					TextColor="Black" />
 			</StackLayout>
 		</StackLayout>
-	</ScrollView>
+	</ScrollView>-->
 </ContentPage>

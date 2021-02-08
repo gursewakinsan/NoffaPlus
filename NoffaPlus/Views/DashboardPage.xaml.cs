@@ -22,7 +22,14 @@ namespace NoffaPlus.Views
 			base.OnAppearing();
 		}
 
-		private void OnPickerCompanySelectedIndexChanged(object sender, System.EventArgs e)
+		private void OnCompanyItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			Models.Company company = e.Item as Models.Company;
+			listCompany.SelectedItem = null;
+			dashboardViewModel.GoToChildrenMissingCommand.Execute(company.CompanyId);
+		}
+
+		/*private void OnPickerCompanySelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			CustomPicker picker = sender as CustomPicker;
 			if (picker == null) return;
@@ -31,6 +38,6 @@ namespace NoffaPlus.Views
 				Models.Company company = picker.SelectedItem as Models.Company;
 				dashboardViewModel.GoToChildrenMissingCommand.Execute(company.CompanyId);
 			}
-		}
+		}*/
 	}
 }

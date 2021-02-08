@@ -17,21 +17,62 @@
 			Text="Logout" />
 	</ContentPage.ToolbarItems>-->
 	<ContentPage.Content>
-		<StackLayout Padding="20" Spacing="5">
+		<Grid Padding="20" RowSpacing="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50" />
+				<RowDefinition Height="40" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
 			<Label
+				Grid.Row="0"
 				FontSize="40"
 				HorizontalOptions="CenterAndExpand"
 				Text="Noffa"
 				TextColor="Black" />
 
 			<Label
-				Margin="0,0,0,40"
+				Grid.Row="1"
 				FontSize="20"
 				HorizontalOptions="CenterAndExpand"
 				Text="Report missing children"
 				TextColor="Black" />
 
-			<StackLayout Padding="1" BackgroundColor="#d3d3d3">
+			<ListView
+				x:Name="listCompany"
+				Grid.Row="2"
+				BackgroundColor="Transparent"
+				HasUnevenRows="True"
+				ItemTapped="OnCompanyItemTapped"
+				ItemsSource="{Binding CompanyList}"
+				SeparatorVisibility="None"
+				VerticalScrollBarVisibility="Never">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="80" />
+									<RowDefinition Height="1" />
+								</Grid.RowDefinitions>
+								<Label
+									FontSize="18"
+									HorizontalTextAlignment="Center"
+									Text="{Binding CompanyName}"
+									TextColor="Black"
+									VerticalTextAlignment="Center" />
+
+								<BoxView
+									Grid.Row="1"
+									BackgroundColor="#6F7FAF"
+									Opacity="0.2" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+			<!--<StackLayout Padding="1" BackgroundColor="#d3d3d3">
 				<StackLayout BackgroundColor="White">
 					<Grid Padding="10,0,10,0" ColumnSpacing="2">
 						<Grid.ColumnDefinitions>
@@ -61,7 +102,7 @@
 							WidthRequest="12" />
 					</Grid>
 				</StackLayout>
-			</StackLayout>
-		</StackLayout>
+			</StackLayout>-->
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>
