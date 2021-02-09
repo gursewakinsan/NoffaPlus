@@ -30,7 +30,7 @@
 				BackgroundColor="Transparent"
 				HasUnevenRows="True"
 				ItemTapped="OnAppStoreItemTapped"
-				ItemsSource="{Binding AppStoreList}"
+				ItemsSource="{Binding CompanyDownloadedApps}"
 				SeparatorVisibility="None"
 				VerticalScrollBarVisibility="Never">
 				<ListView.ItemTemplate>

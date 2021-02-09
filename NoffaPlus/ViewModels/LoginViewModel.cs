@@ -95,7 +95,19 @@ namespace NoffaPlus.ViewModels
 			else if (response.Result == 1)
 			{
 				Helper.Helper.LoggedInUserId = response.UserId;
-				Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				IDashboardService dashboardService = new DashboardService();
+				var companies = await dashboardService.GetCompaniesByIdAsync(Helper.Helper.LoggedInUserId);
+				if (companies == null)
+					Application.Current.MainPage = new NavigationPage(new Views.NoCompanyPage());
+				else if (companies.Count == 0)
+					Application.Current.MainPage = new NavigationPage(new Views.NoCompanyPage());
+				else if (companies.Count == 1)
+				{
+					Helper.Helper.CompanyId = companies[0].CompanyId;
+					Application.Current.MainPage = new NavigationPage(new Views.CompanyDetailsPage());
+				}
+				else if (companies.Count > 1)
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}

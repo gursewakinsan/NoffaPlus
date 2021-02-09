@@ -17,8 +17,10 @@ namespace NoffaPlus.Views
 
 		private async void OnAdminInfoItemTapped(object sender, ItemTappedEventArgs e)
 		{
+			AdminInfo info = e.Item as AdminInfo;
 			listAdminInfo.SelectedItem = null;
-			await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
+			if (info.InfoName.Equals("App store"))
+				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
 		}
 	}
 }

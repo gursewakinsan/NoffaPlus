@@ -47,7 +47,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteGoToChildrenMissingCommand(int companyId)
 		{
 			Helper.Helper.CompanyId = companyId;
-			await Navigation.PushAsync(new ChildrenMissingListPage());
+			await Navigation.PushAsync(new CompanyDetailsPage());
 		}
 		#endregion
 

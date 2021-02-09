@@ -15,6 +15,12 @@ namespace NoffaPlus.Views
 			BindingContext = appStoreInfoPageViewModel = new AppStoreInfoPageViewModel(this.Navigation);
 		}
 
+		protected override void OnAppearing()
+		{
+			appStoreInfoPageViewModel.GetCompanyDownloadedAppsCommand.Execute(null);
+			base.OnAppearing();
+		}
+
 		private void OnAppStoreItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			listAppStore.SelectedItem = null;

@@ -1,4 +1,8 @@
 ﻿using Xamarin.Forms;
+using NoffaPlus.Service;
+using System.Windows.Input;
+using NoffaPlus.Interfaces;
+using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
 namespace NoffaPlus.ViewModels
@@ -9,22 +13,40 @@ namespace NoffaPlus.ViewModels
 		public AppStoreInfoPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			AppStoreList = new ObservableCollection<AppStoreInfo>();
-			AppStoreList.Add(new AppStoreInfo() { AppName = "Visitor" });
-			AppStoreList.Add(new AppStoreInfo() { AppName = "Delivery" });
-			AppStoreList.Add(new AppStoreInfo() { AppName = "SafeQid" });
-			AppStoreList.Add(new AppStoreInfo() { AppName = "Food & Drink" });
-			AppStoreList.Add(new AppStoreInfo() { AppName = "BusinessQard" });
-			AppStoreList.Add(new AppStoreInfo() { AppName = "Website" });
+		}
+		#endregion
+
+		#region Get Company Downloaded Apps Command.
+		private ICommand getCompanyDownloadedAppsCommand;
+		public ICommand GetCompanyDownloadedAppsCommand
+		{
+			get => getCompanyDownloadedAppsCommand ?? (getCompanyDownloadedAppsCommand = new Command(async () => await ExecuteGetCompanyDownloadedAppsCommand()));
+		}
+		private async Task ExecuteGetCompanyDownloadedAppsCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			Models.CompanyDownloadedAppsRequest request = new Models.CompanyDownloadedAppsRequest()
+			{
+				CompanyId = Helper.Helper.CompanyId
+			};
+			ICompanyService service = new CompanyService();
+			var response = await service.CompanyDownloadedAppsAsync(request);
+			CompanyDownloadedApps = new ObservableCollection<Models.CompanyDownloadedAppsResponse>(response);
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
 		#region Properties.
-		public ObservableCollection<AppStoreInfo> AppStoreList { get; set; }
+		private ObservableCollection<Models.CompanyDownloadedAppsResponse> companyDownloadedApps;
+		public ObservableCollection<Models.CompanyDownloadedAppsResponse> CompanyDownloadedApps
+		{
+			get => companyDownloadedApps;
+			set
+			{
+				companyDownloadedApps = value;
+				OnPropertyChanged("CompanyDownloadedApps");
+			}
+		}
 		#endregion
 	}
-}
-public class AppStoreInfo
-{
-	public string AppName { get; set; }
 }

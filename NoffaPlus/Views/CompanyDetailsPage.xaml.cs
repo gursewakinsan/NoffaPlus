@@ -14,5 +14,11 @@ namespace NoffaPlus.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = companyDetailsViewModel = new CompanyDetailsViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			companyDetailsViewModel.VerifyAdminCommand.Execute(null);
+			base.OnAppearing();
+		}
 	}
 }
