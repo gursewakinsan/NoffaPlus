@@ -20,6 +20,12 @@
 				<Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
 				<Setter Property="BarTextColor" Value="White" />
 			</Style>
+
+			<OnPlatform
+				x:Key="MaterialFontFamily"
+				x:TypeArguments="x:String"
+				Android="materialdesignicons-webfont.ttf#Material Design Icons"
+				iOS="Material Design Icons" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

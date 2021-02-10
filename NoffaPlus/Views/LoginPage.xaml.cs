@@ -19,8 +19,8 @@ namespace NoffaPlus.Views
 		{
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.SessionId))
 				loginViewModel.LoginWithSessionCommand.Execute(null);
-			else
-				loginViewModel.IsAlreadyLoginCommand.Execute(null);
+			//else
+				//loginViewModel.IsAlreadyLoginCommand.Execute(null);
 			base.OnAppearing();
 		}
 		private void OnTapRememberMeGestureRecognizer(object sender, EventArgs e)
