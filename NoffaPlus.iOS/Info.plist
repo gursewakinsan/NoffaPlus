@@ -6,7 +6,6 @@
 	<array>
 		<string>Fonts/materialdesignicons-webfont.ttf</string>
 	</array>
-
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
