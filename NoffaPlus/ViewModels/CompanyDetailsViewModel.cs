@@ -48,6 +48,18 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Children Missing Command.
+		private ICommand childrenMissingCommand;
+		public ICommand ChildrenMissingCommand
+		{
+			get => childrenMissingCommand ?? (childrenMissingCommand = new Command(async () => await ExecuteChildrenMissingCommand()));
+		}
+		private async Task ExecuteChildrenMissingCommand()
+		{
+			await Navigation.PushAsync(new Views.ChildrenMissingListPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.VerifyAdminResponse companyDetail;
 		public Models.VerifyAdminResponse CompanyDetail

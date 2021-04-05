@@ -217,7 +217,11 @@
 				HorizontalTextAlignment="End"
 				Text="Alarm accident"
 				TextColor="Black"
-				VerticalTextAlignment="Center" />
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ChildrenMissingCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>
