@@ -26,6 +26,7 @@ namespace NoffaPlus.Views
 		{
 			Models.Company company = e.Item as Models.Company;
 			listCompany.SelectedItem = null;
+			Helper.Helper.CompanyName = company.CompanyName;
 			dashboardViewModel.GoToChildrenMissingCommand.Execute(company.CompanyId);
 		}
 

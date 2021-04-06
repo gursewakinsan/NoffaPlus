@@ -8,5 +8,10 @@
 		public const string Card = "\U000f10be";
 		public const string Apps = "\U000f003b";
 		public const string Admin = "\U000f0017";
+		public const string AlarmNote = "\U000f0e71";
+		public const string QrCode = "\U000f0432";
+		public const string ArrowLeft = "\U000f004d";
+		public const string HomeFloor1 = "\U000f0d80";
+		public const string HomeFloor2 = "\U000f0d81";
 	}
 }

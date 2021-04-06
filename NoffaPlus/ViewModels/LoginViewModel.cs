@@ -104,6 +104,7 @@ namespace NoffaPlus.ViewModels
 				else if (companies.Count == 1)
 				{
 					Helper.Helper.CompanyId = companies[0].CompanyId;
+					Helper.Helper.CompanyName = companies[0].CompanyName;
 					Application.Current.MainPage = new NavigationPage(new Views.CompanyDetailsPage());
 				}
 				else if (companies.Count > 1)

@@ -70,7 +70,9 @@ namespace NoffaPlus.ViewModels
 				companyDetail = value;
 				OnPropertyChanged("CompanyDetail");
 			}
-		} 
+		}
+
+		public string DisplayCompanyName => Helper.Helper.CompanyName;
 		#endregion
 	}
 }
