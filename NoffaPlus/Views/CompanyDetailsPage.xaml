@@ -29,7 +29,7 @@
 					HeightRequest="100"
 					HorizontalOptions="CenterAndExpand"
 					Orientation="Horizontal"
-					Spacing="30"
+					Spacing="40"
 					VerticalOptions="CenterAndExpand">
 					<Grid
 						RowSpacing="0"
