@@ -9,7 +9,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	Title="Notification - (To do)"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#F4F4F4"
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<Grid ColumnSpacing="0">
@@ -25,7 +25,118 @@
 				Grid.Row="0"
 				Grid.ColumnSpan="2"
 				VerticalScrollBarVisibility="Never">
-				<Grid
+				<StackLayout
+					HeightRequest="100"
+					HorizontalOptions="CenterAndExpand"
+					Orientation="Horizontal"
+					Spacing="30"
+					VerticalOptions="CenterAndExpand">
+					<Grid
+						RowSpacing="0"
+						VerticalOptions="StartAndExpand"
+						WidthRequest="70">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="60" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<ImageButton
+							Grid.Row="0"
+							Padding="15"
+							BackgroundColor="White"
+							CornerRadius="30"
+							HeightRequest="60"
+							HorizontalOptions="CenterAndExpand"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="60">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Message}"
+									Size="50"
+									Color="#C9CFD7" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<Label
+							Grid.Row="1"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							MaxLines="1"
+							Text="Message"
+							TextColor="#C9CFD7"
+							VerticalTextAlignment="Center" />
+					</Grid>
+
+					<Grid
+						RowSpacing="0"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="80">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="80" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<ImageButton
+							Grid.Row="0"
+							Padding="20"
+							BackgroundColor="#FF5560"
+							CornerRadius="40"
+							HeightRequest="80"
+							WidthRequest="80">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Apps}"
+									Size="50"
+									Color="White" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<Label
+							Grid.Row="1"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							Text="Appstore"
+							TextColor="#C9CFD7"
+							VerticalTextAlignment="Center" />
+					</Grid>
+
+					<Grid
+						RowSpacing="0"
+						VerticalOptions="StartAndExpand"
+						WidthRequest="70">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="60" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<ImageButton
+							Grid.Row="0"
+							Padding="15"
+							BackgroundColor="White"
+							Command="{Binding AdminCommand}"
+							CornerRadius="30"
+							HeightRequest="60"
+							HorizontalOptions="CenterAndExpand"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="60">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Admin}"
+									Size="50"
+									Color="#C9CFD7" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<Label
+							Grid.Row="1"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							Text="Admin"
+							TextColor="#C9CFD7"
+							VerticalTextAlignment="Center" />
+					</Grid>
+				</StackLayout>
+				<!--<Grid
 					Padding="20"
 					ColumnSpacing="0"
 					RowSpacing="10"
@@ -194,7 +305,7 @@
 							TextColor="#6F7FAF"
 							VerticalTextAlignment="Center" />
 					</StackLayout>
-				</Grid>
+				</Grid>-->
 			</ScrollView>
 
 			<Label
