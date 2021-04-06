@@ -11,7 +11,7 @@
 		public const string AlarmNote = "\U000f0e71";
 		public const string QrCode = "\U000f0432";
 		public const string ArrowLeft = "\U000f004d";
-		public const string HomeFloor1 = "\U000f0d80";
-		public const string HomeFloor2 = "\U000f0d81";
+		public const string Home = "\U000f02dc";
+		public const string CardAccountDetailsOutline = "\U000f0dab";
 	}
 }
