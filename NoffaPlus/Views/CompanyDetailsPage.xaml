@@ -177,18 +177,31 @@
 							<RowDefinition Height="60" />
 							<RowDefinition Height="20" />
 						</Grid.RowDefinitions>
-						<Frame
-							Grid.Row="0"
-							Padding="0"
-							BackgroundColor="White"
-							BorderColor="#C9CFD7"
-							CornerRadius="30"
-							HasShadow="True"
-							HeightRequest="60"
-							HorizontalOptions="CenterAndExpand"
-							IsClippedToBounds="True"
-							VerticalOptions="CenterAndExpand"
-							WidthRequest="60" />
+						<OnPlatform x:TypeArguments="View">
+							<On Platform="iOS">
+								<controls:CustomBoxView
+									BackgroundColor="#C9CFD7"
+									CornerRadius="30"
+									HeightRequest="60"
+									HorizontalOptions="Center"
+									VerticalOptions="Center"
+									WidthRequest="60" />
+							</On>
+							<On Platform="Android">
+								<Frame
+									Grid.Row="0"
+									Padding="0"
+									BackgroundColor="White"
+									BorderColor="#C9CFD7"
+									CornerRadius="30"
+									HasShadow="True"
+									HeightRequest="60"
+									HorizontalOptions="CenterAndExpand"
+									IsClippedToBounds="True"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="60" />
+							</On>
+						</OnPlatform>
 
 						<ImageButton
 							Grid.Row="0"
@@ -223,7 +236,7 @@
 			<Image
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				Aspect="Fill"
+				Aspect="AspectFill"
 				Source="iconCurveBottomGray.png" />
 
 			<Grid
