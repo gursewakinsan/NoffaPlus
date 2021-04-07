@@ -5,11 +5,11 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#F4F5F6"
-	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
 	<ContentPage.Content>
@@ -52,6 +52,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				Text="Noffa"
@@ -76,7 +77,8 @@
 
 			<ListView
 				x:Name="listCompany"
-				Grid.Row="1" Grid.ColumnSpan="3"
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
 				BackgroundColor="Transparent"
 				HasUnevenRows="True"
 				ItemTapped="OnCompanyItemTapped"
@@ -86,56 +88,57 @@
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
-					<Grid
-				Grid.Row="1"
-				Grid.ColumnSpan="3"
-				Padding="20,0,20,0"
-				BackgroundColor="White"
-				RowSpacing="0">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="80" />
-					<RowDefinition Height="1" />
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition Width="50" />
-				</Grid.ColumnDefinitions>
-				<Label
-					Grid.Row="0"
-					FontSize="18"
-					HorizontalTextAlignment="Start"
-					LineBreakMode="TailTruncation"
-					MaxLines="1"
-					Text="{Binding CompanyName}"
-					TextColor="Black"
-					VerticalTextAlignment="Center" />
+							<Grid
+								Grid.Row="1"
+								Grid.ColumnSpan="3"
+								Padding="20,0,20,0"
+								BackgroundColor="White"
+								RowSpacing="0">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="80" />
+									<RowDefinition Height="1" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="50" />
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Row="0"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="18"
+									HorizontalTextAlignment="Start"
+									LineBreakMode="TailTruncation"
+									MaxLines="1"
+									Text="{Binding CompanyName}"
+									TextColor="Black"
+									VerticalTextAlignment="Center" />
 
-				<ImageButton
-					Grid.Row="0"
-					Grid.Column="1"
-					Padding="7"
-					BackgroundColor="Transparent"
-					CornerRadius="20"
-					HeightRequest="40"
-					HorizontalOptions="End"
-					Opacity="0.5"
-					VerticalOptions="Center"
-					WidthRequest="40">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
-							Size="100"
-							Color="#6F7FAF" />
-					</ImageButton.Source>
-				</ImageButton>
+								<ImageButton
+									Grid.Row="0"
+									Grid.Column="1"
+									Padding="7"
+									BackgroundColor="Transparent"
+									CornerRadius="20"
+									HeightRequest="40"
+									HorizontalOptions="End"
+									Opacity="0.5" Clicked="OnImageButtonClicked"
+									VerticalOptions="Center"
+									WidthRequest="40">
+									<ImageButton.Source>
+										<FontImageSource
+											FontFamily="{StaticResource MaterialFontFamily}"
+											Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+											Size="100"
+											Color="#6F7FAF" />
+									</ImageButton.Source>
+								</ImageButton>
 
-				<BoxView
-					Grid.Row="1"
-					Grid.ColumnSpan="2"
-					BackgroundColor="#6F7FAF"
-					Opacity="0.2" />
-			</Grid>
+								<BoxView
+									Grid.Row="1"
+									Grid.ColumnSpan="2"
+									BackgroundColor="#6F7FAF"
+									Opacity="0.2" />
+							</Grid>
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>

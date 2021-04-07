@@ -22,5 +22,13 @@ namespace NoffaPlus.Views
 			if (info.InfoName.Equals("Appstore"))
 				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
 		}
+
+		private async void OnImageButtonClicked(object sender, System.EventArgs e)
+		{
+			ImageButton button = sender as ImageButton;
+			AdminInfo info = button.BindingContext as AdminInfo;
+			if (info.InfoName.Equals("Appstore"))
+				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
+		}
 	}
 }

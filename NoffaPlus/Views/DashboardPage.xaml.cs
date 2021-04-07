@@ -30,15 +30,12 @@ namespace NoffaPlus.Views
 			dashboardViewModel.GoToChildrenMissingCommand.Execute(company.CompanyId);
 		}
 
-		/*private void OnPickerCompanySelectedIndexChanged(object sender, System.EventArgs e)
+		private void OnImageButtonClicked(object sender, System.EventArgs e)
 		{
-			CustomPicker picker = sender as CustomPicker;
-			if (picker == null) return;
-			if (picker.SelectedIndex != -1)
-			{
-				Models.Company company = picker.SelectedItem as Models.Company;
-				dashboardViewModel.GoToChildrenMissingCommand.Execute(company.CompanyId);
-			}
-		}*/
+			ImageButton button = sender as ImageButton;
+			Models.Company company = button.BindingContext as Models.Company;
+			Helper.Helper.CompanyName = company.CompanyName;
+			dashboardViewModel.GoToChildrenMissingCommand.Execute(company.CompanyId);
+		}
 	}
 }
