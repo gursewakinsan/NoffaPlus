@@ -10,11 +10,11 @@ namespace NoffaPlus.ViewModels
 		{
 			Navigation = navigation;
 			AdminInfoList = new ObservableCollection<AdminInfo>();
-			AdminInfoList.Add(new AdminInfo() { InfoName = "Company details" });
-			AdminInfoList.Add(new AdminInfo() { InfoName = "Resources" });
-			AdminInfoList.Add(new AdminInfo() { InfoName = "Products & Services" });
-			AdminInfoList.Add(new AdminInfo() { InfoName = "App store" });
-			AdminInfoList.Add(new AdminInfo() { InfoName = "Developers" });
+			AdminInfoList.Add(new AdminInfo() { InfoName = "Company details", InfoNameDetail = "Basic company profile details" });
+			AdminInfoList.Add(new AdminInfo() { InfoName = "Offices", InfoNameDetail="Your locations in the country" });
+			AdminInfoList.Add(new AdminInfo() { InfoName = "Resources", InfoNameDetail = "Your employees & customers" });
+			AdminInfoList.Add(new AdminInfo() { InfoName = "Products", InfoNameDetail = "Products you are selling" });
+			AdminInfoList.Add(new AdminInfo() { InfoName = "Appstore", InfoNameDetail = "This is where you can find apps" });
 		}
 		#endregion
 
@@ -26,4 +26,5 @@ namespace NoffaPlus.ViewModels
 public class AdminInfo
 {
 	public string InfoName { get; set; }
+    public string InfoNameDetail { get; set; }
 }

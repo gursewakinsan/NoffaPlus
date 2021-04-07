@@ -13,5 +13,7 @@
 		public const string ArrowLeft = "\U000f004d";
 		public const string Home = "\U000f02dc";
 		public const string CardAccountDetailsOutline = "\U000f0dab";
+		public const string ChevronRight = "\U000f0142";
+		public const string Help = "\U000f02d6";
 	}
 }

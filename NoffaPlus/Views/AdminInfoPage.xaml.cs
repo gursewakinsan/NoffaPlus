@@ -19,7 +19,7 @@ namespace NoffaPlus.Views
 		{
 			AdminInfo info = e.Item as AdminInfo;
 			listAdminInfo.SelectedItem = null;
-			if (info.InfoName.Equals("App store"))
+			if (info.InfoName.Equals("Appstore"))
 				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
 		}
 	}

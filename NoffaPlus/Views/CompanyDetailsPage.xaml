@@ -84,7 +84,7 @@
 						<ImageButton
 							Grid.Row="0"
 							Padding="15"
-							BackgroundColor="#05CBE7"
+							BackgroundColor="#E6F7FE"
 							CornerRadius="30"
 							HeightRequest="60"
 							HorizontalOptions="CenterAndExpand"
@@ -95,7 +95,7 @@
 									FontFamily="{StaticResource MaterialFontFamily}"
 									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Message}"
 									Size="50"
-									Color="#3623B7" />
+									Color="#3DB9EC" />
 							</ImageButton.Source>
 						</ImageButton>
 
@@ -154,7 +154,7 @@
 						<ImageButton
 							Grid.Row="0"
 							Padding="15"
-							BackgroundColor="#05CBE7"
+							BackgroundColor="#E6F7FE"
 							Command="{Binding AdminCommand}"
 							CornerRadius="30"
 							HeightRequest="60"
@@ -166,7 +166,7 @@
 									FontFamily="{StaticResource MaterialFontFamily}"
 									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Admin}"
 									Size="50"
-									Color="#3623B7" />
+									Color="#3DB9EC" />
 							</ImageButton.Source>
 						</ImageButton>
 
