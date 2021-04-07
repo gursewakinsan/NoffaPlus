@@ -80,36 +80,11 @@
 							<RowDefinition Height="60" />
 							<RowDefinition Height="20" />
 						</Grid.RowDefinitions>
-						<OnPlatform x:TypeArguments="View">
-							<On Platform="iOS">
-								<controls:CustomBoxView
-									BackgroundColor="#C9CFD7"
-									CornerRadius="30"
-									HeightRequest="60"
-									HorizontalOptions="Center"
-									VerticalOptions="Center"
-									WidthRequest="60" />
-							</On>
-							<On Platform="Android">
-								<Frame
-									Grid.Row="0"
-									Padding="0"
-									BackgroundColor="White"
-									BorderColor="#C9CFD7"
-									CornerRadius="30"
-									HasShadow="True"
-									HeightRequest="60"
-									HorizontalOptions="CenterAndExpand"
-									IsClippedToBounds="True"
-									VerticalOptions="CenterAndExpand"
-									WidthRequest="60" />
-							</On>
-						</OnPlatform>
 
 						<ImageButton
 							Grid.Row="0"
 							Padding="15"
-							BackgroundColor="White"
+							BackgroundColor="#05CBE7"
 							CornerRadius="30"
 							HeightRequest="60"
 							HorizontalOptions="CenterAndExpand"
@@ -120,7 +95,7 @@
 									FontFamily="{StaticResource MaterialFontFamily}"
 									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Message}"
 									Size="50"
-									Color="#C9CFD7" />
+									Color="#3623B7" />
 							</ImageButton.Source>
 						</ImageButton>
 
@@ -130,7 +105,7 @@
 							HorizontalTextAlignment="Center"
 							MaxLines="1"
 							Text="Message"
-							TextColor="#C9CFD7"
+							TextColor="#989D9E"
 							VerticalTextAlignment="Center" />
 					</Grid>
 
@@ -145,7 +120,7 @@
 						<ImageButton
 							Grid.Row="0"
 							Padding="25"
-							BackgroundColor="#FF5560"
+							BackgroundColor="#20A7DF"
 							CornerRadius="50"
 							HeightRequest="100"
 							WidthRequest="100">
@@ -163,7 +138,7 @@
 							FontSize="14"
 							HorizontalTextAlignment="Center"
 							Text="Appstore"
-							TextColor="#C9CFD7"
+							TextColor="#989D9E"
 							VerticalTextAlignment="Center" />
 					</Grid>
 
@@ -175,36 +150,11 @@
 							<RowDefinition Height="60" />
 							<RowDefinition Height="20" />
 						</Grid.RowDefinitions>
-						<OnPlatform x:TypeArguments="View">
-							<On Platform="iOS">
-								<controls:CustomBoxView
-									BackgroundColor="#C9CFD7"
-									CornerRadius="30"
-									HeightRequest="60"
-									HorizontalOptions="Center"
-									VerticalOptions="Center"
-									WidthRequest="60" />
-							</On>
-							<On Platform="Android">
-								<Frame
-									Grid.Row="0"
-									Padding="0"
-									BackgroundColor="White"
-									BorderColor="#C9CFD7"
-									CornerRadius="30"
-									HasShadow="True"
-									HeightRequest="60"
-									HorizontalOptions="CenterAndExpand"
-									IsClippedToBounds="True"
-									VerticalOptions="CenterAndExpand"
-									WidthRequest="60" />
-							</On>
-						</OnPlatform>
 
 						<ImageButton
 							Grid.Row="0"
 							Padding="15"
-							BackgroundColor="White"
+							BackgroundColor="#05CBE7"
 							Command="{Binding AdminCommand}"
 							CornerRadius="30"
 							HeightRequest="60"
@@ -216,7 +166,7 @@
 									FontFamily="{StaticResource MaterialFontFamily}"
 									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Admin}"
 									Size="50"
-									Color="#C9CFD7" />
+									Color="#3623B7" />
 							</ImageButton.Source>
 						</ImageButton>
 
@@ -225,7 +175,7 @@
 							FontSize="14"
 							HorizontalTextAlignment="Center"
 							Text="Admin"
-							TextColor="#C9CFD7"
+							TextColor="#989D9E"
 							VerticalTextAlignment="Center" />
 					</Grid>
 				</StackLayout>
@@ -252,7 +202,7 @@
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Home}"
 							Size="25"
-							Color="#C9CFD7" />
+							Color="Black" />
 					</ImageButton.Source>
 				</ImageButton>
 				<Label
@@ -261,7 +211,7 @@
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="One"
-					TextColor="#C9CFD7"
+					TextColor="Black"
 					VerticalTextAlignment="Start" />
 			</Grid>
 
@@ -280,7 +230,7 @@
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.CardAccountDetailsOutline}"
 							Size="25"
-							Color="#C9CFD7" />
+							Color="#969A9B" />
 					</ImageButton.Source>
 				</ImageButton>
 				<Label
@@ -289,7 +239,7 @@
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Two"
-					TextColor="#C9CFD7"
+					TextColor="#969A9B"
 					VerticalTextAlignment="Start" />
 			</Grid>
 
@@ -312,7 +262,7 @@
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.AlarmNote}"
 							Size="25"
-							Color="#C9CFD7" />
+							Color="#969A9B" />
 					</ImageButton.Source>
 				</ImageButton>
 				<Label
@@ -321,7 +271,7 @@
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Alarm"
-					TextColor="#C9CFD7"
+					TextColor="#969A9B"
 					VerticalTextAlignment="Start" />
 			</Grid>
 		</Grid>
