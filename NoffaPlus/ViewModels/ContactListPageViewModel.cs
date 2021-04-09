@@ -74,7 +74,7 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteSearchContactsCommand(string searchText)
 		{
-			if (CopyListOfContact == null || CopyListOfContact.Count == 0) return;
+			if (CopyListOfContact == null || CopyListOfContact.Count == 0 || string.IsNullOrWhiteSpace(searchText)) return;
 			if (searchText.Length >= 3)
 			{
 				var response = Response.Where(x => x.Name.ToLower().Contains(searchText.ToLower())).ToList();
