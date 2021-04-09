@@ -9,13 +9,13 @@
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#F4F5F6"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
 	<ContentPage.Content>
-		<Grid BackgroundColor="White" RowSpacing="10">
+		<Grid BackgroundColor="White" RowSpacing="20">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="60" />
+				<RowDefinition Height="84" />
 				<RowDefinition Height="48" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
@@ -24,6 +24,12 @@
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
+
+			<Image
+				Grid.Row="0"
+				Grid.ColumnSpan="3"
+				Aspect="Fill"
+				Source="iconCurveTopGray.png" />
 
 			<ImageButton
 				Grid.Row="0"
@@ -77,17 +83,62 @@
 				BackgroundColor="#271795"
 				CornerRadius="24" />
 
-			<controls:CustomSearchBar
+			<Grid
 				Grid.Row="1"
 				Grid.ColumnSpan="3"
-				Margin="20,0,20,0"
-				CancelButtonColor="White"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
-				FontSize="16"
-				Placeholder="Find a contact..."
-				PlaceholderColor="White"
-				TextChanged="SearchBarTextChanged"
-				TextColor="White" />
+				Margin="25,0,25,0"
+				ColumnSpacing="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40" />
+					<ColumnDefinition />
+					<ColumnDefinition Width="40" />
+				</Grid.ColumnDefinitions>
+				<ImageButton
+					Grid.Column="0"
+					Padding="10"
+					BackgroundColor="Transparent"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="CenterAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Search}"
+							Size="40"
+							Color="White" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<controls:CustomEntry
+					x:Name="txtSearch"
+					Grid.Column="1"
+					BackgroundColor="Transparent"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					Placeholder="Find a contact..."
+					PlaceholderColor="White"
+					ReturnType="Search"
+					Text="{Binding Username}"
+					TextChanged="OnTextChanged"
+					TextColor="White" />
+
+				<ImageButton
+					x:Name="iconClearText"
+					Grid.Column="2"
+					Padding="10"
+					BackgroundColor="Transparent"
+					Clicked="OnClearTextClicked"
+					HorizontalOptions="CenterAndExpand"
+					IsVisible="False"
+					VerticalOptions="CenterAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Close}"
+							Size="40"
+							Color="White" />
+					</ImageButton.Source>
+				</ImageButton>
+			</Grid>
 
 			<CollectionView
 				Grid.Row="2"

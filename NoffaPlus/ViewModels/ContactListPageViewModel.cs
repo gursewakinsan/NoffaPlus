@@ -27,7 +27,6 @@ namespace NoffaPlus.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IContactService service = new ContactService();
-			Helper.Helper.CompanyId = 1;
 			Response = await service.GetContactsAsync(new Models.ContactRequest()
 			{ CompanyId = Helper.Helper.CompanyId });
 
@@ -76,7 +75,6 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteSearchContactsCommand(string searchText)
 		{
 			if (CopyListOfContact == null || CopyListOfContact.Count == 0) return;
-			DependencyService.Get<IProgressBar>().Show();
 			if (searchText.Length >= 3)
 			{
 				var response = Response.Where(x => x.Name.ToLower().Contains(searchText.ToLower())).ToList();
@@ -120,7 +118,6 @@ namespace NoffaPlus.ViewModels
 			}
 			if (searchText.Length == 0)
 				ListOfContact = CopyListOfContact;
-			DependencyService.Get<IProgressBar>().Hide();
 			await Task.CompletedTask;
 		}
 		#endregion

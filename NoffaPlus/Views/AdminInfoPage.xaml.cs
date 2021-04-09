@@ -21,6 +21,8 @@ namespace NoffaPlus.Views
 			listAdminInfo.SelectedItem = null;
 			if (info.InfoName.Equals("Appstore"))
 				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
+			else if (info.InfoName.Equals("Resources"))
+				await adminInfoPageViewModel.Navigation.PushAsync(new ContactListPage());
 		}
 
 		private async void OnImageButtonClicked(object sender, System.EventArgs e)
@@ -29,6 +31,8 @@ namespace NoffaPlus.Views
 			AdminInfo info = button.BindingContext as AdminInfo;
 			if (info.InfoName.Equals("Appstore"))
 				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
+			else if (info.InfoName.Equals("Resources"))
+				await adminInfoPageViewModel.Navigation.PushAsync(new ContactListPage());
 		}
 	}
 }

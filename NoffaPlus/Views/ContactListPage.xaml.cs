@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
+using NoffaPlus.Controls;
 
 namespace NoffaPlus.Views
 {
@@ -21,10 +22,17 @@ namespace NoffaPlus.Views
 			ViewModel.GetContactsCommand.Execute(null);
 		}
 
-		private void SearchBarTextChanged(object sender, TextChangedEventArgs e)
+		private void OnTextChanged(object sender, TextChangedEventArgs e)
 		{
-			SearchBar searchBar = sender as SearchBar;
-			ViewModel.SearchContactsCommand.Execute(searchBar.Text);
+			iconClearText.IsVisible = string.IsNullOrEmpty(txtSearch.Text) ? false : true;
+			ViewModel.SearchContactsCommand.Execute(txtSearch.Text);
+		}
+
+		private void OnClearTextClicked(object sender, System.EventArgs e)
+		{
+			txtSearch.Text = string.Empty;
+			iconClearText.IsVisible = false;
+			ViewModel.SearchContactsCommand.Execute(txtSearch.Text);
 		}
 	}
 }
