@@ -15,5 +15,6 @@
 		public const string CardAccountDetailsOutline = "\U000f0dab";
 		public const string ChevronRight = "\U000f0142";
 		public const string Help = "\U000f02d6";
+		public const string Plus = "\U000f0415";
 	}
 }

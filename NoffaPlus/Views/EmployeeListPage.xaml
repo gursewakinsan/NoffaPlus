@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.EmployeeListPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid BackgroundColor="White" RowSpacing="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="60" />
+				<RowDefinition Height="48" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="0"
+				Padding="20,12,20,10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+						Size="25"
+						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Margin="0,15,0,0"
+				BackgroundColor="Transparent"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="17"
+				HorizontalTextAlignment="Center"
+				Text="Contacts"
+				TextColor="Black"
+				VerticalTextAlignment="Start" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Padding="10,12,20,10"
+				BackgroundColor="Transparent"
+				HorizontalOptions="EndAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+						Size="25"
+						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<BoxView
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				Margin="20,0,20,0"
+				BackgroundColor="#271795"
+				CornerRadius="24" />
+
+			<controls:CustomSearchBar
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				Margin="20,0,20,0"
+				CancelButtonColor="White"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="16"
+				Placeholder="Find a contact..."
+				PlaceholderColor="White"
+				TextColor="White" />
+
+			<CollectionView
+				Grid.Row="2"
+				Grid.ColumnSpan="3"
+				Margin="25,20,20,0"
+				ItemsSource="{Binding ListOfAnimal}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout>
+							<Label
+								Margin="0,5,0,5"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalOptions="StartAndExpand"
+								Text="{Binding Heading}"
+								TextColor="Black"
+								VerticalOptions="CenterAndExpand" />
+
+							<FlexLayout
+								BindableLayout.ItemsSource="{Binding Animal}"
+								Direction="Row"
+								HorizontalOptions="StartAndExpand"
+								JustifyContent="Start"
+								Wrap="Wrap">
+								<BindableLayout.ItemTemplate>
+									<DataTemplate>
+										<Grid
+											Margin="10"
+											HeightRequest="132"
+											HorizontalOptions="Center"
+											VerticalOptions="Center"
+											WidthRequest="99">
+											<BoxView BackgroundColor="#F4F5F6" CornerRadius="10" />
+
+											<Grid Margin="20" RowSpacing="5">
+												<Grid.RowDefinitions>
+													<RowDefinition Height="48" />
+													<RowDefinition />
+												</Grid.RowDefinitions>
+
+												<ImageButton
+													Grid.Row="0"
+													Padding="0"
+													Aspect="AspectFill"
+													CornerRadius="5"
+													HeightRequest="48"
+													HorizontalOptions="Center"
+													Source="{Binding ImageUrl}"
+													VerticalOptions="Center"
+													WidthRequest="48" />
+
+												<Label
+													Grid.Row="1"
+													FontFamily="{StaticResource SFProRegularFontFamily}"
+													FontSize="14"
+													HorizontalTextAlignment="Center"
+													LineBreakMode="TailTruncation"
+													MaxLines="2"
+													Text="{Binding Name}"
+													TextColor="Black"
+													VerticalTextAlignment="Start" />
+											</Grid>
+										</Grid>
+										<!--<StackLayout Padding="10" Spacing="0">
+											<Image
+												Aspect="AspectFill"
+												HeightRequest="60"
+												Source="{Binding ImageUrl}"
+												WidthRequest="60" />
+											<Label
+												FontAttributes="Bold"
+												LineBreakMode="TailTruncation"
+												Text="{Binding Name}" />
+
+											<Button ClassId="{Binding Name}" Text="hi" />
+										</StackLayout>-->
+									</DataTemplate>
+								</BindableLayout.ItemTemplate>
+							</FlexLayout>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

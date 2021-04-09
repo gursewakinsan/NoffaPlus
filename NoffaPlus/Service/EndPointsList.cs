@@ -11,5 +11,6 @@
 		public const string VerifyInterAppSessionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyInterAppSession";
 		public const string VerifyAdminUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyAdmin";
 		public const string CompanyDownloadedAppsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyDownloadedApps";
+		public const string ContactListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/contactList";
 	}
 }

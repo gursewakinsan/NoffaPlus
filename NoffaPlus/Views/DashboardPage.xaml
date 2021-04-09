@@ -118,10 +118,11 @@
 									Grid.Column="1"
 									Padding="7"
 									BackgroundColor="Transparent"
+									Clicked="OnImageButtonClicked"
 									CornerRadius="20"
 									HeightRequest="40"
 									HorizontalOptions="End"
-									Opacity="0.5" Clicked="OnImageButtonClicked"
+									Opacity="0.5"
 									VerticalOptions="Center"
 									WidthRequest="40">
 									<ImageButton.Source>
