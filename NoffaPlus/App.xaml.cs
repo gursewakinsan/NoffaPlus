@@ -9,7 +9,7 @@ namespace NoffaPlus
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new Views.ContactListPage());
+			MainPage = new Views.LoginPage();
 		}
 		#endregion
 
