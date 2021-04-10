@@ -36,6 +36,7 @@ namespace NoffaPlus.Views
 
 		private async void OnContactTapped(object sender, System.EventArgs e)
 		{
+			txtSearch.Text = string.Empty;
 			Grid grid = sender as Grid;
 			Helper.Helper.SelectedContact = grid.BindingContext as Models.ContactResponse;
 			await Navigation.PushAsync(new ContactDetailsPage());
@@ -43,6 +44,7 @@ namespace NoffaPlus.Views
 
 		private async void OnContactImageClicked(object sender, System.EventArgs e)
 		{
+			txtSearch.Text = string.Empty;
 			ImageButton button = sender as ImageButton;
 			Helper.Helper.SelectedContact = button.BindingContext as Models.ContactResponse;
 			await Navigation.PushAsync(new ContactDetailsPage());

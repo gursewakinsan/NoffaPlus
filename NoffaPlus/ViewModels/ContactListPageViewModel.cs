@@ -58,6 +58,11 @@ namespace NoffaPlus.ViewModels
 						contacts = new ContactList();
 						contacts.Add(contact);
 						firstNameCharacter = contact.Name.Substring(0, 1).ToLower();
+						if (i.Equals(Response.Count - 1))
+						{
+							contacts.Heading = firstNameCharacter.ToUpper();
+							contactsList.Add(contacts);
+						}
 					}
 				}
 			}
