@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
-using NoffaPlus.Controls;
 
 namespace NoffaPlus.Views
 {
@@ -33,6 +32,20 @@ namespace NoffaPlus.Views
 			txtSearch.Text = string.Empty;
 			iconClearText.IsVisible = false;
 			ViewModel.SearchContactsCommand.Execute(txtSearch.Text);
+		}
+
+		private async void OnContactTapped(object sender, System.EventArgs e)
+		{
+			Grid grid = sender as Grid;
+			Helper.Helper.SelectedContact = grid.BindingContext as Models.ContactResponse;
+			await Navigation.PushAsync(new ContactDetailsPage());
+		}
+
+		private async void OnContactImageClicked(object sender, System.EventArgs e)
+		{
+			ImageButton button = sender as ImageButton;
+			Helper.Helper.SelectedContact = button.BindingContext as Models.ContactResponse;
+			await Navigation.PushAsync(new ContactDetailsPage());
 		}
 	}
 }

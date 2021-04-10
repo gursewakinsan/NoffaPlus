@@ -1,24 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="NoffaPlus.Views.CompanyDetailsPage"
+	x:Class="NoffaPlus.Views.ContactDetailsPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	Title="Notification - (To do)"
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<Grid
-			Margin="0,40,0,0"
+			Margin="0,20,0,0"
 			BackgroundColor="White"
 			RowSpacing="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="84" />
 				<RowDefinition Height="*" />
-				<RowDefinition Height="auto" />
+				<RowDefinition Height="148" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -42,22 +41,36 @@
 				</ImageButton.Source>
 			</ImageButton>
 
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,0,20,0"
+				Padding="9"
+				BackgroundColor="#E6F7FE"
+				CornerRadius="20"
+				HeightRequest="40"
+				HorizontalOptions="EndAndExpand"
+				VerticalOptions="StartAndExpand"
+				WidthRequest="40">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.MapMarker}"
+						Size="50"
+						Color="#3DB9EC" />
+				</ImageButton.Source>
+			</ImageButton>
+
 			<StackLayout Grid.Row="1" Grid.ColumnSpan="3">
 				<ImageButton
 					Grid.Row="0"
 					Padding="0"
 					BackgroundColor="Transparent"
+					CornerRadius="80"
 					HeightRequest="160"
 					HorizontalOptions="CenterAndExpand"
-					WidthRequest="160">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.QrCode}"
-							Size="160"
-							Color="Black" />
-					</ImageButton.Source>
-				</ImageButton>
+					Source="{Binding ContactDetails.Image}"
+					WidthRequest="160" />
 
 				<Label
 					Margin="10,20,10,0"
@@ -66,7 +79,17 @@
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
 					MaxLines="1"
-					Text="{Binding DisplayCompanyName}"
+					Text="{Binding ContactDetails.Name}"
+					TextColor="Black" />
+
+				<Label
+					Margin="10,0,10,0"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="23"
+					HorizontalOptions="CenterAndExpand"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="{Binding ContactDetails.Title}"
 					TextColor="Black" />
 
 				<StackLayout
@@ -130,7 +153,7 @@
 							<ImageButton.Source>
 								<FontImageSource
 									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Apps}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Phone}"
 									Size="50"
 									Color="White" />
 							</ImageButton.Source>
@@ -140,7 +163,7 @@
 							Grid.Row="1"
 							FontSize="14"
 							HorizontalTextAlignment="Center"
-							Text="Appstore"
+							Text="Call"
 							TextColor="#989D9E"
 							VerticalTextAlignment="Center" />
 					</Grid>
@@ -167,7 +190,7 @@
 							<ImageButton.Source>
 								<FontImageSource
 									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Admin}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.TagTextOutline}"
 									Size="50"
 									Color="#3DB9EC" />
 							</ImageButton.Source>
@@ -177,7 +200,7 @@
 							Grid.Row="1"
 							FontSize="14"
 							HorizontalTextAlignment="Center"
-							Text="Admin"
+							Text="Text"
 							TextColor="#989D9E"
 							VerticalTextAlignment="Center" />
 					</Grid>
@@ -188,11 +211,13 @@
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
 				Aspect="Fill"
+				IsVisible="{Binding ContactDetails.IsAdmin}"
 				Source="iconCurveBottomGray.png" />
 
 			<Grid
 				Grid.Row="2"
 				Grid.Column="0"
+				IsVisible="{Binding ContactDetails.IsAdmin}"
 				RowSpacing="0"
 				VerticalOptions="EndAndExpand">
 				<ImageButton
@@ -203,7 +228,7 @@
 					<ImageButton.Source>
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Home}"
+							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.AccountDetails}"
 							Size="25"
 							Color="Black" />
 					</ImageButton.Source>
@@ -213,42 +238,15 @@
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
-					Text="One"
+					Text="Details"
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
 			</Grid>
 
 			<Grid
 				Grid.Row="2"
-				Grid.Column="1"
-				RowSpacing="0"
-				VerticalOptions="EndAndExpand">
-				<ImageButton
-					Grid.Row="0"
-					BackgroundColor="Transparent"
-					HorizontalOptions="Center"
-					VerticalOptions="End">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.CardAccountDetailsOutline}"
-							Size="25"
-							Color="#969A9B" />
-					</ImageButton.Source>
-				</ImageButton>
-				<Label
-					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="Two"
-					TextColor="#969A9B"
-					VerticalTextAlignment="Start" />
-			</Grid>
-
-			<Grid
-				Grid.Row="2"
 				Grid.Column="2"
+				IsVisible="{Binding ContactDetails.IsAdmin}"
 				RowSpacing="0"
 				VerticalOptions="EndAndExpand">
 				<Grid.GestureRecognizers>

@@ -27,6 +27,7 @@ namespace NoffaPlus.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IContactService service = new ContactService();
+			Helper.Helper.CompanyId = 1;
 			Response = await service.GetContactsAsync(new Models.ContactRequest()
 			{ CompanyId = Helper.Helper.CompanyId });
 

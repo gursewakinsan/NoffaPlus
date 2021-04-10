@@ -15,7 +15,7 @@
 	<ContentPage.Content>
 		<Grid BackgroundColor="White" RowSpacing="20">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="84" />
+				<RowDefinition Height="60" />
 				<RowDefinition Height="48" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
@@ -24,12 +24,6 @@
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-
-			<Image
-				Grid.Row="0"
-				Grid.ColumnSpan="3"
-				Aspect="Fill"
-				Source="iconCurveTopGray.png" />
 
 			<ImageButton
 				Grid.Row="0"
@@ -80,7 +74,7 @@
 				Grid.Row="1"
 				Grid.ColumnSpan="3"
 				Margin="20,0,20,0"
-				BackgroundColor="#271795"
+				BackgroundColor="#F8F8FB"
 				CornerRadius="24" />
 
 			<Grid
@@ -104,7 +98,7 @@
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Search}"
 							Size="40"
-							Color="White" />
+							Color="#6F7FAF" />
 					</ImageButton.Source>
 				</ImageButton>
 
@@ -115,11 +109,11 @@
 					FontFamily="{StaticResource SFProRegularFontFamily}"
 					FontSize="16"
 					Placeholder="Find a contact..."
-					PlaceholderColor="White"
+					PlaceholderColor="#6F7FAF"
 					ReturnType="Search"
 					Text="{Binding Username}"
 					TextChanged="OnTextChanged"
-					TextColor="White" />
+					TextColor="#6F7FAF" />
 
 				<ImageButton
 					x:Name="iconClearText"
@@ -135,7 +129,7 @@
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Close}"
 							Size="40"
-							Color="White" />
+							Color="#6F7FAF" />
 					</ImageButton.Source>
 				</ImageButton>
 			</Grid>
@@ -143,9 +137,10 @@
 			<CollectionView
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				Margin="25,20,20,0" VerticalScrollBarVisibility="Never" 
+				Margin="25,20,20,0"
 				EmptyView="No record found!"
-				ItemsSource="{Binding ListOfContact}">
+				ItemsSource="{Binding ListOfContact}"
+				VerticalScrollBarVisibility="Never">
 				<CollectionView.ItemTemplate>
 					<DataTemplate>
 						<StackLayout>
@@ -175,6 +170,9 @@
 											<BoxView BackgroundColor="#F4F5F6" CornerRadius="10" />
 
 											<Grid Margin="20" RowSpacing="5">
+												<Grid.GestureRecognizers>
+													<TapGestureRecognizer Tapped="OnContactTapped" />
+												</Grid.GestureRecognizers>
 												<Grid.RowDefinitions>
 													<RowDefinition Height="48" />
 													<RowDefinition />
@@ -184,6 +182,8 @@
 													Grid.Row="0"
 													Padding="0"
 													Aspect="AspectFill"
+													BackgroundColor="Transparent"
+													Clicked="OnContactImageClicked"
 													CornerRadius="18"
 													HeightRequest="48"
 													HorizontalOptions="Center"

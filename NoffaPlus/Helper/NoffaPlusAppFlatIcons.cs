@@ -18,5 +18,9 @@
 		public const string Plus = "\U000f0415";
 		public const string Close = "\U000f0156";
 		public const string Search = "\U000f0349";
+		public const string MapMarker = "\U000f034e";
+		public const string Phone = "\U000f03f2";
+		public const string TagTextOutline = "\U000f04fd";
+		public const string AccountDetails = "\U000f0631";
 	}
 }

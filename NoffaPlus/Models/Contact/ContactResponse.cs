@@ -34,5 +34,11 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "enc")]
 		public string Enc { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "is_admin")]
+		public bool IsAdmin { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "title")]
+		public string Title { get; set; }
 	}
 }
