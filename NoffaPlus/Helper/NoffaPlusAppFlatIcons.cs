@@ -22,5 +22,10 @@
 		public const string Phone = "\U000f03f2";
 		public const string TagTextOutline = "\U000f04fd";
 		public const string AccountDetails = "\U000f0631";
+		public const string PlayCircleOutline = "\U000f040d";
+		public const string StopCircleOutline = "\U000f0667";
+		public const string CalendarText = "\U000f00f5";
+		public const string CalendarToday = "\U000f00f6";
+		public const string CalendarTextOutline = "\U000f0c46";
 	}
 }

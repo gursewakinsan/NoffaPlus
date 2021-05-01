@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.AttendanceTimerPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#F4F5F6"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid BackgroundColor="White" RowSpacing="20">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="84" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Image
+				Grid.Row="0"
+				Grid.ColumnSpan="3"
+				Aspect="Fill"
+				Source="iconCurveTopGray.png" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="0"
+				Padding="20,12,20,10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+						Size="25"
+						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Margin="0,15,0,0"
+				BackgroundColor="Transparent"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="17"
+				HorizontalTextAlignment="Center"
+				Text="Attendance"
+				TextColor="Black"
+				VerticalTextAlignment="Start" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Padding="10,12,20,10"
+				BackgroundColor="Transparent"
+				HorizontalOptions="EndAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Help}"
+						Size="25"
+						Color="Transparent" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<StackLayout Grid.Row="1" Grid.ColumnSpan="3">
+				<Label
+					Margin="10,20,10,0"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="80"
+					HorizontalOptions="CenterAndExpand"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="{Binding DisplayCurrentTime}"
+					TextColor="Black" />
+
+				<Label
+					Margin="10,0,10,80"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="25"
+					HorizontalOptions="CenterAndExpand"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="{Binding DisplayCurrentDate}"
+					TextColor="Black" />
+
+				<ImageButton
+					Padding="15"
+					BackgroundColor="#20A7DF"
+					CornerRadius="50"
+					HeightRequest="100"
+					HorizontalOptions="Center"
+					WidthRequest="100">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.StopCircleOutline}"
+							Size="50"
+							Color="White" />
+					</ImageButton.Source>
+				</ImageButton>
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
