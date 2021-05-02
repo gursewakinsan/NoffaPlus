@@ -1,12 +1,217 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NoffaPlus.Views.VacationPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage
+	x:Class="NoffaPlus.Views.VacationPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#F4F5F6"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid BackgroundColor="White" RowSpacing="20">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="84" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Image
+				Grid.Row="0"
+				Grid.ColumnSpan="3"
+				Aspect="Fill"
+				Source="iconCurveTopGray.png" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="0"
+				Padding="20,12,20,10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+						Size="25"
+						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Margin="0,15,0,0"
+				BackgroundColor="Transparent"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="17"
+				HorizontalTextAlignment="Center"
+				Text="Vacation(s)"
+				TextColor="Black"
+				VerticalTextAlignment="Start" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Padding="10,12,20,10"
+				BackgroundColor="Transparent"
+				HorizontalOptions="EndAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Help}"
+						Size="25"
+						Color="Transparent" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Grid
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				Margin="20,0,20,0"
+				RowSpacing="20">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="60" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="80" />
+				</Grid.RowDefinitions>
+				<Label
+					Grid.Row="0"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="18"
+					HorizontalOptions="CenterAndExpand"
+					HorizontalTextAlignment="Center"
+					Text="Please add start and end dates for vacations."
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<Frame
+					Grid.Row="1"
+					Padding="0"
+					BackgroundColor="#F8F8FB"
+					CornerRadius="25"
+					HasShadow="False"
+					HeightRequest="50">
+					<Grid Margin="10,0,20,0" ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="40" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Opacity="0.5"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CalendarText}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Center" />
+
+						<controls:CustomDatePicker
+							Grid.Column="1"
+							BackgroundColor="#F8F8FB"
+							Date="{Binding SelectedStartDate}"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Format="yyyy-MM-dd"
+							MaximumDate="{Binding BindMaximumDate}"
+							MinimumDate="{Binding BindMinimumDate}"
+							Placeholder="Start date"
+							TextColor="#6F7FAF" />
+					</Grid>
+				</Frame>
+
+				<Frame
+					Grid.Row="2"
+					Padding="0"
+					BackgroundColor="#F8F8FB"
+					CornerRadius="25"
+					HasShadow="False"
+					HeightRequest="50">
+					<Grid Margin="10,0,20,0" ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="40" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Opacity="0.5"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CalendarText}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Center" />
+
+						<controls:CustomDatePicker
+							Grid.Column="1"
+							BackgroundColor="#F8F8FB"
+							Date="{Binding SelectedEndDate}"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Format="yyyy-MM-dd"
+							MaximumDate="{Binding BindMaximumDate}"
+							MinimumDate="{Binding BindMinimumDate}"
+							Placeholder="End date"
+							TextColor="#6F7FAF" />
+					</Grid>
+				</Frame>
+
+				<Frame
+					Grid.Row="3"
+					Padding="0"
+					BackgroundColor="#F8F8FB"
+					CornerRadius="25"
+					HasShadow="False">
+					<Grid Margin="10,0,20,0" ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="40" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Opacity="0.5"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CalendarText}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Center" />
+
+						<controls:CustomEntry
+							Grid.Column="1"
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Description"
+							PlaceholderColor="#6F7FAF"
+							Text="{Binding LeaveDescription}"
+							TextColor="#6F7FAF" />
+					</Grid>
+				</Frame>
+
+				<controls:CustomButton
+					Grid.Row="4"
+					BackgroundColor="#05CBE7"
+					BorderColor="#05CBE7"
+					Command="{Binding UpdateVacationInfoCommand}"
+					CornerRadius="25"
+					Text="Continue"
+					TextColor="White"
+					VerticalOptions="EndAndExpand" />
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
 </ContentPage>

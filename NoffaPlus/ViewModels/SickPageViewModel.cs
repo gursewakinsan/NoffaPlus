@@ -16,15 +16,30 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
-		#region Sick Leave Command.
-		private ICommand sickLeaveCommand;
-		public ICommand SickLeaveCommand
+		#region Update Leave Command.
+		private ICommand updateLeaveCommand;
+		public ICommand UpdateLeaveCommand
 		{
-			get => sickLeaveCommand ?? (sickLeaveCommand = new Command(async () => await ExecuteSickLeaveCommand()));
+			get => updateLeaveCommand ?? (updateLeaveCommand = new Command(async () => await ExecuteUpdateLeaveCommand()));
 		}
-		private async Task ExecuteSickLeaveCommand()
+		private async Task ExecuteUpdateLeaveCommand()
 		{
-			await Task.CompletedTask;
+			if (string.IsNullOrWhiteSpace(TotalLeaveDays))
+				await Helper.Alert.DisplayAlert("Total leave days is required.");
+			else
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				IAtendenceService service = new AtendenceService();
+				int response = await service.UpdateLeaveAsync(new Models.UpdateLeaveRequest()
+				{
+					UserId = Helper.Helper.LoggedInUserId,
+					CompanyId = Helper.Helper.CompanyId,
+					DayLeave = Convert.ToInt32(TotalLeaveDays),
+					LeaveDescription = LeaveDescription
+				});
+				await Navigation.PopAsync();
+				DependencyService.Get<IProgressBar>().Hide();
+			}
 		}
 		#endregion
 
@@ -50,6 +65,9 @@ namespace NoffaPlus.ViewModels
 				OnPropertyChanged("DisplayCurrentDate");
 			}
 		}
+
+		public string TotalLeaveDays { get; set; }
+		public string LeaveDescription { get; set; }
 		#endregion
 	}
 }

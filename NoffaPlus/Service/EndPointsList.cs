@@ -12,5 +12,12 @@
 		public const string VerifyAdminUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyAdmin";
 		public const string CompanyDownloadedAppsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyDownloadedApps";
 		public const string ContactListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/contactList";
+		public const string EmployeeAtendenceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/employeeAtendence";
+		public const string UpdateAttendenceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateAttendence";
+		public const string CheckEmployeeTimeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkEmployeeTime";
+		public const string UpdateExitUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateExit";
+		public const string UpdateLeaveUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateLeave";
+		public const string UpdateVacationInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateVacationInfo";
 	}
 }
+

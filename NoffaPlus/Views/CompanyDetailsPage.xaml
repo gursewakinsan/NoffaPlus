@@ -223,9 +223,13 @@
 				Grid.Column="1"
 				RowSpacing="0"
 				VerticalOptions="EndAndExpand">
+				<Grid.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding AttendanceCommand}" />
+				</Grid.GestureRecognizers>
 				<ImageButton
 					Grid.Row="0"
 					BackgroundColor="Transparent"
+					Command="{Binding AttendanceCommand}"
 					HorizontalOptions="Center"
 					VerticalOptions="End">
 					<ImageButton.Source>

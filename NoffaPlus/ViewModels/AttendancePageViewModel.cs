@@ -42,7 +42,15 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteGoToAttendanceTimerPageCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAtendenceService service = new AtendenceService();
+			int response = await service.UpdateAttendenceAsync(new Models.EmployeeAtendenceRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId
+			});
 			await Navigation.PushAsync(new Views.AttendanceTimerPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

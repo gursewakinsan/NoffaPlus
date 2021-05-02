@@ -78,7 +78,7 @@ namespace NoffaPlus.Service
 				}
 				return result.FromJson<T>();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				return result.FromJson<T>();
 			}

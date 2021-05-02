@@ -60,6 +60,29 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Attendance Command.
+		private ICommand attendanceCommand;
+		public ICommand AttendanceCommand
+		{
+			get => attendanceCommand ?? (attendanceCommand = new Command(async () => await ExecuteAttendanceCommand()));
+		}
+		private async Task ExecuteAttendanceCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAtendenceService service = new AtendenceService();
+			int response = await service.EmployeeAtendenceAsync(new Models.EmployeeAtendenceRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId
+			});
+			if (response == 0)
+				await Navigation.PushAsync(new Views.AttendancePage());
+			else if (response == 1)
+				await Navigation.PushAsync(new Views.AttendanceTimerPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private Models.VerifyAdminResponse companyDetail;
 		public Models.VerifyAdminResponse CompanyDetail

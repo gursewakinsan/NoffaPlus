@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Timers;
 using Xamarin.Forms;
+using NoffaPlus.Service;
 using System.Windows.Input;
+using NoffaPlus.Interfaces;
 using System.Threading.Tasks;
 
 namespace NoffaPlus.ViewModels
@@ -10,7 +12,7 @@ namespace NoffaPlus.ViewModels
 	{
 		#region Local Variable.
 		Timer timer;
-		int count = 8;
+		int count = 0;
 		#endregion
 
 		#region Constructor.
@@ -44,7 +46,54 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteStopAttendanceTimerCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAtendenceService service = new AtendenceService();
+			int response = await service.UpdateExitAsync(new Models.UpdateExitRequest()
+			{
+				Eid = EmployeeTime.Eid
+			});
 			await Navigation.PopAsync();
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Check Employee Time Command.
+		private ICommand checkEmployeeTimeCommand;
+		public ICommand CheckEmployeeTimeCommand
+		{
+			get => checkEmployeeTimeCommand ?? (checkEmployeeTimeCommand = new Command(async () => await ExecuteCheckEmployeeTimeCommand()));
+		}
+		private async Task ExecuteCheckEmployeeTimeCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAtendenceService service = new AtendenceService();
+			EmployeeTime = await service.CheckEmployeeTimeAsync(new Models.EmployeeAtendenceRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+			string hours = "00";
+			string minutes = "00";
+			if (EmployeeTime.DiffHr > 0)
+			{
+				if (EmployeeTime.DiffHr < 10)
+					hours = $"0{EmployeeTime.DiffHr}";
+				else
+					hours = $"{EmployeeTime.DiffHr}";
+			}
+
+			if (EmployeeTime.DiffM > 0)
+			{
+				if (EmployeeTime.DiffM < 10)
+					minutes = $"0{EmployeeTime.DiffM}";
+				else
+					minutes = $"{EmployeeTime.DiffM}";
+			}
+			count = EmployeeTime.DiffM;
+			timer.Stop();
+			timer.Start();
+			DisplayCurrentTime = $"{hours}:{minutes}";
 		}
 		#endregion
 
@@ -70,6 +119,8 @@ namespace NoffaPlus.ViewModels
 				OnPropertyChanged("DisplayCurrentDate");
 			}
 		}
+
+		public Models.EmployeeAtendenceResponse EmployeeTime { get; set; }
 		#endregion
 	}
 }

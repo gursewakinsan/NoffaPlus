@@ -14,5 +14,11 @@ namespace NoffaPlus.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new AttendanceTimerPageViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			viewModel.CheckEmployeeTimeCommand.Execute(null);
+		}
 	}
 }

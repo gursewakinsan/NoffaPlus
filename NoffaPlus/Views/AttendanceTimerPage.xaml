@@ -98,6 +98,7 @@
 				<ImageButton
 					Padding="15"
 					BackgroundColor="#20A7DF"
+					Command="{Binding StopAttendanceTimerCommand}"
 					CornerRadius="50"
 					HeightRequest="100"
 					HorizontalOptions="Center"
