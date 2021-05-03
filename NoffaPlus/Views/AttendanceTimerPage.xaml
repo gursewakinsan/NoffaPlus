@@ -74,7 +74,10 @@
 				</ImageButton.Source>
 			</ImageButton>
 
-			<StackLayout Grid.Row="1" Grid.ColumnSpan="3">
+			<StackLayout
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				Margin="0,0,0,160">
 				<Label
 					Margin="10,20,10,0"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
@@ -86,7 +89,7 @@
 					TextColor="Black" />
 
 				<Label
-					Margin="10,0,10,80"
+					Margin="10,0,10,0"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="25"
 					HorizontalOptions="CenterAndExpand"
@@ -102,6 +105,7 @@
 					CornerRadius="50"
 					HeightRequest="100"
 					HorizontalOptions="Center"
+					VerticalOptions="EndAndExpand"
 					WidthRequest="100">
 					<ImageButton.Source>
 						<FontImageSource
