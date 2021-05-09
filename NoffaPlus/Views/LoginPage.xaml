@@ -22,7 +22,7 @@
 					BackgroundColor="Transparent"
 					HeightRequest="180"
 					HorizontalOptions="Center"
-					Source="splash_logo.png"
+					Source="splashLogo.png"
 					VerticalOptions="Center"
 					WidthRequest="180" />
 
@@ -63,7 +63,6 @@
 							<TapGestureRecognizer Command="{Binding LoginWithQloudIdAppCommand}" />
 						</StackLayout.GestureRecognizers>
 						<Label
-							FontAttributes="Bold"
 							FontFamily="{StaticResource MaterialFontFamily}"
 							FontSize="25"
 							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarkedCircleOutline}"
