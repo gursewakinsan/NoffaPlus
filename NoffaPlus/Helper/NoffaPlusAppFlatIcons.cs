@@ -27,5 +27,6 @@
 		public const string CalendarText = "\U000f00f5";
 		public const string CalendarToday = "\U000f00f6";
 		public const string CalendarTextOutline = "\U000f0c46";
+		public const string CheckboxMarkedCircleOutline = "\U000f0134";
 	}
 }
