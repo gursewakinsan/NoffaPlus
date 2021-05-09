@@ -6,7 +6,7 @@ using Android.Content.PM;
 
 namespace NoffaPlus.Droid
 {
-	[Activity(Label = "NoffaPlus", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+	[Activity(Label = "WORQ", Icon = "@drawable/appIcon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
 	[IntentFilter(new[] { Intent.ActionView },
 				  DataScheme = "https",
 				  DataHost = "NoffaPlusApp.com",
