@@ -83,6 +83,7 @@
     <BundleResource Include="Resources\Fonts\SFProDisplayMedium.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplayRegular.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplaySemibold.ttf" />
+    <BundleResource Include="Resources\splashLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
