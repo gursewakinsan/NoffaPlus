@@ -8465,11 +8465,11 @@ namespace NoffaPlus.Droid
 			// aapt resource value: 0x7F070080
 			public const int roundedbgdark = 2131165312;
 			
-			// aapt resource value: 0x7F070081
-			public const int splash_logo = 2131165313;
-			
 			// aapt resource value: 0x7F070082
-			public const int splash_screen = 2131165314;
+			public const int splashLogo = 2131165314;
+			
+			// aapt resource value: 0x7F070081
+			public const int splash_screen = 2131165313;
 			
 			// aapt resource value: 0x7F070083
 			public const int tooltip_frame_dark = 2131165315;
