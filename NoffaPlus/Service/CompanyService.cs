@@ -25,5 +25,14 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<Models.DaycareResponse> DaycareRequestCountAsync(Models.DaycareRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.DaycareResponse>(HttpWebRequest.Create(string.Format(EndPointsList.DaycareRequestCountUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

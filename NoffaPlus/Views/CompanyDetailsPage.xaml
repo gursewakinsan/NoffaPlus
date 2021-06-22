@@ -3,6 +3,7 @@
 	x:Class="NoffaPlus.Views.CompanyDetailsPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -39,6 +40,39 @@
 						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
 						Size="25"
 						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Margin="0,15,0,0"
+				BackgroundColor="Transparent"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="17"
+				HorizontalTextAlignment="Center"
+				Text="WORQ"
+				TextColor="Black"
+				VerticalTextAlignment="Start" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,5,20,0"
+				Padding="9"
+				BackgroundColor="#E6F7FE"
+				Command="{Binding ChildrenMissingCommand}"
+				CornerRadius="20"
+				HeightRequest="40"
+				HorizontalOptions="End"
+				VerticalOptions="Start"
+				WidthRequest="40">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.AlarmNote}"
+						Size="20"
+						Color="#3DB9EC" />
 				</ImageButton.Source>
 			</ImageButton>
 
@@ -88,76 +122,6 @@
 							Grid.Row="0"
 							Padding="15"
 							BackgroundColor="#E6F7FE"
-							CornerRadius="30"
-							HeightRequest="60"
-							HorizontalOptions="CenterAndExpand"
-							VerticalOptions="CenterAndExpand"
-							WidthRequest="60">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Message}"
-									Size="50"
-									Color="#3DB9EC" />
-							</ImageButton.Source>
-						</ImageButton>
-
-						<Label
-							Grid.Row="1"
-							FontSize="14"
-							HorizontalTextAlignment="Center"
-							MaxLines="1"
-							Text="Message"
-							TextColor="#989D9E"
-							VerticalTextAlignment="Center" />
-					</Grid>
-
-					<Grid
-						RowSpacing="5"
-						VerticalOptions="EndAndExpand"
-						WidthRequest="100">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="100" />
-							<RowDefinition Height="20" />
-						</Grid.RowDefinitions>
-						<ImageButton
-							Grid.Row="0"
-							Padding="25"
-							BackgroundColor="#20A7DF"
-							CornerRadius="50"
-							HeightRequest="100"
-							WidthRequest="100">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Apps}"
-									Size="50"
-									Color="White" />
-							</ImageButton.Source>
-						</ImageButton>
-
-						<Label
-							Grid.Row="1"
-							FontSize="14"
-							HorizontalTextAlignment="Center"
-							Text="Appstore"
-							TextColor="#989D9E"
-							VerticalTextAlignment="Center" />
-					</Grid>
-
-					<Grid
-						RowSpacing="5"
-						VerticalOptions="StartAndExpand"
-						WidthRequest="70">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="60" />
-							<RowDefinition Height="20" />
-						</Grid.RowDefinitions>
-
-						<ImageButton
-							Grid.Row="0"
-							Padding="15"
-							BackgroundColor="#E6F7FE"
 							Command="{Binding AdminCommand}"
 							CornerRadius="30"
 							HeightRequest="60"
@@ -177,7 +141,77 @@
 							Grid.Row="1"
 							FontSize="14"
 							HorizontalTextAlignment="Center"
+							MaxLines="1"
 							Text="Admin"
+							TextColor="#989D9E"
+							VerticalTextAlignment="Center" />
+					</Grid>
+
+					<Grid
+						RowSpacing="5"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="100">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="100" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<ImageButton
+							Grid.Row="0"
+							Padding="25"
+							BackgroundColor="#E6F7FE"
+							CornerRadius="50"
+							HeightRequest="100"
+							WidthRequest="100">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.CreditCardScan}"
+									Size="50"
+									Color="#3DB9EC" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<Label
+							Grid.Row="1"
+							FontSize="14"
+							HorizontalTextAlignment="Center"
+							Text="Scan QR"
+							TextColor="#989D9E"
+							VerticalTextAlignment="Center" />
+					</Grid>
+
+					<Grid
+						RowSpacing="5"
+						VerticalOptions="StartAndExpand"
+						WidthRequest="70">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="60" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+
+						<ImageButton
+							Grid.Row="0"
+							Padding="15"
+							BackgroundColor="#E6F7FE"
+							CornerRadius="30"
+							HeightRequest="60"
+							HorizontalOptions="CenterAndExpand"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="60">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Apps}"
+									Size="50"
+									Color="#3DB9EC" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<Label
+							Grid.Row="1"
+							FontSize="14"
+							HorizontalTextAlignment="Center"
+							Text="Appstore"
 							TextColor="#989D9E"
 							VerticalTextAlignment="Center" />
 					</Grid>
@@ -188,9 +222,101 @@
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
 				Aspect="Fill"
-				Source="iconCurveBottomGray.png" />
+				Source="iconCurveBottomGrayBig.png" />
 
-			<Grid
+			<StackLayout
+				Grid.Row="2"
+				Grid.ColumnSpan="3"
+				HeightRequest="150"
+				Spacing="0"
+				VerticalOptions="CenterAndExpand">
+				<CarouselView IndicatorView="indicatorView" ItemsSource="{Binding DaycareList}">
+					<CarouselView.ItemTemplate>
+						<DataTemplate>
+							<Grid ClassId="{Binding Id}" RowSpacing="0">
+								<Grid.GestureRecognizers>
+									<TapGestureRecognizer Tapped="GridOnGestureRecognizerTapped" />
+								</Grid.GestureRecognizers>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<StackLayout
+									Grid.Row="0"
+									ClassId="{Binding Id}"
+									HorizontalOptions="CenterAndExpand"
+									Orientation="Horizontal"
+									Spacing="5"
+									VerticalOptions="EndAndExpand">
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnGestureRecognizerTapped" />
+									</StackLayout.GestureRecognizers>
+									<Label
+										ClassId="{Binding Id}"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HorizontalTextAlignment="Center"
+										Text="{Binding HeadingIcon}"
+										TextColor="Black"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<Label
+										ClassId="{Binding Id}"
+										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontSize="20"
+										HorizontalTextAlignment="Center"
+										Text="{Binding Heading}"
+										TextColor="Black"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+										</Label.GestureRecognizers>
+									</Label>
+								</StackLayout>
+
+								<Label
+									Grid.Row="1"
+									ClassId="{Binding Id}"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="14"
+									HorizontalTextAlignment="Center"
+									Text="{Binding SubHeading}"
+									TextColor="Black"
+									VerticalTextAlignment="Center">
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+									</Label.GestureRecognizers>
+								</Label>
+							</Grid>
+						</DataTemplate>
+					</CarouselView.ItemTemplate>
+				</CarouselView>
+				<IndicatorView
+					x:Name="indicatorView"
+					Margin="0,0,0,20"
+					HorizontalOptions="Center"
+					IndicatorColor="Black"
+					IndicatorsShape="Circle"
+					SelectedIndicatorColor="LightGray" />
+
+				<controls:CustomButton
+					Padding="0"
+					BackgroundColor="White"
+					Command="{Binding LoginWithQloudIdAppCommand}"
+					CornerRadius="20"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					HeightRequest="40"
+					HorizontalOptions="CenterAndExpand"
+					Text="LEARN MORE"
+					TextColor="Black"
+					WidthRequest="160" />
+			</StackLayout>
+
+			<!--<Grid
 				Grid.Row="2"
 				Grid.Column="0"
 				RowSpacing="0"
@@ -280,7 +406,7 @@
 					Text="Alarm"
 					TextColor="#969A9B"
 					VerticalTextAlignment="Start" />
-			</Grid>
+			</Grid>-->
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

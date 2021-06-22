@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
 
@@ -19,6 +20,30 @@ namespace NoffaPlus.Views
 		{
 			companyDetailsViewModel.VerifyAdminCommand.Execute(null);
 			base.OnAppearing();
+		}
+
+		private void OnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			StackLayout layout = sender as StackLayout;
+			int id = Convert.ToInt32(layout.ClassId);
+			if (id == 0)
+				companyDetailsViewModel.AttendanceCommand.Execute(null);
+		}
+
+		private void GridOnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			Grid layout = sender as Grid;
+			int id = Convert.ToInt32(layout.ClassId);
+			if (id == 0)
+				companyDetailsViewModel.AttendanceCommand.Execute(null);
+		}
+
+		private void LabelOnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			Label layout = sender as Label;
+			int id = Convert.ToInt32(layout.ClassId);
+			if (id == 0)
+				companyDetailsViewModel.AttendanceCommand.Execute(null);
 		}
 	}
 }

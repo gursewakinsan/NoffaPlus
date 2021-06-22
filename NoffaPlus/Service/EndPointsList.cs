@@ -18,6 +18,7 @@
 		public const string UpdateExitUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateExit";
 		public const string UpdateLeaveUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateLeave";
 		public const string UpdateVacationInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateVacationInfo";
+		public const string DaycareRequestCountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/daycareRequestCount";
 	}
 }
 
