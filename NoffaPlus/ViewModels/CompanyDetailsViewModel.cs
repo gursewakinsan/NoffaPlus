@@ -52,21 +52,22 @@ namespace NoffaPlus.ViewModels
 				CompanyId = Helper.Helper.CompanyId
 			});
 
-			DaycareList = new List<Daycare>();
-			DaycareList.Add(new Daycare() { Id = 0, Heading = "Time", HeadingIcon = NoffaPlusAppFlatIcons.AlarmNote, SubHeading = "Stamp when you start and get off work" });
-			DaycareList.Add(new Daycare() { Id = 1, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Confirm presence of a checked-in child" });
-			DaycareList.Add(new Daycare() { Id = 2, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Confirm pick up request/s" });
+			var daycareList = new List<Daycare>();
+			daycareList.Add(new Daycare() { Id = 0, Heading = "Time", HeadingIcon = NoffaPlusAppFlatIcons.AlarmNote, SubHeading = "Stamp when you start and get off work" });
+			daycareList.Add(new Daycare() { Id = 1, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Confirm presence of a checked-in child" });
+			daycareList.Add(new Daycare() { Id = 2, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Confirm pick up request/s" });
 
 			if (response.Inactive == 0)
-				DaycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Register parents to children" });
+				daycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Register parents to children" });
 			else
-				DaycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = $"Register parents to {response.Inactive} children" });
+				daycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = $"Register parents to {response.Inactive} children" });
 
 			if (response.DunsIsApproved == 0)
-				DaycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", HeadingIcon = NoffaPlusAppFlatIcons.AccountGroup, SubHeading = "Register DUNS for verification" });
+				daycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", HeadingIcon = NoffaPlusAppFlatIcons.AccountGroup, SubHeading = "Register DUNS for verification" });
 			else
-				DaycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", HeadingIcon = NoffaPlusAppFlatIcons.AccountGroup, SubHeading = "DUNS already verified" });
-			OnPropertyChanged("DaycareList");
+				daycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", HeadingIcon = NoffaPlusAppFlatIcons.AccountGroup, SubHeading = "DUNS already verified" });
+
+			DaycareList = daycareList;
 
 			CompanyDetail = await service.VerifyAdminAsync(request);
 			DependencyService.Get<IProgressBar>().Hide();
