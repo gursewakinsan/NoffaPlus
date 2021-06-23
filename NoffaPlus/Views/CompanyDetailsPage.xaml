@@ -274,7 +274,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
-										FontSize="20"
+										FontSize="20" FontAttributes="Bold"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
 										TextColor="Black"
@@ -311,7 +311,7 @@
 
 				<controls:CustomButton
 					x:Name="btnLearnMore"
-					Margin="40,0,40,20"
+					Margin="40,0,40,25"
 					Padding="0"
 					BackgroundColor="White"
 					Clicked="OnLearnMoreButtonClicked"
