@@ -228,7 +228,7 @@
 			<StackLayout
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				HeightRequest="175"
+				HeightRequest="185"
 				Spacing="0"
 				VerticalOptions="EndAndExpand">
 				<CarouselView
@@ -311,7 +311,7 @@
 
 				<controls:CustomButton
 					x:Name="btnLearnMore"
-					Margin="40,0,40,25"
+					Margin="40,0,40,30"
 					Padding="0"
 					BackgroundColor="White"
 					Clicked="OnLearnMoreButtonClicked"
