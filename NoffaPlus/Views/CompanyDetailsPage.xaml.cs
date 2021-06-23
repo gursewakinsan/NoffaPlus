@@ -9,6 +9,7 @@ namespace NoffaPlus.Views
 	public partial class CompanyDetailsPage : ContentPage
 	{
 		CompanyDetailsViewModel companyDetailsViewModel;
+		int carouselViewPosition = 0;
 		public CompanyDetailsPage()
 		{
 			InitializeComponent();
@@ -43,6 +44,17 @@ namespace NoffaPlus.Views
 			Label layout = sender as Label;
 			int id = Convert.ToInt32(layout.ClassId);
 			if (id == 0)
+				companyDetailsViewModel.AttendanceCommand.Execute(null);
+		}
+
+		private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
+		{
+			carouselViewPosition = e.CurrentPosition;
+		}
+
+		private void OnLearnMoreButtonClicked(object sender, EventArgs e)
+		{
+			if (carouselViewPosition == 0)
 				companyDetailsViewModel.AttendanceCommand.Execute(null);
 		}
 	}

@@ -230,7 +230,11 @@
 				HeightRequest="150"
 				Spacing="0"
 				VerticalOptions="CenterAndExpand">
-				<CarouselView IndicatorView="indicatorView" HorizontalScrollBarVisibility="Never" ItemsSource="{Binding DaycareList}">
+				<CarouselView
+					HorizontalScrollBarVisibility="Never"
+					IndicatorView="indicatorView"
+					ItemsSource="{Binding DaycareList}"
+					PositionChanged="OnCarouselViewPositionChanged">
 					<CarouselView.ItemTemplate>
 						<DataTemplate>
 							<Grid ClassId="{Binding Id}" RowSpacing="0">
@@ -298,19 +302,25 @@
 				<IndicatorView
 					x:Name="indicatorView"
 					Margin="0,0,0,20"
-					HorizontalOptions="Center" IndicatorsShape="Circle"
+					HorizontalOptions="Center"
 					IndicatorColor="Transparent"
+					IndicatorsShape="Circle"
 					SelectedIndicatorColor="Black">
 					<IndicatorView.IndicatorTemplate>
 						<DataTemplate>
-						<Label FontFamily="{StaticResource MaterialFontFamily}" FontSize="10" TextColor="Black" Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxBlankCircle}"/>
-					</DataTemplate>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="10"
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxBlankCircle}"
+								TextColor="Black" />
+						</DataTemplate>
 					</IndicatorView.IndicatorTemplate>
 				</IndicatorView>
 
 				<controls:CustomButton
 					Padding="0"
 					BackgroundColor="White"
+					Clicked="OnLearnMoreButtonClicked"
 					Command="{Binding LoginWithQloudIdAppCommand}"
 					CornerRadius="20"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
