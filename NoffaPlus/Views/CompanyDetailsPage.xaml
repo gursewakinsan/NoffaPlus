@@ -261,7 +261,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="30"
+										FontSize="25"
 										HorizontalTextAlignment="Center"
 										Text="{Binding HeadingIcon}"
 										TextColor="{Binding IconColor}"
@@ -274,7 +274,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontFamily="{StaticResource SFProSemiboldFontFamily}"
-										FontSize="30"
+										FontSize="25"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
 										TextColor="Black"
@@ -305,7 +305,6 @@
 				<IndicatorView
 					x:Name="indicatorView"
 					Margin="0,0,0,30"
-					HorizontalOptions="Center"
 					IndicatorColor="LightGray"
 					SelectedIndicatorColor="Red" />
 				<!--<IndicatorView.IndicatorTemplate>
