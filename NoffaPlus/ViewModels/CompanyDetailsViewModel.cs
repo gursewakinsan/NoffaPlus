@@ -54,18 +54,18 @@ namespace NoffaPlus.ViewModels
 
 			var daycareList = new List<Daycare>();
 			daycareList.Add(new Daycare() { Id = 0, Heading = "Time", IconColor=Color.Red, HeadingIcon = NoffaPlusAppFlatIcons.AlarmNote, SubHeading = "Stamp when you start and get off work" });
-			daycareList.Add(new Daycare() { Id = 1, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Confirm presence of a checked-in child" });
-			daycareList.Add(new Daycare() { Id = 2, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Confirm pick up request/s" });
+			daycareList.Add(new Daycare() { Id = 1, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanChild, SubHeading = "Confirm presence of a checked-in child" });
+			daycareList.Add(new Daycare() { Id = 2, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanChild, SubHeading = "Confirm pick up request/s" });
 
 			if (response.Inactive == 0)
-				daycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = "Register parents to children" });
+				daycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanChild, SubHeading = "Register parents to children" });
 			else
-				daycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanCapacityIncrease, SubHeading = $"Register parents to {response.Inactive} children" });
+				daycareList.Add(new Daycare() { Id = 3, Heading = "SafeQid", IconColor = Color.Green, HeadingIcon = NoffaPlusAppFlatIcons.HumanChild, SubHeading = $"Register parents to {response.Inactive} children" });
 
 			if (response.DunsIsApproved == 0)
-				daycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", IconColor = Color.Blue, HeadingIcon = NoffaPlusAppFlatIcons.AccountGroup, SubHeading = "Register DUNS for verification" });
+				daycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", IconColor = Color.Blue, HeadingIcon = NoffaPlusAppFlatIcons.AccountTie, SubHeading = "Register DUNS for verification" });
 			else
-				daycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", IconColor = Color.Blue, HeadingIcon = NoffaPlusAppFlatIcons.AccountGroup, SubHeading = "DUNS already verified" });
+				daycareList.Add(new Daycare() { Id = 4, Heading = "DUNS number", IconColor = Color.Blue, HeadingIcon = NoffaPlusAppFlatIcons.AccountTie, SubHeading = "DUNS already verified" });
 
 			DaycareList = daycareList;
 

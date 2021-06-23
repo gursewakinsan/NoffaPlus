@@ -29,8 +29,8 @@
 		public const string CalendarTextOutline = "\U000f0c46";
 		public const string CheckboxMarkedCircleOutline = "\U000f0134";
 		public const string CheckboxBlankCircle = "\U000f012f";
-		public const string HumanCapacityIncrease = "\U000f159c";
-		public const string AccountGroup = "\U000f0849";
+		public const string HumanChild = "\U000f02e7";
+		public const string AccountTie = "\U000f0ce3";
 		public const string CreditCardScan = "\U000f0ff4";
 	}
 }
