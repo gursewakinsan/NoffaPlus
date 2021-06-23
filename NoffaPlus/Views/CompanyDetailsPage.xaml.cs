@@ -50,6 +50,9 @@ namespace NoffaPlus.Views
 		private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
 		{
 			carouselViewPosition = e.CurrentPosition;
+			Color color = companyDetailsViewModel.DaycareList[carouselViewPosition].IconColor;
+			indicatorView.SelectedIndicatorColor = color;
+			btnLearnMore.TextColor = color;
 		}
 
 		private void OnLearnMoreButtonClicked(object sender, EventArgs e)

@@ -81,20 +81,20 @@
 					Grid.Row="0"
 					Padding="0"
 					BackgroundColor="Transparent"
-					HeightRequest="160"
+					HeightRequest="140"
 					HorizontalOptions="CenterAndExpand"
-					WidthRequest="160">
+					WidthRequest="140">
 					<ImageButton.Source>
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.QrCode}"
-							Size="160"
+							Size="140"
 							Color="Black" />
 					</ImageButton.Source>
 				</ImageButton>
 
 				<Label
-					Margin="10,20,10,0"
+					Margin="10,10,10,0"
 					FontFamily="{StaticResource SFProRegularFontFamily}"
 					FontSize="23"
 					HorizontalOptions="CenterAndExpand"
@@ -104,6 +104,7 @@
 					TextColor="Black" />
 
 				<StackLayout
+					Margin="0,0,0,10"
 					HeightRequest="125"
 					HorizontalOptions="CenterAndExpand"
 					Orientation="Horizontal"
@@ -227,14 +228,16 @@
 			<StackLayout
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				HeightRequest="150"
+				Margin="0,0,0,35"
+				HeightRequest="220"
 				Spacing="0"
-				VerticalOptions="CenterAndExpand">
+				VerticalOptions="EndAndExpand">
 				<CarouselView
 					HorizontalScrollBarVisibility="Never"
 					IndicatorView="indicatorView"
 					ItemsSource="{Binding DaycareList}"
-					PositionChanged="OnCarouselViewPositionChanged">
+					PositionChanged="OnCarouselViewPositionChanged"
+					VerticalOptions="CenterAndExpand">
 					<CarouselView.ItemTemplate>
 						<DataTemplate>
 							<Grid ClassId="{Binding Id}" RowSpacing="0">
@@ -258,10 +261,10 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="20"
+										FontSize="30"
 										HorizontalTextAlignment="Center"
 										Text="{Binding HeadingIcon}"
-										TextColor="Black"
+										TextColor="{Binding IconColor}"
 										VerticalTextAlignment="Center">
 										<Label.GestureRecognizers>
 											<TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
@@ -270,8 +273,8 @@
 
 									<Label
 										ClassId="{Binding Id}"
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="20"
+										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontSize="30"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
 										TextColor="Black"
@@ -286,7 +289,7 @@
 									Grid.Row="1"
 									ClassId="{Binding Id}"
 									FontFamily="{StaticResource SFProRegularFontFamily}"
-									FontSize="14"
+									FontSize="20"
 									HorizontalTextAlignment="Center"
 									Text="{Binding SubHeading}"
 									TextColor="Black"
@@ -301,33 +304,34 @@
 				</CarouselView>
 				<IndicatorView
 					x:Name="indicatorView"
-					Margin="0,0,0,20"
+					Margin="0,0,0,30"
 					HorizontalOptions="Center"
-					IndicatorColor="Transparent"
-					IndicatorsShape="Circle"
-					SelectedIndicatorColor="Black">
-					<IndicatorView.IndicatorTemplate>
+					IndicatorColor="LightGray"
+					SelectedIndicatorColor="Red" />
+				<!--<IndicatorView.IndicatorTemplate>
 						<DataTemplate>
 							<Label
+								BackgroundColor="Transparent"
 								FontFamily="{StaticResource MaterialFontFamily}"
 								FontSize="10"
-								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxBlankCircle}"
-								TextColor="Black" />
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxBlankCircle}" />
 						</DataTemplate>
 					</IndicatorView.IndicatorTemplate>
-				</IndicatorView>
+				</IndicatorView>-->
 
 				<controls:CustomButton
+					x:Name="btnLearnMore"
 					Padding="0"
 					BackgroundColor="White"
 					Clicked="OnLearnMoreButtonClicked"
 					Command="{Binding LoginWithQloudIdAppCommand}"
-					CornerRadius="20"
+					CornerRadius="25"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					HeightRequest="40"
+					HeightRequest="50"
 					HorizontalOptions="CenterAndExpand"
 					Text="LEARN MORE"
-					TextColor="Black"
+					TextColor="Red"
+					VerticalOptions="EndAndExpand"
 					WidthRequest="160" />
 			</StackLayout>
 
