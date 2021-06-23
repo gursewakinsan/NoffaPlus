@@ -111,7 +111,7 @@
 					Spacing="40"
 					VerticalOptions="EndAndExpand">
 					<Grid
-						RowSpacing="5"
+						RowSpacing="8"
 						VerticalOptions="StartAndExpand"
 						WidthRequest="70">
 						<Grid.RowDefinitions>
@@ -149,7 +149,7 @@
 					</Grid>
 
 					<Grid
-						RowSpacing="5"
+						RowSpacing="8"
 						VerticalOptions="EndAndExpand"
 						WidthRequest="100">
 						<Grid.RowDefinitions>
@@ -159,7 +159,7 @@
 						<ImageButton
 							Grid.Row="0"
 							Padding="25"
-							BackgroundColor="#E6F7FE"
+							BackgroundColor="#3DB9EC"
 							CornerRadius="50"
 							HeightRequest="100"
 							WidthRequest="100">
@@ -168,7 +168,7 @@
 									FontFamily="{StaticResource MaterialFontFamily}"
 									Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.CreditCardScan}"
 									Size="50"
-									Color="#3DB9EC" />
+									Color="White" />
 							</ImageButton.Source>
 						</ImageButton>
 
@@ -182,7 +182,7 @@
 					</Grid>
 
 					<Grid
-						RowSpacing="5"
+						RowSpacing="8"
 						VerticalOptions="StartAndExpand"
 						WidthRequest="70">
 						<Grid.RowDefinitions>
@@ -228,7 +228,7 @@
 			<StackLayout
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				HeightRequest="185"
+				HeightRequest="155"
 				Spacing="0"
 				VerticalOptions="EndAndExpand">
 				<CarouselView
@@ -253,7 +253,7 @@
 									ClassId="{Binding Id}"
 									HorizontalOptions="CenterAndExpand"
 									Orientation="Horizontal"
-									Spacing="8"
+									Spacing="14"
 									VerticalOptions="EndAndExpand">
 									<StackLayout.GestureRecognizers>
 										<TapGestureRecognizer Tapped="OnGestureRecognizerTapped" />
@@ -261,7 +261,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="25"
+										FontSize="22"
 										HorizontalTextAlignment="Center"
 										Text="{Binding HeadingIcon}"
 										TextColor="{Binding IconColor}"
@@ -273,8 +273,8 @@
 
 									<Label
 										ClassId="{Binding Id}"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
-										FontSize="25"
+										FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+										FontSize="20"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
 										TextColor="Black"
@@ -289,7 +289,7 @@
 									Grid.Row="1"
 									ClassId="{Binding Id}"
 									FontFamily="{StaticResource SFProRegularFontFamily}"
-									FontSize="20"
+									FontSize="15"
 									HorizontalTextAlignment="Center"
 									Text="{Binding SubHeading}"
 									TextColor="Black"
@@ -311,14 +311,14 @@
 
 				<controls:CustomButton
 					x:Name="btnLearnMore"
-					Margin="40,0,40,30"
+					Margin="40,0,40,20"
 					Padding="0"
 					BackgroundColor="White"
 					Clicked="OnLearnMoreButtonClicked"
 					Command="{Binding LoginWithQloudIdAppCommand}"
 					CornerRadius="25"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					HeightRequest="50"
+					HeightRequest="40"
 					Text="LEARN MORE"
 					TextColor="Red"
 					VerticalOptions="EndAndExpand" />
