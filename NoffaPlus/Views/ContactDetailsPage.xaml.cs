@@ -18,7 +18,7 @@ namespace NoffaPlus.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			FirstRowHeight.Height = this.Height-140;
+			FirstRowHeight.Height = boxView.Height;
 		}
 	}
 }
