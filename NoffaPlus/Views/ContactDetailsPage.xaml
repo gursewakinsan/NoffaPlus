@@ -81,7 +81,7 @@
 				Grid.ColumnSpan="3"
 				Margin="15,0,15,0"
 				Padding="0"
-				BackgroundColor="Black"
+				BackgroundColor="Transparent"
 				BorderColor="Transparent"
 				CornerRadius="20"
 				HasShadow="False"
@@ -92,12 +92,12 @@
 							<RowDefinition x:Name="FirstRowHeight" />
 							<RowDefinition Height="auto" />
 						</Grid.RowDefinitions>
+
 						<ImageButton
 							Grid.Row="0"
 							Padding="0"
 							Aspect="AspectFill"
 							BackgroundColor="Transparent"
-							CornerRadius="20"
 							HorizontalOptions="FillAndExpand"
 							Source="{Binding ContactDetails.Image}"
 							VerticalOptions="FillAndExpand" />
