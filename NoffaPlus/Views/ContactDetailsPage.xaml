@@ -79,7 +79,7 @@
 				Grid.Row="1"
 				Grid.ColumnSpan="3"
 				VerticalScrollBarVisibility="Never">
-				<Grid Padding="15,0,15,0">
+				<Grid Padding="15,0,15,0" RowSpacing="20">
 					<Grid.RowDefinitions>
 						<RowDefinition x:Name="FirstRowHeight" />
 						<RowDefinition Height="auto" />
@@ -152,7 +152,7 @@
 							Margin="0,20,0,25"
 							BindableLayout.ItemsSource="{Binding MyBasicInfoList}"
 							Direction="Row"
-							HeightRequest="160"
+							HeightRequest="170"
 							HorizontalOptions="Start"
 							JustifyContent="Start"
 							Wrap="Wrap">
@@ -163,24 +163,24 @@
 										ColumnSpacing="0"
 										RowSpacing="0">
 										<Grid.RowDefinitions>
-											<RowDefinition Height="26" />
+											<RowDefinition Height="30" />
 										</Grid.RowDefinitions>
 										<BoxView
 											Grid.Row="0"
 											BackgroundColor="#FDECB6"
-											CornerRadius="13" />
+											CornerRadius="15" />
 
 										<StackLayout
 											Grid.Row="0"
 											Margin="15,0,15,0"
 											Orientation="Horizontal"
 											VerticalOptions="CenterAndExpand">
-											<ImageButton BackgroundColor="Transparent">
+											<ImageButton Padding="0" BackgroundColor="Transparent">
 												<ImageButton.Source>
 													<FontImageSource
 														FontFamily="{StaticResource MaterialFontFamily}"
 														Glyph="{Binding IconSource}"
-														Size="15"
+														Size="25"
 														Color="Black" />
 												</ImageButton.Source>
 											</ImageButton>
@@ -213,7 +213,7 @@
 							Margin="0,20,0,0"
 							BindableLayout.ItemsSource="{Binding MyInterestsList}"
 							Direction="Row"
-							HeightRequest="80"
+							HeightRequest="90"
 							HorizontalOptions="Start"
 							JustifyContent="Start"
 							Wrap="Wrap">
@@ -224,24 +224,24 @@
 										ColumnSpacing="0"
 										RowSpacing="0">
 										<Grid.RowDefinitions>
-											<RowDefinition Height="26" />
+											<RowDefinition Height="30" />
 										</Grid.RowDefinitions>
 										<BoxView
 											Grid.Row="0"
 											BackgroundColor="#FDECB6"
-											CornerRadius="13" />
+											CornerRadius="15" />
 
 										<StackLayout
 											Grid.Row="0"
 											Margin="15,0,15,0"
 											Orientation="Horizontal"
 											VerticalOptions="CenterAndExpand">
-											<ImageButton BackgroundColor="Transparent">
+											<ImageButton Padding="0" BackgroundColor="Transparent">
 												<ImageButton.Source>
 													<FontImageSource
 														FontFamily="{StaticResource MaterialFontFamily}"
 														Glyph="{Binding IconSource}"
-														Size="15"
+														Size="25"
 														Color="Black" />
 												</ImageButton.Source>
 											</ImageButton>
