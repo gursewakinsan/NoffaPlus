@@ -228,7 +228,7 @@
 			<StackLayout
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				HeightRequest="155"
+				HeightRequest="175"
 				Spacing="0"
 				VerticalOptions="EndAndExpand">
 				<CarouselView
@@ -261,7 +261,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="22"
+										FontSize="25"
 										HorizontalTextAlignment="Center"
 										Text="{Binding HeadingIcon}"
 										TextColor="{Binding IconColor}"
@@ -273,8 +273,9 @@
 
 									<Label
 										ClassId="{Binding Id}"
+										FontAttributes="Bold"
 										FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
-										FontSize="20" FontAttributes="Bold"
+										FontSize="25"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
 										TextColor="Black"
@@ -289,7 +290,7 @@
 									Grid.Row="1"
 									ClassId="{Binding Id}"
 									FontFamily="{StaticResource SFProRegularFontFamily}"
-									FontSize="15"
+									FontSize="17"
 									HorizontalTextAlignment="Center"
 									Text="{Binding SubHeading}"
 									TextColor="Black"
@@ -318,7 +319,7 @@
 					Command="{Binding LoginWithQloudIdAppCommand}"
 					CornerRadius="25"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					HeightRequest="40"
+					HeightRequest="50"
 					Text="LEARN MORE"
 					TextColor="Red"
 					VerticalOptions="EndAndExpand" />

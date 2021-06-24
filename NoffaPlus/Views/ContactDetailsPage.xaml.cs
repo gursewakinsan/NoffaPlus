@@ -14,5 +14,11 @@ namespace NoffaPlus.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = ViewModel = new ContactDetailsPageViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			FirstRowHeight.Height = this.Height-140;
+		}
 	}
 }

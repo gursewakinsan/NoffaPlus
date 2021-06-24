@@ -32,5 +32,19 @@
 		public const string HumanChild = "\U000f02e7";
 		public const string AccountTie = "\U000f0ce3";
 		public const string CreditCardScan = "\U000f0ff4";
+
+		/*public const string VideoOutline = "\U000f0bdc";
+		public const string HomeVariant = "\U000f02de";
+		public const string ChatProcessingOutline = "\U000f12ca";
+		public const string AccountOutline = "\U000f0013";*/
+
+		public const string Redhat = "\U000f111b";
+		public const string BabyBottleOutline = "\U000f0f3a";
+		public const string Graphql = "\U000f0877";
+		public const string RunFast = "\U000f046e";
+		public const string WeightLifter = "\U000f115d";
+		public const string Leaf = "\U000f032a";
+		public const string GlassMugVariant = "\U000f1116";
+		public const string Star = "\U000f04ce";
 	}
 }
