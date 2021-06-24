@@ -343,6 +343,7 @@
 				<ImageButton
 					Grid.Column="3"
 					Padding="10"
+					Command="{Binding ChildrenMissingCommand}"
 					BackgroundColor="Transparent"
 					HorizontalOptions="CenterAndExpand"
 					VerticalOptions="CenterAndExpand">
