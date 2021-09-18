@@ -32,6 +32,7 @@
 		public const string HumanChild = "\U000f02e7";
 		public const string AccountTie = "\U000f0ce3";
 		public const string CreditCardScan = "\U000f0ff4";
+		public const string DotsVertical = "\U000f01d9";
 
 		/*public const string VideoOutline = "\U000f0bdc";
 		public const string HomeVariant = "\U000f02de";
