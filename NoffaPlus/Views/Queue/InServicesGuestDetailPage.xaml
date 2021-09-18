@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.Queue.InServicesGuestDetailPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1a284f"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30" />
+				<RowDefinition />
+				<RowDefinition Height="60" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="80" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				Margin="15,0,0,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Start"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,0,10,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="End"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<ScrollView
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
+				<StackLayout
+					Padding="15,20,15,0"
+					Spacing="0"
+					VerticalOptions="StartAndExpand">
+					<ImageButton
+						Padding="0"
+						BackgroundColor="White"
+						CornerRadius="50"
+						HeightRequest="100"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"
+						WidthRequest="100" />
+
+					<Label
+						Margin="0,10,0,5"
+						FontFamily="SansProBoldFontFamily"
+						FontSize="30"
+						HorizontalTextAlignment="Center"
+						MaxLines="1"
+						Text="Gursewak Singh"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						FontFamily="SansProRegularFontFamily"
+						FontSize="15"
+						HorizontalTextAlignment="Center"
+						MaxLines="1"
+						Text="gursewaksinghs@gmail.com"
+						TextColor="#7d8fbe"
+						VerticalTextAlignment="Center" />
+
+					<Frame
+						Margin="0,40,0,10"
+						Padding="0"
+						BackgroundColor="#253560"
+						BorderColor="#253560"
+						CornerRadius="10"
+						HasShadow="False"
+						IsClippedToBounds="True"
+						VerticalOptions="StartAndExpand">
+						<Grid ColumnSpacing="0" RowSpacing="0">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="50" />
+								<RowDefinition Height="1" />
+								<RowDefinition Height="50" />
+								<RowDefinition Height="1" />
+								<RowDefinition Height="50" />
+								<RowDefinition Height="1" />
+								<RowDefinition Height="50" />
+								<RowDefinition Height="1" />
+								<RowDefinition Height="50" />
+								<RowDefinition Height="1" />
+								<RowDefinition Height="50" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								Margin="10,0,0,0"
+								FontFamily="SansProBoldFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="Start"
+								MaxLines="1"
+								Text="Guest name"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="0"
+								Grid.Column="1"
+								Margin="0,0,10,0"
+								FontFamily="SansProRegularFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="End"
+								MaxLines="1"
+								Text="Singh"
+								TextColor="#7d8fbe"
+								VerticalTextAlignment="Center" />
+
+							<BoxView
+								Grid.Row="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White"
+								Opacity="0.5" />
+
+							<Label
+								Grid.Row="2"
+								Grid.Column="0"
+								Margin="10,0,0,0"
+								FontFamily="SansProBoldFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="Start"
+								MaxLines="1"
+								Text="Phone nr"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="2"
+								Grid.Column="1"
+								Margin="0,0,10,0"
+								FontFamily="SansProRegularFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="End"
+								MaxLines="1"
+								Text="9988109510"
+								TextColor="#7d8fbe"
+								VerticalTextAlignment="Center" />
+
+							<BoxView
+								Grid.Row="3"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White"
+								Opacity="0.5" />
+
+							<Label
+								Grid.Row="4"
+								Grid.Column="0"
+								Margin="10,0,0,0"
+								FontFamily="SansProBoldFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="Start"
+								MaxLines="1"
+								Text="Party size"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="4"
+								Grid.Column="1"
+								Margin="0,0,10,0"
+								FontFamily="SansProRegularFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="End"
+								MaxLines="1"
+								Text="1"
+								TextColor="#7d8fbe"
+								VerticalTextAlignment="Center" />
+
+							<BoxView
+								Grid.Row="5"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White"
+								Opacity="0.5" />
+
+							<Label
+								Grid.Row="6"
+								Grid.Column="0"
+								Margin="10,0,0,0"
+								FontFamily="SansProBoldFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="Start"
+								MaxLines="1"
+								Text="Waited"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="6"
+								Grid.Column="1"
+								Margin="0,0,10,0"
+								FontFamily="SansProRegularFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="End"
+								MaxLines="1"
+								Text="4646"
+								TextColor="#7d8fbe"
+								VerticalTextAlignment="Center" />
+
+							<BoxView
+								Grid.Row="7"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White"
+								Opacity="0.5" />
+
+							<Label
+								Grid.Row="8"
+								Grid.Column="0"
+								Margin="10,0,0,0"
+								FontFamily="SansProBoldFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="Start"
+								MaxLines="1"
+								Text="Added by"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="8"
+								Grid.Column="1"
+								Margin="0,0,10,0"
+								FontFamily="SansProRegularFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="End"
+								MaxLines="1"
+								Text="Self"
+								TextColor="#7d8fbe"
+								VerticalTextAlignment="Center" />
+
+							<BoxView
+								Grid.Row="9"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White"
+								Opacity="0.5" />
+
+							<Label
+								Grid.Row="10"
+								Grid.Column="0"
+								Margin="10,0,0,0"
+								FontFamily="SansProBoldFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="Start"
+								MaxLines="1"
+								Text="Postion in line"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="10"
+								Grid.Column="1"
+								Margin="0,0,10,0"
+								FontFamily="SansProRegularFontFamily"
+								FontSize="15"
+								HorizontalTextAlignment="End"
+								MaxLines="1"
+								Text="1"
+								TextColor="#7d8fbe"
+								VerticalTextAlignment="Center" />
+						</Grid>
+					</Frame>
+
+
+				</StackLayout>
+			</ScrollView>
+
+			<Frame
+				Grid.Row="2"
+				Grid.ColumnSpan="3"
+				Margin="15,0,15,0"
+				Padding="0"
+				BackgroundColor="Transparent"
+				CornerRadius="24"
+				HasShadow="False"
+				HeightRequest="50"
+				IsClippedToBounds="True"
+				VerticalOptions="CenterAndExpand">
+				<controls:CustomButton
+					Padding="0"
+					BackgroundColor="#74BF41"
+					Command="{Binding AddToRoomCommand}"
+					FontFamily="SansProSemiBoldFontFamily"
+					FontSize="16"
+					Text="Done"
+					TextColor="White" />
+			</Frame>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
