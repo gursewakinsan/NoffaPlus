@@ -44,11 +44,7 @@
 				HorizontalTextAlignment="End"
 				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
 				TextColor="White"
-				VerticalTextAlignment="Center">
-				<Label.GestureRecognizers>
-					<TapGestureRecognizer Command="{Binding CloseCommand}" />
-				</Label.GestureRecognizers>
-			</Label>
+				VerticalTextAlignment="Center" />
 
 			<ScrollView
 				Grid.Row="1"

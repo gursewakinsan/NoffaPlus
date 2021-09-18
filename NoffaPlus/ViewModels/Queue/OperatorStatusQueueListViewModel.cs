@@ -1,6 +1,9 @@
 ﻿using Xamarin.Forms;
+using NoffaPlus.Service;
 using System.Windows.Input;
-using System.Collections.ObjectModel;
+using NoffaPlus.Interfaces;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace NoffaPlus.ViewModels
 {
@@ -10,36 +13,60 @@ namespace NoffaPlus.ViewModels
 		public OperatorStatusQueueListViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			WaitingList = new ObservableCollection<WaitingListInfo>();
-			InserviceInfoList = new ObservableCollection<WaitingListInfo>();
-			ServicedInfoList = new ObservableCollection<WaitingListInfo>();
+		}
+		#endregion
 
-			for (int i = 1; i < 10; i++)
+		#region Get Operator Queue Waiting Command.
+		private ICommand getOperatorQueueWaitingCommand;
+		public ICommand GetOperatorQueueWaitingCommand
+		{
+			get => getOperatorQueueWaitingCommand ?? (getOperatorQueueWaitingCommand = new Command(async () => await ExecuteGetOperatorQueueWaitingCommand()));
+		}
+		private async Task ExecuteGetOperatorQueueWaitingCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			WaitingList = await service.GetOperatorQueueWaitingListAsync(new Models.OperatorQueueListRequest()
 			{
-				WaitingList.Add(new WaitingListInfo()
-				{
-					Name = $"Waiting {i}",
-					TotalPerson = $"Total person {i}"
-				});
-			}
+				QueueId = SelectedOperatorQueue.Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
 
-			for (int i = 1; i < 10; i++)
+		#region Get Operator Queue Serving List Command.
+		private ICommand getOperatorQueueServingListCommand;
+		public ICommand GetOperatorQueueServingListCommand
+		{
+			get => getOperatorQueueServingListCommand ?? (getOperatorQueueServingListCommand = new Command(async () => await ExecuteGetOperatorQueueServingListCommand()));
+		}
+		private async Task ExecuteGetOperatorQueueServingListCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			InserviceInfoList = await service.GetOperatorQueueServingListAsync(new Models.OperatorQueueListRequest()
 			{
-				InserviceInfoList.Add(new WaitingListInfo()
-				{
-					Name = $"Inservice {i}",
-					TotalPerson = $"Total person {i}"
-				});
-			}
+				QueueId = SelectedOperatorQueue.Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
 
-			for (int i = 1; i < 10; i++)
+		#region Get Operator Queue Served List Command.
+		private ICommand getOperatorQueueServedListCommand;
+		public ICommand GetOperatorQueueServedListCommand
+		{
+			get => getOperatorQueueServedListCommand ?? (getOperatorQueueServedListCommand = new Command(async () => await ExecuteGetOperatorQueueServedListCommand()));
+		}
+		private async Task ExecuteGetOperatorQueueServedListCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			ServicedInfoList = await service.OperatorQueueServedListAsync(new Models.OperatorQueueListRequest()
 			{
-				ServicedInfoList.Add(new WaitingListInfo()
-				{
-					Name = $"Serviced {i}",
-					TotalPerson = $"Total person {i}"
-				});
-			}
+				QueueId = SelectedOperatorQueue.Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -59,27 +86,61 @@ namespace NoffaPlus.ViewModels
 					InServiceTabTextColor = Color.FromHex("#7d8fbe");
 					ServicedTabTextColor = Color.FromHex("#7d8fbe");
 					IsWaiting = true;
+					GetOperatorQueueWaitingCommand.Execute(null);
 					break;
 				case "In service":
 					InServiceTabTextColor = Color.White;
 					WaitingTabTextColor = Color.FromHex("#7d8fbe");
 					ServicedTabTextColor = Color.FromHex("#7d8fbe");
 					IsInService = true;
+					GetOperatorQueueServingListCommand.Execute(null);
 					break;
 				case "Serviced":
 					ServicedTabTextColor = Color.White;
 					WaitingTabTextColor = Color.FromHex("#7d8fbe");
 					InServiceTabTextColor = Color.FromHex("#7d8fbe");
 					IsServiced = true;
+					GetOperatorQueueServedListCommand.Execute(null);
 					break;
 			}
 		}
 		#endregion
 
 		#region Properties.
-		public ObservableCollection<WaitingListInfo> WaitingList { get; set; }
-		public ObservableCollection<WaitingListInfo> InserviceInfoList { get; set; }
-		public ObservableCollection<WaitingListInfo> ServicedInfoList { get; set; }
+		public Models.OperatorQueueResponse SelectedOperatorQueue => Helper.Helper.SelectedOperatorQueue;
+
+		private List<Models.OperatorQueueListResponse> waitingList;
+		public List<Models.OperatorQueueListResponse> WaitingList
+		{
+			get => waitingList;
+			set
+			{
+				waitingList = value;
+				OnPropertyChanged("WaitingList");
+			}
+		}
+
+		private List<Models.OperatorQueueListResponse> inserviceInfoList;
+		public List<Models.OperatorQueueListResponse> InserviceInfoList
+		{
+			get => inserviceInfoList;
+			set
+			{
+				inserviceInfoList = value;
+				OnPropertyChanged("InserviceInfoList");
+			}
+		}
+
+		private List<Models.OperatorQueueListResponse> servicedInfoList;
+		public List<Models.OperatorQueueListResponse> ServicedInfoList
+		{
+			get => servicedInfoList;
+			set
+			{
+				servicedInfoList = value;
+				OnPropertyChanged("ServicedInfoList");
+			}
+		}
 
 		private bool isWaiting = true;
 		public bool IsWaiting
@@ -148,12 +209,4 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 	}
-}
-
-
-public class WaitingListInfo
-{
-	public string Name { get; set; }
-	public string TotalPerson { get; set; }
-	public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(Name, 0);
 }

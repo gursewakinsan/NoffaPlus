@@ -43,11 +43,7 @@
 				HorizontalTextAlignment="End"
 				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
 				TextColor="White"
-				VerticalTextAlignment="Center">
-				<Label.GestureRecognizers>
-					<TapGestureRecognizer Command="{Binding CloseCommand}" />
-				</Label.GestureRecognizers>
-			</Label>
+				VerticalTextAlignment="Center" />
 
 			<ScrollView
 				Grid.Row="1"
@@ -62,7 +58,7 @@
 						FontSize="15"
 						HorizontalTextAlignment="Start"
 						MaxLines="1"
-						Text="2021/09/18"
+						Text="{Binding SelectedOperatorQueue.DisplayCurrentDate}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -71,7 +67,7 @@
 						FontSize="30"
 						HorizontalTextAlignment="Start"
 						MaxLines="1"
-						Text="Queue name"
+						Text="{Binding SelectedOperatorQueue.QueueName}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -91,7 +87,7 @@
 							FontSize="40"
 							HeightRequest="100"
 							HorizontalOptions="Start"
-							Text="Q"
+							Text="{Binding SelectedOperatorQueue.FirstLetterName}"
 							TextColor="White"
 							VerticalOptions="Center"
 							WidthRequest="100" />
@@ -106,7 +102,7 @@
 								FontFamily="SansProBoldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
-								Text="579"
+								Text="{Binding SelectedOperatorQueue.PersonInLine}"
 								TextColor="White" />
 
 							<Label
@@ -134,7 +130,7 @@
 								FontFamily="SansProBoldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
-								Text="255"
+								Text="{Binding SelectedOperatorQueue.TotalOperators}"
 								TextColor="White" />
 
 							<Label
@@ -162,7 +158,7 @@
 								FontFamily="SansProBoldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
-								Text="80"
+								Text="0"
 								TextColor="White" />
 
 							<Label
@@ -288,7 +284,7 @@
 												FontFamily="SansProBoldFontFamily"
 												FontSize="14"
 												HorizontalTextAlignment="Start"
-												Text="{Binding Name}"
+												Text="{Binding GuestName}"
 												TextColor="White"
 												VerticalTextAlignment="Center" />
 
@@ -296,9 +292,15 @@
 												FontFamily="SansProRegularFontFamily"
 												FontSize="12"
 												HorizontalTextAlignment="Start"
-												Text="{Binding TotalPerson}"
 												TextColor="#7d8fbe"
-												VerticalTextAlignment="Center" />
+												VerticalTextAlignment="Center">
+												<Label.FormattedText>
+													<FormattedString>
+														<Span Text="Total person " />
+														<Span Text="{Binding TotalPerson}" />
+													</FormattedString>
+												</Label.FormattedText>
+											</Label>
 										</StackLayout>
 
 										<Label
@@ -371,7 +373,7 @@
 												FontFamily="SansProBoldFontFamily"
 												FontSize="14"
 												HorizontalTextAlignment="Start"
-												Text="{Binding Name}"
+												Text="{Binding GuestName}"
 												TextColor="White"
 												VerticalTextAlignment="Center" />
 
@@ -379,9 +381,15 @@
 												FontFamily="SansProRegularFontFamily"
 												FontSize="12"
 												HorizontalTextAlignment="Start"
-												Text="{Binding TotalPerson}"
 												TextColor="#7d8fbe"
-												VerticalTextAlignment="Center" />
+												VerticalTextAlignment="Center">
+												<Label.FormattedText>
+													<FormattedString>
+														<Span Text="Total person " />
+														<Span Text="{Binding TotalPerson}" />
+													</FormattedString>
+												</Label.FormattedText>
+											</Label>
 										</StackLayout>
 
 										<Label
@@ -454,7 +462,7 @@
 												FontFamily="SansProBoldFontFamily"
 												FontSize="14"
 												HorizontalTextAlignment="Start"
-												Text="{Binding Name}"
+												Text="{Binding GuestName}"
 												TextColor="White"
 												VerticalTextAlignment="Center" />
 
@@ -462,9 +470,15 @@
 												FontFamily="SansProRegularFontFamily"
 												FontSize="12"
 												HorizontalTextAlignment="Start"
-												Text="{Binding TotalPerson}"
 												TextColor="#7d8fbe"
-												VerticalTextAlignment="Center" />
+												VerticalTextAlignment="Center">
+												<Label.FormattedText>
+													<FormattedString>
+														<Span Text="Total person " />
+														<Span Text="{Binding TotalPerson}" />
+													</FormattedString>
+												</Label.FormattedText>
+											</Label>
 										</StackLayout>
 
 										<Label

@@ -38,7 +38,16 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteAppStoreCommand()
 		{
-			await Navigation.PushAsync(new Views.Queue.OperatorQueueListPage());
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			var response = await service.GetOperatorQueueAsync(new Models.OperatorQueueRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId
+			});
+			if (response?.Count > 0)
+				await Navigation.PushAsync(new Views.Queue.OperatorQueueListPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

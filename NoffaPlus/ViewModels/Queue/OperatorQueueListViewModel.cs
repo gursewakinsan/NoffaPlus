@@ -37,6 +37,18 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Go To Operator Status Queue List Command.
+		private ICommand goToOperatorStatusQueueListCommand;
+		public ICommand GoToOperatorStatusQueueListCommand
+		{
+			get => goToOperatorStatusQueueListCommand ?? (goToOperatorStatusQueueListCommand = new Command(async () => await ExecuteGoToOperatorStatusQueueListCommand()));
+		}
+		private async Task ExecuteGoToOperatorStatusQueueListCommand()
+		{
+			await Navigation.PushAsync(new Views.Queue.OperatorStatusQueueListPage());
+		}
+		#endregion
+
 		#region Properties.
 		private List<Models.OperatorQueueResponse> operatorQueueList;
 		public List<Models.OperatorQueueResponse> OperatorQueueList

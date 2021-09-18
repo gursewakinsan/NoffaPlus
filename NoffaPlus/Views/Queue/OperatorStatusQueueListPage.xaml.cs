@@ -14,5 +14,11 @@ namespace NoffaPlus.Views.Queue
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new OperatorStatusQueueListViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			viewModel.GetOperatorQueueWaitingCommand.Execute(null);
+		}
 	}
 }

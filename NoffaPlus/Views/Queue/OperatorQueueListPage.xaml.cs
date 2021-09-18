@@ -20,5 +20,12 @@ namespace NoffaPlus.Views.Queue
 			base.OnAppearing();
 			viewModel.GetOperatorQueueCommand.Execute(null);
 		}
+
+		private void OnOperatorQueueListItemTapped(object sender, System.EventArgs e)
+		{
+			Frame frameOperatorQueueListItem = sender as Frame;
+			Helper.Helper.SelectedOperatorQueue = frameOperatorQueueListItem.BindingContext as Models.OperatorQueueResponse;
+			viewModel.GoToOperatorStatusQueueListCommand.Execute(null);
+		}
 	}
 }
