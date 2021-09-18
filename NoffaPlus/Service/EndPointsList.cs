@@ -19,6 +19,9 @@
 		public const string UpdateLeaveUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateLeave";
 		public const string UpdateVacationInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateVacationInfo";
 		public const string DaycareRequestCountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/daycareRequestCount";
+
+		//Queue
+		public const string OperatorQueueListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/operatorQueueList";
 	}
 }
 

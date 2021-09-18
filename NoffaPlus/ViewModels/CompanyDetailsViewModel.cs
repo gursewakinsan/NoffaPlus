@@ -30,6 +30,18 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region App Store Command.
+		private ICommand appStoreCommand;
+		public ICommand AppStoreCommand
+		{
+			get => appStoreCommand ?? (appStoreCommand = new Command(async () => await ExecuteAppStoreCommand()));
+		}
+		private async Task ExecuteAppStoreCommand()
+		{
+			await Navigation.PushAsync(new Views.Queue.OperatorQueueListPage());
+		}
+		#endregion
+
 		#region Verify Admin Command.
 		private ICommand verifyAdminCommand;
 		public ICommand VerifyAdminCommand
@@ -136,6 +148,7 @@ namespace NoffaPlus.ViewModels
 		#endregion
 	}
 }
+
 
 public class Daycare
 {

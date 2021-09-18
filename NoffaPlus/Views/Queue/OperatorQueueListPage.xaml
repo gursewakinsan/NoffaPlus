@@ -71,7 +71,7 @@
 						FontSize="30"
 						HorizontalTextAlignment="Start"
 						MaxLines="1"
-						Text="Address"
+						Text="{Binding OperatorQueueAddress}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -81,7 +81,7 @@
 						HeightRequest="1"
 						Opacity="0.5" />
 
-					<StackLayout BindableLayout.ItemsSource="{Binding QueueInfoList}">
+					<StackLayout BindableLayout.ItemsSource="{Binding OperatorQueueList}">
 						<BindableLayout.ItemTemplate>
 							<DataTemplate>
 								<Frame
@@ -139,7 +139,7 @@
 												FontFamily="SansProBoldFontFamily"
 												FontSize="14"
 												HorizontalTextAlignment="Start"
-												Text="{Binding QueueDate}"
+												Text="{Binding DisplayCurrentDate}"
 												TextColor="#7d8fbe"
 												VerticalTextAlignment="Center" />
 
@@ -155,7 +155,7 @@
 													FontFamily="SansProRegularFontFamily"
 													FontSize="40"
 													HorizontalTextAlignment="Start"
-													Text="{Binding PostionInLine}"
+													Text="{Binding PersonInLine}"
 													TextColor="White"
 													VerticalTextAlignment="Center" />
 
@@ -184,7 +184,7 @@
 													FontFamily="SansProRegularFontFamily"
 													FontSize="40"
 													HorizontalTextAlignment="Start"
-													Text="{Binding OperatorAvailable}"
+													Text="{Binding TotalOperators}"
 													TextColor="White"
 													VerticalTextAlignment="Center" />
 

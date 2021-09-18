@@ -1,5 +1,9 @@
 ﻿using Xamarin.Forms;
-using System.Collections.ObjectModel;
+using NoffaPlus.Service;
+using System.Windows.Input;
+using NoffaPlus.Interfaces;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace NoffaPlus.ViewModels
 {
@@ -9,32 +13,52 @@ namespace NoffaPlus.ViewModels
 		public OperatorQueueListViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			QueueInfoList = new ObservableCollection<QueueInfo>();
-			for (int i = 0; i < 10; i++)
+		}
+		#endregion
+
+		#region Get Operator Queue Command.
+		private ICommand getContactsCommand;
+		public ICommand GetOperatorQueueCommand
+		{
+			get => getContactsCommand ?? (getContactsCommand = new Command(async () => await ExecuteGetOperatorQueueCommand()));
+		}
+		private async Task ExecuteGetOperatorQueueCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			OperatorQueueList = await service.GetOperatorQueueAsync(new Models.OperatorQueueRequest()
 			{
-				QueueInfoList.Add(new QueueInfo()
-				{
-					QueueName = $"Queue name {i}",
-					QueueDate = $"2021/09/{i}",
-					PostionInLine = $"{i}",
-					OperatorAvailable = $"{i}"
-				});
-			}
-			
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId
+			});
+			if (OperatorQueueList?.Count > 0)
+				OperatorQueueAddress = OperatorQueueList[0].Address;
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
 		#region Properties.
-		public ObservableCollection<QueueInfo> QueueInfoList { get; set; }
+		private List<Models.OperatorQueueResponse> operatorQueueList;
+		public List<Models.OperatorQueueResponse> OperatorQueueList
+		{
+			get => operatorQueueList;
+			set
+			{
+				operatorQueueList = value;
+				OnPropertyChanged("OperatorQueueList");
+			}
+		}
+
+		private string operatorQueueAddress;
+		public string OperatorQueueAddress
+		{
+			get => operatorQueueAddress;
+			set
+			{
+				operatorQueueAddress = value;
+				OnPropertyChanged("OperatorQueueAddress");
+			}
+		}
 		#endregion
 	}
-}
-
-public class QueueInfo
-{
-	public string QueueName { get; set; }
-	public string QueueDate { get; set; }
-	public string PostionInLine { get; set; }
-	public string OperatorAvailable { get; set; }
-	public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(QueueName, 0);
 }
