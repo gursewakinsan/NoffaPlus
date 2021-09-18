@@ -3,7 +3,6 @@
 	x:Class="NoffaPlus.Views.Queue.OperatorQueueListPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
