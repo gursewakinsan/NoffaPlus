@@ -13,12 +13,13 @@ namespace NoffaPlus.Views.Queue
 			InitializeComponent ();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new OperatorStatusQueueListViewModel(this.Navigation);
+			Helper.Helper.SelectedTabQueueText = "Waiting";
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.GetOperatorQueueWaitingCommand.Execute(null);
+			viewModel.TabSelectedCommand.Execute(Helper.Helper.SelectedTabQueueText);
 		}
 
 		private async void OnWaitingListItemTapped(object sender, System.EventArgs e)
