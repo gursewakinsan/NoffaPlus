@@ -9,5 +9,7 @@ namespace NoffaPlus.Interfaces
 		Task<List<Models.OperatorQueueListResponse>> GetOperatorQueueWaitingListAsync(Models.OperatorQueueListRequest request);
 		Task<List<Models.OperatorQueueListResponse>> GetOperatorQueueServingListAsync(Models.OperatorQueueListRequest request);
 		Task<List<Models.OperatorQueueListResponse>> OperatorQueueServedListAsync(Models.OperatorQueueListRequest request);
+		Task<Models.QueueGuestDetailResponse> QueueGuestDetailAsync(Models.QueueGuestRequest request);
 	}
 }
+

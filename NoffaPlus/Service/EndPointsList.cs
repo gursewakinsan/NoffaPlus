@@ -25,6 +25,7 @@
 		public const string OperatorQueueWaitingListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/operatorQueueWaitingList";
 		public const string OperatorQueueServingListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/operatorQueueServingList";
 		public const string OperatorQueueServedListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/operatorQueueServedList";
+		public const string QueueGuestDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/queueGuestDetail";
 	}
 }
 

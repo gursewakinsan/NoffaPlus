@@ -14,5 +14,11 @@ namespace NoffaPlus.Views.Queue
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new WaitingGuestServicesDetailViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			viewModel.QueueGuestDetailCommand.Execute(null);
+		}
 	}
 }

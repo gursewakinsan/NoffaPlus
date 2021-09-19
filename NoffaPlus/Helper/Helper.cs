@@ -17,5 +17,6 @@
 		public static string CompanyName { get; set; }
 		public static Models.ContactResponse SelectedContact { get; set; }
 		public static Models.OperatorQueueResponse SelectedOperatorQueue { get; set; }
+		public static int QueueGuestId { get; set; }
 	}
 }

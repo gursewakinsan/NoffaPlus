@@ -60,6 +60,7 @@
 						CornerRadius="50"
 						HeightRequest="100"
 						HorizontalOptions="Center"
+						Source="{Binding QueueGuestDetail.UserImage}"
 						VerticalOptions="Center"
 						WidthRequest="100" />
 
@@ -69,7 +70,7 @@
 						FontSize="30"
 						HorizontalTextAlignment="Center"
 						MaxLines="1"
-						Text="Gursewak Singh"
+						Text="{Binding QueueGuestDetail.GuestName}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -78,7 +79,7 @@
 						FontSize="15"
 						HorizontalTextAlignment="Center"
 						MaxLines="1"
-						Text="gursewaksinghs@gmail.com"
+						Text="{Binding QueueGuestDetail.Emailid}"
 						TextColor="#7d8fbe"
 						VerticalTextAlignment="Center" />
 
@@ -129,7 +130,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="Singh"
+								Text="{Binding QueueGuestDetail.GuestName}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -159,7 +160,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="9988109510"
+								Text="{Binding QueueGuestDetail.PhoneNumber}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -189,7 +190,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="1"
+								Text="{Binding QueueGuestDetail.TotalPerson}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -219,7 +220,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="4646"
+								Text="{Binding QueueGuestDetail.WaitingTime}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -279,7 +280,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="1"
+								Text="{Binding QueueGuestDetail.PositionInLine}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 						</Grid>

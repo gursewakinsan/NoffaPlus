@@ -254,7 +254,9 @@
 											<ColumnDefinition Width="*" />
 											<ColumnDefinition Width="40" />
 										</Grid.ColumnDefinitions>
-
+										<Grid.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnWaitingListItemTapped" />
+										</Grid.GestureRecognizers>
 										<BoxView
 											Grid.Row="0"
 											Grid.Column="0"

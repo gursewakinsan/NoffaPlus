@@ -43,5 +43,14 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<Models.QueueGuestDetailResponse> QueueGuestDetailAsync(Models.QueueGuestRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.QueueGuestDetailResponse>(HttpWebRequest.Create(string.Format(EndPointsList.QueueGuestDetailUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

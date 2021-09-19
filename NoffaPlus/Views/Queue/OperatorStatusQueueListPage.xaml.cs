@@ -20,5 +20,13 @@ namespace NoffaPlus.Views.Queue
 			base.OnAppearing();
 			viewModel.GetOperatorQueueWaitingCommand.Execute(null);
 		}
+
+		private async void OnWaitingListItemTapped(object sender, System.EventArgs e)
+		{
+			Grid gridWaitingList = sender as Grid;
+			Models.OperatorQueueListResponse response = gridWaitingList.BindingContext as Models.OperatorQueueListResponse;
+			Helper.Helper.QueueGuestId = response.Id;
+			await Navigation.PushAsync(new WaitingGuestServicesDetailPage());
+		}
 	}
 }
