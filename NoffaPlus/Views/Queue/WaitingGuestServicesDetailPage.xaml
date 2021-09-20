@@ -309,7 +309,7 @@
 						Command="{Binding NowShowCommand}"
 						FontFamily="SansProSemiBoldFontFamily"
 						FontSize="16"
-						Text="Now show"
+						Text="No show"
 						TextColor="White" />
 
 					<controls:CustomButton
