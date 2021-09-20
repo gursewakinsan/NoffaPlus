@@ -102,7 +102,7 @@
 								FontFamily="SansProBoldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
-								Text="{Binding SelectedOperatorQueue.PersonInLine}"
+								Text="{Binding PersonInLine}"
 								TextColor="White" />
 
 							<Label

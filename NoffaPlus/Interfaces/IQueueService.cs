@@ -15,6 +15,7 @@ namespace NoffaPlus.Interfaces
 		Task<int> UpdateInServicingAsync(Models.UpdateInServicingRequest request);
 		Task<Models.QueueServicingGuestDetailResponse> QueueServicingGuestDetailAsync(Models.QueueGuestRequest request);
 		Task<int> UpdateCloseServiceAsync(Models.QueueGuestRequest request);
+		Task<int> OperatorQueueWaitingCountAsync(Models.OperatorQueueListRequest request);
 	}
 }
 

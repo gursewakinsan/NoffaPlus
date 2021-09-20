@@ -70,6 +70,24 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Operator Queue Waiting Count Command.
+		private ICommand operatorQueueWaitingCountCommand;
+		public ICommand OperatorQueueWaitingCountCommand
+		{
+			get => operatorQueueWaitingCountCommand ?? (operatorQueueWaitingCountCommand = new Command(async () => await ExecuteOperatorQueueWaitingCountCommand()));
+		}
+		private async Task ExecuteOperatorQueueWaitingCountCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			PersonInLine = await service.OperatorQueueWaitingCountAsync(new Models.OperatorQueueListRequest()
+			{
+				QueueId = SelectedOperatorQueue.Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Tab Selected Command.
 		private ICommand tabSelectedCommand;
 		public ICommand TabSelectedCommand
@@ -103,6 +121,7 @@ namespace NoffaPlus.ViewModels
 					GetOperatorQueueServedListCommand.Execute(null);
 					break;
 			}
+			OperatorQueueWaitingCountCommand.Execute(null);
 		}
 		#endregion
 
@@ -205,6 +224,17 @@ namespace NoffaPlus.ViewModels
 			{
 				servicedTabTextColor = value;
 				OnPropertyChanged("ServicedTabTextColor");
+			}
+		}
+
+		private int personInLine;
+		public int PersonInLine
+		{
+			get => personInLine;
+			set
+			{
+				personInLine = value;
+				OnPropertyChanged("PersonInLine");
 			}
 		}
 		#endregion

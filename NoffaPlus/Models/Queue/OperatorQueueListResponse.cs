@@ -13,7 +13,9 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "total_person")]
 		public int TotalPerson { get; set; }
-		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(GuestName, 0);
 
+		[Newtonsoft.Json.JsonProperty(PropertyName = "waiting_count")]
+		public int WaitingCount { get; set; }
+		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(GuestName, 0);
 	}
 }

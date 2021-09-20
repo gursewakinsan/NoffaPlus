@@ -31,6 +31,7 @@
 		public const string UpdateInServicingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateInServicing";
 		public const string QueueServicingGuestDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/queueServicingGuestDetail";
 		public const string UpdateCloseServiceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCloseService";
+		public const string OperatorQueueWaitingCountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/operatorQueueWaitingCount";
 	}
 }
 
