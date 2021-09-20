@@ -29,5 +29,13 @@ namespace NoffaPlus.Views.Queue
 			Helper.Helper.QueueGuestId = response.Id;
 			await Navigation.PushAsync(new WaitingGuestServicesDetailPage());
 		}
+
+		private async void OnInServiceListItemTapped(object sender, System.EventArgs e)
+		{
+			Grid gridWaitingList = sender as Grid;
+			Models.OperatorQueueListResponse response = gridWaitingList.BindingContext as Models.OperatorQueueListResponse;
+			Helper.Helper.QueueGuestId = response.Id;
+			await Navigation.PushAsync(new InServicesGuestDetailPage());
+		}
 	}
 }

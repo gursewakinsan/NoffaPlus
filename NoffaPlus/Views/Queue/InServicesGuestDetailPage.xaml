@@ -14,7 +14,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="30" />
 				<RowDefinition />
-				<RowDefinition Height="60" />
+				<RowDefinition Height="auto" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="80" />
@@ -60,6 +60,7 @@
 						CornerRadius="50"
 						HeightRequest="100"
 						HorizontalOptions="Center"
+						Source="{Binding QueueServicingGuestDetail.UserImage}"
 						VerticalOptions="Center"
 						WidthRequest="100" />
 
@@ -69,7 +70,7 @@
 						FontSize="30"
 						HorizontalTextAlignment="Center"
 						MaxLines="1"
-						Text="Gursewak Singh"
+						Text="{Binding QueueServicingGuestDetail.GuestName}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -78,7 +79,7 @@
 						FontSize="15"
 						HorizontalTextAlignment="Center"
 						MaxLines="1"
-						Text="gursewaksinghs@gmail.com"
+						Text="{Binding QueueServicingGuestDetail.EmailId}"
 						TextColor="#7d8fbe"
 						VerticalTextAlignment="Center" />
 
@@ -129,7 +130,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="Singh"
+								Text="{Binding QueueServicingGuestDetail.GuestName}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -159,7 +160,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="9988109510"
+								Text="{Binding QueueServicingGuestDetail.PhoneNumber}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -189,7 +190,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="1"
+								Text="{Binding QueueServicingGuestDetail.TotalPerson}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -219,7 +220,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="4646"
+								Text="{Binding QueueServicingGuestDetail.ServiceTime}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -249,7 +250,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="Self"
+								Text="{Binding AddedBy}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 
@@ -279,7 +280,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="End"
 								MaxLines="1"
-								Text="1"
+								Text="{Binding QueueServicingGuestDetail.PositionInLine}"
 								TextColor="#7d8fbe"
 								VerticalTextAlignment="Center" />
 						</Grid>
@@ -292,18 +293,19 @@
 			<Frame
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
-				Margin="15,0,15,0"
+				Margin="15,0,15,10"
 				Padding="0"
 				BackgroundColor="Transparent"
 				CornerRadius="24"
 				HasShadow="False"
 				HeightRequest="50"
 				IsClippedToBounds="True"
+				IsVisible="{Binding IsVisibleDone}"
 				VerticalOptions="CenterAndExpand">
 				<controls:CustomButton
 					Padding="0"
 					BackgroundColor="#74BF41"
-					Command="{Binding AddToRoomCommand}"
+					Command="{Binding DoneCommand}"
 					FontFamily="SansProSemiBoldFontFamily"
 					FontSize="16"
 					Text="Done"

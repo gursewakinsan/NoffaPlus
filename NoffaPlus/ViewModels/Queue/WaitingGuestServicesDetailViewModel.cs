@@ -73,11 +73,7 @@ namespace NoffaPlus.ViewModels
 				GuestId = Helper.Helper.QueueGuestId
 			});
 			if (response == 1)
-			{
-				Helper.Helper.SelectedTabQueueText = "Waiting";
 				await Helper.Alert.DisplayAlert("Alert sent.");
-				await Navigation.PopAsync();
-			}
 			else
 				await Helper.Alert.DisplayAlert("Something went wrong please try again.");
 			DependencyService.Get<IProgressBar>().Hide();
@@ -94,9 +90,10 @@ namespace NoffaPlus.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IQueueService service = new QueueService();
-			int response = await service.UpdateInServicingAsync(new Models.QueueGuestRequest()
+			int response = await service.UpdateInServicingAsync(new Models.UpdateInServicingRequest()
 			{
-				GuestId = Helper.Helper.QueueGuestId
+				GuestId = Helper.Helper.QueueGuestId,
+				UserId = Helper.Helper.LoggedInUserId
 			});
 			if (response == 1)
 			{

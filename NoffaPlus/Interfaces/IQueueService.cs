@@ -12,7 +12,8 @@ namespace NoffaPlus.Interfaces
 		Task<Models.QueueGuestDetailResponse> QueueGuestDetailAsync(Models.QueueGuestRequest request);
 		Task<int> UpdateNoShowAsync(Models.QueueGuestRequest request);
 		Task<int> AlertGuestAsync(Models.QueueGuestRequest request);
-		Task<int> UpdateInServicingAsync(Models.QueueGuestRequest request);
+		Task<int> UpdateInServicingAsync(Models.UpdateInServicingRequest request);
+		Task<Models.QueueServicingGuestDetailResponse> QueueServicingGuestDetailAsync(Models.QueueGuestRequest request);
 	}
 }
 

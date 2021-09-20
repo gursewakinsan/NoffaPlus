@@ -1,4 +1,8 @@
 ﻿using Xamarin.Forms;
+using NoffaPlus.Service;
+using System.Windows.Input;
+using NoffaPlus.Interfaces;
+using System.Threading.Tasks;
 
 namespace NoffaPlus.ViewModels
 {
@@ -8,6 +12,70 @@ namespace NoffaPlus.ViewModels
 		public InServicesGuestDetailViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+		}
+		#endregion
+
+		#region Queue Servicing Guest Detail Command.
+		private ICommand queueServicingGuestDetailCommand;
+		public ICommand QueueServicingGuestDetailCommand
+		{
+			get => queueServicingGuestDetailCommand ?? (queueServicingGuestDetailCommand = new Command(async () => await ExecuteQueueServicingGuestDetailCommand()));
+		}
+		private async Task ExecuteQueueServicingGuestDetailCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			QueueServicingGuestDetail = await service.QueueServicingGuestDetailAsync(new Models.QueueGuestRequest()
+			{
+				GuestId = Helper.Helper.QueueGuestId
+			});
+
+			if (QueueServicingGuestDetail.ServingUserId.Equals(Helper.Helper.LoggedInUserId))
+			{
+				AddedBy = "Self";
+				IsVisibleDone = true;
+			}
+			else
+			{
+				AddedBy = QueueServicingGuestDetail.UserServing;
+				IsVisibleDone = false;
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Properties.
+		private Models.QueueServicingGuestDetailResponse queueServicingGuestDetail;
+		public Models.QueueServicingGuestDetailResponse QueueServicingGuestDetail
+		{
+			get => queueServicingGuestDetail;
+			set
+			{
+				queueServicingGuestDetail = value;
+				OnPropertyChanged("QueueServicingGuestDetail");
+			}
+		}
+
+		private bool isVisibleDone;
+		public bool IsVisibleDone
+		{
+			get => isVisibleDone;
+			set
+			{
+				isVisibleDone = value;
+				OnPropertyChanged("IsVisibleDone");
+			}
+		}
+
+		private string addedBy;
+		public string AddedBy
+		{
+			get => addedBy;
+			set
+			{
+				addedBy = value;
+				OnPropertyChanged("AddedBy");
+			}
 		}
 		#endregion
 	}
