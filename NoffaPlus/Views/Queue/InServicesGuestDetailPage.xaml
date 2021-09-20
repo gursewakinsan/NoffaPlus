@@ -208,7 +208,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="Start"
 								MaxLines="1"
-								Text="Waited"
+								Text="Service time"
 								TextColor="White"
 								VerticalTextAlignment="Center" />
 
@@ -238,7 +238,7 @@
 								FontSize="15"
 								HorizontalTextAlignment="Start"
 								MaxLines="1"
-								Text="Added by"
+								Text="Served by"
 								TextColor="White"
 								VerticalTextAlignment="Center" />
 
