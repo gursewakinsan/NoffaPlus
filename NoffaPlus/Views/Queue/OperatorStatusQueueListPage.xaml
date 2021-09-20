@@ -158,7 +158,7 @@
 								FontFamily="SansProBoldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
-								Text="0"
+								Text="5"
 								TextColor="White" />
 
 							<Label
