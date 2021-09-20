@@ -44,6 +44,31 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Done Command.
+		private ICommand doneCommand;
+		public ICommand DoneCommand
+		{
+			get => doneCommand ?? (doneCommand = new Command(async () => await ExecuteDoneCommand()));
+		}
+		private async Task ExecuteDoneCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IQueueService service = new QueueService();
+			int response = await service.UpdateCloseServiceAsync(new Models.QueueGuestRequest()
+			{
+				GuestId = Helper.Helper.QueueGuestId
+			});
+			if (response == 1)
+			{
+				Helper.Helper.SelectedTabQueueText = "Serviced";
+				await Navigation.PopAsync();
+			}
+			else
+				await Helper.Alert.DisplayAlert("Something went wrong please try again.");
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private Models.QueueServicingGuestDetailResponse queueServicingGuestDetail;
 		public Models.QueueServicingGuestDetailResponse QueueServicingGuestDetail
