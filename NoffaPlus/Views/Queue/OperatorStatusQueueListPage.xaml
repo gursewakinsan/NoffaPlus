@@ -30,7 +30,7 @@
 				TextColor="White"
 				VerticalTextAlignment="Center">
 				<Label.GestureRecognizers>
-					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+					<TapGestureRecognizer Command="{Binding BackCommand}" />
 				</Label.GestureRecognizers>
 			</Label>
 
@@ -175,7 +175,6 @@
 								Text="operator"
 								TextColor="#7d8fbe" />
 						</StackLayout>
-
 					</Grid>
 
 					<BoxView

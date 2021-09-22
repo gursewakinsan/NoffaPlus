@@ -125,6 +125,20 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			Helper.Helper.SelectedTabQueueText = "Waiting";
+			Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+			await Task.CompletedTask;
+		}
+		#endregion
+
 		#region Properties.
 		public Models.OperatorQueueResponse SelectedOperatorQueue => Helper.Helper.SelectedOperatorQueue;
 

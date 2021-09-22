@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.Queue.OperatorQueueDetailPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1a284f"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30" />
+				<RowDefinition />
+				<RowDefinition Height="60" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="80" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				Margin="15,0,0,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Start"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding BackCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,0,10,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="End"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<ScrollView
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
+				<StackLayout
+					Padding="15,20,15,0"
+					Spacing="0"
+					VerticalOptions="StartAndExpand">
+					<Label
+						FontFamily="SansProRegularFontFamily"
+						FontSize="15"
+						HorizontalTextAlignment="Start"
+						MaxLines="1"
+						Text="{Binding SelectedOperatorQueue.DisplayCurrentDate}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						FontFamily="SansProBoldFontFamily"
+						FontSize="30"
+						HorizontalTextAlignment="Start"
+						MaxLines="1"
+						Text="{Binding SelectedOperatorQueue.QueueName}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Grid Margin="0,20,0,0" VerticalOptions="Start">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Button
+							Grid.Row="0"
+							Grid.Column="0"
+							Padding="0"
+							BackgroundColor="#253560"
+							CornerRadius="50"
+							FontSize="40"
+							HeightRequest="100"
+							HorizontalOptions="Start"
+							Text="{Binding SelectedOperatorQueue.FirstLetterName}"
+							TextColor="White"
+							VerticalOptions="Center"
+							WidthRequest="100" />
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="1"
+							HorizontalOptions="CenterAndExpand"
+							Spacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Label
+								FontFamily="SansProBoldFontFamily"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{Binding PersonInLine}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="Postion"
+								TextColor="#7d8fbe" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="in line"
+								TextColor="#7d8fbe" />
+						</StackLayout>
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="2"
+							HorizontalOptions="CenterAndExpand"
+							Spacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Label
+								FontFamily="SansProBoldFontFamily"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{Binding SelectedOperatorQueue.TotalOperators}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="Operator"
+								TextColor="#7d8fbe" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="available"
+								TextColor="#7d8fbe" />
+						</StackLayout>
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="3"
+							HorizontalOptions="CenterAndExpand"
+							Spacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Label
+								FontFamily="SansProBoldFontFamily"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="5"
+								TextColor="White" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="Active"
+								TextColor="#7d8fbe" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="operator"
+								TextColor="#7d8fbe" />
+						</StackLayout>
+					</Grid>
+					<BoxView
+						Margin="0,20,0,20"
+						BackgroundColor="White"
+						HeightRequest="1"
+						Opacity="0.5" />
+				</StackLayout>
+			</ScrollView>
+
+			<Frame
+				Grid.Row="2"
+				Grid.ColumnSpan="3"
+				Margin="15,0,15,0"
+				Padding="0"
+				BackgroundColor="Transparent"
+				CornerRadius="24"
+				HasShadow="False"
+				HeightRequest="50"
+				IsClippedToBounds="True"
+				VerticalOptions="CenterAndExpand">
+				<Grid ColumnSpacing="0">
+					<controls:CustomButton
+						Grid.Column="0"
+						Padding="0"
+						BackgroundColor="#E3232E"
+						Command="{Binding DoneTodayCommand}"
+						FontFamily="SansProSemiBoldFontFamily"
+						FontSize="16"
+						Text="Done today"
+						TextColor="White" />
+
+					<controls:CustomButton
+						Grid.Column="1"
+						Padding="0"
+						BackgroundColor="#4449E2"
+						Command="{Binding NextInLineCommand}"
+						FontFamily="SansProSemiBoldFontFamily"
+						FontSize="16"
+						Text="Next in line"
+						TextColor="White" />
+
+					<controls:CustomButton
+						Grid.Column="2"
+						Padding="0"
+						BackgroundColor="#74BF41"
+						Command="{Binding GoToListCommand}"
+						FontFamily="SansProSemiBoldFontFamily"
+						FontSize="16"
+						Text="Go to list"
+						TextColor="White" />
+				</Grid>
+			</Frame>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

@@ -59,13 +59,24 @@ namespace NoffaPlus.ViewModels
 				GuestId = Helper.Helper.QueueGuestId
 			});
 			if (response == 1)
-			{
-				Helper.Helper.SelectedTabQueueText = "Serviced";
-				await Navigation.PopAsync();
-			}
+				Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorQueueDetailPage());
 			else
 				await Helper.Alert.DisplayAlert("Something went wrong please try again.");
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			Helper.Helper.SelectedTabQueueText = "Waiting";
+			Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+			await Task.CompletedTask;
 		}
 		#endregion
 

@@ -45,7 +45,21 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteGoToOperatorStatusQueueListCommand()
 		{
+			Helper.Helper.SelectedTabQueueText = "Waiting";
 			await Navigation.PushAsync(new Views.Queue.OperatorStatusQueueListPage());
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.CompanyDetailsPage());
+			await Task.CompletedTask;
 		}
 		#endregion
 
