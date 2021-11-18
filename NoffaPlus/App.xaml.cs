@@ -5,7 +5,7 @@ namespace NoffaPlus
 {
 	public partial class App : Application
 	{
-		#region App Constructor.
+		#region App Constructor .
 		public App()
 		{
 			InitializeComponent();
