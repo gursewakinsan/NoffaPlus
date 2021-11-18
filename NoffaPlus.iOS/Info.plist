@@ -32,7 +32,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>WORQ</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.NoffaPlus</string>
+	<string>com.worqDev</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
