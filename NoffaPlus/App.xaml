@@ -3,6 +3,7 @@
 	x:Class="NoffaPlus.App"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:converters="clr-namespace:NoffaPlus.Converters"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d">
@@ -56,6 +57,26 @@
 				x:TypeArguments="x:String"
 				Android="SFProDisplayBold.ttf#SFProDisplayBold"
 				iOS="SFProDisplayBold" />
+
+			<OnPlatform
+				x:Key="PoppinsBoldFontFamily"
+				x:TypeArguments="x:String"
+				Android="PoppinsBold.ttf#PoppinsBold"
+				iOS="PoppinsBold" />
+
+			<OnPlatform
+				x:Key="PoppinsRegularFontFamily"
+				x:TypeArguments="x:String"
+				Android="PoppinsRegular.ttf#PoppinsRegular"
+				iOS="PoppinsRegular" />
+
+			<OnPlatform
+				x:Key="PoppinsSemiBoldFontFamily"
+				x:TypeArguments="x:String"
+				Android="PoppinsSemiBold.ttf#PoppinsSemiBold"
+				iOS="PoppinsSemiBold" />
+
+			<converters:InverseBoolConverter x:Key="InverseBoolConverter" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

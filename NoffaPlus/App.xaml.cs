@@ -5,6 +5,11 @@ namespace NoffaPlus
 {
 	public partial class App : Application
 	{
+		#region App Screen Height/Width .
+		public static int ScreenHeight { get; set; }
+		public static int ScreenWidth { get; set; }
+		#endregion
+
 		#region App Constructor .
 		public App()
 		{

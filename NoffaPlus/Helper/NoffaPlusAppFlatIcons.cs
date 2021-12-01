@@ -47,5 +47,7 @@
 		public const string Leaf = "\U000f032a";
 		public const string GlassMugVariant = "\U000f1116";
 		public const string Star = "\U000f04ce";
+
+		public const string ChevronLeft = "\U000f0141";
 	}
 }

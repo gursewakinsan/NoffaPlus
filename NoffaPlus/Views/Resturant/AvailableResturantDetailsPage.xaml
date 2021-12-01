@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.Resturant.AvailableResturantDetailsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="32" />
+				<RowDefinition />
+				<RowDefinition Height="10" />
+				<RowDefinition Height="44" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="117" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="117" />
+			</Grid.ColumnDefinitions>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				Margin="15,0,0,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Start"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Button
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,0,15,0"
+				Padding="0"
+				BackgroundColor="#342B20"
+				CornerRadius="8"
+				FontAttributes="Bold"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="12"
+				HeightRequest="32"
+				HorizontalOptions="EndAndExpand"
+				Text="Get Wifi"
+				TextColor="#5DA1A6"
+				WidthRequest="102" />
+
+			<ScrollView
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
+				<StackLayout
+					Padding="0,20,0,0"
+					Spacing="0"
+					VerticalOptions="StartAndExpand">
+					<Label
+						x:Name="lblEatAndDrink"
+						Margin="28,0,28,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						MaxLines="1"
+						Opacity="0.5"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Margin="28,4,28,0"
+						FontAttributes="Bold"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="32"
+						HorizontalTextAlignment="Start"
+						MaxLines="1"
+						Text="{Binding AvailableResturantDetails.ResturantName}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Margin="28"
+						BackgroundColor="White"
+						HeightRequest="1"
+						Opacity="0.2" />
+
+					<ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+						<StackLayout
+							Margin="28,0,0,0"
+							BindableLayout.ItemsSource="{Binding AvailableResturantDetails.ServeTypes}"
+							Orientation="Horizontal">
+							<BindableLayout.ItemTemplate>
+								<DataTemplate>
+									<Button
+										Margin="0,0,10,0"
+										BackgroundColor="{Binding ServeBg}"
+										Clicked="OnServeButtonClicked"
+										CornerRadius="12"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="12"
+										HeightRequest="36"
+										HorizontalOptions="StartAndExpand"
+										Text="{Binding Serve}"
+										TextColor="White"
+										WidthRequest="{Binding ServeWidth}" />
+								</DataTemplate>
+							</BindableLayout.ItemTemplate>
+						</StackLayout>
+					</ScrollView>
+
+					<StackLayout Margin="28,47,0,0" BindableLayout.ItemsSource="{Binding ResturantServeBasedMenuInfo}">
+						<BindableLayout.ItemTemplate>
+							<DataTemplate>
+								<StackLayout>
+									<StackLayout
+										Margin="0,0,0,18"
+										Orientation="Horizontal"
+										Spacing="10">
+										<Label
+											FontAttributes="Bold"
+											FontFamily="PoppinsBoldFontFamily"
+											FontSize="20"
+											HorizontalOptions="StartAndExpand"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Text="{Binding FoodCategory}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											Margin="0,0,28,0"
+											FontAttributes="Bold"
+											FontFamily="PoppinsSemiBoldFontFamily"
+											FontSize="12"
+											HorizontalTextAlignment="End"
+											MaxLines="1"
+											Text="View all"
+											TextColor="#E08D70"
+											VerticalTextAlignment="Center" />
+									</StackLayout>
+
+									<ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+										<StackLayout BindableLayout.ItemsSource="{Binding Dishes}" Orientation="Horizontal">
+											<BindableLayout.ItemTemplate>
+												<DataTemplate>
+													<Grid>
+														<Grid.RowDefinitions>
+															<RowDefinition Height="244" />
+														</Grid.RowDefinitions>
+														<Grid.ColumnDefinitions>
+															<ColumnDefinition Width="152" />
+														</Grid.ColumnDefinitions>
+														<Frame
+															Grid.Row="0"
+															Grid.Column="0"
+															Margin="0,0,15,0"
+															Padding="16"
+															BackgroundColor="Transparent"
+															BorderColor="White"
+															CornerRadius="16"
+															HeightRequest="244"
+															HorizontalOptions="StartAndExpand"
+															IsClippedToBounds="True"
+															Opacity="0.2"
+															VerticalOptions="StartAndExpand"
+															WidthRequest="152" />
+
+														<Frame
+															Grid.Row="0"
+															Grid.Column="0"
+															Margin="0,0,15,0"
+															Padding="16"
+															BackgroundColor="Transparent"
+															BorderColor="Transparent"
+															CornerRadius="16"
+															HeightRequest="244"
+															HorizontalOptions="StartAndExpand"
+															IsClippedToBounds="True"
+															VerticalOptions="StartAndExpand"
+															WidthRequest="152">
+															<StackLayout Spacing="0">
+																<ImageButton
+																	Padding="0"
+																	Aspect="AspectFill"
+																	BackgroundColor="Black"
+																	Clicked="OnDishImageClicked"
+																	CornerRadius="16"
+																	HeightRequest="120"
+																	HorizontalOptions="Center"
+																	Source="{Binding DishImage}"
+																	VerticalOptions="Start"
+																	WidthRequest="120" />
+
+																<Label
+																	Margin="0,16,0,4"
+																	FontFamily="PoppinsSemiBoldFontFamily"
+																	FontSize="14"
+																	HorizontalTextAlignment="Start"
+																	LineBreakMode="TailTruncation"
+																	MaxLines="1"
+																	TextColor="White"
+																	VerticalTextAlignment="Start">
+																	<Label.FormattedText>
+																		<FormattedString>
+																			<Span Text="$" />
+																			<Span Text="{Binding DishPrice}" />
+																		</FormattedString>
+																	</Label.FormattedText>
+																</Label>
+
+																<Label
+																	FontFamily="PoppinsRegularFontFamily"
+																	FontSize="12"
+																	HorizontalOptions="StartAndExpand"
+																	HorizontalTextAlignment="Start"
+																	LineBreakMode="TailTruncation"
+																	MaxLines="1"
+																	Opacity="0.7"
+																	Text="{Binding DishName}"
+																	TextColor="White"
+																	VerticalTextAlignment="Start" />
+
+																<Label
+																	Margin="0,10,0,0"
+																	FontFamily="PoppinsRegularFontFamily"
+																	FontSize="12"
+																	HorizontalOptions="StartAndExpand"
+																	HorizontalTextAlignment="Start"
+																	IsVisible="{Binding TempAvailableItem}"
+																	LineBreakMode="TailTruncation"
+																	MaxLines="1"
+																	Opacity="0.7"
+																	Text="On stock"
+																	TextColor="#45C366"
+																	VerticalOptions="EndAndExpand"
+																	VerticalTextAlignment="End" />
+
+																<Label
+																	Margin="0,10,0,0"
+																	FontFamily="PoppinsRegularFontFamily"
+																	FontSize="12"
+																	HorizontalOptions="StartAndExpand"
+																	HorizontalTextAlignment="Start"
+																	IsVisible="{Binding TempAvailableItem, Converter={StaticResource InverseBoolConverter}}"
+																	LineBreakMode="TailTruncation"
+																	MaxLines="1"
+																	Opacity="0.7"
+																	Text="Out of stock"
+																	TextColor="#EF3B17"
+																	VerticalOptions="EndAndExpand"
+																	VerticalTextAlignment="End" />
+															</StackLayout>
+														</Frame>
+													</Grid>
+												</DataTemplate>
+											</BindableLayout.ItemTemplate>
+										</StackLayout>
+									</ScrollView>
+
+									<BoxView
+										Margin="0,28,28,28"
+										BackgroundColor="White"
+										HeightRequest="1"
+										Opacity="0.2" />
+								</StackLayout>
+							</DataTemplate>
+						</BindableLayout.ItemTemplate>
+					</StackLayout>
+				</StackLayout>
+			</ScrollView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

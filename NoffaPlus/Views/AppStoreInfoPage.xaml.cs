@@ -21,9 +21,12 @@ namespace NoffaPlus.Views
 			base.OnAppearing();
 		}
 
-		private void OnAppStoreItemTapped(object sender, ItemTappedEventArgs e)
+		private async void OnAppStoreItemTapped(object sender, ItemTappedEventArgs e)
 		{
+			Models.CompanyDownloadedAppsResponse selectedCompany = e.Item as Models.CompanyDownloadedAppsResponse;
 			listAppStore.SelectedItem = null;
+			if (selectedCompany.AppName.Equals("Food & Drinks"))
+				await Navigation.PushAsync(new Resturant.AvailableResturantListPage());
 		}
 	}
 }

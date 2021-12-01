@@ -32,6 +32,10 @@
 		public const string QueueServicingGuestDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/queueServicingGuestDetail";
 		public const string UpdateCloseServiceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCloseService";
 		public const string OperatorQueueWaitingCountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/operatorQueueWaitingCount";
+
+		//Resturant
+		public const string AvailableResturantListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/availableResturantList";
+		public const string ResturantServeBasedMenuUrl = "https://www.qloudid.com/user/index.php/QloudidApp/ResturantServeBasedMenu";
 	}
 }
 

@@ -19,5 +19,33 @@
 		public static Models.OperatorQueueResponse SelectedOperatorQueue { get; set; }
 		public static int QueueGuestId { get; set; }
 		public static string SelectedTabQueueText { get; set; } = string.Empty;
+
+		public static string[] ListIconBgColorList =
+		{
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125",
+			"#223426", "#282732", "#342334", "#FC7125"
+		};
+
+		public static string[] ListIconTextColorList =
+		{
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614",
+			"#4FD471", "#6F70FB", "#E340EC","#E53614"
+		};
 	}
 }
