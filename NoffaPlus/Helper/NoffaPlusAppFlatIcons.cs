@@ -49,5 +49,11 @@
 		public const string Star = "\U000f04ce";
 
 		public const string ChevronLeft = "\U000f0141";
+		public const string Heart = "\U000f02d1";
+		public const string MessageOutline = "\U000f0365";
+		public const string BookmarkPlusOutline = "\U000f00c4";
+		public const string MicrophoneOutline = "\U000f036e";
+		public const string ToggleSwitch = "\U000f0521";
+		public const string ToggleSwitchOff = "\U000f0522";
 	}
 }

@@ -23,9 +23,11 @@ namespace NoffaPlus.Views.Resturant
 			viewModel.ResturantServeBasedMenuCommand.Execute(null);
 		}
 
-		private void OnDishImageClicked(object sender, System.EventArgs e)
+		private async void OnDishImageClicked(object sender, System.EventArgs e)
 		{
-
+			ImageButton image = sender as ImageButton;
+			Models.Dish dish = image.BindingContext as Models.Dish;
+			await Navigation.PushAsync(new AvailableResturantCategoryMenuDetailsPage(dish));
 		}
 
 		private void OnServeButtonClicked(object sender, System.EventArgs e)
