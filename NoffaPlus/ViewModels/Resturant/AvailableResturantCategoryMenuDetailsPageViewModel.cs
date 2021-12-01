@@ -3,6 +3,7 @@ using NoffaPlus.Service;
 using NoffaPlus.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using Rg.Plugins.Popup.Extensions;
 
 namespace NoffaPlus.ViewModels
 {
@@ -23,8 +24,17 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteItemInStockCommand()
 		{
-			IsItemInStock = false;
-			await Task.CompletedTask;
+			ItemOutOfStockPopupContext context = new ItemOutOfStockPopupContext()
+			{
+				AvailableDishId = DishDetailsInfo.Id,
+				CallBack = ItemOutOfStockPopupCallBack
+			};
+			await Navigation.PushPopupAsync(new PopupPages.ItemOutOfStockPopupPage(context));
+		}
+
+		private async void ItemOutOfStockPopupCallBack()
+		{
+			await Navigation.PopAsync();
 		}
 		#endregion
 
@@ -36,8 +46,38 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteItemOutOfStockCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
+			IResturantService service = new ResturantService();
+			await service.UpdateDishStockAsync(new Models.UpdateDishStockRequest()
+			{
+				AvailableDishId = DishDetailsInfo.Id,
+				InStock = 1
+			});
+			DependencyService.Get<IProgressBar>().Hide();
 			IsItemInStock = true;
-			await Task.CompletedTask;
+			await Navigation.PopAsync();
+		}
+		#endregion
+
+		#region Remove this dish Command.
+		private ICommand removeThisDishCommand;
+		public ICommand RemoveThisDishCommand
+		{
+			get => removeThisDishCommand ?? (removeThisDishCommand = new Command(async () => await ExecuteRemoveThisDishCommand()));
+		}
+		private async Task ExecuteRemoveThisDishCommand()
+		{
+			DeleteDishItemPopupContext context = new DeleteDishItemPopupContext()
+			{
+				AvailableDishId = DishDetailsInfo.Id,
+				CallBack = DeleteDishItemPopupCallBack
+			};
+			await Navigation.PushPopupAsync(new PopupPages.RemoveTheDishPopupPage(context));
+		}
+
+		private async void DeleteDishItemPopupCallBack()
+		{
+			await Navigation.PopAsync();
 		}
 		#endregion
 

@@ -36,6 +36,8 @@
 		//Resturant
 		public const string AvailableResturantListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/availableResturantList";
 		public const string ResturantServeBasedMenuUrl = "https://www.qloudid.com/user/index.php/QloudidApp/ResturantServeBasedMenu";
+		public const string UpdateDishStockUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateDishStock";
+		public const string DeleteDishItemUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteDishItem";
 	}
 }
 

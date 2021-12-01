@@ -25,5 +25,23 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateDishStockAsync(Models.UpdateDishStockRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateDishStockUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> DeleteDishItemAsync(Models.DeleteDishItemRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.DeleteDishItemUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

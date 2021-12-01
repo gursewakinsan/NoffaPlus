@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+	x:Class="NoffaPlus.PopupPages.ItemOutOfStockPopupPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:pages="http://rotorgames.com">
+	<controls:CustomFrame
+		Padding="30"
+		BackgroundColor="#282732"
+		CornerRadius="30,30,30,30"
+		VerticalOptions="EndAndExpand">
+		<StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
+			<Label
+				FontAttributes="Bold"
+				FontFamily="PoppinsBoldFontFamily"
+				FontSize="24"
+				HorizontalTextAlignment="Center"
+				LineBreakMode="TailTruncation"
+				MaxLines="1"
+				Text="Out of stock"
+				TextColor="White" />
+
+			<Label
+				x:Name="lblHeading1"
+				Margin="0,5,0,40"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="14"
+				HorizontalOptions="CenterAndExpand"
+				HorizontalTextAlignment="Center"
+				LineHeight="1.2"
+				MaxLines="3"
+				Opacity="0.7"
+				TextColor="White" />
+
+			<controls:CustomButton
+				BackgroundColor="#5663FF"
+				Command="{Binding ItemOutOfStockCommand}"
+				CornerRadius="10"
+				FontFamily="SansProSemiBoldFontFamily"
+				HeightRequest="48"
+				Text="Remove"
+				TextColor="White"
+				WidthRequest="299" />
+		</StackLayout>
+	</controls:CustomFrame>
+</pages:PopupPage>

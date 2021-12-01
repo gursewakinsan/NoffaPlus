@@ -9,6 +9,7 @@ namespace NoffaPlus.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
+			Rg.Plugins.Popup.Popup.Init();
 			global::Xamarin.Forms.Forms.Init();
 			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;

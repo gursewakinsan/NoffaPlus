@@ -294,7 +294,11 @@
 							HorizontalTextAlignment="End"
 							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
 							TextColor="#6263ED"
-							VerticalTextAlignment="Center" />
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding RemoveThisDishCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
 
 						<BoxView
 							Grid.Row="3"
