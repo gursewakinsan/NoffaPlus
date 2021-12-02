@@ -219,7 +219,19 @@
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="14"
 							HorizontalTextAlignment="Start"
+							IsVisible="{Binding IsItemInStock}"
 							Text="In stock"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+						<Label
+							Grid.Row="0"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							IsVisible="{Binding IsItemInStock, Converter={StaticResource InverseBoolConverter}}"
+							Text="Out of stock"
 							TextColor="White"
 							VerticalTextAlignment="Center" />
 
@@ -246,7 +258,7 @@
 							HorizontalTextAlignment="End"
 							IsVisible="{Binding IsItemInStock, Converter={StaticResource InverseBoolConverter}}"
 							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-							TextColor="#6263ED"
+							TextColor="#363541"
 							VerticalTextAlignment="Center">
 							<Label.GestureRecognizers>
 								<TapGestureRecognizer Command="{Binding ItemOutOfStockCommand}" />
