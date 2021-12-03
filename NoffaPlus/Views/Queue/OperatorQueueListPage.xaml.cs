@@ -21,10 +21,17 @@ namespace NoffaPlus.Views.Queue
 			viewModel.GetOperatorQueueCommand.Execute(null);
 		}
 
-		private void OnOperatorQueueListItemTapped(object sender, System.EventArgs e)
+		private void OnGridOperatorQueueTapped(object sender, System.EventArgs e)
 		{
-			Frame frameOperatorQueueListItem = sender as Frame;
-			Helper.Helper.SelectedOperatorQueue = frameOperatorQueueListItem.BindingContext as Models.OperatorQueueResponse;
+			Grid grid = sender as Grid;
+			Helper.Helper.SelectedOperatorQueue = grid.BindingContext as Models.OperatorQueueResponse;
+			viewModel.GoToOperatorStatusQueueListCommand.Execute(null);
+		}
+
+		private void OnFrameOperatorQueueTapped(object sender, System.EventArgs e)
+		{
+			Frame frame = sender as Frame;
+			Helper.Helper.SelectedOperatorQueue = frame.BindingContext as Models.OperatorQueueResponse;
 			viewModel.GoToOperatorStatusQueueListCommand.Execute(null);
 		}
 	}

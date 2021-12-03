@@ -26,13 +26,22 @@ namespace NoffaPlus.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IQueueService service = new QueueService();
-			OperatorQueueList = await service.GetOperatorQueueAsync(new Models.OperatorQueueRequest()
+			var operatorQueue = await service.GetOperatorQueueAsync(new Models.OperatorQueueRequest()
 			{
 				UserId = Helper.Helper.LoggedInUserId,
 				CompanyId = Helper.Helper.CompanyId
 			});
-			if (OperatorQueueList?.Count > 0)
-				OperatorQueueAddress = OperatorQueueList[0].Address;
+			if (operatorQueue?.Count > 0)
+				OperatorQueueAddress = operatorQueue[0].Address;
+
+			int index = 0;
+			foreach (var queue in operatorQueue)
+			{
+				queue.FirstLetterBg = Helper.Helper.ListIconBgColorList[index];
+				queue.FirstLetterText = Helper.Helper.ListIconTextColorList[index];
+				index = index + 1;
+			}
+			OperatorQueueList = operatorQueue;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

@@ -100,23 +100,26 @@ namespace NoffaPlus.ViewModels
 			switch (tabText)
 			{
 				case "Waiting":
-					WaitingTabTextColor = Color.White;
-					InServiceTabTextColor = Color.FromHex("#7d8fbe");
-					ServicedTabTextColor = Color.FromHex("#7d8fbe");
+					ListTopText = "Waiting to be served";
+					WaitingButtonBg = Color.FromHex("#6263ED");
+					InServiceButtonBg = Color.FromHex("#2A2A31");
+					ServicedButtonBg = Color.FromHex("#2A2A31");
 					IsWaiting = true;
 					GetOperatorQueueWaitingCommand.Execute(null);
 					break;
 				case "In service":
-					InServiceTabTextColor = Color.White;
-					WaitingTabTextColor = Color.FromHex("#7d8fbe");
-					ServicedTabTextColor = Color.FromHex("#7d8fbe");
+					ListTopText = "People being served";
+					WaitingButtonBg = Color.FromHex("#2A2A31");
+					InServiceButtonBg = Color.FromHex("#6263ED");
+					ServicedButtonBg = Color.FromHex("#2A2A31");
 					IsInService = true;
 					GetOperatorQueueServingListCommand.Execute(null);
 					break;
-				case "Serviced":
-					ServicedTabTextColor = Color.White;
-					WaitingTabTextColor = Color.FromHex("#7d8fbe");
-					InServiceTabTextColor = Color.FromHex("#7d8fbe");
+				case "Served":
+					ListTopText = "People that´s been served";
+					WaitingButtonBg = Color.FromHex("#2A2A31");
+					InServiceButtonBg = Color.FromHex("#2A2A31");
+					ServicedButtonBg = Color.FromHex("#6263ED");
 					IsServiced = true;
 					GetOperatorQueueServedListCommand.Execute(null);
 					break;
@@ -186,14 +189,14 @@ namespace NoffaPlus.ViewModels
 			}
 		}
 
-		private Color waitingTabTextColor= Color.White;
-		public Color WaitingTabTextColor
+		private Color waitingButtonBg = Color.FromHex("#6263ED");
+		public Color WaitingButtonBg
 		{
-			get => waitingTabTextColor;
+			get => waitingButtonBg;
 			set
 			{
-				waitingTabTextColor = value;
-				OnPropertyChanged("WaitingTabTextColor");
+				waitingButtonBg = value;
+				OnPropertyChanged("WaitingButtonBg");
 			}
 		}
 
@@ -208,14 +211,14 @@ namespace NoffaPlus.ViewModels
 			}
 		}
 
-		private Color inServiceTabTextColor = Color.FromHex("#7d8fbe");
-		public Color InServiceTabTextColor
+		private Color inServiceButtonBg = Color.FromHex("#2A2A31");
+		public Color InServiceButtonBg
 		{
-			get => inServiceTabTextColor;
+			get => inServiceButtonBg;
 			set
 			{
-				inServiceTabTextColor = value;
-				OnPropertyChanged("InServiceTabTextColor");
+				inServiceButtonBg = value;
+				OnPropertyChanged("InServiceButtonBg");
 			}
 		}
 
@@ -230,14 +233,14 @@ namespace NoffaPlus.ViewModels
 			}
 		}
 
-		private Color servicedTabTextColor = Color.FromHex("#7d8fbe");
-		public Color ServicedTabTextColor
+		private Color servicedButtonBg = Color.FromHex("#2A2A31");
+		public Color ServicedButtonBg
 		{
-			get => servicedTabTextColor;
+			get => servicedButtonBg;
 			set
 			{
-				servicedTabTextColor = value;
-				OnPropertyChanged("ServicedTabTextColor");
+				servicedButtonBg = value;
+				OnPropertyChanged("ServicedButtonBg");
 			}
 		}
 
@@ -249,6 +252,17 @@ namespace NoffaPlus.ViewModels
 			{
 				personInLine = value;
 				OnPropertyChanged("PersonInLine");
+			}
+		}
+
+		private string listTopText = "Waiting to be served";
+		public string ListTopText
+		{
+			get => listTopText;
+			set
+			{
+				listTopText = value;
+				OnPropertyChanged("ListTopText");
 			}
 		}
 		#endregion
