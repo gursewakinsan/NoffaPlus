@@ -1,16 +1,304 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="NoffaPlus.MainPage">
+<ContentPage
+	x:Class="NoffaPlus.MainPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="32" />
+			<RowDefinition />
+			<RowDefinition Height="48" />
+		</Grid.RowDefinitions>
+		<Label
+			Grid.Row="0"
+			Margin="15,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+		<ScrollView Grid.Row="1" HorizontalScrollBarVisibility="Never">
+			<Grid Margin="0,65,0,0" RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="96" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="28" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid
+					Grid.Row="0"
+					HorizontalOptions="CenterAndExpand"
+					WidthRequest="96">
+					<ImageButton
+						Padding="0"
+						Aspect="AspectFit"
+						BackgroundColor="White"
+						CornerRadius="48"
+						Source="appIcon.png" />
 
+					<BoxView
+						Margin="0,0,5,0"
+						BackgroundColor="#181A1F"
+						CornerRadius="13"
+						HeightRequest="26"
+						HorizontalOptions="EndAndExpand"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="26" />
+
+					<BoxView
+						Margin="0,0,9,5"
+						BackgroundColor="White"
+						CornerRadius="9"
+						HeightRequest="18"
+						HorizontalOptions="EndAndExpand"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="18" />
+
+					<Label
+						Margin="0,0,5,0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalOptions="EndAndExpand"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckCircle}"
+						TextColor="#45C366"
+						VerticalOptions="EndAndExpand"
+						VerticalTextAlignment="End" />
+				</Grid>
+
+				<Label
+					Grid.Row="1"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="18"
+					HorizontalTextAlignment="Center"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="David Johansson"
+					TextColor="White"
+					VerticalTextAlignment="End" />
+
+				<Label
+					Grid.Row="2"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Center"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Opacity="0.5"
+					Text="7 people"
+					TextColor="White"
+					VerticalTextAlignment="End" />
+
+				<Grid
+					Grid.Row="4"
+					ColumnSpacing="0"
+					RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="40" />
+						<RowDefinition Height="40" />
+						<RowDefinition Height="84" />
+						<RowDefinition Height="20" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="100" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Label
+						Grid.Row="0"
+						Grid.Column="0"
+						Margin="28,0,0,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Opacity="0.5"
+						Text="Date"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="2th february at 2:32pm"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						Margin="28,0,0,0"
+						BackgroundColor="White"
+						Opacity="0.2" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="0"
+						Margin="28,0,0,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Opacity="0.5"
+						Text="Served by"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="Kowaken Ghirmai"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.2" />
+
+					<Grid
+						Grid.Row="6"
+						Grid.ColumnSpan="2"
+						ColumnSpacing="37"
+						HorizontalOptions="CenterAndExpand"
+						RowSpacing="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="64" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="64" />
+							<ColumnDefinition Width="64" />
+							<ColumnDefinition Width="64" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Grid.Row="0"
+							Grid.Column="0"
+							Padding="0"
+							BackgroundColor="#223426"
+							Command="{Binding GoToCheckInCommand}"
+							CornerRadius="28"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="22"
+							HeightRequest="56"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.PhoneOutline}"
+							TextColor="#45C366"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="56" />
+
+						<Label
+							Grid.Row="1"
+							Grid.Column="0"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="12"
+							HorizontalTextAlignment="Center"
+							MaxLines="1"
+							Opacity="0.7"
+							Text="Call"
+							TextColor="White"
+							VerticalTextAlignment="End" />
+
+						<Button
+							Grid.Row="0"
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="#242A37"
+							Command="{Binding GoToAllWaitCommand}"
+							CornerRadius="28"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="22"
+							HeightRequest="56"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.MessageTextOutline}"
+							TextColor="#4C7CE5"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="56" />
+
+						<Label
+							Grid.Row="1"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="12"
+							HorizontalTextAlignment="Center"
+							MaxLines="1"
+							Opacity="0.7"
+							Text="Message"
+							TextColor="White"
+							VerticalTextAlignment="End" />
+
+						<Button
+							Grid.Row="0"
+							Grid.Column="2"
+							Padding="0"
+							BackgroundColor="#342B20"
+							CornerRadius="28"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="22"
+							HeightRequest="56"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ShareVariant}"
+							TextColor="#FF9129"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="56" />
+
+						<Label
+							Grid.Row="1"
+							Grid.Column="2"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="12"
+							HorizontalTextAlignment="Center"
+							MaxLines="1"
+							Opacity="0.7"
+							Text="Share"
+							TextColor="White"
+							VerticalTextAlignment="End" />
+					</Grid>
+				</Grid>
+			</Grid>
+		</ScrollView>
+
+		<Button
+			Grid.Row="2"
+			Margin="28,0,28,0"
+			BackgroundColor="#6263ED"
+			CornerRadius="10"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			Text="Submit"
+			TextColor="White" />
+
+	</Grid>
 </ContentPage>

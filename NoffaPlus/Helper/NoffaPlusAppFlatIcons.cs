@@ -59,5 +59,11 @@
 		public const string SearchIcon = "\U000f0349";
 		public const string BellOutline = "\U000f009c";
 		public const string AccountOutline = "\U000f0013";
+		public const string PhoneOutline = "\U000f0df0";
+		public const string MessageTextOutline = "\U000f036a";
+		public const string ShareVariant = "\U000f0497";
+		public const string DotsHorizontal = "\U000f01d8";
+		public const string CheckboxMarkedCircle = "\U000f0133";
+		public const string CheckCircle = "\U000f05e0";
 	}
 }

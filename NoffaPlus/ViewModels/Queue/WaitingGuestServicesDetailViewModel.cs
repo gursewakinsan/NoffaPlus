@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using NoffaPlus.Service;
 using System.Windows.Input;
 using NoffaPlus.Interfaces;
@@ -50,7 +51,8 @@ namespace NoffaPlus.ViewModels
 			if (response == 1)
 			{
 				Helper.Helper.SelectedTabQueueText = "Waiting";
-				Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+				//Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+				await Navigation.PopAsync();
 			}
 			else
 				await Helper.Alert.DisplayAlert("Something went wrong please try again.");
@@ -75,7 +77,8 @@ namespace NoffaPlus.ViewModels
 			if (response == 1)
 			{
 				Helper.Helper.SelectedTabQueueText = "Waiting";
-				Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+				//Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+				await Navigation.PopAsync();
 			}
 			else
 				await Helper.Alert.DisplayAlert("Something went wrong please try again.");
@@ -101,7 +104,8 @@ namespace NoffaPlus.ViewModels
 			if (response == 1)
 			{
 				Helper.Helper.SelectedTabQueueText = "In service";
-				Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+				//Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+				await Navigation.PopAsync();
 			}
 			else
 				await Helper.Alert.DisplayAlert("Something went wrong please try again.");
@@ -117,8 +121,9 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteBackCommand()
 		{
-			Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
-			await Task.CompletedTask;
+			await Navigation.PopAsync();
+			//Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+			//await Task.CompletedTask;
 		}
 		#endregion
 
@@ -133,6 +138,9 @@ namespace NoffaPlus.ViewModels
 				OnPropertyChanged("QueueGuestDetail");
 			}
 		}
+
+		public string TodayDate => DateTime.Now.ToString("dd MMMM");
+		public string TodayTime => DateTime.Now.ToString("h:mm tt");
 		#endregion
 	}
 }

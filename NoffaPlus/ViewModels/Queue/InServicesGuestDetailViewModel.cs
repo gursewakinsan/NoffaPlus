@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using NoffaPlus.Service;
 using System.Windows.Input;
 using NoffaPlus.Interfaces;
@@ -75,8 +76,9 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteBackCommand()
 		{
 			Helper.Helper.SelectedTabQueueText = "Waiting";
-			Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
-			await Task.CompletedTask;
+			await Navigation.PopAsync();
+			//Application.Current.MainPage = new NavigationPage(new Views.Queue.OperatorStatusQueueListPage());
+			//await Task.CompletedTask;
 		}
 		#endregion
 
@@ -113,6 +115,9 @@ namespace NoffaPlus.ViewModels
 				OnPropertyChanged("AddedBy");
 			}
 		}
+
+		public string TodayDate => DateTime.Now.ToString("dd MMMM");
+		public string TodayTime => DateTime.Now.ToString("h:mm tt");
 		#endregion
 	}
 }
