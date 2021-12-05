@@ -15,7 +15,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="32" />
 				<RowDefinition />
-				<RowDefinition Height="48" />
+				<RowDefinition Height="auto" />
 			</Grid.RowDefinitions>
 			<Label
 				Grid.Row="0"
@@ -120,6 +120,8 @@
 							<RowDefinition Height="1" />
 							<RowDefinition Height="60" />
 							<RowDefinition Height="1" />
+							<RowDefinition Height="60" />
+							<RowDefinition Height="1" />
 							<RowDefinition Height="40" />
 							<RowDefinition Height="40" />
 							<RowDefinition Height="84" />
@@ -139,7 +141,7 @@
 							LineBreakMode="TailTruncation"
 							MaxLines="1"
 							Opacity="0.5"
-							Text="Date"
+							Text="Company"
 							TextColor="White"
 							VerticalTextAlignment="Center" />
 
@@ -155,9 +157,8 @@
 							VerticalTextAlignment="Center">
 							<Label.FormattedText>
 								<FormattedString>
-									<Span Text="{Binding TodayDate}" />
-									<Span Text=" at " />
-									<Span Text="{Binding TodayTime}" />
+									<Span Text="{Binding QueueServicingGuestDetail.TotalPerson}" />
+									<Span Text=" people" />
 								</FormattedString>
 							</Label.FormattedText>
 						</Label>
@@ -179,7 +180,7 @@
 							LineBreakMode="TailTruncation"
 							MaxLines="1"
 							Opacity="0.5"
-							Text="Served by"
+							Text="Date"
 							TextColor="White"
 							VerticalTextAlignment="Center" />
 
@@ -191,18 +192,58 @@
 							HorizontalTextAlignment="Start"
 							LineBreakMode="TailTruncation"
 							MaxLines="1"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding TodayDate}" />
+									<Span Text=" at " />
+									<Span Text="{Binding TodayTime}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<BoxView
+							Grid.Row="3"
+							Grid.ColumnSpan="2"
+							Margin="28,0,0,0"
+							BackgroundColor="White"
+							Opacity="0.2" />
+
+						<Label
+							Grid.Row="4"
+							Grid.Column="0"
+							Margin="28,0,0,0"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.5"
+							Text="Served by"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+						<Label
+							Grid.Row="4"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
 							Text="{Binding AddedBy}"
 							TextColor="White"
 							VerticalTextAlignment="Center" />
 
 						<BoxView
-							Grid.Row="3"
+							Grid.Row="5"
 							Grid.ColumnSpan="2"
 							BackgroundColor="White"
 							Opacity="0.2" />
 
 						<Grid
-							Grid.Row="6"
+							Grid.Row="7"
 							Grid.ColumnSpan="2"
 							ColumnSpacing="37"
 							HorizontalOptions="CenterAndExpand"
@@ -309,9 +350,11 @@
 				CornerRadius="10"
 				FontFamily="PoppinsSemiBoldFontFamily"
 				FontSize="16"
+				HeightRequest="48"
 				IsVisible="{Binding IsVisibleDone}"
-				Text="Submit"
-				TextColor="White" />
+				Text="Done"
+				TextColor="White"
+				VerticalOptions="EndAndExpand" />
 
 		</Grid>
 

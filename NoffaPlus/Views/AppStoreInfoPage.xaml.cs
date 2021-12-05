@@ -25,8 +25,10 @@ namespace NoffaPlus.Views
 		{
 			Models.CompanyDownloadedAppsResponse selectedCompany = e.Item as Models.CompanyDownloadedAppsResponse;
 			listAppStore.SelectedItem = null;
-			if (selectedCompany.AppName.Equals("Food & Drinks") || selectedCompany.AppName.Equals("Drop in"))
+			if (selectedCompany.AppName.Equals("Food & Drinks"))
 				await Navigation.PushAsync(new Resturant.AvailableResturantListPage());
+			else if (selectedCompany.AppName.Equals("Drop in"))
+				await Navigation.PushAsync(new Queue.OperatorQueueListPage());
 		}
 	}
 }
