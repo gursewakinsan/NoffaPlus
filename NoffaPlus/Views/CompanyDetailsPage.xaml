@@ -160,6 +160,7 @@
 							Grid.Row="0"
 							Padding="25"
 							BackgroundColor="#3DB9EC"
+							Clicked="OnScanQrClicked"
 							CornerRadius="50"
 							HeightRequest="100"
 							WidthRequest="100">
@@ -178,7 +179,11 @@
 							HorizontalTextAlignment="Center"
 							Text="Scan QR"
 							TextColor="#989D9E"
-							VerticalTextAlignment="Center" />
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="OnScanQrClicked" />
+							</Label.GestureRecognizers>
+						</Label>
 					</Grid>
 
 					<Grid

@@ -205,4 +205,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconCurveBottomGrayBig.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ErrorMessageBg.png" />
+  </ItemGroup>
 </Project>

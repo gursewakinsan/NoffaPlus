@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
+using ZXing.Net.Mobile.Forms;
 
 namespace NoffaPlus.Views
 {
@@ -9,6 +10,7 @@ namespace NoffaPlus.Views
 	public partial class CompanyDetailsPage : ContentPage
 	{
 		CompanyDetailsViewModel companyDetailsViewModel;
+		ZXingScannerPage scanPage;
 		int carouselViewPosition = 0;
 		public CompanyDetailsPage()
 		{
@@ -59,6 +61,50 @@ namespace NoffaPlus.Views
 		{
 			if (carouselViewPosition == 0)
 				companyDetailsViewModel.AttendanceCommand.Execute(null);
+		}
+
+		private async void OnScanQrClicked(object sender, EventArgs e)
+		{
+			var customOverlay = new StackLayout
+			{
+				HorizontalOptions = LayoutOptions.StartAndExpand,
+				VerticalOptions = LayoutOptions.StartAndExpand
+			};
+
+			var back = new ImageButton
+			{
+				Margin = new Thickness(15, 20, 0, 0),
+				BackgroundColor = Color.Transparent,
+				Source = "iconBack.png",
+				Padding = 10,
+				HeightRequest = 50,
+				WidthRequest = 50,
+				HorizontalOptions = LayoutOptions.StartAndExpand,
+				VerticalOptions = LayoutOptions.StartAndExpand
+			};
+
+			back.Clicked += OnBackClicked;
+			customOverlay.Children.Add(back);
+
+			this.scanPage = new ZXingScannerPage(customOverlay: customOverlay);
+			scanPage.OnScanResult += (result) => {
+				scanPage.IsScanning = false;
+				Device.BeginInvokeOnMainThread(async () => {
+					await Navigation.PopModalAsync();
+					companyDetailsViewModel.ScanQrCommand.Execute(result.Text);
+				});
+			};
+			scanPage.IsScanning = true;
+			await Navigation.PushModalAsync(scanPage);
+		}
+
+		private void OnBackClicked(object sender, EventArgs e)
+		{
+			Device.BeginInvokeOnMainThread(async () =>
+			{
+				this.scanPage.IsScanning = false;
+				await Navigation.PopModalAsync();
+			});
 		}
 	}
 }

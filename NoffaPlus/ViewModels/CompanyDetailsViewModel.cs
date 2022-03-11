@@ -130,7 +130,59 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Scan QR Command.
+		private ICommand scanQrCommand;
+		public ICommand ScanQrCommand
+		{
+			get => scanQrCommand ?? (scanQrCommand = new Command<string>(async (qrCode) => await ExecuteScanQrCommand(qrCode)));
+		}
+		private async Task ExecuteScanQrCommand(string qrCode)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			string[] ip = qrCode.Split('/');
+			if (ip.Length == 3)
+			{
+				if (ip[2].Equals("verify_hotel_staff"))
+				{
+					IpFromQr = ip[0];
+					Helper.Helper.HotelId = ip[1];
+					VerifEmployeeInfoCommand.Execute(null);
+				}
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Verif Employee Info Command.
+		private ICommand verifEmployeeInfoCommand;
+		public ICommand VerifEmployeeInfoCommand
+		{
+			get => verifEmployeeInfoCommand ?? (verifEmployeeInfoCommand = new Command(async () => await ExecuteVerifEmployeeInfoCommand()));
+		}
+		private async Task ExecuteVerifEmployeeInfoCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IVerifyHotelStaffService service = new VerifyHotelStaffService();
+			int response = await service.VerifEmployeeInfoAsync(new Models.VerifEmployeeInfoRequest()
+			{
+				HotelId = Helper.Helper.HotelId,
+				IpFromQr = IpFromQr,
+				CompanyId = Helper.Helper.CompanyId,
+				UserId = Helper.Helper.LoggedInUserId
+			});
+			if (response == 0)
+				Application.Current.MainPage = new NavigationPage(new Views.VerifyHotelStaff.NotAuthorizedForVerifyHotelStaffPage());
+			else if (response == 1)
+			{
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
+		public string IpFromQr { get; set; }
+
 		private Models.VerifyAdminResponse companyDetail;
 		public Models.VerifyAdminResponse CompanyDetail
 		{

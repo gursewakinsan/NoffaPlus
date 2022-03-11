@@ -98,5 +98,12 @@
     <EmbeddedResource Update="Views\VacationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\VerifyHotelStaff\NotAuthorizedForVerifyHotelStaffPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\VerifyHotelStaff\" />
   </ItemGroup>
 </Project>

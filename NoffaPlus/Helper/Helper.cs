@@ -20,6 +20,8 @@
 		public static int QueueGuestId { get; set; }
 		public static string SelectedTabQueueText { get; set; } = string.Empty;
 
+		public static string HotelId { get; set; }
+
 		public static string[] ListIconBgColorList =
 		{
 			"#223426", "#282732", "#342334", "#FC7125",
