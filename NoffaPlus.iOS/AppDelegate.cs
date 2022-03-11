@@ -11,6 +11,7 @@ namespace NoffaPlus.iOS
 			global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
 			Rg.Plugins.Popup.Popup.Init();
 			global::Xamarin.Forms.Forms.Init();
+			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
 			LoadApplication(new App());
