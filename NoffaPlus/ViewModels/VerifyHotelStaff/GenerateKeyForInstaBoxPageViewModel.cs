@@ -13,6 +13,7 @@ namespace NoffaPlus.ViewModels
 	{
 		#region Local Variable.
 		Timer timer;
+		int count = 1;
 		#endregion
 
 		#region Constructor.
@@ -21,7 +22,7 @@ namespace NoffaPlus.ViewModels
 			Navigation = navigation;
 			timer = new Timer();
 			timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-			timer.Interval = 240000;
+			timer.Interval = 60000;
 			timer.Enabled = true;
 		}
 		#endregion
@@ -29,9 +30,18 @@ namespace NoffaPlus.ViewModels
 		#region On Timed Event.
 		private void OnTimedEvent(object source, ElapsedEventArgs e)
 		{
-			timer.Stop();
-			timer.Enabled = false;
-			ReleaseHotelInstaboxCommand.Execute(null);
+			if (count == 4)
+			{
+				count = 1;
+				timer.Stop();
+				timer.Enabled = false;
+				ReleaseHotelInstaboxCommand.Execute(null);
+			}
+			else
+			{
+				count = count + 1;
+				timer.Start();
+			}
 		}
 		#endregion
 
