@@ -13,6 +13,7 @@ namespace NoffaPlus
 		#region App Constructor .
 		public App()
 		{
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTIzNzQzQDMxMzkyZTMzMmUzMFBIaTRVTHZ6RSt5ZFl4ZzFkTkhHSWcwTGFnQ0JkUjg4TEJNcnVhSUVZeUE9");
 			InitializeComponent();
 			MainPage = new Views.LoginPage();
 		}

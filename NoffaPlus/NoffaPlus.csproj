@@ -13,6 +13,8 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.3.0.43" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.43" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
@@ -98,12 +100,11 @@
     <EmbeddedResource Update="Views\VacationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\VerifyHotelStaff\GenerateKeyForInstaBoxPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\VerifyHotelStaff\NotAuthorizedForVerifyHotelStaffPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModels\VerifyHotelStaff\" />
   </ItemGroup>
 </Project>

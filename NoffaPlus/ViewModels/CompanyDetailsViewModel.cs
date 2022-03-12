@@ -174,8 +174,7 @@ namespace NoffaPlus.ViewModels
 			if (response == 0)
 				Application.Current.MainPage = new NavigationPage(new Views.VerifyHotelStaff.NotAuthorizedForVerifyHotelStaffPage());
 			else if (response == 1)
-			{
-			}
+				await Navigation.PushAsync(new Views.VerifyHotelStaff.GenerateKeyForInstaBoxPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

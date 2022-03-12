@@ -14,6 +14,7 @@ namespace NoffaPlus.iOS
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+			Syncfusion.ListView.XForms.iOS.SfListViewRenderer.Init();
 			LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
 		}

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.VerifyHotelStaff.GenerateKeyForInstaBoxPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,14,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Hotel room keys"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Margin="0,18,0,0" Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontSize="32"
+					Text="Drop keys"
+					TextColor="White" />
+
+				<Label
+					Margin="0,22,0,50"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="To drop pre-activated room keys for hotel guest follow procedure"
+					TextColor="White" />
+
+				<Label
+					Margin="0,0,0,22"
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontSize="18"
+					Text="Select"
+					TextColor="White" />
+
+				<Grid RowSpacing="38">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+					</Grid.RowDefinitions>
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Booking confirmation code"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<controls:CustomPicker
+							x:Name="pickerBookingConfirmationCode"
+							Title="Booking confirmation code"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							ItemDisplayBinding="{Binding CheckInCode}"
+							ItemsSource="{Binding HotelBookingListForKeyGenerationInfo}"
+							SelectedIndexChanged="OnBookingConfirmationCode"
+							SelectedItem="{Binding SelectedBookingConfirmationCode}"
+							TextColor="White"
+							TitleColor="#6263ED" />
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalOptions="CenterAndExpand"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Available box"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<controls:CustomPicker
+							x:Name="pickerInstaBoxInfo"
+							Title="Available box"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							ItemDisplayBinding="{Binding InstaBoxInfo}"
+							ItemsSource="{Binding HotelBookingInstaBoxListForKeyGenerationInfo}"
+							SelectedIndexChanged="OnInstaBoxInfo"
+							SelectedItem="{Binding SelectedAvailableBox}"
+							TextColor="White"
+							TitleColor="#6263ED" />
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalOptions="CenterAndExpand"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+
+		<controls:CustomButton
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="#6263ED"
+			Command="{Binding SubmitGenerateKeyForInstaBoxCommand}"
+			CornerRadius="10"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontSize="14"
+			Text="Submit"
+			TextColor="White" />
+	</Grid>
+</ContentPage>
