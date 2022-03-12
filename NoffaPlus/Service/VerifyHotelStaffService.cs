@@ -43,5 +43,14 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<int> ReleaseHotelInstaboxAsync(Models.HotelBookingInstaBoxListForKeyGenerationRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.ReleaseHotelInstaboxUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

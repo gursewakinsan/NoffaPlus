@@ -106,5 +106,8 @@
     <EmbeddedResource Update="Views\VerifyHotelStaff\NotAuthorizedForVerifyHotelStaffPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\VerifyHotelStaff\SessionExpiredForVerifyHotelStaffPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

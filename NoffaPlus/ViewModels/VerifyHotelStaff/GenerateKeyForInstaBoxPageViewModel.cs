@@ -11,10 +11,73 @@ namespace NoffaPlus.ViewModels
 {
 	public class GenerateKeyForInstaBoxPageViewModel : BaseViewModel
 	{
+		#region Local Variable.
+		Timer timer;
+		#endregion
+
 		#region Constructor.
 		public GenerateKeyForInstaBoxPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			timer = new Timer();
+			timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+			timer.Interval = 240000;
+			timer.Enabled = true;
+		}
+		#endregion
+
+		#region On Timed Event.
+		private void OnTimedEvent(object source, ElapsedEventArgs e)
+		{
+			timer.Stop();
+			timer.Enabled = false;
+			ReleaseHotelInstaboxCommand.Execute(null);
+		}
+		#endregion
+
+		#region Release Hotel Instabox Command.
+		private ICommand releaseHotelInstaboxCommand;
+		public ICommand ReleaseHotelInstaboxCommand
+		{
+			get => releaseHotelInstaboxCommand ?? (releaseHotelInstaboxCommand = new Command(async () => await ExecuteReleaseHotelInstaboxCommand()));
+		}
+		private async Task ExecuteReleaseHotelInstaboxCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IVerifyHotelStaffService service = new VerifyHotelStaffService();
+			await service.ReleaseHotelInstaboxAsync(new Models.HotelBookingInstaBoxListForKeyGenerationRequest()
+			{
+				HotelId = Helper.Helper.HotelId
+			});
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				Application.Current.MainPage = new NavigationPage(new Views.VerifyHotelStaff.SessionExpiredForVerifyHotelStaffPage());
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			if (timer.Enabled)
+			{
+				timer.Stop();
+				timer.Enabled = false;
+				DependencyService.Get<IProgressBar>().Show();
+				IVerifyHotelStaffService service = new VerifyHotelStaffService();
+				await service.ReleaseHotelInstaboxAsync(new Models.HotelBookingInstaBoxListForKeyGenerationRequest()
+				{
+					HotelId = Helper.Helper.HotelId
+				});
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+			await Navigation.PopAsync();
 		}
 		#endregion
 
@@ -55,6 +118,11 @@ namespace NoffaPlus.ViewModels
 				await Helper.Alert.DisplayAlert("Please select available box.");
 			else
 			{
+				if (timer.Enabled)
+				{
+					timer.Stop();
+					timer.Enabled = false;
+				}
 				DependencyService.Get<IProgressBar>().Show();
 				IVerifyHotelStaffService service = new VerifyHotelStaffService();
 				var response = await service.GenerateKeyForInstaBoxAsync(new Models.GenerateKeyForInstaBoxRequest()

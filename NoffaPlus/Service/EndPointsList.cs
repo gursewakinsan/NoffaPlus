@@ -44,5 +44,6 @@
 		public const string HotelBookingListForKeyGenerationUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForKeyGeneration";
 		public const string HotelBookingInstaBoxListForKeyGenerationUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingInstaBoxListForKeyGeneration";
 		public const string GenerateKeyForInstaBoxUrl = "https://www.qloudid.com/user/index.php/QloudidApp/generateKeyForInstaBox";
+		public const string ReleaseHotelInstaboxUrl = "https://www.qloudid.com/user/index.php/QloudidApp/releaseHotelInstabox";
 	}
 }
