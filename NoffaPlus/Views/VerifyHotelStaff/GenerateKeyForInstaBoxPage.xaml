@@ -30,6 +30,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="1"
+			Margin="-10,0,0,0"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="25"
 			HorizontalTextAlignment="Start"
@@ -60,7 +61,7 @@
 				<Label
 					FontAttributes="Bold"
 					FontFamily="{StaticResource PoppinsBoldFontFamily}"
-					FontSize="32"
+					FontSize="40"
 					Text="Drop keys"
 					TextColor="White" />
 
@@ -91,25 +92,28 @@
 						Grid.Row="0"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
-						FocusedColor="#6263ED"
-						FocusedStrokeWidth="0.5"
+						FocusedColor="#45C366"
+						FocusedStrokeWidth="3"
 						HeightRequest="56"
 						Hint="Booking confirmation code"
 						LeadingViewPosition="Inside"
 						OutlineCornerRadius="12"
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.HintLabelStyle>
+							<textinputlayout:LabelStyle FontFamily="{StaticResource PoppinsSemiBoldFontFamily}" FontSize="12" />
+						</textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<controls:CustomPicker
 							x:Name="pickerBookingConfirmationCode"
 							Title="Booking confirmation code"
 							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
+							FontSize="14"
 							ItemDisplayBinding="{Binding CheckInCode}"
 							ItemsSource="{Binding HotelBookingListForKeyGenerationInfo}"
 							SelectedIndexChanged="OnBookingConfirmationCode"
 							SelectedItem="{Binding SelectedBookingConfirmationCode}"
 							TextColor="White"
-							TitleColor="#6263ED" />
+							TitleColor="#797A7D" />
 						<textinputlayout:SfTextInputLayout.TrailingView>
 							<Label
 								FontFamily="{StaticResource MaterialFontFamily}"
@@ -127,25 +131,28 @@
 						Grid.Row="1"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
-						FocusedColor="#6263ED"
-						FocusedStrokeWidth="0.5"
+						FocusedColor="#45C366"
+						FocusedStrokeWidth="3"
 						HeightRequest="56"
 						Hint="Available box"
 						LeadingViewPosition="Inside"
 						OutlineCornerRadius="12"
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.HintLabelStyle>
+							<textinputlayout:LabelStyle FontFamily="{StaticResource PoppinsSemiBoldFontFamily}" FontSize="12" />
+						</textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<controls:CustomPicker
 							x:Name="pickerInstaBoxInfo"
 							Title="Available box"
 							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
+							FontSize="14"
 							ItemDisplayBinding="{Binding InstaBoxInfo}"
 							ItemsSource="{Binding HotelBookingInstaBoxListForKeyGenerationInfo}"
 							SelectedIndexChanged="OnInstaBoxInfo"
 							SelectedItem="{Binding SelectedAvailableBox}"
 							TextColor="White"
-							TitleColor="#6263ED" />
+							TitleColor="#797A7D" />
 						<textinputlayout:SfTextInputLayout.TrailingView>
 							<Label
 								FontFamily="{StaticResource MaterialFontFamily}"

@@ -22,7 +22,7 @@ namespace NoffaPlus.ViewModels
 			Navigation = navigation;
 			timer = new Timer();
 			timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-			timer.Interval = 60000;
+			timer.Interval = 30000;
 			timer.Enabled = true;
 		}
 		#endregion
@@ -30,7 +30,7 @@ namespace NoffaPlus.ViewModels
 		#region On Timed Event.
 		private void OnTimedEvent(object source, ElapsedEventArgs e)
 		{
-			if (count == 4)
+			if (count == 8)
 			{
 				count = 1;
 				timer.Stop();
