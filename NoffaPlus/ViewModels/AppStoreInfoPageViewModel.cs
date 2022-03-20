@@ -35,6 +35,27 @@ namespace NoffaPlus.ViewModels
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
+		 
+		#region Is HotelCommand.
+		private ICommand isHotelCommand;
+		public ICommand IsHotelCommand
+		{
+			get => isHotelCommand ?? (isHotelCommand = new Command(async () => await ExecuteIsHotelCommand()));
+		}
+		private async Task ExecuteIsHotelCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IResturantService service = new ResturantService();
+			int response = await service.IsHotelAsync(new Models.HotelBookingRequest()
+			{
+				CompanyId = Helper.Helper.CompanyId,
+				UserId = Helper.Helper.LoggedInUserId
+			});
+			if (response == 1)
+				await Navigation.PushAsync(new Views.Resturant.CheckInGuestPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
 
 		#region Properties.
 		private ObservableCollection<Models.CompanyDownloadedAppsResponse> companyDownloadedApps;
