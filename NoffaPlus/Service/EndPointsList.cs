@@ -40,6 +40,8 @@
 		public const string DeleteDishItemUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteDishItem";
 		public const string IsHotelUrl = "https://www.qloudid.com/user/index.php/QloudidApp/isHotel";
 		public const string HotelBookingListForFrontDeskCheckinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskCheckin";
+		public const string HotelBookingListForFrontDeskKeyHandlingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskKeyhandling";
+		public const string HandoverKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/handoverKey";
 
 		//Verify Hotel Staff
 		public const string VerifEmployeeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifEmployeeInfo";

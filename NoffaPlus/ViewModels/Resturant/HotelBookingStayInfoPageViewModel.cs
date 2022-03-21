@@ -24,5 +24,17 @@ namespace NoffaPlus.ViewModels
 			await Navigation.PushAsync(new Views.Resturant.CheckInGuestPage());
 		}
 		#endregion
+
+		#region Key-in flow Command.
+		private ICommand keyInFlowCommand;
+		public ICommand KeyInFlowCommand
+		{
+			get => keyInFlowCommand ?? (keyInFlowCommand = new Command(async () => await ExecuteKeyInFlowCommand()));
+		}
+		private async Task ExecuteKeyInFlowCommand()
+		{
+			await Navigation.PushAsync(new Views.Resturant.HandOverkeyPage());
+		}
+		#endregion
 	}
 }

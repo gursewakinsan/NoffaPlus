@@ -68,5 +68,6 @@
 		public const string CheckCircle = "\U000f05e0";
 		public const string ArrowRight = "\U000f0054";
 		public const string ChevronDown = "\U000f0140";
+		public const string CheckboxMarked = "\U000f0132";
 	}
 }

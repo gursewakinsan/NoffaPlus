@@ -253,24 +253,38 @@
 								CornerRadius="12"
 								HasShadow="False"
 								IsClippedToBounds="True">
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding KeyInFlowCommand}" />
+								</Frame.GestureRecognizers>
 								<StackLayout
 									HorizontalOptions="CenterAndExpand"
 									Orientation="Horizontal"
 									Spacing="8"
 									VerticalOptions="CenterAndExpand">
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding KeyInFlowCommand}" />
+									</StackLayout.GestureRecognizers>
 									<Label
 										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 										FontSize="16"
 										Text="Key-in flow"
 										TextColor="#342B20"
-										VerticalOptions="CenterAndExpand" />
+										VerticalOptions="CenterAndExpand">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Command="{Binding KeyInFlowCommand}" />
+										</Label.GestureRecognizers>
+									</Label>
 
 									<Label
 										FontFamily="{StaticResource MaterialFontFamily}"
 										FontSize="22"
 										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowRight}"
 										TextColor="White"
-										VerticalOptions="CenterAndExpand" />
+										VerticalOptions="CenterAndExpand">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Command="{Binding KeyInFlowCommand}" />
+										</Label.GestureRecognizers>
+									</Label>
 								</StackLayout>
 							</Frame>
 						</Grid>
