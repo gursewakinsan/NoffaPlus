@@ -52,7 +52,7 @@ namespace NoffaPlus.ViewModels
 				UserId = Helper.Helper.LoggedInUserId
 			});
 			if (response == 1)
-				await Navigation.PushAsync(new Views.Resturant.CheckInGuestPage());
+				await Navigation.PushAsync(new Views.Resturant.HotelBookingStayInfoPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

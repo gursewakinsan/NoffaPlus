@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.Resturant.HotelBookingStayInfoPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid
+			Margin="0,14,0,0"
+			ColumnSpacing="0"
+			RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="24" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="28" />
+				<ColumnDefinition Width="70" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="70" />
+				<ColumnDefinition Width="28" />
+			</Grid.ColumnDefinitions>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Margin="-10,0,0,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Start"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="2"
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="14"
+				HorizontalTextAlignment="Center"
+				LineBreakMode="TailTruncation"
+				MaxLines="1"
+				Text="Stay app"
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<Frame
+				Grid.Row="0"
+				Grid.Column="3"
+				Padding="0"
+				BackgroundColor="Transparent"
+				BorderColor="#2A2A31"
+				HasShadow="False"
+				HorizontalOptions="EndAndExpand"
+				IsClippedToBounds="True"
+				VerticalOptions="CenterAndExpand">
+				<Label
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="25"
+					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+					TextColor="White" />
+			</Frame>
+
+			<ScrollView
+				Grid.Row="1"
+				Grid.ColumnSpan="5"
+				VerticalScrollBarVisibility="Never">
+				<Grid
+					Margin="0,31,0,0"
+					ColumnSpacing="0"
+					RowSpacing="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="28" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="28" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="48" />
+						<RowDefinition Height="9" />
+						<RowDefinition Height="52" />
+						<RowDefinition Height="31" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="37" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="31" />
+					</Grid.RowDefinitions>
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						FontAttributes="Bold"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="32"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="Hotel"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="1"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						LineHeight="1.2"
+						MaxLines="2"
+						Opacity="0.4"
+						Text="These are the flows deligated to you for your work duties."
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Frame
+						Grid.Row="4"
+						Grid.Column="1"
+						Padding="25,27,25,22"
+						BackgroundColor="#342B20"
+						CornerRadius="20"
+						HasShadow="False"
+						IsClippedToBounds="True">
+						<Grid ColumnSpacing="0" RowSpacing="0">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="36" />
+								<RowDefinition Height="9" />
+								<RowDefinition Height="48" />
+								<RowDefinition Height="18" />
+								<RowDefinition Height="56" />
+							</Grid.RowDefinitions>
+							<Label
+								Grid.Row="0"
+								FontAttributes="Bold"
+								FontFamily="PoppinsBoldFontFamily"
+								FontSize="24"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="Check-in"
+								TextColor="#FF9129"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="2"
+								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								LineHeight="1.2"
+								MaxLines="2"
+								Text="Click on this button if you wish to check-in a guest"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Frame
+								Grid.Row="4"
+								Padding="0"
+								BackgroundColor="#FF9129"
+								CornerRadius="12"
+								HasShadow="False"
+								IsClippedToBounds="True">
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding CheckInFlowCommand}" />
+								</Frame.GestureRecognizers>
+								<StackLayout
+									HorizontalOptions="CenterAndExpand"
+									Orientation="Horizontal"
+									Spacing="8"
+									VerticalOptions="CenterAndExpand">
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding CheckInFlowCommand}" />
+									</StackLayout.GestureRecognizers>
+									<Label
+										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontSize="16"
+										Text="Check-in flow"
+										TextColor="#342B20"
+										VerticalOptions="CenterAndExpand">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Command="{Binding CheckInFlowCommand}" />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="22"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowRight}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Command="{Binding CheckInFlowCommand}" />
+										</Label.GestureRecognizers>
+									</Label>
+								</StackLayout>
+							</Frame>
+
+
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="6"
+						Grid.Column="1"
+						Padding="25,27,25,22"
+						BackgroundColor="#342334"
+						CornerRadius="20"
+						HasShadow="False"
+						IsClippedToBounds="True">
+						<Grid ColumnSpacing="0" RowSpacing="0">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="36" />
+								<RowDefinition Height="9" />
+								<RowDefinition Height="48" />
+								<RowDefinition Height="18" />
+								<RowDefinition Height="56" />
+							</Grid.RowDefinitions>
+							<Label
+								Grid.Row="0"
+								FontAttributes="Bold"
+								FontFamily="PoppinsBoldFontFamily"
+								FontSize="24"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="Key"
+								TextColor="#D23CE6"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="2"
+								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								LineHeight="1.2"
+								MaxLines="2"
+								Text="Click on this button if you wish to give a key to a hotel guest"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Frame
+								Grid.Row="4"
+								Padding="0"
+								BackgroundColor="#D23CE6"
+								CornerRadius="12"
+								HasShadow="False"
+								IsClippedToBounds="True">
+								<StackLayout
+									HorizontalOptions="CenterAndExpand"
+									Orientation="Horizontal"
+									Spacing="8"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontSize="16"
+										Text="Key-in flow"
+										TextColor="#342B20"
+										VerticalOptions="CenterAndExpand" />
+
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="22"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowRight}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand" />
+								</StackLayout>
+							</Frame>
+						</Grid>
+					</Frame>
+				</Grid>
+			</ScrollView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
