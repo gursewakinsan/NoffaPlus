@@ -155,6 +155,7 @@
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
+								LineHeight="1.2"
 								MaxLines="2"
 								Opacity="0.7"
 								Text="Select the room beloning to the guest you wish to activate the app"
