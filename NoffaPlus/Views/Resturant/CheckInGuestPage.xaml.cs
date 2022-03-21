@@ -26,6 +26,8 @@ namespace NoffaPlus.Views.Resturant
 			Controls.CustomPicker picker = sender as Controls.CustomPicker;
 			if (picker.SelectedIndex == -1)
 				return;
+			else
+				if (!viewModel.IsSelected) viewModel.IsSelected = true;
 		}
 	}
 }

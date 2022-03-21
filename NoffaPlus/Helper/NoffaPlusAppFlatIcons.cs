@@ -16,6 +16,7 @@
 		public const string ChevronRight = "\U000f0142";
 		public const string Help = "\U000f02d6";
 		public const string Plus = "\U000f0415";
+		public const string Minus = "\U000f0374";
 		public const string Close = "\U000f0156";
 		public const string Search = "\U000f0349";
 		public const string MapMarker = "\U000f034e";
