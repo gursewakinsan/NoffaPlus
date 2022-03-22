@@ -55,7 +55,7 @@
 			HorizontalTextAlignment="Center"
 			LineBreakMode="TailTruncation"
 			MaxLines="1"
-			Text="Handover key"
+			Text="Hotel"
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
@@ -85,7 +85,7 @@
 				FontFamily="{StaticResource PoppinsRegularFontFamily}"
 				FontSize="18"
 				Opacity="0.4"
-				Text="Select"
+				Text="Handover keys"
 				TextColor="White"
 				VerticalTextAlignment="Start" />
 
@@ -93,7 +93,7 @@
 				FontAttributes="Bold"
 				FontFamily="{StaticResource PoppinsBoldFontFamily}"
 				FontSize="32"
-				Text="Guest"
+				Text="Select guest"
 				TextColor="White"
 				VerticalTextAlignment="End" />
 		</StackLayout>
@@ -173,7 +173,7 @@
 				CornerRadius="12"
 				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 				FontSize="12"
-				Text="New keys"
+				Text="No keys"
 				TextColor="White" />
 
 			<controls:CustomButton
@@ -183,7 +183,7 @@
 				CornerRadius="12"
 				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 				FontSize="12"
-				Text="Change keys"
+				Text="Need new keys"
 				TextColor="White" />
 		</StackLayout>
 
