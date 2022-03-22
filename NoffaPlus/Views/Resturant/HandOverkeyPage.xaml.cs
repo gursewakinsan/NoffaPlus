@@ -13,7 +13,7 @@ namespace NoffaPlus.Views.Resturant
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new HandOverkeyPageViewModel(this.Navigation);
-			viewModel.HotelBookingListForFrontDeskKeyHandlingCommand.Execute(null);
+			viewModel.NewKeysCommand.Execute(null);
 		}
 
 		private void OnHotelBookingListForFrontDeskKeyHandlingItemTapped(object sender, ItemTappedEventArgs e)
@@ -24,6 +24,7 @@ namespace NoffaPlus.Views.Resturant
 			{
 				if (item.Id.Equals(info.Id))
 				{
+					viewModel.SelectedHandOverKey = info.Id;
 					item.IsChecked = !item.IsChecked;
 					viewModel.IsSubmitVisible = item.IsChecked;
 				}

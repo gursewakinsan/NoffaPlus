@@ -1,4 +1,6 @@
-﻿namespace NoffaPlus.Models
+﻿using Xamarin.Forms;
+
+namespace NoffaPlus.Models
 {
 	public class HotelBookingListForFrontDeskKeyHandlingResponse : BaseModel
 	{
@@ -27,7 +29,38 @@
 			set
 			{
 				isChecked = value;
-				OnPropertyChanged("IsChecked");
+				if (isChecked)
+				{
+					CheckedColor = Color.FromHex("#D23CE6");
+					CheckedBgColor = Color.White;
+				}
+				else
+				{
+					CheckedColor = Color.FromHex("#363541");
+					CheckedBgColor = Color.Black;
+				}
+			}
+		}
+
+		private Color checkedColor = Color.FromHex("#363541");
+		public Color CheckedColor
+		{
+			get => checkedColor;
+			set
+			{
+				checkedColor = value;
+				OnPropertyChanged("CheckedColor");
+			}
+		}
+
+		private Color checkedBgColor = Color.Black;
+		public Color CheckedBgColor
+		{
+			get => checkedBgColor;
+			set
+			{
+				checkedBgColor = value;
+				OnPropertyChanged("CheckedBgColor");
 			}
 		}
 	}

@@ -71,6 +71,15 @@ namespace NoffaPlus.Service
 			});
 		}
 
+		public Task<List<Models.HotelBookingListForFrontDeskKeyHandlingResponse>> HotelBookingListForFrontDeskReceivedKeyAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.HotelBookingListForFrontDeskKeyHandlingResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.HotelBookingListForFrontDeskReceivedKeyUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
 		public Task<int> HandOverKeyAsync(Models.HandoverKeyRequest request)
 		{
 			return Task.Factory.StartNew(() =>

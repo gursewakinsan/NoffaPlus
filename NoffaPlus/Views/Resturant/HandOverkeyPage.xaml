@@ -20,6 +20,8 @@
 			<RowDefinition Height="20" />
 			<RowDefinition Height="45" />
 			<RowDefinition Height="18" />
+			<RowDefinition Height="36" />
+			<RowDefinition Height="18" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="auto" />
 		</Grid.RowDefinitions>
@@ -66,6 +68,7 @@
 			HasShadow="False"
 			HorizontalOptions="EndAndExpand"
 			IsClippedToBounds="True"
+			IsVisible="False"
 			VerticalOptions="CenterAndExpand">
 			<Label
 				FontFamily="{StaticResource MaterialFontFamily}"
@@ -155,9 +158,38 @@
 			</Label>
 		</Grid>
 
+		<StackLayout
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			HorizontalOptions="StartAndExpand"
+			Orientation="Horizontal"
+			Spacing="12">
+
+			<controls:CustomButton
+				Padding="15,0,15,0"
+				BackgroundColor="{Binding NewKeysButtonBg}"
+				Command="{Binding NewKeysCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="12"
+				Text="New keys"
+				TextColor="White" />
+
+			<controls:CustomButton
+				Padding="15,0,15,0"
+				BackgroundColor="{Binding ChangeKeysButtonBg}"
+				Command="{Binding ChangeKeysCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="12"
+				Text="Change keys"
+				TextColor="White" />
+		</StackLayout>
+
 		<ListView
 			x:Name="listHotelBookingForFrontDeskKeyHandling"
-			Grid.Row="6"
+			Grid.Row="8"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
 			BackgroundColor="Transparent"
@@ -214,10 +246,9 @@
 							<BoxView
 								Grid.Row="1"
 								Grid.Column="2"
-								BackgroundColor="White"
+								BackgroundColor="{Binding CheckedBgColor}"
 								HeightRequest="15"
 								HorizontalOptions="CenterAndExpand"
-								IsVisible="{Binding IsChecked}"
 								VerticalOptions="CenterAndExpand"
 								WidthRequest="15" />
 
@@ -227,9 +258,8 @@
 								FontFamily="{StaticResource MaterialFontFamily}"
 								FontSize="24"
 								HorizontalTextAlignment="End"
-								IsVisible="{Binding IsChecked}"
 								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}"
-								TextColor="#45C366"
+								TextColor="{Binding CheckedColor}"
 								VerticalTextAlignment="Center" />
 
 							<controls:CustomBoxView
@@ -243,19 +273,18 @@
 			</ListView.ItemTemplate>
 		</ListView>
 
-
 		<controls:CustomButton
-			Grid.Row="7"
+			Grid.Row="9"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
 			Margin="0,5,0,5"
-			BackgroundColor="#45C366"
+			BackgroundColor="#D23CE6"
 			Command="{Binding SubmitHandOverKeyCommand}"
 			CornerRadius="12"
 			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 			FontSize="16"
 			IsVisible="{Binding IsSubmitVisible}"
 			Text="Submit"
-			TextColor="#223426" />
+			TextColor="White" />
 	</Grid>
 </ContentPage>

@@ -12,6 +12,8 @@ namespace NoffaPlus.Interfaces
 		Task<int> IsHotelAsync(Models.HotelBookingRequest request);
 		Task<List<Models.HotelBookingListForFrontDeskCheckinResponse>> HotelBookingListForFrontDeskCheckinAsync(Models.HotelBookingRequest request);
 		Task<List<Models.HotelBookingListForFrontDeskKeyHandlingResponse>> HotelBookingListForFrontDeskKeyHandlingAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request);
+		Task<List<Models.HotelBookingListForFrontDeskKeyHandlingResponse>> HotelBookingListForFrontDeskReceivedKeyAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request);
 		Task<int> HandOverKeyAsync(Models.HandoverKeyRequest request);
 	}
 }
+
