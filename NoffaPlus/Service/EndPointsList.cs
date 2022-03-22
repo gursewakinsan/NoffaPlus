@@ -43,6 +43,8 @@
 		public const string HotelBookingListForFrontDeskKeyHandlingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskKeyhandling";
 		public const string HandoverKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/handoverKey";
 		public const string HotelBookingListForFrontDeskReceivedKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskReceivedKey";
+		public const string HotelBookingListForFrontDeskCheckoutUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskCheckout";
+		public const string CheckOutGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkOutGuest";
 
 		//Verify Hotel Staff
 		public const string VerifEmployeeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifEmployeeInfo";

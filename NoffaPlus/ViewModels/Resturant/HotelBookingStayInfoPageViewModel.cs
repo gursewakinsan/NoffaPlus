@@ -36,5 +36,17 @@ namespace NoffaPlus.ViewModels
 			await Navigation.PushAsync(new Views.Resturant.HandOverkeyPage());
 		}
 		#endregion
+
+		#region Checkout In Flow Command.
+		private ICommand checkoutInFlowCommand;
+		public ICommand CheckoutInFlowCommand
+		{
+			get => checkoutInFlowCommand ?? (checkoutInFlowCommand = new Command(async () => await ExecuteCheckoutInFlowCommand()));
+		}
+		private async Task ExecuteCheckoutInFlowCommand()
+		{
+			await Navigation.PushAsync(new Views.Resturant.CheckOutGuestPage());
+		}
+		#endregion
 	}
 }

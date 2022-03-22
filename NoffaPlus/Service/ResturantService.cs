@@ -88,5 +88,23 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.HotelBookingListForFrontDeskCheckoutResponse>> HotelBookingListForFrontDeskCheckoutAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.HotelBookingListForFrontDeskCheckoutResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.HotelBookingListForFrontDeskCheckoutUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> CheckOutGuestAsync(Models.HandoverKeyRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.CheckOutGuestUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }
