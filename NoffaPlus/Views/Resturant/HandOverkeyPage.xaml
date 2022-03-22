@@ -218,7 +218,7 @@
 								Grid.Row="1"
 								Grid.Column="0"
 								Aspect="AspectFill"
-								BackgroundColor="Transparent"
+								BackgroundColor="Black"
 								CornerRadius="24"
 								HeightRequest="48"
 								HorizontalOptions="CenterAndExpand"
