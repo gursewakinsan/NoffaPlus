@@ -38,13 +38,6 @@
 		public const string ResturantServeBasedMenuUrl = "https://www.qloudid.com/user/index.php/QloudidApp/ResturantServeBasedMenu";
 		public const string UpdateDishStockUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateDishStock";
 		public const string DeleteDishItemUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteDishItem";
-		public const string IsHotelUrl = "https://www.qloudid.com/user/index.php/QloudidApp/isHotel";
-		public const string HotelBookingListForFrontDeskCheckinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskCheckin";
-		public const string HotelBookingListForFrontDeskKeyHandlingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskKeyhandling";
-		public const string HandoverKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/handoverKey";
-		public const string HotelBookingListForFrontDeskReceivedKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskReceivedKey";
-		public const string HotelBookingListForFrontDeskCheckoutUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskCheckout";
-		public const string CheckOutGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkOutGuest";
 
 		//Verify Hotel Staff
 		public const string VerifEmployeeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifEmployeeInfo";
@@ -52,5 +45,16 @@
 		public const string HotelBookingInstaBoxListForKeyGenerationUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingInstaBoxListForKeyGeneration";
 		public const string GenerateKeyForInstaBoxUrl = "https://www.qloudid.com/user/index.php/QloudidApp/generateKeyForInstaBox";
 		public const string ReleaseHotelInstaboxUrl = "https://www.qloudid.com/user/index.php/QloudidApp/releaseHotelInstabox";
+
+		//Hotel
+		public const string IsHotelUrl = "https://www.qloudid.com/user/index.php/QloudidApp/isHotel";
+		public const string HotelBookingListForFrontDeskCheckinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskCheckin";
+		public const string HotelBookingListForFrontDeskKeyHandlingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskKeyhandling";
+		public const string HandoverKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/handoverKey";
+		public const string HotelBookingListForFrontDeskReceivedKeyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskReceivedKey";
+		public const string HotelBookingListForFrontDeskCheckoutUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForFrontDeskCheckout";
+		public const string CheckOutGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkOutGuest";
+		public const string HotelBookingListForCleningStaffUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForCleningStaff";
+		public const string AllocateRoomForCleaningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/allocateRoomForCleaning";
 	}
 }

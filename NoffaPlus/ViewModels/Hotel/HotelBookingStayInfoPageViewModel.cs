@@ -21,7 +21,7 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteCheckInFlowCommand()
 		{
-			await Navigation.PushAsync(new Views.Resturant.CheckInGuestPage());
+			await Navigation.PushAsync(new Views.Hotel.CheckInGuestPage());
 		}
 		#endregion
 
@@ -33,7 +33,7 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteKeyInFlowCommand()
 		{
-			await Navigation.PushAsync(new Views.Resturant.HandOverkeyPage());
+			await Navigation.PushAsync(new Views.Hotel.HandOverkeyPage());
 		}
 		#endregion
 
@@ -45,7 +45,19 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteCheckoutInFlowCommand()
 		{
-			await Navigation.PushAsync(new Views.Resturant.CheckOutGuestPage());
+			await Navigation.PushAsync(new Views.Hotel.CheckOutGuestPage());
+		}
+		#endregion
+
+		#region Clean In Flow Command.
+		private ICommand cleanInFlowCommand;
+		public ICommand CleanInFlowCommand
+		{
+			get => cleanInFlowCommand ?? (cleanInFlowCommand = new Command(async () => await ExecuteCleanInFlowCommand()));
+		}
+		private async Task ExecuteCleanInFlowCommand()
+		{
+			await Navigation.PushAsync(new Views.Hotel.CleanRoomPage());
 		}
 		#endregion
 	}

@@ -45,14 +45,14 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteIsHotelCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			int response = await service.IsHotelAsync(new Models.HotelBookingRequest()
 			{
 				CompanyId = Helper.Helper.CompanyId,
 				UserId = Helper.Helper.LoggedInUserId
 			});
 			if (response == 1)
-				await Navigation.PushAsync(new Views.Resturant.HotelBookingStayInfoPage());
+				await Navigation.PushAsync(new Views.Hotel.HotelBookingStayInfoPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

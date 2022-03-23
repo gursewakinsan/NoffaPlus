@@ -22,7 +22,7 @@ namespace NoffaPlus.ViewModels
 		private ICommand newKeysCommand;
 		public ICommand NewKeysCommand
 		{
-			get => newKeysCommand ?? (newKeysCommand = new Command( () =>  ExecuteNewKeysCommand()));
+			get => newKeysCommand ?? (newKeysCommand = new Command(() => ExecuteNewKeysCommand()));
 		}
 		private void ExecuteNewKeysCommand()
 		{
@@ -57,7 +57,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteHotelBookingListForFrontDeskKeyHandlingCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			var responses = await service.HotelBookingListForFrontDeskKeyHandlingAsync(new Models.HotelBookingListForFrontDeskKeyHandlingRequest()
 			{
 				CompanyId = Helper.Helper.CompanyId,
@@ -85,7 +85,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteHotelBookingListForFrontDeskReceivedKeyCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			var responses = await service.HotelBookingListForFrontDeskReceivedKeyAsync(new Models.HotelBookingListForFrontDeskKeyHandlingRequest()
 			{
 				CompanyId = Helper.Helper.CompanyId,
@@ -113,7 +113,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteSubmitHandOverKeyCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			var responses = await service.HandOverKeyAsync(new Models.HandoverKeyRequest()
 			{
 				Id = SelectedHandOverKey
@@ -127,7 +127,7 @@ namespace NoffaPlus.ViewModels
 		private ICommand searchCommand;
 		public ICommand SearchCommand
 		{
-			get => searchCommand ?? (searchCommand = new Command( () =>  ExecuteSearchCommand()));
+			get => searchCommand ?? (searchCommand = new Command(() => ExecuteSearchCommand()));
 		}
 		private void ExecuteSearchCommand()
 		{

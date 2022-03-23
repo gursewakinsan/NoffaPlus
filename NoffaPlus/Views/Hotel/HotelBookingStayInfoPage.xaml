@@ -1,12 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="NoffaPlus.Views.Resturant.HotelBookingStayInfoPage"
+	x:Class="NoffaPlus.Views.Hotel.HotelBookingStayInfoPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
@@ -89,6 +87,8 @@
 						<RowDefinition Height="9" />
 						<RowDefinition Height="52" />
 						<RowDefinition Height="31" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="37" />
 						<RowDefinition Height="auto" />
 						<RowDefinition Height="37" />
 						<RowDefinition Height="auto" />
@@ -369,6 +369,90 @@
 										VerticalOptions="CenterAndExpand">
 										<Label.GestureRecognizers>
 											<TapGestureRecognizer Command="{Binding CheckoutInFlowCommand}" />
+										</Label.GestureRecognizers>
+									</Label>
+								</StackLayout>
+							</Frame>
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="10"
+						Grid.Column="1"
+						Padding="25,27,25,22"
+						BackgroundColor="#242A37"
+						CornerRadius="20"
+						HasShadow="False"
+						IsClippedToBounds="True">
+						<Grid ColumnSpacing="0" RowSpacing="0">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="36" />
+								<RowDefinition Height="9" />
+								<RowDefinition Height="48" />
+								<RowDefinition Height="18" />
+								<RowDefinition Height="56" />
+							</Grid.RowDefinitions>
+							<Label
+								Grid.Row="0"
+								FontAttributes="Bold"
+								FontFamily="PoppinsBoldFontFamily"
+								FontSize="24"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="Clean room"
+								TextColor="#4C7CE5"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Row="2"
+								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								LineHeight="1.2"
+								MaxLines="2"
+								Text="Click on this button if you wish to check-out a guest"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Frame
+								Grid.Row="4"
+								Padding="0"
+								BackgroundColor="#4C7CE5"
+								CornerRadius="12"
+								HasShadow="False"
+								IsClippedToBounds="True">
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding CleanInFlowCommand}" />
+								</Frame.GestureRecognizers>
+								<StackLayout
+									HorizontalOptions="CenterAndExpand"
+									Orientation="Horizontal"
+									Spacing="8"
+									VerticalOptions="CenterAndExpand">
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding CleanInFlowCommand}" />
+									</StackLayout.GestureRecognizers>
+									<Label
+										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontSize="16"
+										Text="Clean-in flow"
+										TextColor="#342B20"
+										VerticalOptions="CenterAndExpand">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Command="{Binding CleanInFlowCommand}" />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="22"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowRight}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Command="{Binding CleanInFlowCommand}" />
 										</Label.GestureRecognizers>
 									</Label>
 								</StackLayout>

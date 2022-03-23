@@ -27,7 +27,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteHotelBookingListForFrontDeskCheckoutCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			var responses = await service.HotelBookingListForFrontDeskCheckoutAsync(new Models.HotelBookingListForFrontDeskKeyHandlingRequest()
 			{
 				CompanyId = Helper.Helper.CompanyId,
@@ -55,7 +55,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteSubmitCheckOutGuestCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			await service.CheckOutGuestAsync(new Models.HandoverKeyRequest()
 			{
 				Id = SelectedCheckoutId

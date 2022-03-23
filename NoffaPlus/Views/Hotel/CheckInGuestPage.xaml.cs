@@ -1,8 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
-
-namespace NoffaPlus.Views.Resturant
+namespace NoffaPlus.Views.Hotel
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CheckInGuestPage : ContentPage
@@ -20,7 +19,7 @@ namespace NoffaPlus.Views.Resturant
 		{
 			base.OnAppearing();
 		}
-		
+
 		private void OnHotelRoomCode(object sender, System.EventArgs e)
 		{
 			Controls.CustomPicker picker = sender as Controls.CustomPicker;

@@ -2,7 +2,8 @@
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
 
-namespace NoffaPlus.Views.Resturant
+
+namespace NoffaPlus.Views.Hotel
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CheckOutGuestPage : ContentPage

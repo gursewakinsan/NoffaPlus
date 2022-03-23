@@ -9,13 +9,6 @@ namespace NoffaPlus.Interfaces
 		Task<List<Models.ResturantServeBasedMenuResponse>> ResturantServeBasedMenuAsync(Models.ResturantServeBasedMenuRequest request);
 		Task<string> UpdateDishStockAsync(Models.UpdateDishStockRequest request);
 		Task<string> DeleteDishItemAsync(Models.DeleteDishItemRequest request);
-		Task<int> IsHotelAsync(Models.HotelBookingRequest request);
-		Task<List<Models.HotelBookingListForFrontDeskCheckinResponse>> HotelBookingListForFrontDeskCheckinAsync(Models.HotelBookingRequest request);
-		Task<List<Models.HotelBookingListForFrontDeskKeyHandlingResponse>> HotelBookingListForFrontDeskKeyHandlingAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request);
-		Task<List<Models.HotelBookingListForFrontDeskKeyHandlingResponse>> HotelBookingListForFrontDeskReceivedKeyAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request);
-		Task<int> HandOverKeyAsync(Models.HandoverKeyRequest request);
-		Task<List<Models.HotelBookingListForFrontDeskCheckoutResponse>> HotelBookingListForFrontDeskCheckoutAsync(Models.HotelBookingListForFrontDeskKeyHandlingRequest request);
-		Task<int> CheckOutGuestAsync(Models.HandoverKeyRequest request);
 	}
 }
 

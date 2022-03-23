@@ -26,7 +26,7 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteHotelBookingListForFrontDeskCheckinCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IResturantService service = new ResturantService();
+			IHotelService service = new HotelService();
 			HotelBookingListForFrontDeskCheckinInfo = await service.HotelBookingListForFrontDeskCheckinAsync(new Models.HotelBookingRequest()
 			{
 				CompanyId = Helper.Helper.CompanyId,
@@ -40,7 +40,7 @@ namespace NoffaPlus.ViewModels
 		private ICommand adultsMinusCommand;
 		public ICommand AdultsMinusCommand
 		{
-			get => adultsMinusCommand ?? (adultsMinusCommand = new Command( () => ExecuteAdultsMinusCommand()));
+			get => adultsMinusCommand ?? (adultsMinusCommand = new Command(() => ExecuteAdultsMinusCommand()));
 		}
 		private void ExecuteAdultsMinusCommand()
 		{

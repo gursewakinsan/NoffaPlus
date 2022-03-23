@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="NoffaPlus.Views.Resturant.HandOverkeyPage"
+	x:Class="NoffaPlus.Views.Hotel.CheckOutGuestPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:NoffaPlus.Controls"
@@ -19,8 +19,6 @@
 			<RowDefinition Height="72" />
 			<RowDefinition Height="20" />
 			<RowDefinition Height="45" />
-			<RowDefinition Height="18" />
-			<RowDefinition Height="36" />
 			<RowDefinition Height="18" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="auto" />
@@ -85,7 +83,7 @@
 				FontFamily="{StaticResource PoppinsRegularFontFamily}"
 				FontSize="18"
 				Opacity="0.4"
-				Text="Handover keys"
+				Text="Check-out guest"
 				TextColor="White"
 				VerticalTextAlignment="Start" />
 
@@ -158,44 +156,15 @@
 			</Label>
 		</Grid>
 
-		<StackLayout
-			Grid.Row="6"
-			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			HorizontalOptions="StartAndExpand"
-			Orientation="Horizontal"
-			Spacing="12">
-
-			<controls:CustomButton
-				Padding="15,0,15,0"
-				BackgroundColor="{Binding NewKeysButtonBg}"
-				Command="{Binding NewKeysCommand}"
-				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
-				FontSize="12"
-				Text="No keys"
-				TextColor="White" />
-
-			<controls:CustomButton
-				Padding="15,0,15,0"
-				BackgroundColor="{Binding ChangeKeysButtonBg}"
-				Command="{Binding ChangeKeysCommand}"
-				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
-				FontSize="12"
-				Text="Need new keys"
-				TextColor="White" />
-		</StackLayout>
-
 		<ListView
-			x:Name="listHotelBookingForFrontDeskKeyHandling"
-			Grid.Row="8"
+			x:Name="listHotelBookingListForFrontDeskCheckoutInfo"
+			Grid.Row="6"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
 			BackgroundColor="Transparent"
 			HasUnevenRows="True"
-			ItemTapped="OnHotelBookingListForFrontDeskKeyHandlingItemTapped"
-			ItemsSource="{Binding HotelBookingListForFrontDeskKeyHandlingInfo}"
+			ItemTapped="OnHotelBookingListForFrontDeskCheckoutInfoItemTapped"
+			ItemsSource="{Binding HotelBookingListForFrontDeskCheckoutInfo}"
 			SeparatorVisibility="None"
 			VerticalScrollBarVisibility="Never">
 			<ListView.ItemTemplate>
@@ -274,12 +243,12 @@
 		</ListView>
 
 		<controls:CustomButton
-			Grid.Row="9"
+			Grid.Row="7"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
 			Margin="0,5,0,5"
-			BackgroundColor="#D23CE6"
-			Command="{Binding SubmitHandOverKeyCommand}"
+			BackgroundColor="#45C366"
+			Command="{Binding SubmitCheckOutGuestCommand}"
 			CornerRadius="12"
 			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 			FontSize="16"

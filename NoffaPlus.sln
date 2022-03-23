@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoffaPlus.Android", "NoffaP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoffaPlus.iOS", "NoffaPlus.iOS\NoffaPlus.iOS.csproj", "{196DE747-6496-4B0C-B8BC-4AED425D0177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoffaPlus", "NoffaPlus\NoffaPlus.csproj", "{6AA43060-6490-4585-A05C-A0D832D03D02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoffaPlus", "NoffaPlus\NoffaPlus.csproj", "{6AA43060-6490-4585-A05C-A0D832D03D02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
