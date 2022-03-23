@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
-using Rg.Plugins.Popup.Extensions;
 
 namespace NoffaPlus.Views.Hotel
 {
@@ -21,17 +20,15 @@ namespace NoffaPlus.Views.Hotel
 			viewModel.HotelBookingListForCleningStaffCommand.Execute(null);
 		}
 
-		private async void OnHotelBookingForCleningStaffInfoItemTapped(object sender, ItemTappedEventArgs e)
+		private void OnHotelBookingForCleningStaffInfoItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			Models.HotelBookingListForCleningStaffResponse cleningStaff = e.Item as Models.HotelBookingListForCleningStaffResponse;
 			listHotelBookingForCleningStaffInfo.SelectedItem = null;
+			viewModel.SelectedCleningStaff = cleningStaff;
 			if (!cleningStaff.RoomCleaningAllocated)
-			{
-				viewModel.SelectedCleningStaff = cleningStaff;
 				viewModel.GoToCleanRoomPopupPageCommand.Execute(null);
-			}
 			else
-				await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanedRoomByNamePopupPage(cleningStaff));
+				viewModel.GoToCleanedRoomPopupPageCommand.Execute(null);
 		}
 	}
 }

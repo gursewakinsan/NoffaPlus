@@ -56,5 +56,6 @@
 		public const string CheckOutGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkOutGuest";
 		public const string HotelBookingListForCleningStaffUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelBookingListForCleningStaff";
 		public const string AllocateRoomForCleaningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/allocateRoomForCleaning";
+		public const string UpdateRoomCleaningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateRoomCleaning";
 	}
 }

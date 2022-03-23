@@ -45,12 +45,12 @@
 			</Label>
 
 			<controls:CustomButton
+				x:Name="btnCleanedRoom"
 				BackgroundColor="#4C7CE5"
 				Command="{Binding CleanedRoomCommand}"
 				CornerRadius="10"
 				FontFamily="SansProSemiBoldFontFamily"
 				HeightRequest="48"
-				Text="Yes, I do"
 				TextColor="White"
 				WidthRequest="299" />
 		</StackLayout>

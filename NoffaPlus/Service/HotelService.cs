@@ -88,5 +88,14 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<int> UpdateRoomCleaningAsync(Models.UpdateRoomCleaningRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateRoomCleaningUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

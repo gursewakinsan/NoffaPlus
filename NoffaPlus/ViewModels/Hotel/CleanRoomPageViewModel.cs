@@ -102,6 +102,24 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Go To Cleaned Room Popup Page Command.
+		private ICommand goToCleanedRoomPopupPageCommand;
+		public ICommand GoToCleanedRoomPopupPageCommand
+		{
+			get => goToCleanedRoomPopupPageCommand ?? (goToCleanedRoomPopupPageCommand = new Command(async () => await ExecuteGoToCleanedRoomPopupPageCommand()));
+		}
+		private async Task ExecuteGoToCleanedRoomPopupPageCommand()
+		{
+			SelectedCleningStaff.CallBack = CallBackCleanedStaff;
+			await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanedRoomByNamePopupPage(SelectedCleningStaff));
+		}
+
+		private async void CallBackCleanedStaff()
+		{
+			await Navigation.PushAsync(new Views.Hotel.CleanRoomMarkAndSubmitPage(SelectedCleningStaff));
+		}
+		#endregion
+
 		#region Properties.
 		public Models.HotelBookingListForCleningStaffResponse SelectedCleningStaff { get; set; }
 		public List<Models.HotelBookingListForCleningStaffResponse> CopyHotelBookingListForCleningStaffInfo { get; set; }

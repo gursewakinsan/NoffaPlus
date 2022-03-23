@@ -23,6 +23,8 @@ namespace NoffaPlus.ViewModels
 		private async Task ExecuteCleanedRoomCommand()
 		{
 			await Navigation.PopPopupAsync();
+			if (CleningStaffInfo.RoomCleaningStaffId.Equals(Helper.Helper.LoggedInUserId))
+				CleningStaffInfo.CallBack.Invoke();
 		}
 		#endregion
 
