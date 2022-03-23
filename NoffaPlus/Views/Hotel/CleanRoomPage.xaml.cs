@@ -14,5 +14,20 @@ namespace NoffaPlus.Views.Hotel
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new CleanRoomPageViewModel(this.Navigation);
 		}
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			viewModel.HotelBookingListForCleningStaffCommand.Execute(null);
+		}
+
+		private void OnHotelBookingForCleningStaffInfoItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			Models.HotelBookingListForCleningStaffResponse response = e.Item as Models.HotelBookingListForCleningStaffResponse;
+			listHotelBookingForCleningStaffInfo.SelectedItem = null;
+			if (!response.RoomCleaningAllocated)
+			{
+				viewModel.SelectedCleningStaffId = response.Id;
+			}
+		}
 	}
 }

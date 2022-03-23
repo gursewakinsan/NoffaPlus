@@ -2,13 +2,250 @@
 <ContentPage
 	x:Class="NoffaPlus.Views.Hotel.CleanRoomPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-	<ContentPage.Content>
-		<StackLayout>
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,14,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24" />
+			<RowDefinition Height="26" />
+			<RowDefinition Height="72" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="45" />
+			<RowDefinition Height="18" />
+			<RowDefinition Height="36" />
+			<RowDefinition Height="46" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Margin="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			Text="Hotel"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<StackLayout
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3">
 			<Label
-				HorizontalOptions="CenterAndExpand"
-				Text="Welcome to Xamarin.Forms!"
-				VerticalOptions="CenterAndExpand" />
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="18"
+				Opacity="0.4"
+				Text="Clean room"
+				TextColor="White"
+				VerticalTextAlignment="Start" />
+
+			<Label
+				FontAttributes="Bold"
+				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontSize="32"
+				Text="Select a room"
+				TextColor="White"
+				VerticalTextAlignment="End" />
 		</StackLayout>
-	</ContentPage.Content>
+
+		<Grid
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			ColumnSpacing="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="50" />
+			</Grid.ColumnDefinitions>
+			<Frame
+				Grid.Column="0"
+				Padding="16,0,16,0"
+				BackgroundColor="#1F1F23"
+				CornerRadius="8"
+				HasShadow="False"
+				IsClippedToBounds="True">
+				<Grid ColumnSpacing="5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="25" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="22"
+						HorizontalTextAlignment="Start"
+						Opacity="0.7"
+						Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.SearchIcon}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<controls:CustomEntry
+						Grid.Column="1"
+						BackgroundColor="Transparent"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="14"
+						Opacity="0.7"
+						Placeholder="Search"
+						PlaceholderColor="White"
+						ReturnCommand="{Binding SearchCommand}"
+						ReturnType="Search"
+						Text="{Binding SearchText}"
+						TextColor="White" />
+				</Grid>
+			</Frame>
+
+			<Label
+				Grid.Column="1"
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="14"
+				HorizontalTextAlignment="End"
+				Text="Enter"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding SearchCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+		</Grid>
+
+		<StackLayout
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			HorizontalOptions="StartAndExpand"
+			Orientation="Horizontal"
+			Spacing="12">
+
+			<controls:CustomButton
+				Padding="15,0,15,0"
+				BackgroundColor="#4C7CE5"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="12"
+				Text="Checked-in"
+				TextColor="White" />
+
+			<controls:CustomButton
+				Padding="15,0,15,0"
+				BackgroundColor="#1F1F23"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="12"
+				Text="Checked-out"
+				TextColor="White" />
+		</StackLayout>
+
+		<ListView
+			x:Name="listHotelBookingForCleningStaffInfo"
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="Transparent"
+			HasUnevenRows="True"
+			ItemTapped="OnHotelBookingForCleningStaffInfoItemTapped"
+			ItemsSource="{Binding HotelBookingListForCleningStaffInfo}"
+			SeparatorVisibility="None"
+			VerticalScrollBarVisibility="Never">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Frame
+							Padding="15"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding RowBorderColor}"
+							CornerRadius="16"
+							HasShadow="False"
+							IsClippedToBounds="True">
+							<Grid ColumnSpacing="24">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="55" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="24" />
+								</Grid.ColumnDefinitions>
+
+								<Button
+									Grid.Column="0"
+									Padding="0"
+									BackgroundColor="{Binding RoomNameBgColor}"
+									CornerRadius="12"
+									FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+									FontSize="18"
+									HeightRequest="55"
+									HorizontalOptions="CenterAndExpand"
+									Text="{Binding RoomName}"
+									TextColor="{Binding RoomNameTextColor}"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="55" />
+
+								<StackLayout
+									Grid.Column="1"
+									Spacing="1"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontSize="12"
+										Opacity="0.7"
+										Text="{Binding StartedBy}"
+										TextColor="White" />
+
+									<Label
+										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontSize="18"
+										Text="{Binding Name}"
+										TextColor="White" />
+								</StackLayout>
+
+								<Frame
+									Grid.Column="2"
+									Padding="0"
+									BackgroundColor="Transparent"
+									BorderColor="#2A2A31"
+									HasShadow="False"
+									HorizontalOptions="EndAndExpand"
+									IsClippedToBounds="True"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+										TextColor="White" />
+								</Frame>
+							</Grid>
+						</Frame>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
 </ContentPage>
