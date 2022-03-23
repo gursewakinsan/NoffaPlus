@@ -27,9 +27,11 @@ namespace NoffaPlus.Views.Hotel
 			listHotelBookingForCleningStaffInfo.SelectedItem = null;
 			if (!cleningStaff.RoomCleaningAllocated)
 			{
-				viewModel.SelectedCleningStaffId = cleningStaff.Id;
-				await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanRoomPopupPage(cleningStaff));
+				viewModel.SelectedCleningStaff = cleningStaff;
+				viewModel.GoToCleanRoomPopupPageCommand.Execute(null);
 			}
+			else
+				await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanedRoomByNamePopupPage(cleningStaff));
 		}
 	}
 }

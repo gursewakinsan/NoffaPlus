@@ -181,6 +181,7 @@
 				<DataTemplate>
 					<ViewCell>
 						<Frame
+							Margin="0,0,0,22"
 							Padding="15"
 							BackgroundColor="Transparent"
 							BorderColor="{Binding RowBorderColor}"
@@ -215,6 +216,8 @@
 									<Label
 										FontFamily="{StaticResource PoppinsRegularFontFamily}"
 										FontSize="12"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
 										Opacity="0.7"
 										Text="{Binding StartedBy}"
 										TextColor="White" />
@@ -222,6 +225,8 @@
 									<Label
 										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 										FontSize="18"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
 										Text="{Binding Name}"
 										TextColor="White" />
 								</StackLayout>
@@ -234,6 +239,7 @@
 									HasShadow="False"
 									HorizontalOptions="EndAndExpand"
 									IsClippedToBounds="True"
+									IsVisible="{Binding RoomCleaningAllocated, Converter={StaticResource InverseBoolConverter}}"
 									VerticalOptions="CenterAndExpand">
 									<Label
 										FontFamily="{StaticResource MaterialFontFamily}"

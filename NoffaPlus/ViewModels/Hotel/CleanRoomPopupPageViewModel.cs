@@ -24,7 +24,16 @@ namespace NoffaPlus.ViewModels
 		}
 		private async Task ExecuteCleanRoomCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
+			IHotelService service = new HotelService();
+			var responses = await service.AllocateRoomForCleaningAsync(new Models.AllocateRoomForCleaningRequest()
+			{
+				Id = CleningStaffInfo.Id,
+				UserId = Helper.Helper.LoggedInUserId
+			});
 			await Navigation.PopPopupAsync();
+			CleningStaffInfo.CallBack.Invoke();
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

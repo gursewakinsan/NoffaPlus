@@ -6,6 +6,8 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Rg.Plugins.Popup.Extensions;
+using System;
 
 namespace NoffaPlus.ViewModels
 {
@@ -82,8 +84,26 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Go To Clean Room Popup Page Command.
+		private ICommand goToCleanRoomPopupPageCommand;
+		public ICommand GoToCleanRoomPopupPageCommand
+		{
+			get => goToCleanRoomPopupPageCommand ?? (goToCleanRoomPopupPageCommand = new Command(async () => await ExecuteGoToCleanRoomPopupPageCommand()));
+		}
+		private async Task ExecuteGoToCleanRoomPopupPageCommand()
+		{
+			SelectedCleningStaff.CallBack = CallBackCleningStaff;
+			await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanRoomPopupPage(SelectedCleningStaff));
+		}
+
+		private void CallBackCleningStaff()
+		{
+			HotelBookingListForCleningStaffCommand.Execute(null);
+		}
+		#endregion
+
 		#region Properties.
-		public int SelectedCleningStaffId { get; set; }
+		public Models.HotelBookingListForCleningStaffResponse SelectedCleningStaff { get; set; }
 		public List<Models.HotelBookingListForCleningStaffResponse> CopyHotelBookingListForCleningStaffInfo { get; set; }
 
 		private ObservableCollection<Models.HotelBookingListForCleningStaffResponse> hotelBookingListForCleningStaffInfo;

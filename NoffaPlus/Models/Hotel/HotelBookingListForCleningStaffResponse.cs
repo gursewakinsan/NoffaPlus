@@ -19,6 +19,12 @@ namespace NoffaPlus.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "started_by")]
 		public string StartedBy { get; set; }
 
+		[Newtonsoft.Json.JsonProperty(PropertyName = "name_assigned")]
+		public string NameAssigned { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "room_cleaning_staff_id")]
+		public int? RoomCleaningStaffId { get; set; }
+
 		private Color roomNameTextColor;
 		public Color RoomNameTextColor
 		{
@@ -58,7 +64,9 @@ namespace NoffaPlus.Models
 		public string checkout_booking_date { get; set; }
 		public string room_cleaning_date { get; set; }
 		public int room_cleaning_status { get; set; }
-		public object room_cleaning_staff_id { get; set; }
+		
 		public string user_image { get; set; }*/
+
+		public System.Action CallBack { get; set; }
 	}
 }
