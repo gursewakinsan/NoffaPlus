@@ -97,5 +97,35 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.HotelCheckedOutListForCleningStaffResponse>> HotelCheckedOutListForCleningStaffAsync(Models.HotelCheckedOutListForCleningStaffRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.HotelCheckedOutListForCleningStaffResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.HotelCheckedOutListForCleningStaffUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AllocateCheckedOutRoomForCleaningAsync(Models.AllocateCheckedOutRoomForCleaningRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.AllocateCheckedOutRoomForCleaningUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateCheckedOutRoomCleaningAsync(Models.UpdateCheckedOutRoomCleaningRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateCheckedOutRoomCleaningUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }
+
+
+

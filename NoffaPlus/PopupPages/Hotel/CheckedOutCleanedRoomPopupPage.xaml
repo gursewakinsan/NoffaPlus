@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+	x:Class="NoffaPlus.PopupPages.Hotel.CheckedOutCleanedRoomPopupPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:pages="http://rotorgames.com">
+	<controls:CustomFrame
+		Padding="25,45,25,49"
+		BackgroundColor="#342B20"
+		CornerRadius="30,30,30,30"
+		VerticalOptions="EndAndExpand">
+		<StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
+			<Label
+				FontAttributes="Bold"
+				FontFamily="PoppinsBoldFontFamily"
+				FontSize="24"
+				HorizontalTextAlignment="Center"
+				LineBreakMode="TailTruncation"
+				MaxLines="1"
+				TextColor="#FF9129">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="Room " />
+						<Span Text="{Binding CheckedOutCleningStaffInfo.RoomName}" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
+
+			<Label
+				Margin="0,5,0,92"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="18"
+				HorizontalOptions="CenterAndExpand"
+				HorizontalTextAlignment="Center"
+				LineHeight="1.2"
+				Opacity="0.7"
+				TextColor="White">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="This room will be cleaned by " />
+						<Span Text="{Binding CheckedOutCleningStaffInfo.NameAssigned}" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
+
+			<controls:CustomButton
+				x:Name="btnCleanedRoom"
+				BackgroundColor="#4C7CE5"
+				Command="{Binding CleanedRoomCommand}"
+				CornerRadius="10"
+				FontFamily="SansProSemiBoldFontFamily"
+				HeightRequest="48"
+				TextColor="White"
+				WidthRequest="299" />
+		</StackLayout>
+	</controls:CustomFrame>
+</pages:PopupPage>

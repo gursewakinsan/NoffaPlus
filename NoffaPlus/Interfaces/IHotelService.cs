@@ -15,5 +15,8 @@ namespace NoffaPlus.Interfaces
 		Task<List<Models.HotelBookingListForCleningStaffResponse>> HotelBookingListForCleningStaffAsync(Models.HotelBookingListForCleningStaffRequest request);
 		Task<int> AllocateRoomForCleaningAsync(Models.AllocateRoomForCleaningRequest request);
 		Task<int> UpdateRoomCleaningAsync(Models.UpdateRoomCleaningRequest request);
+		Task<List<Models.HotelCheckedOutListForCleningStaffResponse>> HotelCheckedOutListForCleningStaffAsync(Models.HotelCheckedOutListForCleningStaffRequest request);
+		Task<int> AllocateCheckedOutRoomForCleaningAsync(Models.AllocateCheckedOutRoomForCleaningRequest request);
+		Task<int> UpdateCheckedOutRoomCleaningAsync(Models.UpdateCheckedOutRoomCleaningRequest request);
 	}
 }

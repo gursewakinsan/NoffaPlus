@@ -149,7 +149,8 @@
 
 			<controls:CustomButton
 				Padding="15,0,15,0"
-				BackgroundColor="#4C7CE5"
+				BackgroundColor="{Binding CheckedInButtonBg}"
+				Command="{Binding CheckedInCommand}"
 				CornerRadius="12"
 				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 				FontSize="12"
@@ -158,7 +159,8 @@
 
 			<controls:CustomButton
 				Padding="15,0,15,0"
-				BackgroundColor="#1F1F23"
+				BackgroundColor="{Binding CheckedOutButtonBg}"
+				Command="{Binding CheckedOutCommand}"
 				CornerRadius="12"
 				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 				FontSize="12"
@@ -167,13 +169,14 @@
 		</StackLayout>
 
 		<ListView
-			x:Name="listHotelBookingForCleningStaffInfo"
+			x:Name="listCheckedIn"
 			Grid.Row="8"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
 			BackgroundColor="Transparent"
 			HasUnevenRows="True"
-			ItemTapped="OnHotelBookingForCleningStaffInfoItemTapped"
+			IsVisible="{Binding IsCheckedInList}"
+			ItemTapped="OnCheckedInItemTapped"
 			ItemsSource="{Binding HotelBookingListForCleningStaffInfo}"
 			SeparatorVisibility="None"
 			VerticalScrollBarVisibility="Never">
@@ -240,6 +243,95 @@
 									HorizontalOptions="EndAndExpand"
 									IsClippedToBounds="True"
 									IsVisible="{Binding RoomCleaningAllocated, Converter={StaticResource InverseBoolConverter}}"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+										TextColor="White" />
+								</Frame>
+							</Grid>
+						</Frame>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<ListView
+			x:Name="listCheckedOut"
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="Transparent"
+			HasUnevenRows="True"
+			IsVisible="{Binding IsCheckedOutList}"
+			ItemTapped="OnCheckedOutItemTapped"
+			ItemsSource="{Binding HotelCheckedOutListForCleningStaffInfo}"
+			SeparatorVisibility="None"
+			VerticalScrollBarVisibility="Never">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Frame
+							Margin="0,0,0,22"
+							Padding="15"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding RowBorderColor}"
+							CornerRadius="16"
+							HasShadow="False"
+							IsClippedToBounds="True">
+							<Grid ColumnSpacing="24">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="55" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="24" />
+								</Grid.ColumnDefinitions>
+
+								<Button
+									Grid.Column="0"
+									Padding="0"
+									BackgroundColor="{Binding RoomNameBgColor}"
+									CornerRadius="12"
+									FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+									FontSize="18"
+									HeightRequest="55"
+									HorizontalOptions="CenterAndExpand"
+									Text="{Binding RoomName}"
+									TextColor="{Binding RoomNameTextColor}"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="55" />
+
+								<StackLayout
+									Grid.Column="1"
+									Spacing="1"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontSize="12"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Opacity="0.7"
+										Text="{Binding StartedBy}"
+										TextColor="White" />
+
+									<Label
+										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontSize="18"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="{Binding CheckoutTimeDiff}"
+										TextColor="White" />
+								</StackLayout>
+
+								<Frame
+									Grid.Column="2"
+									Padding="0"
+									BackgroundColor="Transparent"
+									BorderColor="#2A2A31"
+									HasShadow="False"
+									HorizontalOptions="EndAndExpand"
+									IsClippedToBounds="True"
+									IsVisible="{Binding CleaningWorkAssigned, Converter={StaticResource InverseBoolConverter}}"
 									VerticalOptions="CenterAndExpand">
 									<Label
 										FontFamily="{StaticResource MaterialFontFamily}"
