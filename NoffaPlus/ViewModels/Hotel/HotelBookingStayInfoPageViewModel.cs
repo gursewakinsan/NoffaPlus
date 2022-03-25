@@ -60,5 +60,17 @@ namespace NoffaPlus.ViewModels
 			await Navigation.PushAsync(new Views.Hotel.CleanRoomPage());
 		}
 		#endregion
+
+		#region Inspect Room Command.
+		private ICommand inspectRoomCommand;
+		public ICommand InspectRoomCommand
+		{
+			get => inspectRoomCommand ?? (inspectRoomCommand = new Command(async () => await ExecuteInspectRoomCommand()));
+		}
+		private async Task ExecuteInspectRoomCommand()
+		{
+			await Navigation.PushAsync(new Views.Hotel.InspectRoomPage());
+		}
+		#endregion
 	}
 }

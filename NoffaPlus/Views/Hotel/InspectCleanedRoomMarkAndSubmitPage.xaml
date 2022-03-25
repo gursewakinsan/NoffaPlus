@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.Hotel.InspectCleanedRoomMarkAndSubmitPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,14,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24" />
+			<RowDefinition Height="26" />
+			<RowDefinition Height="72" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="50" />
+			<RowDefinition Height="5" />
+		</Grid.RowDefinitions>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Margin="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding BackCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			Text="Hotel"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<StackLayout
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3">
+			<Label
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="18"
+				Opacity="0.4"
+				Text="Housekeeper"
+				TextColor="White"
+				VerticalTextAlignment="Start" />
+
+			<Label
+				FontAttributes="Bold"
+				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontSize="32"
+				TextColor="White"
+				VerticalTextAlignment="End">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="Room " />
+						<Span Text="{Binding SelectedInspectedStaffInfo.RoomName}" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
+		</StackLayout>
+
+		<ScrollView
+			Grid.Row="3"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,48,0,0"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontSize="20"
+					Text="Inspect cleaned room"
+					TextColor="White" />
+
+				<Label
+					Margin="0,3,0,32"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.4"
+					Text="Select the option that fits your summary of the inspection"
+					TextColor="White" />
+
+				<Frame
+					Padding="20"
+					BackgroundColor="Transparent"
+					BorderColor="{Binding ApprovedColor}"
+					CornerRadius="16"
+					HasShadow="False"
+					IsClippedToBounds="True"
+					VerticalOptions="Start">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
+						</Grid.GestureRecognizers>
+						<StackLayout
+							Grid.Column="0"
+							Spacing="1"
+							VerticalOptions="CenterAndExpand">
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
+							</StackLayout.GestureRecognizers>
+							<Label
+								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontSize="18"
+								Text="Its approved"
+								TextColor="White">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
+								</Label.GestureRecognizers>
+							</Label>
+
+							<Label
+								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontSize="12"
+								Opacity="0.7"
+								Text="Select this option if its approved"
+								TextColor="White">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
+								</Label.GestureRecognizers>
+							</Label>
+						</StackLayout>
+
+						<Label
+							Grid.Column="1"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="24"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}"
+							TextColor="{Binding ApprovedColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+
+				<Frame
+					Margin="0,22,0,22"
+					Padding="20"
+					BackgroundColor="Transparent"
+					BorderColor="{Binding NotApprovedColor}"
+					CornerRadius="16"
+					HasShadow="False"
+					IsClippedToBounds="True"
+					VerticalOptions="Start">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
+						</Grid.GestureRecognizers>
+						<StackLayout
+							Grid.Column="0"
+							Spacing="1"
+							VerticalOptions="CenterAndExpand">
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
+							</StackLayout.GestureRecognizers>
+							<Label
+								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontSize="18"
+								Text="Clean room"
+								TextColor="White">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
+								</Label.GestureRecognizers>
+							</Label>
+
+							<Label
+								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontSize="12"
+								Opacity="0.7"
+								Text="Mark this when the room is cleaned"
+								TextColor="White">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
+								</Label.GestureRecognizers>
+							</Label>
+						</StackLayout>
+
+						<Label
+							Grid.Column="1"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="24"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}"
+							TextColor="{Binding NotApprovedColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+			</StackLayout>
+		</ScrollView>
+
+		<controls:CustomButton
+			Grid.Row="5"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="{Binding SubmitButtonBgColor}"
+			BorderColor="{Binding SubmitButtonBorderColor}"
+			BorderWidth="1"
+			Command="{Binding UpdateRoomInspectionCommand}"
+			CornerRadius="12"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontSize="16"
+			Text="Mark to submit"
+			TextColor="White" />
+	</Grid>
+</ContentPage>

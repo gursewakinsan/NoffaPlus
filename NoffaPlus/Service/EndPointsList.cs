@@ -60,5 +60,10 @@
 		public const string HotelCheckedOutListForCleningStaffUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelCheckedOutListForCleningStaff";
 		public const string AllocateCheckedOutRoomForCleaningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/allocateCheckedOutRoomForCleaning";
 		public const string UpdateCheckedOutRoomCleaningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCheckedOutRoomCleaning";
+
+		//Inspect
+		public const string HotelCheckedOutListForHousekeepingIncepectionStaffUrl = "https://www.qloudid.com/user/index.php/QloudidApp/hotelCheckedOutListForHousekeepingIncepectionStaff";
+		public const string AllocateCheckedOutRoomForInspectionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/allocateCheckedOutRoomForInspection";
+		public const string UpdateCheckedOutRoomInspectionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCheckedOutRoomInspection";
 	}
 }

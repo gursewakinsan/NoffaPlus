@@ -124,6 +124,34 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		//Inspect
+		public Task<List<Models.HotelCheckedOutListForHousekeepingIncepectionStaffResponse>> HotelCheckedOutListForHousekeepingIncepectionStaffAsync(Models.HotelCheckedOutListForHousekeepingIncepectionStaffRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.HotelCheckedOutListForHousekeepingIncepectionStaffResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.HotelCheckedOutListForHousekeepingIncepectionStaffUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AllocateCheckedOutRoomForInspectionAsync(Models.AllocateCheckedOutRoomForInspectionRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.AllocateCheckedOutRoomForInspectionUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateCheckedOutRoomInspectionAsync(Models.UpdateCheckedOutRoomInspectionRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateCheckedOutRoomInspectionUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }
 
