@@ -46,7 +46,7 @@ namespace NoffaPlus.ViewModels
 				{
 					Id = SelectedInspectedStaffInfo.Id,
 					RoomId = SelectedInspectedStaffInfo.RoomId,
-					InspectionResult = SelectedInspectedStaffInfo.InspectorId
+					InspectionResult = IsApproved ? 1 : 0
 				});
 				DependencyService.Get<IProgressBar>().Hide();
 				var _lastPage = Navigation.NavigationStack.LastOrDefault();
@@ -76,6 +76,9 @@ namespace NoffaPlus.ViewModels
 					{
 						IsApproved = true;
 						ApprovedColor = Color.FromHex("#45C366");
+
+						IsNotApproved = false;
+						NotApprovedColor = Color.FromHex("#2A2A31");
 					}
 					break;
 				case "Its not approved":
@@ -88,6 +91,9 @@ namespace NoffaPlus.ViewModels
 					{
 						IsNotApproved = true;
 						NotApprovedColor = Color.FromHex("#45C366");
+
+						IsApproved = false;
+						ApprovedColor = Color.FromHex("#2A2A31");
 					}
 					break;
 			}

@@ -149,7 +149,7 @@
 								FontFamily="{StaticResource PoppinsRegularFontFamily}"
 								FontSize="12"
 								Opacity="0.7"
-								Text="Select this option if its approved"
+								Text="Mark this if there is no bug to report"
 								TextColor="White">
 								<Label.GestureRecognizers>
 									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its approved" />
@@ -202,7 +202,7 @@
 							<Label
 								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 								FontSize="18"
-								Text="Clean room"
+								Text="Its not approved"
 								TextColor="White">
 								<Label.GestureRecognizers>
 									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
@@ -213,7 +213,7 @@
 								FontFamily="{StaticResource PoppinsRegularFontFamily}"
 								FontSize="12"
 								Opacity="0.7"
-								Text="Mark this when the room is cleaned"
+								Text="Mark this if the room is cleaned"
 								TextColor="White">
 								<Label.GestureRecognizers>
 									<TapGestureRecognizer Command="{Binding SelectedInspectCleanedRoomCommand}" CommandParameter="Its not approved" />
