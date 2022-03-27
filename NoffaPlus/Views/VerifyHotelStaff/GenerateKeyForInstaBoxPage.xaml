@@ -87,6 +87,7 @@
 					<Grid.RowDefinitions>
 						<RowDefinition Height="56" />
 						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
 					</Grid.RowDefinitions>
 					<textinputlayout:SfTextInputLayout
 						Grid.Row="0"
@@ -129,6 +130,45 @@
 
 					<textinputlayout:SfTextInputLayout
 						Grid.Row="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#45C366"
+						FocusedStrokeWidth="3"
+						HeightRequest="56"
+						Hint="Select room"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.HintLabelStyle>
+							<textinputlayout:LabelStyle FontFamily="{StaticResource PoppinsSemiBoldFontFamily}" FontSize="12" />
+						</textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<controls:CustomPicker
+							x:Name="pickerSelectRoom"
+							Title="Select room"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemDisplayBinding="{Binding RoomName}"
+							ItemsSource="{Binding AvailableRoomsInfo}"
+							SelectedIndexChanged="OnSelectRoomChanged"
+							SelectedItem="{Binding SelectedRoomInfo}"
+							TextColor="White"
+							TitleColor="#797A7D" />
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalOptions="CenterAndExpand"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
 						FocusedColor="#45C366"

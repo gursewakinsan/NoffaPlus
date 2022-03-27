@@ -1,5 +1,4 @@
-﻿using System;
-using System.Timers;
+﻿using System.Timers;
 using Xamarin.Forms;
 using NoffaPlus.Service;
 using System.Windows.Input;
@@ -114,6 +113,24 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Get Available Rooms Command.
+		private ICommand getAvailableRoomsCommand;
+		public ICommand GetAvailableRoomsCommand
+		{
+			get => getAvailableRoomsCommand ?? (getAvailableRoomsCommand = new Command<int>(async (index) => await ExecuteGetAvailableRoomsCommand(index)));
+		}
+		private async Task ExecuteGetAvailableRoomsCommand(int index)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IVerifyHotelStaffService service = new VerifyHotelStaffService();
+			AvailableRoomsInfo = await service.GetAvailableRoomsAsync(new Models.GetAvailableRoomsRequest()
+			{
+				CheckoutId = HotelBookingListForKeyGenerationInfo[index].Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Submit Generate Key For Insta Box Command.
 		private ICommand submitGenerateKeyForInstaBoxCommand;
 		public ICommand SubmitGenerateKeyForInstaBoxCommand
@@ -124,6 +141,8 @@ namespace NoffaPlus.ViewModels
 		{
 			if (SelectedBookingConfirmationCode == null)
 				await Helper.Alert.DisplayAlert("Please select booking confirmation code.");
+			else if (SelectedRoomInfo == null)
+				await Helper.Alert.DisplayAlert("Please select room.");
 			else if (SelectedAvailableBox == null)
 				await Helper.Alert.DisplayAlert("Please select available box.");
 			else
@@ -139,7 +158,8 @@ namespace NoffaPlus.ViewModels
 				{
 					BookingId = SelectedBookingConfirmationCode.Id,
 					InstaBoxId = SelectedAvailableBox.Id,
-					HotelId = Helper.Helper.HotelId
+					HotelId = Helper.Helper.HotelId,
+					RoomId = SelectedRoomInfo.Id
 				});
 				Application.Current.MainPage = new NavigationPage(new Views.CompanyDetailsPage());
 				DependencyService.Get<IProgressBar>().Hide();
@@ -180,6 +200,29 @@ namespace NoffaPlus.ViewModels
 				OnPropertyChanged("HotelBookingInstaBoxListForKeyGenerationInfo");
 			}
 		}
+
+		private List<Models.GetAvailableRoomsResponse> availableRoomsInfo;
+		public List<Models.GetAvailableRoomsResponse> AvailableRoomsInfo
+		{
+			get => availableRoomsInfo;
+			set
+			{
+				availableRoomsInfo = value;
+				OnPropertyChanged("AvailableRoomsInfo");
+			}
+		}
+
+		private Models.GetAvailableRoomsResponse selectedRoomInfo;
+		public Models.GetAvailableRoomsResponse SelectedRoomInfo
+		{
+			get => selectedRoomInfo;
+			set
+			{
+				selectedRoomInfo = value;
+				OnPropertyChanged("SelectedRoomInfo");
+			}
+		}
+		
 
 		private Models.HotelBookingInstaBoxListForKeyGenerationResponse selectedAvailableBox;
 		public Models.HotelBookingInstaBoxListForKeyGenerationResponse SelectedAvailableBox

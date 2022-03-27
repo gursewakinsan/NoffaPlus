@@ -10,5 +10,8 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "insta_box_id")]
 		public int InstaBoxId { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "room_id")]
+		public int RoomId { get; set; }
 	}
 }

@@ -52,5 +52,14 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.GetAvailableRoomsResponse>> GetAvailableRoomsAsync(Models.GetAvailableRoomsRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.GetAvailableRoomsResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.GetAvailableRoomsUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

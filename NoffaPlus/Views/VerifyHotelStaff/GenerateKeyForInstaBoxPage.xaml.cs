@@ -26,9 +26,18 @@ namespace NoffaPlus.Views.VerifyHotelStaff
 			Controls.CustomPicker picker = sender as Controls.CustomPicker;
 			if (picker.SelectedIndex == -1)
 				return;
+			else
+				viewModel.GetAvailableRoomsCommand.Execute(picker.SelectedIndex);
 		}
 
 		private void OnInstaBoxInfo(object sender, System.EventArgs e)
+		{
+			Controls.CustomPicker picker = sender as Controls.CustomPicker;
+			if (picker.SelectedIndex == -1)
+				return;
+		}
+
+		private void OnSelectRoomChanged(object sender, System.EventArgs e)
 		{
 			Controls.CustomPicker picker = sender as Controls.CustomPicker;
 			if (picker.SelectedIndex == -1)
