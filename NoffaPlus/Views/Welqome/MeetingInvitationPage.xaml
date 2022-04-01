@@ -66,7 +66,7 @@
 				RowSpacing="20">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="56" />
-					<RowDefinition Height="52" />
+					<RowDefinition Height="auto" />
 					<RowDefinition Height="0" />
 					<RowDefinition Height="56" />
 					<RowDefinition Height="56" />
