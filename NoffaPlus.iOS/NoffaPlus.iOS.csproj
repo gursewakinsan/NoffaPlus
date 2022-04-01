@@ -90,6 +90,7 @@
     <BundleResource Include="Resources\Fonts\PoppinsBold.ttf" />
     <BundleResource Include="Resources\Fonts\PoppinsRegular.ttf" />
     <BundleResource Include="Resources\Fonts\PoppinsSemiBold.ttf" />
+    <BundleResource Include="Resources\Fonts\PoppinsExtraBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

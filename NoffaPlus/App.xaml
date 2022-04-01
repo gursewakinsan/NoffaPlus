@@ -65,6 +65,12 @@
 				iOS="PoppinsBold" />
 
 			<OnPlatform
+				x:Key="PoppinsExtraBoldFontFamily"
+				x:TypeArguments="x:String"
+				Android="PoppinsExtraBold.ttf#PoppinsExtraBold"
+				iOS="PoppinsExtraBold" />
+
+			<OnPlatform
 				x:Key="PoppinsRegularFontFamily"
 				x:TypeArguments="x:String"
 				Android="PoppinsRegular.ttf#PoppinsRegular"
