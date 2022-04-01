@@ -48,7 +48,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				Text="WORQ"
@@ -95,7 +95,7 @@
 
 				<Label
 					Margin="10,10,10,0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="23"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -280,7 +280,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontAttributes="Bold"
-										FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+										FontFamily="SFProDisplayBoldFontFamily"
 										FontSize="25"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
@@ -295,7 +295,7 @@
 								<Label
 									Grid.Row="1"
 									ClassId="{Binding Id}"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="17"
 									HorizontalTextAlignment="Center"
 									Text="{Binding SubHeading}"
@@ -324,7 +324,7 @@
 					Clicked="OnLearnMoreButtonClicked"
 					Command="{Binding LoginWithQloudIdAppCommand}"
 					CornerRadius="25"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					HeightRequest="50"
 					Text="LEARN MORE"
 					TextColor="Red"
@@ -351,7 +351,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="One"
@@ -383,7 +383,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Attendance"
@@ -415,7 +415,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Alarm"

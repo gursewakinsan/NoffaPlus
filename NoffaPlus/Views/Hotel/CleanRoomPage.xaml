@@ -49,7 +49,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="2"
-			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
 			LineBreakMode="TailTruncation"
@@ -63,7 +63,7 @@
 			Grid.Column="1"
 			Grid.ColumnSpan="3">
 			<Label
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				Opacity="0.4"
 				Text="Clean room"
@@ -72,7 +72,7 @@
 
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="Select a room"
 				TextColor="White"
@@ -113,7 +113,7 @@
 					<controls:CustomEntry
 						Grid.Column="1"
 						BackgroundColor="Transparent"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Opacity="0.7"
 						Placeholder="Search"
@@ -127,7 +127,7 @@
 
 			<Label
 				Grid.Column="1"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="14"
 				HorizontalTextAlignment="End"
 				Text="Enter"
@@ -152,7 +152,7 @@
 				BackgroundColor="{Binding CheckedInButtonBg}"
 				Command="{Binding CheckedInCommand}"
 				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontFamily="PoppinsSemiBoldFontFamily"
 				FontSize="12"
 				Text="Checked-in"
 				TextColor="White" />
@@ -162,7 +162,7 @@
 				BackgroundColor="{Binding CheckedOutButtonBg}"
 				Command="{Binding CheckedOutCommand}"
 				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontFamily="PoppinsSemiBoldFontFamily"
 				FontSize="12"
 				Text="Checked-out"
 				TextColor="White" />
@@ -203,7 +203,7 @@
 									Padding="0"
 									BackgroundColor="{Binding RoomNameBgColor}"
 									CornerRadius="12"
-									FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+									FontFamily="SFProDisplayBoldFontFamily"
 									FontSize="18"
 									HeightRequest="55"
 									HorizontalOptions="CenterAndExpand"
@@ -217,7 +217,7 @@
 									Spacing="1"
 									VerticalOptions="CenterAndExpand">
 									<Label
-										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontFamily="PoppinsRegularFontFamily"
 										FontSize="12"
 										LineBreakMode="TailTruncation"
 										MaxLines="1"
@@ -226,7 +226,7 @@
 										TextColor="White" />
 
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="18"
 										LineBreakMode="TailTruncation"
 										MaxLines="1"
@@ -292,7 +292,7 @@
 									Padding="0"
 									BackgroundColor="{Binding RoomNameBgColor}"
 									CornerRadius="12"
-									FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+									FontFamily="SFProDisplayBoldFontFamily"
 									FontSize="18"
 									HeightRequest="55"
 									HorizontalOptions="CenterAndExpand"
@@ -306,7 +306,7 @@
 									Spacing="1"
 									VerticalOptions="CenterAndExpand">
 									<Label
-										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontFamily="PoppinsRegularFontFamily"
 										FontSize="12"
 										LineBreakMode="TailTruncation"
 										MaxLines="1"
@@ -315,7 +315,7 @@
 										TextColor="White" />
 
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="18"
 										LineBreakMode="TailTruncation"
 										MaxLines="1"

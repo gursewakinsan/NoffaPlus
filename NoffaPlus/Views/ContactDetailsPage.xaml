@@ -48,7 +48,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				IsVisible="False"
@@ -105,7 +105,7 @@
 						<Label
 							Grid.Row="0"
 							Padding="20,0,70,20"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="20"
 							HorizontalTextAlignment="Start"
 							LineBreakMode="TailTruncation"
@@ -127,7 +127,7 @@
 							BackgroundColor="#FCF7DA"
 							Spacing="0">
 							<Label
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="15"
 								HorizontalTextAlignment="Start"
 								MaxLines="1"
@@ -137,14 +137,14 @@
 
 							<Label
 								Margin="0,10,0,25"
-								FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+								FontFamily="SFProDisplayMediumFontFamily"
 								FontSize="18"
 								HorizontalTextAlignment="Start"
 								Text="Busco hacer amistades, ya que llegue hace muy poco de. Me encantaria que se me acerquen personas que si no da para algo mas y nos caemos bien, poder seguir haciendo planes juntxs!"
 								TextColor="Black" />
 
 							<Label
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="15"
 								HorizontalTextAlignment="Start"
 								MaxLines="1"
@@ -190,7 +190,7 @@
 													</ImageButton.Source>
 												</ImageButton>
 												<Label
-													FontFamily="{StaticResource SFProRegularFontFamily}"
+													FontFamily="SFProRegularFontFamily"
 													FontSize="15"
 													HorizontalTextAlignment="Center"
 													LineBreakMode="CharacterWrap"
@@ -206,7 +206,7 @@
 							</FlexLayout>
 
 							<Label
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="15"
 								HorizontalTextAlignment="Start"
 								MaxLines="1"
@@ -252,7 +252,7 @@
 													</ImageButton.Source>
 												</ImageButton>
 												<Label
-													FontFamily="{StaticResource SFProRegularFontFamily}"
+													FontFamily="SFProRegularFontFamily"
 													FontSize="15"
 													HorizontalTextAlignment="Center"
 													LineBreakMode="CharacterWrap"
@@ -312,7 +312,7 @@
 					<Label
 						Grid.Row="0"
 						Padding="20,0,20,20"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Start"
 						LineBreakMode="TailTruncation"
@@ -338,7 +338,7 @@
 						Padding="20"
 						Spacing="0">
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="15"
 							HorizontalTextAlignment="Start"
 							MaxLines="1"
@@ -348,14 +348,14 @@
 
 						<Label
 							Margin="0,10,0,25"
-							FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+							FontFamily="SFProDisplayMediumFontFamily"
 							FontSize="18"
 							HorizontalTextAlignment="Start"
 							Text="Busco hacer amistades, ya que llegue hace muy poco de. Me encantaria que se me acerquen personas que si no da para algo mas y nos caemos bien, poder seguir haciendo planes juntxs!"
 							TextColor="Black" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="15"
 							HorizontalTextAlignment="Start"
 							MaxLines="1"
@@ -400,7 +400,7 @@
 												</ImageButton.Source>
 											</ImageButton>
 											<Label
-												FontFamily="{StaticResource SFProRegularFontFamily}"
+												FontFamily="SFProRegularFontFamily"
 												FontSize="15"
 												HorizontalTextAlignment="Center"
 												LineBreakMode="CharacterWrap"
@@ -416,7 +416,7 @@
 						</FlexLayout>
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="15"
 							HorizontalTextAlignment="Start"
 							MaxLines="1"
@@ -461,7 +461,7 @@
 												</ImageButton.Source>
 											</ImageButton>
 											<Label
-												FontFamily="{StaticResource SFProRegularFontFamily}"
+												FontFamily="SFProRegularFontFamily"
 												FontSize="15"
 												HorizontalTextAlignment="Center"
 												LineBreakMode="CharacterWrap"
@@ -637,7 +637,7 @@
 
 				<Label
 					Margin="10,20,10,0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="23"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -647,7 +647,7 @@
 
 				<Label
 					Margin="10,0,10,0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="23"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -798,7 +798,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Details"
@@ -831,7 +831,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Alarm"

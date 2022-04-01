@@ -48,7 +48,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="2"
-			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
 			LineBreakMode="TailTruncation"
@@ -80,7 +80,7 @@
 			Grid.Column="1"
 			Grid.ColumnSpan="3">
 			<Label
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				Opacity="0.4"
 				Text="Check-out guest"
@@ -89,7 +89,7 @@
 
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="Select guest"
 				TextColor="White"
@@ -130,7 +130,7 @@
 					<controls:CustomEntry
 						Grid.Column="1"
 						BackgroundColor="Transparent"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Opacity="0.7"
 						Placeholder="Search"
@@ -144,7 +144,7 @@
 
 			<Label
 				Grid.Column="1"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="14"
 				HorizontalTextAlignment="End"
 				Text="Enter"
@@ -197,14 +197,14 @@
 
 							<StackLayout Grid.Row="1" Grid.Column="1">
 								<Label
-									FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+									FontFamily="PoppinsSemiBoldFontFamily"
 									FontSize="14"
 									Text="{Binding Name}"
 									TextColor="White"
 									VerticalTextAlignment="Start" />
 
 								<Label
-									FontFamily="{StaticResource PoppinsRegularFontFamily}"
+									FontFamily="PoppinsRegularFontFamily"
 									FontSize="14"
 									Opacity="0.4"
 									Text="Active now"
@@ -250,7 +250,7 @@
 			BackgroundColor="#45C366"
 			Command="{Binding SubmitCheckOutGuestCommand}"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="16"
 			IsVisible="{Binding IsSubmitVisible}"
 			Text="Submit"

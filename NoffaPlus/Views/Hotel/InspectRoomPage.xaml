@@ -47,7 +47,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="2"
-			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
 			LineBreakMode="TailTruncation"
@@ -61,7 +61,7 @@
 			Grid.Column="1"
 			Grid.ColumnSpan="3">
 			<Label
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				Opacity="0.4"
 				Text="Housekeeper"
@@ -70,7 +70,7 @@
 
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="Inspect a room"
 				TextColor="White"
@@ -111,7 +111,7 @@
 					<controls:CustomEntry
 						Grid.Column="1"
 						BackgroundColor="Transparent"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Opacity="0.7"
 						Placeholder="Search"
@@ -125,7 +125,7 @@
 
 			<Label
 				Grid.Column="1"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="14"
 				HorizontalTextAlignment="End"
 				Text="Enter"
@@ -171,7 +171,7 @@
 									Padding="0"
 									BackgroundColor="{Binding RoomNameBgColor}"
 									CornerRadius="12"
-									FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+									FontFamily="SFProDisplayBoldFontFamily"
 									FontSize="18"
 									HeightRequest="55"
 									HorizontalOptions="CenterAndExpand"
@@ -185,7 +185,7 @@
 									Spacing="1"
 									VerticalOptions="CenterAndExpand">
 									<Label
-										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontFamily="PoppinsRegularFontFamily"
 										FontSize="12"
 										LineBreakMode="TailTruncation"
 										MaxLines="1"
@@ -194,7 +194,7 @@
 										TextColor="White" />
 
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="18"
 										LineBreakMode="TailTruncation"
 										MaxLines="1"

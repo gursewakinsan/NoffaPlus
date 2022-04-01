@@ -45,7 +45,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="2"
-			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
 			Text="Hotel room keys"
@@ -60,14 +60,14 @@
 			<StackLayout Margin="0,18,0,0" Spacing="0">
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="40"
 					Text="Drop keys"
 					TextColor="White" />
 
 				<Label
 					Margin="0,22,0,50"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
 					LineHeight="1.2"
@@ -78,7 +78,7 @@
 
 				<Label
 					Margin="0,0,0,22"
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="18"
 					Text="Select"
 					TextColor="White" />
@@ -102,7 +102,7 @@
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
 						<textinputlayout:SfTextInputLayout.HintLabelStyle>
-							<textinputlayout:LabelStyle FontFamily="{StaticResource PoppinsSemiBoldFontFamily}" FontSize="12" />
+							<textinputlayout:LabelStyle FontFamily="PoppinsSemiBoldFontFamily" FontSize="12" />
 						</textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<controls:CustomPicker
 							x:Name="pickerBookingConfirmationCode"
@@ -141,7 +141,7 @@
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
 						<textinputlayout:SfTextInputLayout.HintLabelStyle>
-							<textinputlayout:LabelStyle FontFamily="{StaticResource PoppinsSemiBoldFontFamily}" FontSize="12" />
+							<textinputlayout:LabelStyle FontFamily="PoppinsSemiBoldFontFamily" FontSize="12" />
 						</textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<controls:CustomPicker
 							x:Name="pickerSelectRoom"
@@ -180,7 +180,7 @@
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
 						<textinputlayout:SfTextInputLayout.HintLabelStyle>
-							<textinputlayout:LabelStyle FontFamily="{StaticResource PoppinsSemiBoldFontFamily}" FontSize="12" />
+							<textinputlayout:LabelStyle FontFamily="PoppinsSemiBoldFontFamily" FontSize="12" />
 						</textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<controls:CustomPicker
 							x:Name="pickerInstaBoxInfo"
@@ -216,7 +216,7 @@
 			BackgroundColor="#6263ED"
 			Command="{Binding SubmitGenerateKeyForInstaBoxCommand}"
 			CornerRadius="10"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="14"
 			Text="Submit"
 			TextColor="White" />

@@ -51,7 +51,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				Text="Attendance"
@@ -80,7 +80,7 @@
 				Margin="0,0,0,160">
 				<Label
 					Margin="10,20,10,0"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="80"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -90,7 +90,7 @@
 
 				<Label
 					Margin="10,0,10,0"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="25"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"

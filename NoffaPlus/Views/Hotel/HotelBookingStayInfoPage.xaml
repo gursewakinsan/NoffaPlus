@@ -43,7 +43,7 @@
 			<Label
 				Grid.Row="0"
 				Grid.Column="2"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="14"
 				HorizontalTextAlignment="Center"
 				LineBreakMode="TailTruncation"
@@ -115,7 +115,7 @@
 					<Label
 						Grid.Row="2"
 						Grid.Column="1"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						LineBreakMode="TailTruncation"
@@ -156,7 +156,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -185,7 +185,7 @@
 										<TapGestureRecognizer Command="{Binding CheckInFlowCommand}" />
 									</StackLayout.GestureRecognizers>
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="16"
 										Text="Check-in flow"
 										TextColor="#342B20"
@@ -240,7 +240,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -269,7 +269,7 @@
 										<TapGestureRecognizer Command="{Binding KeyInFlowCommand}" />
 									</StackLayout.GestureRecognizers>
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="16"
 										Text="Key-in flow"
 										TextColor="#342B20"
@@ -324,7 +324,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -353,7 +353,7 @@
 										<TapGestureRecognizer Command="{Binding CheckoutInFlowCommand}" />
 									</StackLayout.GestureRecognizers>
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="16"
 										Text="Checkout-in flow"
 										TextColor="#342B20"
@@ -408,7 +408,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -437,7 +437,7 @@
 										<TapGestureRecognizer Command="{Binding CleanInFlowCommand}" />
 									</StackLayout.GestureRecognizers>
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="16"
 										Text="Clean-in flow"
 										TextColor="#342B20"
@@ -492,7 +492,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -521,7 +521,7 @@
 										<TapGestureRecognizer Command="{Binding InspectRoomCommand}" />
 									</StackLayout.GestureRecognizers>
 									<Label
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="16"
 										Text="Inspect room"
 										TextColor="#342B20"

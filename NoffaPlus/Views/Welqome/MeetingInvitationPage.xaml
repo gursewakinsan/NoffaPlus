@@ -46,7 +46,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="3"
-			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontFamily="PoppinsRegularFontFamily"
 			FontSize="16"
 			HorizontalTextAlignment="End"
 			MaxLines="1"
@@ -78,7 +78,7 @@
 					Grid.Row="0"
 					Grid.ColumnSpan="2"
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="40"
 					Text="Meeting"
 					TextColor="White" />
@@ -86,7 +86,7 @@
 				<Label
 					Grid.Row="1"
 					Grid.ColumnSpan="2"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
 					LineHeight="1.2"
@@ -122,7 +122,7 @@
 					<controls:CustomDatePicker
 						BackgroundColor="Transparent"
 						Date="{Binding SelectedDate}"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Format="yyyy-MM-dd"
 						MaximumDate="{Binding BindMaximumDate}"
@@ -168,7 +168,7 @@
 
 					<TimePicker
 						BackgroundColor="Transparent"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						TextColor="White"
 						Time="{Binding SelectedTime}" />
@@ -219,7 +219,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="14"
 							Placeholder="Full name"
 							PlaceholderColor="#797A7D"
@@ -229,7 +229,6 @@
 
 					<Button
 						Grid.Column="1"
-						Margin="0,0,0,-8"
 						Padding="0"
 						BackgroundColor="#363541"
 						CornerRadius="16"
@@ -240,7 +239,14 @@
 						Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.EmailOutline}"
 						TextColor="#6263ED"
 						VerticalOptions="EndAndExpand"
-						WidthRequest="52" />
+						WidthRequest="52">
+						<Button.Margin>
+							<OnPlatform x:TypeArguments="Thickness">
+								<On Platform="iOS" Value="0,0,0,-3" />
+								<On Platform="Android" Value="0,0,0,-8" />
+							</OnPlatform>
+						</Button.Margin>
+					</Button>
 				</Grid>
 
 				<textinputlayout:SfTextInputLayout
@@ -268,7 +274,7 @@
 					</textinputlayout:SfTextInputLayout.LeadingView>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Keyboard="Email"
 						Placeholder="Email"
@@ -339,7 +345,7 @@
 
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="14"
 							Keyboard="Numeric"
 							Placeholder="Mobile number"
@@ -353,7 +359,7 @@
 				<Label
 					Grid.Row="7"
 					Grid.ColumnSpan="2"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Start"
 					LineHeight="1.1"
@@ -385,7 +391,7 @@
 					<TapGestureRecognizer Command="{Binding InviteVisitorCommand}" />
 				</StackLayout.GestureRecognizers>
 				<Label
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"
 					Text="Send invitation"
 					TextColor="White"

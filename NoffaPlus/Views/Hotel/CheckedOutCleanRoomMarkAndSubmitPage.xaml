@@ -48,7 +48,7 @@
 		<Label
 			Grid.Row="0"
 			Grid.Column="2"
-			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
 			LineBreakMode="TailTruncation"
@@ -62,7 +62,7 @@
 			Grid.Column="1"
 			Grid.ColumnSpan="3">
 			<Label
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				Opacity="0.4"
 				Text="Clean room"
@@ -71,7 +71,7 @@
 
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				TextColor="White"
 				VerticalTextAlignment="End">
@@ -93,14 +93,14 @@
 			<StackLayout Spacing="0">
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="20"
 					Text="Mark &amp; Submit"
 					TextColor="White" />
 
 				<Label
 					Margin="0,3,0,32"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
 					LineHeight="1.2"
@@ -136,7 +136,7 @@
 								<TapGestureRecognizer Command="{Binding SelectedRoomCleaningOptionCommand}" CommandParameter="Inspection" />
 							</StackLayout.GestureRecognizers>
 							<Label
-								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontFamily="PoppinsSemiBoldFontFamily"
 								FontSize="18"
 								Text="Inspection"
 								TextColor="White">
@@ -146,7 +146,7 @@
 							</Label>
 
 							<Label
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="12"
 								Opacity="0.7"
 								Text="Mark this if everything is working"
@@ -200,7 +200,7 @@
 								<TapGestureRecognizer Command="{Binding SelectedRoomCleaningOptionCommand}" CommandParameter="Clean room" />
 							</StackLayout.GestureRecognizers>
 							<Label
-								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontFamily="PoppinsSemiBoldFontFamily"
 								FontSize="18"
 								Text="Clean room"
 								TextColor="White">
@@ -210,7 +210,7 @@
 							</Label>
 
 							<Label
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="12"
 								Opacity="0.7"
 								Text="Mark this when the room is cleaned"
@@ -263,7 +263,7 @@
 								<TapGestureRecognizer Command="{Binding SelectedRoomCleaningOptionCommand}" CommandParameter="Minibar" />
 							</StackLayout.GestureRecognizers>
 							<Label
-								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontFamily="PoppinsSemiBoldFontFamily"
 								FontSize="18"
 								Text="Minibar"
 								TextColor="White">
@@ -273,7 +273,7 @@
 							</Label>
 
 							<Label
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="12"
 								Opacity="0.7"
 								Text="Mark this if Minibar is full"
@@ -310,7 +310,7 @@
 			BorderWidth="1"
 			Command="{Binding UpdateRoomCleaningCommand}"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="16"
 			Text="Submit"
 			TextColor="White" />

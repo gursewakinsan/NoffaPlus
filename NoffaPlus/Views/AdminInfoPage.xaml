@@ -51,7 +51,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				Text="Admin"
@@ -106,7 +106,7 @@
 									Spacing="5"
 									VerticalOptions="CenterAndExpand">
 									<Label
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontFamily="SFProSemiboldFontFamily"
 										FontSize="16"
 										HorizontalTextAlignment="Start"
 										LineBreakMode="TailTruncation"
@@ -116,7 +116,7 @@
 										VerticalTextAlignment="Center" />
 
 									<Label
-										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontFamily="SFProRegularFontFamily"
 										FontSize="14"
 										HorizontalTextAlignment="Start"
 										LineBreakMode="TailTruncation"

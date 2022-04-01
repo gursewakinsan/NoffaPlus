@@ -44,7 +44,7 @@
 			<StackLayout Grid.Row="1" Grid.ColumnSpan="3">
 				<Label
 					Margin="10,20,10,0"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="80"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -54,7 +54,7 @@
 
 				<Label
 					Margin="10,0,10,0"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="25"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -210,7 +210,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Sick "
@@ -242,7 +242,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Vacation"
