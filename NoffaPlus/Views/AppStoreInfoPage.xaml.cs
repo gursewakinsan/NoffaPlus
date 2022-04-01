@@ -25,7 +25,9 @@ namespace NoffaPlus.Views
 		{
 			Models.CompanyDownloadedAppsResponse selectedCompany = e.Item as Models.CompanyDownloadedAppsResponse;
 			listAppStore.SelectedItem = null;
-			if (selectedCompany.AppName.Equals("Stay"))
+			if (selectedCompany.AppName.Equals("Welqome"))
+				await Navigation.PushAsync(new Welqome.MeetingInvitationPage());
+			else if (selectedCompany.AppName.Equals("Stay"))
 				appStoreInfoPageViewModel.IsHotelCommand.Execute(null);
 			else if (selectedCompany.AppName.Equals("Food & Drinks"))
 				await Navigation.PushAsync(new Resturant.AvailableResturantListPage());
@@ -33,5 +35,5 @@ namespace NoffaPlus.Views
 				await Navigation.PushAsync(new Queue.OperatorQueueListPage());
 		}
 	}
-	
 }
+

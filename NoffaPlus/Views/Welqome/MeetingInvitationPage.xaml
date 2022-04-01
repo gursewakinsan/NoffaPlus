@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="NoffaPlus.Views.Welqome.MeetingInvitationPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,18,0,5"
+		ColumnSpacing="0"
+		RowSpacing="15">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Margin="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="3"
+			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontSize="16"
+			HorizontalTextAlignment="End"
+			MaxLines="1"
+			Opacity="0.4"
+			Text="Skip"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<Grid
+				Margin="0,14,0,0"
+				ColumnSpacing="20"
+				RowSpacing="20">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="56" />
+					<RowDefinition Height="52" />
+					<RowDefinition Height="0" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="30" />
+				</Grid.RowDefinitions>
+				<Label
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontSize="40"
+					Text="Meeting"
+					TextColor="White" />
+
+				<Label
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="Seamlessly easy experience to send an invitation for a meeting"
+					TextColor="White" />
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="3"
+					Grid.Column="0"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#6263ED"
+					FocusedStrokeWidth="3"
+					HeightRequest="56"
+					Hint="Date"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="18"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CalendarText}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+
+					<controls:CustomDatePicker
+						BackgroundColor="Transparent"
+						Date="{Binding SelectedDate}"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="14"
+						Format="yyyy-MM-dd"
+						MaximumDate="{Binding BindMaximumDate}"
+						MinimumDate="{Binding BindMinimumDate}"
+						TextColor="White" />
+
+					<textinputlayout:SfTextInputLayout.TrailingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalOptions="CenterAndExpand"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+							TextColor="#797A7D"
+							VerticalOptions="CenterAndExpand"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.TrailingView>
+				</textinputlayout:SfTextInputLayout>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="3"
+					Grid.Column="1"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#6263ED"
+					FocusedStrokeWidth="3"
+					HeightRequest="56"
+					Hint="Time"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="18"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ClockOutline}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+
+					<TimePicker
+						BackgroundColor="Transparent"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="14"
+						TextColor="White"
+						Time="{Binding SelectedTime}" />
+
+					<textinputlayout:SfTextInputLayout.TrailingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalOptions="CenterAndExpand"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+							TextColor="#797A7D"
+							VerticalOptions="CenterAndExpand"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.TrailingView>
+				</textinputlayout:SfTextInputLayout>
+
+				<Grid
+					Grid.Row="4"
+					Grid.ColumnSpan="2"
+					ColumnSpacing="14">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="52" />
+					</Grid.ColumnDefinitions>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="3"
+						HeightRequest="56"
+						Hint="Full name"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="18"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.AccountOutline}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomFloatingLabelEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							Placeholder="Full name"
+							PlaceholderColor="#797A7D"
+							Text="{Binding FullName}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<Button
+						Grid.Column="1"
+						Margin="0,0,0,-8"
+						Padding="0"
+						BackgroundColor="#363541"
+						CornerRadius="16"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="18"
+						HeightRequest="56"
+						HorizontalOptions="CenterAndExpand"
+						Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.EmailOutline}"
+						TextColor="#6263ED"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="52" />
+				</Grid>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="5"
+					Grid.ColumnSpan="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#6263ED"
+					FocusedStrokeWidth="3"
+					HeightRequest="56"
+					Hint="Email"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="18"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.EmailOutline}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="14"
+						Keyboard="Email"
+						Placeholder="Email"
+						PlaceholderColor="#797A7D"
+						Text="{Binding EmailAddress}"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<Grid
+					Grid.Row="6"
+					Grid.ColumnSpan="2"
+					ColumnSpacing="14"
+					RowSpacing="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="70" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="3"
+						HeightRequest="56"
+						Hint="Code"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<controls:CustomPicker
+							x:Name="pickerCountryCode"
+							Title="Code"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							ItemDisplayBinding="{Binding CountryCode}"
+							ItemsSource="{Binding CountryCodeList}"
+							SelectedIndexChanged="OnCountryCodeIndexChanged"
+							SelectedItem="{Binding SelectedCountryCode}"
+							TextColor="White"
+							TitleColor="#797A7D" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="3"
+						HeightRequest="56"
+						Hint="Mobile number"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="18"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CellphoneAndroid}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+
+						<controls:CustomFloatingLabelEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							Keyboard="Numeric"
+							Placeholder="Mobile number"
+							PlaceholderColor="#797A7D"
+							Text="{Binding PhoneNumber}"
+							TextChanged="MobileNumberTextChanged"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+				</Grid>
+
+				<Label
+					Grid.Row="7"
+					Grid.ColumnSpan="2"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontSize="12"
+					HorizontalTextAlignment="Start"
+					LineHeight="1.1"
+					Opacity="0.4"
+					Text="Like this, +46 762072192. No zero (0)."
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+			</Grid>
+		</ScrollView>
+
+		<Frame
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Padding="0"
+			BackgroundColor="#6263ED"
+			CornerRadius="12"
+			HasShadow="False"
+			IsClippedToBounds="True">
+			<Frame.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding InviteVisitorCommand}" />
+			</Frame.GestureRecognizers>
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				Orientation="Horizontal"
+				Spacing="8"
+				VerticalOptions="CenterAndExpand">
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding InviteVisitorCommand}" />
+				</StackLayout.GestureRecognizers>
+				<Label
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontSize="16"
+					Text="Send invitation"
+					TextColor="White"
+					VerticalOptions="CenterAndExpand">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding InviteVisitorCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Label
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="22"
+					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowRight}"
+					TextColor="White"
+					VerticalOptions="CenterAndExpand">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding InviteVisitorCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+			</StackLayout>
+		</Frame>
+	</Grid>
+</ContentPage>

@@ -154,5 +154,8 @@
     <EmbeddedResource Update="Views\VerifyHotelStaff\SessionExpiredForVerifyHotelStaffPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Welqome\MeetingInvitationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

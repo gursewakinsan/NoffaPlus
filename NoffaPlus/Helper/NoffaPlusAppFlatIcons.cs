@@ -60,6 +60,7 @@
 		public const string SearchIcon = "\U000f0349";
 		public const string BellOutline = "\U000f009c";
 		public const string AccountOutline = "\U000f0013";
+		public const string Account = "\U000f0004";
 		public const string PhoneOutline = "\U000f0df0";
 		public const string MessageTextOutline = "\U000f036a";
 		public const string ShareVariant = "\U000f0497";
@@ -69,5 +70,9 @@
 		public const string ArrowRight = "\U000f0054";
 		public const string ChevronDown = "\U000f0140";
 		public const string CheckboxMarked = "\U000f0132";
+		public const string EmailOutline = "\U000f01f0";
+		public const string ClockOutline = "\U000f0150";
+		public const string EyeOutline = "\U000f06d0";
+		public const string CellphoneAndroid = "\U000f011d";
 	}
 }
