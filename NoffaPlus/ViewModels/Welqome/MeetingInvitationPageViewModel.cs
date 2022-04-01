@@ -48,11 +48,11 @@ namespace NoffaPlus.ViewModels
 				await Helper.Alert.DisplayAlert("Please select time");
 			else if (string.IsNullOrWhiteSpace(FullName))
 				await Helper.Alert.DisplayAlert("Name is required.");
-			else if (!string.IsNullOrWhiteSpace(EmailAddress))
+			/*else if (!string.IsNullOrWhiteSpace(EmailAddress))
 			{
 				if (!Helper.Helper.IsValid(EmailAddress))
 					await Helper.Alert.DisplayAlert("Please enter valid email address.");
-			}
+			}*/
 			else if (SelectedCountryCode == null)
 				await Helper.Alert.DisplayAlert("Please select Code.");
 			else if (string.IsNullOrWhiteSpace(PhoneNumber))
