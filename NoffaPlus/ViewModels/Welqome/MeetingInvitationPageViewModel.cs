@@ -64,7 +64,7 @@ namespace NoffaPlus.ViewModels
 				{
 					UserId = Helper.Helper.LoggedInUserId,
 					CompanyId = Helper.Helper.CompanyId,
-					VDate = SelectedDate.Date,
+					VDate = SelectedDate,
 					VTime = SelectedTime,
 					Name = FullName,
 					Email = EmailAddress,
