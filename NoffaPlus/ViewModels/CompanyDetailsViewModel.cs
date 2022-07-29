@@ -148,6 +148,10 @@ namespace NoffaPlus.ViewModels
 					Helper.Helper.HotelId = ip[1];
 					VerifEmployeeInfoCommand.Execute(null);
 				}
+				else if (ip[0].Equals("verify_checkin"))
+				{
+					ApartmentCommunityTicketListCommand.Execute(ip[2]);
+				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 			await Task.CompletedTask;
@@ -175,6 +179,27 @@ namespace NoffaPlus.ViewModels
 				Application.Current.MainPage = new NavigationPage(new Views.VerifyHotelStaff.NotAuthorizedForVerifyHotelStaffPage());
 			else if (response == 1)
 				await Navigation.PushAsync(new Views.VerifyHotelStaff.GenerateKeyForInstaBoxPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Apartment Community Ticket List Command.
+		private ICommand apartmentCommunityTicketListCommand;
+		public ICommand ApartmentCommunityTicketListCommand
+		{
+			get => apartmentCommunityTicketListCommand ?? (apartmentCommunityTicketListCommand = new Command<string>(async (apartmentId) => await ExecuteApartmentCommunityTicketListCommand(apartmentId)));
+		}
+		private async Task ExecuteApartmentCommunityTicketListCommand(string apartmentId)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IApartmentService service = new ApartmentService();
+			Helper.Helper.ApartmentCommunityTicketInfo = await service.ApartmentCommunityTicketListAsync(new Models.ApartmentCommunityTicketListRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId,
+				ApartmentId = apartmentId
+			});
+			await Navigation.PushAsync(new Views.Apartment.SupportPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

@@ -70,5 +70,8 @@
 		//Admin
 		public const string CountryCodeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/countryCode";
 		public const string InviteVisitorUrl = "https://www.qloudid.com/user/index.php/QloudidApp/inviteVisitor";
+
+		//Apartment.
+		public const string ApartmentCommunityTicketListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCommunityTicketList";
 	}
 }

@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.Apartment.SupportPage"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:NoffaPlus.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,2"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="81" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+		    Grid.Row="0"
+            Grid.Column="2"
+		    Grid.ColumnSpan="2"
+		    FontAttributes="Bold"
+		    FontFamily="PoppinsRegularFontFamily"
+		    FontSize="16"
+		    HorizontalTextAlignment="End"
+		    Text="Casa Madrid"
+		    TextColor="White"
+		    VerticalTextAlignment="Center" />
+
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid Margin="0,25,0,0" RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="38"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="21"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+					Grid.Row="0"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="32"
+					HorizontalTextAlignment="Start"
+					Text="Support"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <Label
+					Grid.Row="2"
+					FontAttributes="Bold"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="20"
+					HorizontalTextAlignment="Start"
+					Text="Tasks"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <Grid Grid.Row="4" RowSpacing="20" ColumnSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="120"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame 
+                        Grid.Row="0" 
+                        Grid.Column="0" 
+                        Grid.RowSpan="2"
+                        HasShadow="False"
+                        CornerRadius="10"
+                        Padding="14"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NotStartedCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NotStartedCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+					            Grid.Row="0"
+                                Padding="0" HeightRequest="180"
+                                Margin="0,-50,0,0"
+					            FontFamily="PoppinsRegularFontFamily"
+					            FontSize="165"
+					            HorizontalTextAlignment="Center"
+					            Text="{Binding NotStartedCount}"
+					            TextColor="White"
+                                VerticalOptions="StartAndExpand"
+                                HorizontalOptions="StartAndExpand"
+					            VerticalTextAlignment="Start" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NotStartedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+					            FontFamily="PoppinsSemiBoldFontFamily"
+					            FontSize="16"
+					            HorizontalTextAlignment="Start"
+					            Text="Not started"
+					            TextColor="White"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NotStartedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Margin="0,-4,0,0"
+					            FontFamily="PoppinsRegularFontFamily"
+					            FontSize="13"
+					            HorizontalTextAlignment="Start"
+					            Text="From x"
+                                Opacity="0.42"
+					            TextColor="White"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NotStartedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame 
+                        Grid.Row="0" 
+                        Grid.Column="1" 
+                        HasShadow="False"
+                        CornerRadius="10"
+                        Padding="14"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#A2A6B0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartedCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding StartedCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+					            Grid.Row="0"
+                                Padding="0"
+					            FontFamily="PoppinsSemiBoldFontFamily"
+					            FontSize="30"
+					            HorizontalTextAlignment="Center"
+					            Text="{Binding StartedCount}"
+					            TextColor="#181A1F"
+                                VerticalOptions="StartAndExpand"
+                                HorizontalOptions="StartAndExpand"
+					            VerticalTextAlignment="Start">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding StartedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Margin="0,0,0,-6"
+					            FontFamily="PoppinsSemiBoldFontFamily"
+					            FontSize="16"
+					            HorizontalTextAlignment="Start"
+					            Text="Started"
+					            TextColor="#181A1F"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding StartedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+					            FontFamily="PoppinsRegularFontFamily"
+					            FontSize="13"
+					            HorizontalTextAlignment="Start"
+					            Text="From x"
+                                Opacity="0.70"
+					            TextColor="#181A1F"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding StartedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame 
+                        Grid.Row="1" 
+                        Grid.Column="1" 
+                        HasShadow="False"
+                        CornerRadius="10"
+                        Padding="14"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#A2A6B0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding FinishedCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding FinishedCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+					            Grid.Row="0"
+                                Padding="0"
+					            FontFamily="PoppinsSemiBoldFontFamily"
+					            FontSize="30"
+					            HorizontalTextAlignment="Center"
+					            Text="{Binding FinishCount}"
+					            TextColor="#181A1F"
+                                VerticalOptions="StartAndExpand"
+                                HorizontalOptions="StartAndExpand"
+					            VerticalTextAlignment="Start">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FinishedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Margin="0,0,0,-6"
+					            FontFamily="PoppinsSemiBoldFontFamily"
+					            FontSize="16"
+					            HorizontalTextAlignment="Start"
+					            Text="Finish"
+					            TextColor="#181A1F"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FinishedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+					            FontFamily="PoppinsRegularFontFamily"
+					            FontSize="13"
+					            HorizontalTextAlignment="Start"
+					            Text="From x"
+                                Opacity="0.70"
+					            TextColor="#181A1F"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FinishedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame 
+                        Grid.Row="2" 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="0" 
+                        HasShadow="False"
+                        CornerRadius="10"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#A2A6B0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CancelledCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Spacing="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CancelledCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+					            Grid.Row="0"
+                                Padding="0"
+					            FontFamily="PoppinsSemiBoldFontFamily"
+					            FontSize="65"
+                                HeightRequest="80"
+                                Margin="0,-10,0,0"
+					            HorizontalTextAlignment="Center"
+					            Text="{Binding CancelledCount}"
+					            TextColor="#181A1F"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="StartAndExpand"
+					            VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CancelledCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <StackLayout Spacing="-6" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CancelledCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label
+					                FontFamily="PoppinsSemiBoldFontFamily"
+					                FontSize="16"
+					                HorizontalTextAlignment="Start"
+					                Text="Cancelled"
+					                TextColor="#181A1F"
+					                VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding CancelledCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label
+					                FontFamily="PoppinsRegularFontFamily"
+					                FontSize="13"
+					                HorizontalTextAlignment="Start"
+					                Text="From x"
+                                    Opacity="0.70"
+                                    HorizontalOptions="CenterAndExpand"
+					                TextColor="#181A1F"
+					                VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding CancelledCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                           
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

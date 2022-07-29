@@ -71,8 +71,23 @@
 		public const string ChevronDown = "\U000f0140";
 		public const string CheckboxMarked = "\U000f0132";
 		public const string EmailOutline = "\U000f01f0";
-		public const string ClockOutline = "\U000f0150";
 		public const string EyeOutline = "\U000f06d0";
 		public const string CellphoneAndroid = "\U000f011d";
+
+		public const string HomeVariant = "\U000f02de";
+		public const string PlusBox = "\U000f0416";
+		public const string Soundcloud = "\U000f04c0";
+
+		public const string FloorLampVariant = "\U000f1041";
+		public const string WallSconceRound = "\U000f0748";
+		public const string CellphoneIphone = "\U000f0120";
+		public const string Settings = "\U000f0493";
+
+		public const string ClockOutline = "\U000f0150";
+		public const string ChatProcessingOutline = "\U000f12ca";
+		public const string NotePlusOutline = "\U000f039d";
+		public const string BookmarkMinusOutline = "\U000f09cd";
+		public const string FilePlusOutline = "\U000f0eed";
+
 	}
 }
