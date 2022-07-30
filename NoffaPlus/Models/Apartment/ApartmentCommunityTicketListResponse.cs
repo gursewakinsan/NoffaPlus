@@ -4,6 +4,9 @@ namespace NoffaPlus.Models
 {
     public class ApartmentCommunityTicketListResponse
     {
+        [Newtonsoft.Json.JsonProperty(PropertyName = "apartment_name")]
+        public string ApartmentName { get; set; }
+
         [Newtonsoft.Json.JsonProperty(PropertyName = "notstarted")]
         public List<ApartmentCommunityTicketModel> NotStartedList { get; set; }
 
@@ -20,6 +23,14 @@ namespace NoffaPlus.Models
 
 public class ApartmentCommunityTicketModel
 {
+    public ApartmentCommunityTicketModel()
+    {
+        ImageTestList = new List<ImageTest>();
+        ImageTestList.Add(new ImageTest() { Url = "ErrorMessageBg.png" });
+        ImageTestList.Add(new ImageTest() { Url = "appIcon.png" });
+        ImageTestList.Add(new ImageTest() { Url = "ErrorMessageBg.png" });
+        ImageTestList.Add(new ImageTest() { Url = "appIcon.png" });
+    }
     [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
     public int Id { get; set; }
 
@@ -34,4 +45,6 @@ public class ApartmentCommunityTicketModel
 
     [Newtonsoft.Json.JsonProperty(PropertyName = "ticket_subtitle")]
     public string TicketSubtitle { get; set; }
+
+    public List<ImageTest> ImageTestList { get; set; }
 }

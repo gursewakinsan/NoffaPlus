@@ -23,8 +23,7 @@ namespace NoffaPlus.ViewModels
 		}
 		private void ExecuteNotStartedCommand()
 		{
-			if (NotStartedCount > 0)
-				Application.Current.MainPage = new NavigationPage(new Views.Apartment.NotStartedPage());
+			Application.Current.MainPage = new NavigationPage(new Views.Apartment.NotStartedPage());
 		}
 		#endregion
 
@@ -36,8 +35,7 @@ namespace NoffaPlus.ViewModels
 		}
 		private void ExecuteStartedCommand()
 		{
-			if (StartedCount > 0)
-				Application.Current.MainPage = new NavigationPage(new Views.Apartment.StartedPage());
+			Application.Current.MainPage = new NavigationPage(new Views.Apartment.StartedPage());
 		}
 		#endregion
 
@@ -49,8 +47,7 @@ namespace NoffaPlus.ViewModels
 		}
 		private void ExecuteFinishedCommand()
 		{
-			if (FinishCount > 0)
-				Application.Current.MainPage = new NavigationPage(new Views.Apartment.FinishPage());
+			Application.Current.MainPage = new NavigationPage(new Views.Apartment.FinishPage());
 		}
 		#endregion
 
@@ -62,12 +59,24 @@ namespace NoffaPlus.ViewModels
 		}
 		private void ExecuteCancelledCommand()
 		{
-			if (CancelledCount > 0)
-				Application.Current.MainPage = new NavigationPage(new Views.Apartment.CancelledPage());
+			Application.Current.MainPage = new NavigationPage(new Views.Apartment.CancelledPage());
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(() => ExecuteBackCommand()));
+		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.CompanyDetailsPage());
 		}
 		#endregion
 
 		#region Properties.
+		public string DisplayApartmentName => Helper.Helper.ApartmentCommunityTicketInfo.ApartmentName;
 		public int NotStartedCount => Helper.Helper.ApartmentCommunityTicketInfo.NotStartedList?.Count ?? 0;
 		public int StartedCount => Helper.Helper.ApartmentCommunityTicketInfo.StartedList?.Count ?? 0;
 		public int FinishCount => Helper.Helper.ApartmentCommunityTicketInfo.FinishedList?.Count ?? 0;

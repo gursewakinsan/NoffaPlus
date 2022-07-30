@@ -12,7 +12,7 @@ namespace NoffaPlus.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.ApartmentCommunityTicketListResponse>(HttpWebRequest.Create(string.Format(EndPointsList.ApartmentCommunityTicketListUrl)), string.Empty, null);
+				var res = RestClient.Post<Models.ApartmentCommunityTicketListResponse>(HttpWebRequest.Create(string.Format(EndPointsList.ApartmentCommunityTicketListUrl)), string.Empty, request.ToJson());
 				return res;
 			});
 		}

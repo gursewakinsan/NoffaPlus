@@ -35,7 +35,7 @@
 			IsClippedToBounds="True"
 			Opacity="0.2">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
             </Frame.GestureRecognizers>
         </Frame>
 
@@ -63,7 +63,7 @@
 		    FontFamily="PoppinsRegularFontFamily"
 		    FontSize="16"
 		    HorizontalTextAlignment="End"
-		    Text="Casa Madrid"
+		    Text="{Binding DisplayApartmentName}"
 		    TextColor="White"
 		    VerticalTextAlignment="Center" />
 

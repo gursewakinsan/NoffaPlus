@@ -193,12 +193,13 @@ namespace NoffaPlus.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IApartmentService service = new ApartmentService();
-			Helper.Helper.ApartmentCommunityTicketInfo = await service.ApartmentCommunityTicketListAsync(new Models.ApartmentCommunityTicketListRequest()
+			var response = await service.ApartmentCommunityTicketListAsync(new Models.ApartmentCommunityTicketListRequest()
 			{
 				UserId = Helper.Helper.LoggedInUserId,
 				CompanyId = Helper.Helper.CompanyId,
 				ApartmentId = apartmentId
 			});
+			Helper.Helper.ApartmentCommunityTicketInfo = response;
 			await Navigation.PushAsync(new Views.Apartment.SupportPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}

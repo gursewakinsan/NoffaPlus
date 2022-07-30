@@ -10,11 +10,6 @@ namespace NoffaPlus.ViewModels
 		public StartedPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			ImageTestList = new List<ImageTest>();
-			ImageTestList.Add(new ImageTest() { Url = "ErrorMessageBg.png" });
-			ImageTestList.Add(new ImageTest() { Url = "appIcon.png" });
-			ImageTestList.Add(new ImageTest() { Url = "ErrorMessageBg.png" });
-			ImageTestList.Add(new ImageTest() { Url = "appIcon.png" });
 		}
 		#endregion
 
@@ -66,18 +61,20 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
-		#region Properties.
-		private List<ImageTest> imageTestList;
-		public List<ImageTest> ImageTestList
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
 		{
-			get => imageTestList;
-			set
-			{
-				imageTestList = value;
-				OnPropertyChanged("ImageTestList");
-			}
+			get => backCommand ?? (backCommand = new Command( () =>  ExecuteBackCommand()));
 		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.Apartment.SupportPage());
+		}
+		#endregion
 
+		#region Properties.
+		public string DisplayApartmentName => Helper.Helper.ApartmentCommunityTicketInfo.ApartmentName;
 		public List<ApartmentCommunityTicketModel> StartedList => Helper.Helper.ApartmentCommunityTicketInfo.StartedList;
 		public int NotStartedCount => Helper.Helper.ApartmentCommunityTicketInfo.NotStartedList?.Count ?? 0;
 		public int StartedCount => Helper.Helper.ApartmentCommunityTicketInfo.StartedList?.Count ?? 0;

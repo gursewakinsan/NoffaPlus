@@ -96,6 +96,7 @@ namespace NoffaPlus.Views
 			};
 			scanPage.IsScanning = true;
 			await Navigation.PushModalAsync(scanPage);
+			//companyDetailsViewModel.ScanQrCommand.Execute("verify_checkin/2/QkhHaWQzcnBweFU5MDRIMllxY3IzQT09");
 		}
 
 		private void OnBackClicked(object sender, EventArgs e)

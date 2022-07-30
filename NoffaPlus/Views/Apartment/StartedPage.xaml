@@ -36,7 +36,7 @@
 			TextColor="White"
 			VerticalTextAlignment="Center">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 
@@ -46,7 +46,7 @@
 			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
-			Text="Casa Madrid"
+			Text="{Binding DisplayApartmentName}"
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
@@ -88,10 +88,10 @@
 					BorderColor="#737B8C"
 					BorderWidth="1"
 					CornerRadius="38"
-                    Command="{Binding SocailClickCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
+                    Command="{Binding NotStartedCommand}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="24"
-					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.HomeVariant}"
+					Text="{Binding NotStartedCount}"
 					TextColor="White" />
 
                 <Button
@@ -99,10 +99,10 @@
 					Grid.Column="2"
 					BackgroundColor="White"
 					CornerRadius="38"
-					Command="{Binding GoToApartmentPageCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
+					Command="{Binding StartedCommand}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="24"
-					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Soundcloud}"
+					Text="{Binding StartedCount}"
 					TextColor="#070707" />
 
                 <Button
@@ -112,10 +112,10 @@
 					BorderColor="#737B8C"
 					BorderWidth="1"
 					CornerRadius="38"
-                    Command="{Binding GoToCommunityPageCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
+                    Command="{Binding FinishedCommand}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="24"
-					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.WallSconceRound}"
+					Text="{Binding FinishCount}"
 					TextColor="White" />
 
                 <Button
@@ -125,9 +125,10 @@
 					BorderColor="#737B8C"
 					BorderWidth="1"
 					CornerRadius="38"
-					FontFamily="{StaticResource MaterialFontFamily}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="24"
-					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.PlusBox}"
+                    Command="{Binding CancelledCommand}"
+					Text="{Binding CancelledCount}"
 					TextColor="White" />
 
                 <Label
@@ -186,14 +187,12 @@
 			HasShadow="False"
             BackgroundColor="#1B1D24"
 			IsClippedToBounds="True">
-            <ScrollView VerticalScrollBarVisibility="Never">
-                <Grid RowSpacing="0" ColumnSpacing='0' Margin="28,29,28,28">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="22"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Label 
+            <Grid RowSpacing="0" ColumnSpacing='0' Margin="28,29,28,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label 
                         Grid.Row="0"
 						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="20"
@@ -202,170 +201,184 @@
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
-                    <Frame 
-                        Grid.Row="2"
-                        HasShadow="False"
-                        Padding="16,19,16,14"
-                        CornerRadius="16"
-                        BackgroundColor="#242A37"
-                        VerticalOptions="StartAndExpand"
-                        IsClippedToBounds="True">
-                        <Grid RowSpacing="0" ColumnSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="28"/>
-                                <RowDefinition Height="12"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="33"/>
-                                <RowDefinition Height="32"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <BoxView
-                                CornerRadius="12"
-                                BackgroundColor="#FFCCD2"
-                                Grid.Column="0"
-                                Grid.Row="0"/>
+                <ScrollView 
+                        Grid.Row="1" 
+                        VerticalScrollBarVisibility="Never">
+                    <StackLayout BindableLayout.ItemsSource="{Binding StartedList}" Margin="0,20,0,0">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame 
+                                        Margin="0,0,0,15"
+										HasShadow="False"
+										Padding="16,19,16,14"
+										CornerRadius="16"
+										BackgroundColor="#242A37"
+										VerticalOptions="StartAndExpand"
+										IsClippedToBounds="True">
+                                    <Grid RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="28"/>
+                                            <RowDefinition Height="12"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="33"/>
+                                            <RowDefinition Height="32"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView
+												CornerRadius="12"
+												BackgroundColor="#FFCCD2"
+												Grid.Column="0"
+												Grid.Row="0"/>
 
-                            <Label
-								Grid.Column="0"
-                                Grid.Row="0"
-								FontFamily="PoppinsRegularFontFamily"
-								FontSize="12"
-								HorizontalTextAlignment="Center"
-								Text="High"
-								TextColor="#171725"
-								VerticalTextAlignment="Center" />
+                                        <Label
+												Grid.Column="0"
+												Grid.Row="0"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="12"
+												HorizontalTextAlignment="Center"
+												Text="High"
+												TextColor="#171725"
+												VerticalTextAlignment="Center" />
 
-                            <Label
-								Grid.Column="1"
-                                Grid.Row="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="28"
-								HorizontalTextAlignment="End" 
-                                Margin="0,0,30,0"
-								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.BookmarkMinusOutline}"
-								TextColor="#171725"
-								VerticalTextAlignment="Center"/>
+                                        <Label
+												Grid.Column="1"
+												Grid.Row="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="28"
+												HorizontalTextAlignment="End" 
+												Margin="0,0,30,0"
+												Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.BookmarkMinusOutline}"
+												TextColor="#171725"
+												VerticalTextAlignment="Center"/>
 
 
-                            <Label
-								Grid.Column="1"
-                                Grid.Row="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="28"
-								HorizontalTextAlignment="End"
-								Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
-								TextColor="White"
-								VerticalTextAlignment="Center"/>
+                                        <Label
+												Grid.Column="1"
+												Grid.Row="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="28"
+												HorizontalTextAlignment="End"
+												Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
+												TextColor="White"
+												VerticalTextAlignment="Center"/>
 
-                            <Label 
-								Grid.Row="2"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="2"
-								FontFamily="PoppinsSemiBoldFontFamily"
-								FontSize="18"
-                                LineHeight="1.2"
-                                MaxLines="2"
-                                LineBreakMode="TailTruncation"
-								HorizontalTextAlignment="Start"
-								Text="My started tasks My started tasks My started tasks My started tasks My started tasks My started tasks"
-								TextColor="White"
-								VerticalTextAlignment="Start" />
+                                        <Label 
+												Grid.Row="2"
+												Grid.Column="0"
+												Grid.ColumnSpan="2"
+												FontFamily="PoppinsSemiBoldFontFamily"
+												FontSize="18"
+												LineHeight="1.2"
+												MaxLines="2"
+												LineBreakMode="TailTruncation"
+												HorizontalTextAlignment="Start"
+												TextColor="White"
+												VerticalTextAlignment="Start">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding TicketTitle}"/>
+                                                    <Span Text=" / "/>
+                                                    <Span Text="{Binding TicketSubtitle}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
-                            <StackLayout
-                                Grid.Row="4"
-                                Grid.Column="0" 
-                                HorizontalOptions="StartAndExpand"
-                                Grid.ColumnSpan="2"
-                                Orientation="Horizontal"
-                                BindableLayout.ItemsSource="{Binding ImageTestList}">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <ImageButton 
-                                            Source="{Binding Url}"
-                                            Aspect="AspectFill"
-                                            Padding="0"
-                                            Margin="0,0,-15,0"
-                                            CornerRadius="16"
-                                            WidthRequest="32"
-                                            HeightRequest="32"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"/>
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </StackLayout>
+                                        <StackLayout
+												Grid.Row="4"
+												Grid.Column="0" 
+												HorizontalOptions="StartAndExpand"
+												Grid.ColumnSpan="2"
+												Orientation="Horizontal"
+												BindableLayout.ItemsSource="{Binding ImageTestList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ImageButton 
+															Source="{Binding Url}"
+															Aspect="AspectFill"
+															Padding="0"
+															Margin="0,0,-15,0"
+															CornerRadius="16"
+															WidthRequest="32"
+															HeightRequest="32"
+															VerticalOptions="Center"
+															HorizontalOptions="Start"/>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
 
-                            <StackLayout 
-                                Grid.Row="4"
-                                Grid.Column="1" 
-                                Orientation="Horizontal" 
-                                Spacing="0"  
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="EndAndExpand">
-                                <Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="28"
-									HorizontalTextAlignment="End" 
-									Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChatProcessingOutline}"
-									TextColor="#9CA4AB"
-									VerticalTextAlignment="Center"/>
+                                        <StackLayout 
+												Grid.Row="4"
+												Grid.Column="1" 
+												Orientation="Horizontal" 
+												Spacing="0"  
+												VerticalOptions="CenterAndExpand"
+												HorizontalOptions="EndAndExpand">
+                                            <Label
+													FontFamily="{StaticResource MaterialFontFamily}"
+													FontSize="28"
+													HorizontalTextAlignment="End" 
+													Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChatProcessingOutline}"
+													TextColor="#9CA4AB"
+													VerticalTextAlignment="Center"/>
 
-                                <Label 
-									FontFamily="PoppinsRegularFontFamily"
-									FontSize="14"
-									LineBreakMode="TailTruncation"
-									HorizontalTextAlignment="Start"
-									Text="2"
-                                    Margin="4,0,0,0"
-                                    VerticalTextAlignment="Center"
-                                    VerticalOptions="CenterAndExpand"
-									TextColor="#9CA4AB"/>
+                                            <Label 
+													FontFamily="PoppinsRegularFontFamily"
+													FontSize="14"
+													LineBreakMode="TailTruncation"
+													HorizontalTextAlignment="Start"
+													Text="2"
+													Margin="4,0,0,0"
+													VerticalTextAlignment="Center"
+													VerticalOptions="CenterAndExpand"
+													TextColor="#9CA4AB"/>
 
-                                <Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="25"
-									HorizontalTextAlignment="End" 
-									Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.FilePlusOutline}"
-									TextColor="#9CA4AB"
-                                    Margin="11,0,4,0"
-									VerticalTextAlignment="Center"/>
+                                            <Label
+													FontFamily="{StaticResource MaterialFontFamily}"
+													FontSize="25"
+													HorizontalTextAlignment="End" 
+													Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.FilePlusOutline}"
+													TextColor="#9CA4AB"
+													Margin="11,0,4,0"
+													VerticalTextAlignment="Center"/>
 
-                                <Label 
-									FontFamily="PoppinsRegularFontFamily"
-									FontSize="14"
-									LineBreakMode="TailTruncation"
-									HorizontalTextAlignment="Start"
-									Text="5"
-                                    VerticalTextAlignment="Center"
-                                    VerticalOptions="CenterAndExpand"
-									TextColor="#9CA4AB"/>
+                                            <Label 
+													FontFamily="PoppinsRegularFontFamily"
+													FontSize="14"
+													LineBreakMode="TailTruncation"
+													HorizontalTextAlignment="Start"
+													Text="5"
+													VerticalTextAlignment="Center"
+													VerticalOptions="CenterAndExpand"
+													TextColor="#9CA4AB"/>
 
-                                <Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="25"
-									HorizontalTextAlignment="End" 
-									Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ClockOutline}"
-									TextColor="#9CA4AB" Margin="11,0,4,0"
-									VerticalTextAlignment="Center"/>
+                                            <Label
+													FontFamily="{StaticResource MaterialFontFamily}"
+													FontSize="25"
+													HorizontalTextAlignment="End" 
+													Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ClockOutline}"
+													TextColor="#9CA4AB" Margin="11,0,4,0"
+													VerticalTextAlignment="Center"/>
 
-                                <Label 
-									FontFamily="PoppinsRegularFontFamily"
-									FontSize="14"
-									LineBreakMode="TailTruncation"
-									HorizontalTextAlignment="Start"
-									Text="7 days"
-                                    VerticalTextAlignment="Center"
-                                    VerticalOptions="CenterAndExpand"
-									TextColor="#9CA4AB"/>
-                            </StackLayout>
-
-                            
-                        </Grid>
-                    </Frame>
-                </Grid>
-            </ScrollView>
+                                            <Label 
+													FontFamily="PoppinsRegularFontFamily"
+													FontSize="14"
+													LineBreakMode="TailTruncation"
+													HorizontalTextAlignment="Start"
+													Text="7 days"
+													VerticalTextAlignment="Center"
+													VerticalOptions="CenterAndExpand"
+													TextColor="#9CA4AB"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
         </controls:CustomFrame>
     </Grid>
 </ContentPage>
