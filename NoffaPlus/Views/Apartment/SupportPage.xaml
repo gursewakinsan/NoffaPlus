@@ -130,7 +130,6 @@
                             <Label
 					            Grid.Row="0"
                                 Padding="0" HeightRequest="180"
-                                Margin="0,-50,0,0"
 					            FontFamily="PoppinsRegularFontFamily"
 					            FontSize="165"
 					            HorizontalTextAlignment="Center"
@@ -138,7 +137,13 @@
 					            TextColor="White"
                                 VerticalOptions="StartAndExpand"
                                 HorizontalOptions="StartAndExpand"
-					            VerticalTextAlignment="Start" >
+					            VerticalTextAlignment="Start">
+                                <Label.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="iOS" Value="0,-20,0,0"/>
+                                         <On Platform="Android" Value="0,-50,0,0"/>
+                                    </OnPlatform>
+                                </Label.Margin>
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding NotStartedCommand}"/>
                                 </Label.GestureRecognizers>
