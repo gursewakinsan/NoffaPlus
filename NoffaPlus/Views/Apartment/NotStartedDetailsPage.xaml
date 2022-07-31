@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.Apartment.NotStartedDetailsPage"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:NoffaPlus.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="Black"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,2"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="54" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="81" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+		    Grid.Row="0"
+            Grid.Column="2"
+		    Grid.ColumnSpan="2"
+		    FontAttributes="Bold"
+		    FontFamily="PoppinsRegularFontFamily"
+		    FontSize="16"
+		    HorizontalTextAlignment="End"
+		    Text="Casa Madrid"
+		    TextColor="White"
+		    VerticalTextAlignment="Center" />
+
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,25,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="28"/>
+                    <RowDefinition Height="406"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="31"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="21"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Label
+					Grid.Row="0"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="32"
+                    MaxLines="1"
+                    LineBreakMode="TailTruncation"
+					HorizontalTextAlignment="Start"
+					Text="Bedroom / Water l.."
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <ScrollView
+					Grid.Row="2"
+					Padding="0,0,28,0"
+					HorizontalScrollBarVisibility="Never"
+					Orientation="Horizontal">
+                    <StackLayout
+						x:Name="layoutImages"
+						Orientation="Horizontal"
+						Spacing="16">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <ImageButton
+									Padding="0"
+									Aspect="AspectFill"
+									CornerRadius="16"
+									HorizontalOptions="Start"
+									Source="ErrorMessageBg.png"
+									WidthRequest="{Binding ImgWidth}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+
+                <Label
+					Grid.Row="4"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="18"
+					HorizontalTextAlignment="Start"
+					Text="The problem"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <BoxView Grid.Row="6" BackgroundColor="White" Opacity="0.10" Margin="0,0,28,0" />
+
+                <Grid Grid.Row="7" RowSpacing="0" ColumnSpacing="0" Margin="68,0,28,0">
+                    <Label
+					    Grid.Row="0"
+                        Grid.Column="0"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="14"
+					    HorizontalTextAlignment="Start"
+					    Text="Where"
+                        Opacity="0.42"
+					    TextColor="White"
+					    VerticalTextAlignment="Center" />
+
+                    <Label
+					    Grid.Row="0"
+                        Grid.Column="1"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="14"
+					    HorizontalTextAlignment="End"
+					    Text="Bedroom"
+					    TextColor="White"
+					    VerticalTextAlignment="Center" />
+                </Grid>
+
+                <BoxView Grid.Row="8" Margin="68,0,28,0" BackgroundColor="White" Opacity="0.10" />
+
+                <Grid Grid.Row="9" RowSpacing="0" ColumnSpacing="0" Margin="68,0,28,0">
+                    <Label
+					    Grid.Row="0"
+                        Grid.Column="0"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="14"
+					    HorizontalTextAlignment="Start"
+					    Text="What"
+                        Opacity="0.42"
+					    TextColor="White"
+					    VerticalTextAlignment="Center" />
+
+                    <Label
+					    Grid.Row="0"
+                        Grid.Column="1"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="14"
+					    HorizontalTextAlignment="End"
+					    Text="Lightning"
+					    TextColor="White"
+					    VerticalTextAlignment="Center" />
+                </Grid>
+
+                <BoxView Grid.Row="10" Margin="68,0,28,0" BackgroundColor="White" Opacity="0.10" />
+
+                <Label
+                    Grid.Row="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="18" 
+					HorizontalTextAlignment="Start"
+					Text="Description"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <BoxView Grid.Row="14" BackgroundColor="White" Opacity="0.10" Margin="0,0,28,0"/>
+
+                <Label
+                    Margin="68,0,28,0"
+                    Grid.Row="16"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+					HorizontalTextAlignment="Start"
+					Text="Beskriv steg för steg var du var och vad du gjorde i systemet innan och fram till att felet uppstod? Ange anrop-id ifall du får ett systemfelsmeddelande. Bifoga om möjligt skärmdumpar där hela skärmen syns"
+					TextColor="White"
+                    Opacity="0.42"
+					VerticalTextAlignment="Start" />
+
+                <BoxView Grid.Row="18" Margin="68,0,28,0" BackgroundColor="White" Opacity="0.10" />
+            </Grid>
+        </ScrollView>
+
+        <Button
+            BackgroundColor="#45C366"
+            CornerRadius="10"
+            BorderColor="White"
+            BorderWidth="3"
+            Padding="0"
+            TextColor="White"
+            FontSize="14"
+            Text="Start this"
+            WidthRequest="174"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            HorizontalOptions="CenterAndExpand"
+            Grid.ColumnSpan="3"
+            Grid.Column="1"
+            Grid.Row="2"/>
+    </Grid>
+</ContentPage>
