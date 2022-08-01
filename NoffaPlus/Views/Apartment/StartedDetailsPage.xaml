@@ -187,11 +187,16 @@
         <controls:CustomFrame
 			Grid.Row="4"
 			Grid.ColumnSpan="3"
-			Padding="0"
 			CornerRadius="38,38,0,0"
 			HasShadow="False"
             BackgroundColor="#1B1D24"
 			IsClippedToBounds="True">
+			<controls:CustomFrame.Padding>
+				<OnPlatform x:TypeArguments="Thickness">
+					<On Platform="iOS" Value="0,0,0,20"/>
+					<On Platform="Android" Value="0"/>
+				</OnPlatform>
+			</controls:CustomFrame.Padding>
             <Grid RowSpacing="0" ColumnSpacing="32">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
