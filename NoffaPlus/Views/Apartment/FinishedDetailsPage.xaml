@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="NoffaPlus.Views.Apartment.StartedDetailsPage"
+    x:Class="NoffaPlus.Views.Apartment.FinishedDetailsPage"
     xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -103,25 +104,24 @@
                 <Button
 					Grid.Row="0"
 					Grid.Column="2"
-					BackgroundColor="White"
-					CornerRadius="38"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					FontSize="24"
-					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Soundcloud}"
-					TextColor="#070707" />
-
-                <Button
-					Grid.Row="0"
-					Grid.Column="4"
 					BackgroundColor="Transparent"
 					BorderColor="#737B8C"
 					BorderWidth="1"
 					CornerRadius="38"
-                    Command="{Binding FinishedCommand}"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="24"
+					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Soundcloud}"
+					TextColor="White" />
+
+                <Button
+					Grid.Row="0"
+					Grid.Column="4"
+					BackgroundColor="White"
+					CornerRadius="38"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="24"
 					Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.WallSconceRound}"
-					TextColor="White" />
+					TextColor="#070707" />
 
                 <Button
 					Grid.Row="0"
@@ -195,7 +195,6 @@
             <Grid RowSpacing="0" ColumnSpacing="32">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="54"/>
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -392,38 +391,6 @@
                         <BoxView Grid.Row="18" Margin="68,0,28,0" BackgroundColor="White" Opacity="0.10" />
                     </Grid>
                 </ScrollView>
-
-                <Button
-                    Margin="48,0,0,0"
-                    Grid.Column="0"
-                    Grid.Row="1"
-					BackgroundColor="#45C366"
-					CornerRadius="10"
-					BorderColor="White"
-					BorderWidth="3"
-					Padding="0"
-					TextColor="White"
-					FontSize="14"
-					Text="Finished"
-					WidthRequest="174"
-                    Command="{Binding FinishedButtonCommand}"
-					FontFamily="PoppinsSemiBoldFontFamily"/>
-
-                <Button
-                    Margin="0,0,48,0"
-                    Grid.Column="1"
-                    Grid.Row="1"
-					BackgroundColor="Transparent"
-					CornerRadius="10"
-					BorderColor="White"
-					BorderWidth="3"
-					Padding="0"
-					TextColor="White"
-					FontSize="14"
-					Text="Cancel"
-					WidthRequest="80"
-                    Command="{Binding CancelButtonCommand}"
-					FontFamily="PoppinsSemiBoldFontFamily"/>
             </Grid>
         </controls:CustomFrame>
     </Grid>

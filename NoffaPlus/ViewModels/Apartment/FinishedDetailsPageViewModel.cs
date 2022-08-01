@@ -6,68 +6,12 @@ using System.Threading.Tasks;
 
 namespace NoffaPlus.ViewModels
 {
-    public class StartedDetailsPageViewModel : BaseViewModel
+    public class FinishedDetailsPageViewModel : BaseViewModel
     {
 		#region Constructor.
-		public StartedDetailsPageViewModel(INavigation navigation)
+		public FinishedDetailsPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-		}
-		#endregion
-
-		#region Finished Button Command.
-		private ICommand finishedButtonCommand;
-		public ICommand FinishedButtonCommand
-		{
-			get => finishedButtonCommand ?? (finishedButtonCommand = new Command(async () => await ExecuteFinishedButtonCommand()));
-		}
-		private async Task ExecuteFinishedButtonCommand()
-		{
-			DependencyService.Get<IProgressBar>().Show();
-			IApartmentService service = new ApartmentService();
-			int response = await service.UpdateApartmentCommunityTicketAsync(new Models.UpdateApartmentCommunityTicketRequest()
-			{
-				UserId = Helper.Helper.LoggedInUserId,
-				CompanyId = Helper.Helper.CompanyId,
-				Id = SelectedApartmentCommunityTicket.Id,
-				TicketStatus = 2
-			});
-			Application.Current.MainPage = new NavigationPage(new Views.Apartment.SupportPage());
-			DependencyService.Get<IProgressBar>().Hide();
-		}
-		#endregion
-
-		#region Cancel Button Command.
-		private ICommand cancelButtonCommand;
-		public ICommand CancelButtonCommand
-		{
-			get => cancelButtonCommand ?? (cancelButtonCommand = new Command(async () => await ExecuteCancelButtonCommand()));
-		}
-		private async Task ExecuteCancelButtonCommand()
-		{
-			DependencyService.Get<IProgressBar>().Show();
-			IApartmentService service = new ApartmentService();
-			int response = await service.UpdateApartmentCommunityTicketAsync(new Models.UpdateApartmentCommunityTicketRequest()
-			{
-				UserId = Helper.Helper.LoggedInUserId,
-				CompanyId = Helper.Helper.CompanyId,
-				Id = SelectedApartmentCommunityTicket.Id,
-				TicketStatus = 3
-			});
-			Application.Current.MainPage = new NavigationPage(new Views.Apartment.SupportPage());
-			DependencyService.Get<IProgressBar>().Hide();
-		}
-		#endregion
-
-		#region Finished Command.
-		private ICommand finishedCommand;
-		public ICommand FinishedCommand
-		{
-			get => finishedCommand ?? (finishedCommand = new Command(() => ExecuteFinishedCommand()));
-		}
-		private void ExecuteFinishedCommand()
-		{
-			Application.Current.MainPage = new NavigationPage(new Views.Apartment.FinishPage());
 		}
 		#endregion
 
@@ -99,7 +43,7 @@ namespace NoffaPlus.ViewModels
 		private ICommand apartmentCommunityTicketDetailCommand;
 		public ICommand ApartmentCommunityTicketDetailCommand
 		{
-			get => apartmentCommunityTicketDetailCommand ?? (apartmentCommunityTicketDetailCommand = new Command(async () =>await ExecuteApartmentCommunityTicketDetailCommand()));
+			get => apartmentCommunityTicketDetailCommand ?? (apartmentCommunityTicketDetailCommand = new Command(async () => await ExecuteApartmentCommunityTicketDetailCommand()));
 		}
 		private async Task ExecuteApartmentCommunityTicketDetailCommand()
 		{
@@ -156,6 +100,6 @@ namespace NoffaPlus.ViewModels
 			}
 		}
 		public ApartmentCommunityTicketModel SelectedApartmentCommunityTicket { get; set; }
-        #endregion
-    }
+		#endregion
+	}
 }

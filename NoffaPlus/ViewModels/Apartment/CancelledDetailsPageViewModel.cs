@@ -5,10 +5,10 @@ using System.Windows.Input;
 
 namespace NoffaPlus.ViewModels
 {
-    public class NotStartedDetailsPageViewModel : BaseViewModel
+    public class CancelledDetailsPageViewModel : BaseViewModel
     {
 		#region Constructor.
-		public NotStartedDetailsPageViewModel(INavigation navigation)
+		public CancelledDetailsPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}
@@ -24,7 +24,7 @@ namespace NoffaPlus.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IApartmentService service = new ApartmentService();
-			var response  = await service.ApartmentCommunityTicketDetailAsync(new Models.ApartmentCommunityTicketDetailRequest()
+			var response = await service.ApartmentCommunityTicketDetailAsync(new Models.ApartmentCommunityTicketDetailRequest()
 			{
 				Id = SelectedApartmentCommunityTicket.Id
 			});
@@ -36,7 +36,7 @@ namespace NoffaPlus.ViewModels
 			{
 				IsApartmentNoImageAvailable = false;
 				int deviceWidth = App.ScreenWidth - 56;
-                foreach (var item in response.Images)
+				foreach (var item in response.Images)
 					item.ItemWidth = deviceWidth;
 			}
 

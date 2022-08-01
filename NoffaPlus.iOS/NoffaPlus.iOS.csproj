@@ -82,7 +82,6 @@
     <BundleResource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
     <BundleResource Include="Resources\iconCurveTopGray.png" />
     <BundleResource Include="Resources\splashLogo.png" />
-    <BundleResource Include="Resources\appIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -210,5 +209,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ErrorMessageBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconNoImage.png" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
-using System.Collections.Generic;
 
 namespace NoffaPlus.Views.Apartment
 {
