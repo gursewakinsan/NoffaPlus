@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NoffaPlus.Views.Apartment.NotStartedPage"
-   xmlns:controls="clr-namespace:NoffaPlus.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.Apartment.NotStartedPage"
+	xmlns:controls="clr-namespace:NoffaPlus.Controls"
 	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="False"
@@ -215,7 +215,13 @@
 										BackgroundColor="#242A37"
 										VerticalOptions="StartAndExpand"
 										IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnFrameNotStartedListTapped"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnGridNotStartedListTapped"/>
+                                        </Grid.GestureRecognizers>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="28"/>
                                             <RowDefinition Height="12"/>
@@ -231,7 +237,11 @@
 												CornerRadius="12"
 												BackgroundColor="#FFCCD2"
 												Grid.Column="0"
-												Grid.Row="0"/>
+												Grid.Row="0">
+                                            <BoxView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnBoxViewNotStartedListTapped"/>
+                                            </BoxView.GestureRecognizers>
+                                        </BoxView>
 
                                         <Label
 												Grid.Column="0"
@@ -241,7 +251,11 @@
 												HorizontalTextAlignment="Center"
 												Text="High"
 												TextColor="#171725"
-												VerticalTextAlignment="Center" />
+												VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
 
                                         <Label
 												Grid.Column="1"
@@ -252,7 +266,11 @@
 												Margin="0,0,30,0"
 												Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.BookmarkMinusOutline}"
 												TextColor="#171725"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
 
 
                                         <Label
@@ -263,7 +281,11 @@
 												HorizontalTextAlignment="End"
 												Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
 												TextColor="White"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
 
                                         <Label 
 												Grid.Row="2"
@@ -277,6 +299,9 @@
 												HorizontalTextAlignment="Start"
 												TextColor="White"
 												VerticalTextAlignment="Start">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                            </Label.GestureRecognizers>
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span Text="{Binding TicketTitle}"/>
@@ -316,13 +341,20 @@
 												Spacing="0"  
 												VerticalOptions="CenterAndExpand"
 												HorizontalOptions="EndAndExpand">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnStackLayoutNotStartedListTapped"/>
+                                            </StackLayout.GestureRecognizers>
                                             <Label
 													FontFamily="{StaticResource MaterialFontFamily}"
 													FontSize="28"
 													HorizontalTextAlignment="End" 
 													Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChatProcessingOutline}"
 													TextColor="#9CA4AB"
-													VerticalTextAlignment="Center"/>
+													VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label 
 													FontFamily="PoppinsRegularFontFamily"
@@ -333,7 +365,11 @@
 													Margin="4,0,0,0"
 													VerticalTextAlignment="Center"
 													VerticalOptions="CenterAndExpand"
-													TextColor="#9CA4AB"/>
+													TextColor="#9CA4AB">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
 													FontFamily="{StaticResource MaterialFontFamily}"
@@ -342,7 +378,11 @@
 													Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.FilePlusOutline}"
 													TextColor="#9CA4AB"
 													Margin="11,0,4,0"
-													VerticalTextAlignment="Center"/>
+													VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label 
 													FontFamily="PoppinsRegularFontFamily"
@@ -352,7 +392,11 @@
 													Text="5"
 													VerticalTextAlignment="Center"
 													VerticalOptions="CenterAndExpand"
-													TextColor="#9CA4AB"/>
+													TextColor="#9CA4AB">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
 													FontFamily="{StaticResource MaterialFontFamily}"
@@ -360,7 +404,11 @@
 													HorizontalTextAlignment="End" 
 													Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ClockOutline}"
 													TextColor="#9CA4AB" Margin="11,0,4,0"
-													VerticalTextAlignment="Center"/>
+													VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label 
 													FontFamily="PoppinsRegularFontFamily"
@@ -370,7 +418,11 @@
 													Text="7 days"
 													VerticalTextAlignment="Center"
 													VerticalOptions="CenterAndExpand"
-													TextColor="#9CA4AB"/>
+													TextColor="#9CA4AB">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelNotStartedListTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
                                         </StackLayout>
                                     </Grid>
                                 </Frame>

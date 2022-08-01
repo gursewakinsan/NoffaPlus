@@ -46,9 +46,16 @@
 			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
-			Text="{Binding DisplayApartmentName}"
 			TextColor="White"
-			VerticalTextAlignment="Center" />
+			VerticalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding ApartmentCommunityTicketDetail.TicketTitle}"/>
+                    <Span Text=" / "/>
+                    <Span Text="{Binding ApartmentCommunityTicketDetail.TicketSubtitle}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
         <Label
 			Grid.Row="0"
@@ -229,7 +236,7 @@
 							HorizontalScrollBarVisibility="Never"
 							Orientation="Horizontal">
                             <StackLayout
-								x:Name="layoutImages"
+								BindableLayout.ItemsSource="{Binding ApartmentCommunityTicketDetail.Images}"
 								Orientation="Horizontal"
 								Spacing="16">
                                 <BindableLayout.ItemTemplate>
@@ -239,8 +246,9 @@
 											Aspect="AspectFill"
 											CornerRadius="16"
 											HorizontalOptions="Start"
-											Source="ErrorMessageBg.png"
-											WidthRequest="{Binding ImgWidth}" />
+											Source="{Binding ImagePath}"
+											BackgroundColor="Transparent"
+											WidthRequest="{Binding ItemWidth}" />
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
                             </StackLayout>
@@ -324,8 +332,8 @@
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="14" 
 							HorizontalTextAlignment="Start"
-							Text="Beskriv steg för steg var du var och vad du gjorde i systemet innan och fram till att felet uppstod? Ange anrop-id ifall du får ett systemfelsmeddelande. Bifoga om möjligt skärmdumpar där hela skärmen syns"
-							TextColor="White"
+							Text="{Binding ApartmentCommunityTicketDetail.ProblemDescription}"
+                            TextColor="White"
 							Opacity="0.42"
 							VerticalTextAlignment="Start" />
 

@@ -9,26 +9,18 @@ namespace NoffaPlus.Views.Apartment
     public partial class StartedDetailsPage : ContentPage
     {
         StartedDetailsPageViewModel viewModel;
-        public StartedDetailsPage()
+        public StartedDetailsPage(ApartmentCommunityTicketModel apartment)
         {
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new StartedDetailsPageViewModel(this.Navigation);
+            viewModel.SelectedApartmentCommunityTicket = apartment;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            int deviceWidth = App.ScreenWidth - 56;
-            int imgWidth = deviceWidth * 25 / 100;
-
-            List<DemoData> demos = new List<DemoData>();
-            for (int i = 0; i < 3; i++)
-            {
-                demos.Add(new DemoData { ItemWidth = imgWidth });
-            }
-
-            BindableLayout.SetItemsSource(layoutImages, demos);
+            viewModel.ApartmentCommunityTicketDetailCommand.Execute(null);
         }
     }
 }

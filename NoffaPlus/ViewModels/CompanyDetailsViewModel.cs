@@ -150,7 +150,8 @@ namespace NoffaPlus.ViewModels
 				}
 				else if (ip[0].Equals("verify_checkin"))
 				{
-					ApartmentCommunityTicketListCommand.Execute(ip[2]);
+					Helper.Helper.ApartmentId = ip[2];
+					await Navigation.PushAsync(new Views.Apartment.SupportPage());
 				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();
@@ -183,27 +184,7 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
-		#region Apartment Community Ticket List Command.
-		private ICommand apartmentCommunityTicketListCommand;
-		public ICommand ApartmentCommunityTicketListCommand
-		{
-			get => apartmentCommunityTicketListCommand ?? (apartmentCommunityTicketListCommand = new Command<string>(async (apartmentId) => await ExecuteApartmentCommunityTicketListCommand(apartmentId)));
-		}
-		private async Task ExecuteApartmentCommunityTicketListCommand(string apartmentId)
-		{
-			DependencyService.Get<IProgressBar>().Show();
-			IApartmentService service = new ApartmentService();
-			var response = await service.ApartmentCommunityTicketListAsync(new Models.ApartmentCommunityTicketListRequest()
-			{
-				UserId = Helper.Helper.LoggedInUserId,
-				CompanyId = Helper.Helper.CompanyId,
-				ApartmentId = apartmentId
-			});
-			Helper.Helper.ApartmentCommunityTicketInfo = response;
-			await Navigation.PushAsync(new Views.Apartment.SupportPage());
-			DependencyService.Get<IProgressBar>().Hide();
-		}
-		#endregion
+		
 
 		#region Properties.
 		public string IpFromQr { get; set; }

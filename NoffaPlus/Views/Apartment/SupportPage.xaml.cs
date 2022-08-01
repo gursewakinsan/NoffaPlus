@@ -14,5 +14,11 @@ namespace NoffaPlus.Views.Apartment
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new SupportPageViewModel(this.Navigation);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.ApartmentCommunityTicketListCommand.Execute(null);
+        }
     }
 }

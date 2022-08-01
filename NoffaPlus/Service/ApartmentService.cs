@@ -16,5 +16,23 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<int> UpdateApartmentCommunityTicketAsync(Models.UpdateApartmentCommunityTicketRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateApartmentCommunityTicketUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<Models.ApartmentCommunityTicketDetailResponse> ApartmentCommunityTicketDetailAsync(Models.ApartmentCommunityTicketDetailRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.ApartmentCommunityTicketDetailResponse>(HttpWebRequest.Create(string.Format(EndPointsList.ApartmentCommunityTicketDetailUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

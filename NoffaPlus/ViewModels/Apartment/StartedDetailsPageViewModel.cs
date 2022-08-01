@@ -19,11 +19,21 @@ namespace NoffaPlus.ViewModels
 		private ICommand finishedButtonCommand;
 		public ICommand FinishedButtonCommand
 		{
-			get => finishedButtonCommand ?? (finishedButtonCommand = new Command(() => ExecuteFinishedButtonCommand()));
+			get => finishedButtonCommand ?? (finishedButtonCommand = new Command(async () => await ExecuteFinishedButtonCommand()));
 		}
-		private void ExecuteFinishedButtonCommand()
+		private async Task ExecuteFinishedButtonCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
+			IApartmentService service = new ApartmentService();
+			int response = await service.UpdateApartmentCommunityTicketAsync(new Models.UpdateApartmentCommunityTicketRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId,
+				Id = SelectedApartmentCommunityTicket.Id,
+				TicketStatus = 2
+			});
 			Application.Current.MainPage = new NavigationPage(new Views.Apartment.SupportPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -31,11 +41,21 @@ namespace NoffaPlus.ViewModels
 		private ICommand cancelButtonCommand;
 		public ICommand CancelButtonCommand
 		{
-			get => cancelButtonCommand ?? (cancelButtonCommand = new Command(() => ExecuteCancelButtonCommand()));
+			get => cancelButtonCommand ?? (cancelButtonCommand = new Command(async () => await ExecuteCancelButtonCommand()));
 		}
-		private void ExecuteCancelButtonCommand()
+		private async Task ExecuteCancelButtonCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
+			IApartmentService service = new ApartmentService();
+			int response = await service.UpdateApartmentCommunityTicketAsync(new Models.UpdateApartmentCommunityTicketRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId,
+				Id = SelectedApartmentCommunityTicket.Id,
+				TicketStatus = 3
+			});
 			Application.Current.MainPage = new NavigationPage(new Views.Apartment.SupportPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -74,5 +94,52 @@ namespace NoffaPlus.ViewModels
 			Application.Current.MainPage = new NavigationPage(new Views.Apartment.SupportPage());
 		}
 		#endregion
-	}
+
+		#region Apartment Community Ticket Detail Command.
+		private ICommand apartmentCommunityTicketDetailCommand;
+		public ICommand ApartmentCommunityTicketDetailCommand
+		{
+			get => apartmentCommunityTicketDetailCommand ?? (apartmentCommunityTicketDetailCommand = new Command(async () =>await ExecuteApartmentCommunityTicketDetailCommand()));
+		}
+		private async Task ExecuteApartmentCommunityTicketDetailCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IApartmentService service = new ApartmentService();
+			var response = await service.ApartmentCommunityTicketDetailAsync(new Models.ApartmentCommunityTicketDetailRequest()
+			{
+				Id = SelectedApartmentCommunityTicket.Id
+			});
+			if (response.Images?.Count == 1)
+			{
+				int deviceWidth = App.ScreenWidth - 56;
+				foreach (var item in response.Images)
+					item.ItemWidth = deviceWidth;
+			}
+
+			if (response.Images?.Count > 1)
+			{
+				int deviceWidth = App.ScreenWidth - 56;
+				int imgWidth = deviceWidth * 40 / 100;
+				foreach (var item in response.Images)
+					item.ItemWidth = imgWidth;
+			}
+			ApartmentCommunityTicketDetail = response;
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Properties.
+		private Models.ApartmentCommunityTicketDetailResponse apartmentCommunityTicketDetail;
+		public Models.ApartmentCommunityTicketDetailResponse ApartmentCommunityTicketDetail
+		{
+			get => apartmentCommunityTicketDetail;
+			set
+			{
+				apartmentCommunityTicketDetail = value;
+				OnPropertyChanged("ApartmentCommunityTicketDetail");
+			}
+		}
+		public ApartmentCommunityTicketModel SelectedApartmentCommunityTicket { get; set; }
+        #endregion
+    }
 }

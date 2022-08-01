@@ -75,12 +75,90 @@ namespace NoffaPlus.ViewModels
 		}
 		#endregion
 
+		#region Apartment Community Ticket List Command.
+		private ICommand apartmentCommunityTicketListCommand;
+		public ICommand ApartmentCommunityTicketListCommand
+		{
+			get => apartmentCommunityTicketListCommand ?? (apartmentCommunityTicketListCommand = new Command(async () => await ExecuteApartmentCommunityTicketListCommand()));
+		}
+		private async Task ExecuteApartmentCommunityTicketListCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IApartmentService service = new ApartmentService();
+			var response = await service.ApartmentCommunityTicketListAsync(new Models.ApartmentCommunityTicketListRequest()
+			{
+				UserId = Helper.Helper.LoggedInUserId,
+				CompanyId = Helper.Helper.CompanyId,
+				ApartmentId = Helper.Helper.ApartmentId
+			});
+			if (response != null)
+			{
+				DisplayApartmentName = response.ApartmentName;
+				NotStartedCount = response.NotStartedList?.Count ?? 0;
+				StartedCount = response.StartedList?.Count ?? 0;
+				FinishCount = response.FinishedList?.Count ?? 0;
+				CancelledCount = response.CancelledList?.Count ?? 0;
+				Helper.Helper.ApartmentCommunityTicketInfo = response;
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
-		public string DisplayApartmentName => Helper.Helper.ApartmentCommunityTicketInfo.ApartmentName;
-		public int NotStartedCount => Helper.Helper.ApartmentCommunityTicketInfo.NotStartedList?.Count ?? 0;
-		public int StartedCount => Helper.Helper.ApartmentCommunityTicketInfo.StartedList?.Count ?? 0;
-		public int FinishCount => Helper.Helper.ApartmentCommunityTicketInfo.FinishedList?.Count ?? 0;
-		public int CancelledCount => Helper.Helper.ApartmentCommunityTicketInfo.CancelledList?.Count ?? 0;
+		private string displayApartmentName;
+		public string DisplayApartmentName
+		{
+			get => displayApartmentName;
+			set
+			{
+				displayApartmentName = value;
+				OnPropertyChanged("DisplayApartmentName");
+			}
+		}
+
+		private int notStartedCount;
+		public int NotStartedCount
+		{
+			get => notStartedCount;
+			set
+			{
+				notStartedCount = value;
+				OnPropertyChanged("NotStartedCount");
+			}
+		}
+
+		private int startedCount;
+		public int StartedCount
+		{
+			get => startedCount;
+			set
+			{
+				startedCount = value;
+				OnPropertyChanged("StartedCount");
+			}
+		}
+		
+		private int finishCount;
+		public int FinishCount
+		{
+			get => finishCount;
+			set
+			{
+				finishCount = value;
+				OnPropertyChanged("FinishCount");
+			}
+		}
+		
+		private int cancelledCount;
+		public int CancelledCount
+		{
+			get => cancelledCount;
+			set
+			{
+				cancelledCount = value;
+				OnPropertyChanged("CancelledCount");
+			}
+		}
 		#endregion
 	}
 }
