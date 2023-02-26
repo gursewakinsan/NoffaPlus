@@ -73,7 +73,8 @@
 		public const string EmailOutline = "\U000f01f0";
 		public const string EyeOutline = "\U000f06d0";
 		public const string CellphoneAndroid = "\U000f011d";
-
+		public const string Check = "\U000f012c";
+		public const string AlertCircleOutline = "\U000f05d6";
 		public const string HomeVariant = "\U000f02de";
 		public const string PlusBox = "\U000f0416";
 		public const string Soundcloud = "\U000f04c0";

@@ -5,7 +5,6 @@
     x:Class="NoffaPlus.Views.ServiceHomePage"
     xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-    xmlns:controls="clr-namespace:NoffaPlus.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#181A1F"
     NavigationPage.HasNavigationBar="False">
