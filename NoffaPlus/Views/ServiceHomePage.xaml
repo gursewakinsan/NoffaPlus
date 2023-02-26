@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.ServiceHomePage"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:NoffaPlus.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,2"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="81" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.1">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid Margin="0,30,0,0" RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="52"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="17"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="78"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="78"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="78"/>
+                </Grid.RowDefinitions>
+                <Label
+					Grid.Row="0"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="33"
+					HorizontalTextAlignment="Start"
+					Text="Services"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <Label
+					Grid.Row="2"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="25"
+                    Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					Text="Services for homes"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <Label
+					Grid.Row="4"
+					FontAttributes="Bold"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="18"
+                    Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					Text="Select your profile"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.67"
+                    BackgroundColor="#F4B400"/>
+
+                <!--Cleaning-->
+                <Frame
+                    Grid.Row="8"
+                    Padding="0"
+                    CornerRadius="16"
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CleaningPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CleaningPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                         <Label
+					        Grid.Row="0"
+			                Grid.Column="0"
+					        FontFamily="PoppinsRegularFontFamily"
+					        FontSize="16"
+					        HorizontalTextAlignment="Start"
+					        Text="Cleaning"
+					        TextColor="White"
+					        VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CleaningPageCommand}"/>
+                            </Label.GestureRecognizers>
+                         </Label>
+
+                        <Button
+			                Grid.Row="0"
+			                Grid.Column="1"
+			                Padding="0"
+                            FontSize="20"
+                            CornerRadius="18"
+                            TextColor="#F4B400"
+			                BackgroundColor="#5B5B79"
+                            Command="{Binding CleaningPageCommand}"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+
+                <!--Repair-->
+                <Frame
+                    Grid.Row="10"
+                    Padding="0"
+                    CornerRadius="16"
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RepairPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RepairPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                         <Label
+					        Grid.Row="0"
+			                Grid.Column="0"
+					        FontFamily="PoppinsRegularFontFamily"
+					        FontSize="16"
+					        HorizontalTextAlignment="Start"
+					        Text="Repair"
+					        TextColor="White"
+					        VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RepairPageCommand}"/>
+                            </Label.GestureRecognizers>
+                         </Label>
+
+                        <Button
+			                Grid.Row="0"
+			                Grid.Column="1"
+			                Padding="0"
+                            FontSize="20"
+                            CornerRadius="18"
+                            TextColor="#F4B400"
+			                BackgroundColor="#5B5B79"
+                            Command="{Binding RepairPageCommand}"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+
+                <!--House inspection-->
+                <Frame
+                    Grid.Row="12"
+                    Padding="0"
+                    CornerRadius="16"
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                         <Label
+					        Grid.Row="0"
+			                Grid.Column="0"
+					        FontFamily="PoppinsRegularFontFamily"
+					        FontSize="16"
+					        HorizontalTextAlignment="Start"
+					        Text="House inspection"
+					        TextColor="White"
+					        VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer />
+                            </Label.GestureRecognizers>
+                         </Label>
+
+                        <Button
+			                Grid.Row="0"
+			                Grid.Column="1"
+			                Padding="0"
+                            FontSize="20"
+                            CornerRadius="18"
+                            TextColor="#F4B400"
+			                BackgroundColor="#5B5B79"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -14,7 +14,6 @@ namespace NoffaPlus.ViewModels
 		public CompanyDetailsViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			
 		}
 		#endregion
 
@@ -151,7 +150,7 @@ namespace NoffaPlus.ViewModels
 				else if (ip[0].Equals("verify_checkin"))
 				{
 					Helper.Helper.ApartmentId = ip[2];
-					await Navigation.PushAsync(new Views.Apartment.SupportPage());
+					await Navigation.PushAsync(new Views.ServiceHomePage());
 				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();

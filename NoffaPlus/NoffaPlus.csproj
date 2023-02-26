@@ -20,6 +20,9 @@
     <None Remove="AppFonts\SFProDisplayMedium.ttf" />
     <None Remove="AppFonts\SFProDisplayRegular.ttf" />
     <None Remove="AppFonts\SFProDisplaySemibold.ttf" />
+    <None Remove="Views\CleaningJobs\" />
+    <None Remove="ViewModels\CleaningJob\" />
+    <None Remove="Models\CleaningJob\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -208,5 +211,10 @@
     <EmbeddedResource Update="Views\Welqome\MeetingInvitationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\CleaningJob\" />
+    <Folder Include="ViewModels\CleaningJob\" />
+    <Folder Include="Models\CleaningJob\" />
   </ItemGroup>
 </Project>

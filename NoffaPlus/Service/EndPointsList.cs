@@ -75,5 +75,8 @@
 		public const string ApartmentCommunityTicketListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCommunityTicketList";
 		public const string UpdateApartmentCommunityTicketUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentCommunityTicket";
 		public const string ApartmentCommunityTicketDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCommunityTicketDetail";
+
+		//Cleaning Jobs
+		public const string TeamLeaderCleaningJobsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/teamLeaderCleaningJobs";
 	}
 }
