@@ -80,5 +80,6 @@
 		public const string TeamLeaderCleaningJobsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/teamLeaderCleaningJobs";
 		public const string CleaningServiceAvailableTodoDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/cleaningServiceAvailableTodoDetail";
 		public const string CleanersAssignedListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/cleanersAssignedList";
+		public const string StartCleaningJobUrl = "https://www.qloudid.com/user/index.php/QloudidApp/startCleaningJob";
 	}
 }
