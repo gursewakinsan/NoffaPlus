@@ -43,5 +43,14 @@ namespace NoffaPlus.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateCleaningJobDoneAsync(Models.UpdateCleaningJobDoneRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateCleaningJobDoneUrl)), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

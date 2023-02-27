@@ -9,5 +9,6 @@ namespace NoffaPlus.Interfaces
         Task<List<Models.CleaningServiceAvailableTodoDetailResponse>> CleaningServiceAvailableTodoDetailAsync(Models.CleaningServiceAvailableTodoDetailRequest request);
         Task<List<Models.CleanersAssignedListResponse>> CleanersAssignedListAsync(Models.CleanersAssignedListRequest request);
         Task<string> StartCleaningJobAsync(Models.StartCleaningJobRequest request);
+        Task<string> UpdateCleaningJobDoneAsync(Models.UpdateCleaningJobDoneRequest request);
     }
 }
