@@ -34,6 +34,9 @@
 		public const string AccountTie = "\U000f0ce3";
 		public const string CreditCardScan = "\U000f0ff4";
 		public const string DotsVertical = "\U000f01d9";
+		public const string ChevronUp = "\U000f0143";
+		public const string ChevronDown = "\U000f0140";
+		public const string CheckboxMarked = "\U000f0132";
 
 		/*public const string VideoOutline = "\U000f0bdc";
 		public const string HomeVariant = "\U000f02de";
@@ -68,8 +71,6 @@
 		public const string CheckboxMarkedCircle = "\U000f0133";
 		public const string CheckCircle = "\U000f05e0";
 		public const string ArrowRight = "\U000f0054";
-		public const string ChevronDown = "\U000f0140";
-		public const string CheckboxMarked = "\U000f0132";
 		public const string EmailOutline = "\U000f01f0";
 		public const string EyeOutline = "\U000f06d0";
 		public const string CellphoneAndroid = "\U000f011d";
