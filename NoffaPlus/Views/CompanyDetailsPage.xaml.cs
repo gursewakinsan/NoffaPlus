@@ -65,7 +65,7 @@ namespace NoffaPlus.Views
 
 		private async void OnScanQrClicked(object sender, EventArgs e)
 		{
-			/*var customOverlay = new StackLayout
+			var customOverlay = new StackLayout
 			{
 				HorizontalOptions = LayoutOptions.StartAndExpand,
 				VerticalOptions = LayoutOptions.StartAndExpand
@@ -95,8 +95,8 @@ namespace NoffaPlus.Views
 				});
 			};
 			scanPage.IsScanning = true;
-			await Navigation.PushModalAsync(scanPage);*/
-			companyDetailsViewModel.ScanQrCommand.Execute("verify_checkin/2/T3djeEhxQm5JdzFPMVdzSnI2allSQT09");
+			await Navigation.PushModalAsync(scanPage);
+			//companyDetailsViewModel.ScanQrCommand.Execute("verify_checkin/2/T3djeEhxQm5JdzFPMVdzSnI2allSQT09");
 		}
 
 		private void OnBackClicked(object sender, EventArgs e)
