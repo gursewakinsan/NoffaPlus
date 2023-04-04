@@ -28,28 +28,30 @@ namespace NoffaPlus.Views
 		private void OnGestureRecognizerTapped(object sender, EventArgs e)
 		{
 			StackLayout layout = sender as StackLayout;
-			int id = Convert.ToInt32(layout.ClassId);
-			if (id == 0)
-				companyDetailsViewModel.AttendanceCommand.Execute(null);
-		}
+            OnItemTapped(Convert.ToInt32(layout.ClassId));
+        }
 
 		private void GridOnGestureRecognizerTapped(object sender, EventArgs e)
 		{
 			Grid layout = sender as Grid;
-			int id = Convert.ToInt32(layout.ClassId);
-			if (id == 0)
-				companyDetailsViewModel.AttendanceCommand.Execute(null);
-		}
+            OnItemTapped(Convert.ToInt32(layout.ClassId));
+        }
 
 		private void LabelOnGestureRecognizerTapped(object sender, EventArgs e)
 		{
 			Label layout = sender as Label;
-			int id = Convert.ToInt32(layout.ClassId);
-			if (id == 0)
-				companyDetailsViewModel.AttendanceCommand.Execute(null);
+			OnItemTapped(Convert.ToInt32(layout.ClassId));
 		}
 
-		private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
+		void OnItemTapped(int id)
+		{
+			if (id == 0)
+				companyDetailsViewModel.AttendanceCommand.Execute(null);
+			else if (id == 1)
+				companyDetailsViewModel.ApartmentConnectCommand.Execute(null);
+		}
+
+        private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
 		{
 			carouselViewPosition = e.CurrentPosition;
 			Color color = companyDetailsViewModel.DaycareList[carouselViewPosition].IconColor;

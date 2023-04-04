@@ -84,5 +84,12 @@
 		public const string UpdateCleaningJobDoneUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCleaningJobDone";
 		public const string CleaningJobStatusInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/cleaningJobStatusInfo";
 		public const string UpdateCleaningFinalStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCleaningFinalStatus";
-	}
+
+		//Landloard
+		public const string ApartmentConnectRequestReceivedUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentConnectRequestReceived";
+		public const string ApartmentConnectRequestRejectedUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentConnectRequestRejected";
+		public const string GetAvailableApartmentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getAvailableApartment";
+		public const string RejectConnectApartmentRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/rejectConnectApartmentRequest";
+		public const string ApproveConnectApartmentRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/approveConnectApartmentRequest";
+    }
 }
