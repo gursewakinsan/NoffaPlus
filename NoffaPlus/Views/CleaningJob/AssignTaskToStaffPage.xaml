@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.CleaningJob.AssignTaskToStaffPage"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:controls="clr-namespace:NoffaPlus.Controls" 
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="81" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.1">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+		    Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="33"
+			HorizontalTextAlignment="Start"
+			Text="Staff"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+	        Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="25"
+            Opacity="0.42"
+		    HorizontalTextAlignment="Start"
+			Text="Assigned to the task"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Grid
+            Grid.Row="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Margin="0,50,0,10"
+            RowSpacing="0"
+            ColumnSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+		        Grid.Row="0"
+                Grid.Column="0"
+                FontSize="32"
+			    TextColor="#28343E"
+                HorizontalTextAlignment="Start"
+			    VerticalTextAlignment="Center"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}"
+                IsVisible="{Binding IsAllCheckedUnChecked, Converter={StaticResource InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLabelAllCheckedTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+		        Grid.Row="0"
+                Grid.Column="0"
+                FontSize="32"
+			    TextColor="#5B5B79"
+                HorizontalTextAlignment="Start"
+			    VerticalTextAlignment="Center"
+                IsVisible="{Binding IsAllCheckedUnChecked}"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLabelAllCheckedTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+		        Grid.Row="0"
+                Grid.Column="1"
+                FontSize="16"
+                Text="Staff"
+			    TextColor="White"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Start"
+			    VerticalTextAlignment="Center"
+                FontFamily="PoppinsRegularFontFamily">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLabelAllCheckedTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+		        Grid.Row="0"
+                Grid.Column="2"
+                FontSize="25"
+                Opacity="0.42"
+			    TextColor="White"
+                HorizontalTextAlignment="Start"
+			    VerticalTextAlignment="Center"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronUp}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLabelAllCheckedTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <BoxView
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                BackgroundColor="#5B5B79"/>
+
+            <ScrollView
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                VerticalScrollBarVisibility="Never">
+                <StackLayout
+                    Spacing="0"
+                    VerticalOptions="StartAndExpand"
+                    BindableLayout.ItemsSource="{Binding CleanersAssignedList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                RowSpacing="0"
+                                ColumnSpacing="20">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+		                            Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="32"
+			                        TextColor="#28343E"
+                                    HorizontalTextAlignment="Start"
+			                        VerticalTextAlignment="Center"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}"
+                                    IsVisible="{Binding IsSelected, Converter={StaticResource InverseBoolConverter}}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label
+		                            Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="32"
+			                        TextColor="#5B5B79"
+                                    IsVisible="{Binding IsSelected}"
+                                    HorizontalTextAlignment="Start"
+			                        VerticalTextAlignment="Center"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarked}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label
+		                            Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="14"
+                                    Text="{Binding Name}"
+			                        TextColor="White"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Start"
+			                        VerticalTextAlignment="Center"
+                                    FontFamily="PoppinsRegularFontFamily">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                 <BoxView
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Opacity="0.1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="White"/>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+        <controls:CustomButton
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Text="Next"
+            FontSize="16"
+            TextColor="White"
+            CornerRadius="16"
+            BackgroundColor="#F40000"
+            Command="{Binding StartCleaningJobCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
+</ContentPage>
