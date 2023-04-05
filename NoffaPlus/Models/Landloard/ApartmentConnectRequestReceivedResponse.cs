@@ -56,21 +56,5 @@ namespace NoffaPlus.Models
         public string Enc { get; set; }
 
         public string DisplayName => $"{FirstName} {LastName.Substring(0, 1)}";
-
-
-        /*[Newtonsoft.Json.JsonProperty(PropertyName = "request_id")]
-        public int RequestId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty(PropertyName = "apartment_available")]
-        public int apartmentAvailable { get; set; }
-
-        [Newtonsoft.Json.JsonProperty(PropertyName = "apartment_number")]
-        public int ApartmentNumber { get; set; }
-
-        [Newtonsoft.Json.JsonProperty(PropertyName = "company_id")]
-        public int CompanyId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty(PropertyName = "apartment_id")]
-        public int ApartmentId { get; set; }*/
     }
 }

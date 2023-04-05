@@ -148,12 +148,13 @@
             Grid.Row="9"
 			Grid.Column="1"
             Grid.ColumnSpan="3" 
+            IsVisible="{Binding IsReceivedTabSelected}"
             VerticalScrollBarVisibility="Never">
             <StackLayout 
 				Spacing="0" 
                 Margin="0,5,0,0"
 				VerticalOptions="StartAndExpand"
-				BindableLayout.ItemsSource="{Binding ApartmentConnectRequestInfo}">
+				BindableLayout.ItemsSource="{Binding ReceivedConnectRequestInfo}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Grid RowSpacing="0" ColumnSpacing="24">
@@ -231,6 +232,109 @@
 					            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <BoxView 
+					            Grid.Column="1"
+					            Grid.ColumnSpan="2"
+					            Grid.Row="1"
+					            BackgroundColor="White" 
+					            Opacity="0.1"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+
+        <!--Rejected-->
+        <ScrollView 
+            Grid.Row="9"
+			Grid.Column="1"
+            Grid.ColumnSpan="3" 
+            VerticalScrollBarVisibility="Never"
+            IsVisible="{Binding IsReceivedTabSelected, Converter={StaticResource InverseBoolConverter}}">
+            <StackLayout 
+				Spacing="0" 
+                Margin="0,5,0,0"
+				VerticalOptions="StartAndExpand"
+				BindableLayout.ItemsSource="{Binding RejectedConnectRequestInfo}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0" ColumnSpacing="24">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Button
+                                Padding="0"
+					            Grid.Row="0"
+                                FontSize="20"
+                                Grid.Column="0"
+                                WidthRequest="44"
+                                CornerRadius="22"
+                                HeightRequest="44"
+                                TextColor="Black"
+                                BackgroundColor="#EF793F"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.HomeVariant}"/>
+
+                            <StackLayout 
+                                Spacing="0"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer />
+                                </StackLayout.GestureRecognizers>
+                                <Label
+                                    FontSize="16"
+                                    Opacity="0.70"
+                                    TextColor="White"
+                                    MaxLines="1"
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding DisplayName}"
+	    			                FontFamily="PoppinsRegularFontFamily">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label
+                                    FontSize="14"
+                                    Opacity="0.42"
+                                    TextColor="White"
+	    			                FontFamily="PoppinsRegularFontFamily">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding BedroomCount}"/>
+                                            <Span Text=" bedroom"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <Label
+					            Grid.Row="0"
+					            FontSize="20"
+                                Grid.Column="2"
+                                TextColor="White"
+					            HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+					            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer />
                                 </Label.GestureRecognizers>
                             </Label>
 

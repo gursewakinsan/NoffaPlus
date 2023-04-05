@@ -49,7 +49,7 @@ namespace NoffaPlus.ViewModels
         {
             DependencyService.Get<IProgressBar>().Show();
             ILandloardService service = new LandloardService();
-            ApartmentConnectRequestInfo = await service.ApartmentConnectRequestReceivedAsync(new Models.ApartmentConnectRequestReceivedRequest()
+            ReceivedConnectRequestInfo = await service.ApartmentConnectRequestReceivedAsync(new Models.ApartmentConnectRequestReceivedRequest()
             {
                 CompanyId = Helper.Helper.CompanyId
             });
@@ -67,7 +67,7 @@ namespace NoffaPlus.ViewModels
         {
             DependencyService.Get<IProgressBar>().Show();
             ILandloardService service = new LandloardService();
-            ApartmentConnectRequestInfo = await service.ApartmentConnectRequestRejectedAsync(new Models.ApartmentConnectRequestReceivedRequest()
+            RejectedConnectRequestInfo = await service.ApartmentConnectRequestRejectedAsync(new Models.ApartmentConnectRequestReceivedRequest()
             {
                 CompanyId = Helper.Helper.CompanyId
             });
@@ -76,14 +76,25 @@ namespace NoffaPlus.ViewModels
         #endregion
 
         #region Properties.
-        private List<Models.ApartmentConnectRequestReceivedResponse> apartmentConnectRequestInfo;
-        public List<Models.ApartmentConnectRequestReceivedResponse> ApartmentConnectRequestInfo
+        private List<Models.ApartmentConnectRequestReceivedResponse> rejectedConnectRequestInfo;
+        public List<Models.ApartmentConnectRequestReceivedResponse> RejectedConnectRequestInfo
         {
-            get => apartmentConnectRequestInfo;
+            get => rejectedConnectRequestInfo;
             set
             {
-                apartmentConnectRequestInfo = value;
-                OnPropertyChanged("ApartmentConnectRequestInfo");
+                rejectedConnectRequestInfo = value;
+                OnPropertyChanged("RejectedConnectRequestInfo");
+            }
+        }
+
+        private List<Models.ApartmentConnectRequestReceivedResponse> receivedConnectRequestInfo;
+        public List<Models.ApartmentConnectRequestReceivedResponse> ReceivedConnectRequestInfo
+        {
+            get => receivedConnectRequestInfo;
+            set
+            {
+                receivedConnectRequestInfo = value;
+                OnPropertyChanged("ReceivedConnectRequestInfo");
             }
         }
 
