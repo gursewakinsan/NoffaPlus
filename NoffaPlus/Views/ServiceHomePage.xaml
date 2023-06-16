@@ -75,6 +75,8 @@
                     <RowDefinition Height="78"/>
                     <RowDefinition Height="16"/>
                     <RowDefinition Height="78"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="78"/>
                 </Grid.RowDefinitions>
                 <Label
 					Grid.Row="0"
@@ -256,6 +258,56 @@
                             CornerRadius="18"
                             TextColor="#F4B400"
 			                BackgroundColor="#5B5B79"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+
+                <!--Premium Services-->
+                <Frame
+                    Grid.Row="12"
+                    Padding="0"
+                    CornerRadius="16"
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PremiumServicesCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PremiumServicesCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+					        Grid.Row="0"
+			                Grid.Column="0"
+					        FontFamily="PoppinsRegularFontFamily"
+					        FontSize="16"
+					        HorizontalTextAlignment="Start"
+					        Text="Premium Services"
+					        TextColor="White"
+					        VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PremiumServicesCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+			                Grid.Row="0"
+			                Grid.Column="1"
+			                Padding="0"
+                            FontSize="20"
+                            CornerRadius="18"
+                            TextColor="#F4B400"
+			                BackgroundColor="#5B5B79"
+                            Command="{Binding PremiumServicesCommand}"
 			                FontFamily="{StaticResource MaterialFontFamily}"
 			                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"/>
                     </Grid>

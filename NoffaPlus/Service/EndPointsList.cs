@@ -91,5 +91,10 @@
 		public const string GetAvailableApartmentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getAvailableApartment";
 		public const string RejectConnectApartmentRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/rejectConnectApartmentRequest";
 		public const string ApproveConnectApartmentRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/approveConnectApartmentRequest";
+
+        //Premium Services.
+        public const string EmployeeProfessionalServiceProposalsDatesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/employeeProfessionalServiceProposalsDates";
+		public const string EmployeeProfessionalServiceProposalsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/employeeProfessionalServiceProposals";
+		public const string PropertyDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/propertyDetail";
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using NoffaPlus.Service;
+using NoffaPlus.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -47,6 +49,29 @@ namespace NoffaPlus.ViewModels
 		{
 			await Task.CompletedTask;
 		}
-		#endregion
-	}
+        #endregion
+
+        #region Premium Services Command.
+        private ICommand premiumServicesCommand;
+        public ICommand PremiumServicesCommand
+        {
+            get => premiumServicesCommand ?? (premiumServicesCommand = new Command(async () => await ExecutePremiumServicesCommand()));
+        }
+        private async Task ExecutePremiumServicesCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IPremiumService service = new PremiumService();
+            var responses = await service.EmployeeProfessionalServiceProposalsDatesAsync(new Models.EmployeeProfessionalServiceProposalsDatesRequest()
+            {
+                CompanyId = Helper.Helper.CompanyId,
+                UserId = Helper.Helper.LoggedInUserId,
+            });
+			if (responses?.Count > 0)
+				await Navigation.PushAsync(new Views.PremiumServices.CreateNewJobPage(responses));
+			else
+                await Navigation.PushAsync(new Views.PremiumServices.NoJobPage());
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
+    }
 }
