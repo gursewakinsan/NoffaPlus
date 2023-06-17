@@ -6,14 +6,14 @@ using Android.Content.PM;
 
 namespace NoffaPlus.Droid
 {
-	[Activity(Label = "WORQ", Icon = "@drawable/appIcon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-	[IntentFilter(new[] { Intent.ActionView },
+	[Activity(Label = "WORQ", ResizeableActivity =false, Icon = "@drawable/appIcon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [IntentFilter(new[] { Intent.ActionView },
 				  DataScheme = "https",
 				  DataHost = "NoffaPlusApp.com",
 				  DataPathPrefix = "/session",
 				  AutoVerify = true,
 				  Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable })]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
 		protected override void OnCreate(Bundle savedInstanceState)
 		{

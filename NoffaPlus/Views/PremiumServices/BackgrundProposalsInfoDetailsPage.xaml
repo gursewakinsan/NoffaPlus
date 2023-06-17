@@ -33,7 +33,7 @@
 			IsClippedToBounds="True"
 			Opacity="0.1">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
             </Frame.GestureRecognizers>
         </Frame>
 
@@ -49,7 +49,7 @@
 			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
 			TextColor="White">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 
@@ -193,8 +193,12 @@
 				    TextColor="White"
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
-                    FontFamily="PoppinsSemiBoldFontFamily"/>
-
+                    FontFamily="PoppinsSemiBoldFontFamily">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
                 <Label
                     Grid.Row="2"
                     Text="Backgrund"

@@ -55,6 +55,21 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region Back Command.
+        private ICommand backCommand;
+        public ICommand BackCommand
+        {
+            get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+        }
+        private async Task ExecuteBackCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+            await Navigation.PopAsync();
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
+
         #region Properties.
         private Models.EmployeeProfessionalServiceProposalsResponse proposalsInfoDetails;
         public Models.EmployeeProfessionalServiceProposalsResponse ProposalsInfoDetails
