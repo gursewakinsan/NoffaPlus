@@ -47,10 +47,37 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "enc")]
         public string Enc { get; set; }
 
-        public bool IsJobStart { get; set; }
+        private bool isJobStart;
+        public bool IsJobStart
+        {
+            get => isJobStart;
+            set
+            {
+                isJobStart = value;
+                OnPropertyChanged("IsJobStart");
+            }
+        }
 
-        public bool IsJobFinesh { get; set; }
+        private bool isJobFinesh;
+        public bool IsJobFinesh
+        {
+            get => isJobFinesh;
+            set
+            {
+                isJobFinesh = value;
+                OnPropertyChanged("IsJobFinesh");
+            }
+        }
 
-        public bool IsJobDone { get; set; }
+        private bool isJobDone;
+        public bool IsJobDone
+        {
+            get => isJobDone;
+            set
+            {
+                isJobDone = value;
+                OnPropertyChanged("IsJobDone");
+            }
+        }
     }
 }

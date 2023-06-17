@@ -24,5 +24,44 @@ namespace NoffaPlus.Views.PremiumServices
             base.OnAppearing();
             viewModel.GetProposalsInfoCommand.Execute(null);
         }
+
+        #region On Proposals Dates Tapped
+        private void OnGridProposalsDatesTapped(object sender, System.EventArgs e)
+        {
+            Grid control = sender as Grid;
+            OnProposalsDatesTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsDatesResponse);
+        }
+
+        private void OnFrameProposalsDatesTapped(object sender, System.EventArgs e)
+        {
+            Frame control = sender as Frame;
+            OnProposalsDatesTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsDatesResponse);
+        }
+
+        private void OnLabelProposalsDatesTapped(object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnProposalsDatesTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsDatesResponse);
+        }
+
+        private void OnBoxViewProposalsDatesTapped(object sender, System.EventArgs e)
+        {
+            BoxView control = sender as BoxView;
+            OnProposalsDatesTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsDatesResponse);
+        }
+
+        void OnProposalsDatesTapped(Models.EmployeeProfessionalServiceProposalsDatesResponse dates)
+        { 
+            foreach (var item in viewModel.ProposalsDates) 
+            {
+                if(item.BookingDate == dates.BookingDate)
+                    item.IsDateSelected = true;
+                else
+                    item.IsDateSelected = false;
+            }
+            viewModel.BookingDate = dates.BookingDate;
+            viewModel.GetProposalsInfoCommand.Execute(null);
+        }
+        #endregion
     }
 }
