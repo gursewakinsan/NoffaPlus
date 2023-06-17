@@ -243,6 +243,8 @@
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="23"/>
+                            <RowDefinition Height="42"/>
                         </Grid.RowDefinitions>
                         <Label
                             Grid.Row="0"
@@ -334,6 +336,18 @@
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Button
+                            Grid.Row="16"
+                            Text="0 images"
+                            FontSize="14"
+                            TextColor="Black"
+                            CornerRadius="12"
+                            Padding="0"
+                            WidthRequest="153"
+                            HorizontalOptions="StartAndExpand"
+                            BackgroundColor="White"
+                            FontFamily="PoppinsSemiBoldFontFamily"/>
                     </Grid>
                 </Frame>
 
