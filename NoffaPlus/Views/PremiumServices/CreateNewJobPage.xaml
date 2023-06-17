@@ -248,6 +248,9 @@
                                     <RowDefinition Height="70"/>
                                     <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnGridProposalsInfoTapped"/>
+                                </Grid.GestureRecognizers>
                                 <Label
                                     Grid.Row="0"
                                     FontSize="15"
@@ -262,12 +265,19 @@
                                             <Span Text="{Binding AmPm}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelProposalsInfoTapped"/>
+                                    </Label.GestureRecognizers>
                                 </Label>
 
                                 <BoxView
                                     Grid.Row="2"
                                     Opacity="0.10"
-                                    BackgroundColor="White"/>
+                                    BackgroundColor="White">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnBoxViewProposalsInfoTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
 
                                 <Frame
                                     Grid.Row="4"
@@ -276,6 +286,9 @@
                                     Padding="16,0,5,0"
                                     IsClippedToBounds="True"
                                     BackgroundColor="#242A37">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnFrameProposalsInfoTapped"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid ColumnSpacing="13" VerticalOptions="CenterAndExpand">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="66"/>
@@ -285,6 +298,9 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnGridProposalsInfoTapped"/>
+                                        </Grid.GestureRecognizers>
                                         <Button
                                             Grid.Row="0"
                                             Text="Done"
@@ -293,6 +309,7 @@
                                             TextColor="#181A1F"
                                             CornerRadius="5"
                                             Padding="0"
+                                            Clicked="OnButtonProposalsInfoTapped"
                                             IsVisible="{Binding IsJobDone}"
                                             BackgroundColor="#89C99A"
                                             FontFamily="PoppinsRegularFontFamily"/>
@@ -305,6 +322,7 @@
                                             TextColor="#181A1F"
                                             CornerRadius="5"
                                             Padding="0"
+                                            Clicked="OnButtonProposalsInfoTapped"
                                             IsVisible="{Binding IsJobFinesh}"
                                             BackgroundColor="#F4B400"
                                             FontFamily="PoppinsRegularFontFamily"/>
@@ -319,13 +337,18 @@
                                             Padding="0"
                                             IsVisible="{Binding IsJobStart}"
                                             BackgroundColor="#FF8A5D"
+                                             Clicked="OnButtonProposalsInfoTapped"
                                             FontFamily="PoppinsRegularFontFamily"/>
 
                                         <BoxView
                                             Grid.Row="0"
                                             Opacity="0.10"
                                             Grid.Column="1"
-                                            BackgroundColor="White"/>
+                                            BackgroundColor="White">
+                                            <BoxView.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnBoxViewProposalsInfoTapped"/>
+                                            </BoxView.GestureRecognizers>
+                                        </BoxView>
 
                                         <Label
                                             Grid.Row="0"
@@ -335,7 +358,11 @@
                                             Text="{Binding CategoryName}"
                                             FontFamily="PoppinsRegularFontFamily"
                                             HorizontalTextAlignment="Start"
-                                            VerticalTextAlignment="Center"/>
+                                            VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelProposalsInfoTapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
                                     </Grid>
                                 </Frame>
                             </Grid>
