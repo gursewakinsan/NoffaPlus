@@ -1,12 +1,215 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NoffaPlus.Views.PremiumServices.CreateNewJobPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.PremiumServices.CreateNewJobPage"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.1">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <ScrollView
+            Grid.Row="1"
+            Grid.ColumnSpan="5"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,36,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="91"/>
+                    
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <StackLayout 
+                    Spacing="-10"
+                    Grid.Row="0"
+                    Margin="28,0,28,0"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <Label
+                        Text="Casa Bredin"
+                        FontSize="33"
+					    TextColor="White"
+                        FontFamily="PoppinsBoldFontFamily"/>
+
+                    <Label
+					    FontSize="25"
+					    TextColor="White"
+                        Opacity="0.42"
+                        Text="Calendar &amp; Tasks"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </StackLayout>
+
+                <Label
+                    Grid.Row="2"
+                    Text="Date"
+                    FontSize="18"
+                    Opacity="0.70"
+				    TextColor="White"
+                    Margin="28,0,28,0"
+                    FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                <BoxView
+                    Grid.Row="4"
+                    Opacity="0.10"
+                    Margin="28,0,28,0"
+                    BackgroundColor="White"/>
+
+                <ScrollView
+                    Grid.Row="6"
+                    Orientation="Horizontal"
+                    Padding="28,0,28,0"
+                    HorizontalScrollBarVisibility="Never">
+                    <StackLayout
+                        HorizontalOptions="StartAndExpand"
+                        BindableLayout.ItemsSource="{Binding ProposalsDates}"
+						Orientation="Horizontal"
+						Spacing="15">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    WidthRequest="84"
+                                    HeightRequest="91"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="StartAndExpand">
+                                    <Frame
+                                        HasShadow="False"
+                                        CornerRadius="4"
+                                        Padding="5"
+                                        Opacity="0.10"
+                                        BorderColor="White"
+                                        IsClippedToBounds="True"
+                                        BackgroundColor="Transparent"
+                                        IsVisible="{Binding IsDateSelected, Converter={StaticResource InverseBoolConverter}}">
+                                        <Grid
+                                            RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="5"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Label
+                                                Grid.Row="0"
+                                                Text="{Binding DateDisplay}"
+                                                FontSize="30"
+				                                TextColor="White"
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"/>
+                                            
+                                            <BoxView
+                                                Grid.Row="2"
+                                                Margin="10,0,10,0"
+                                                BackgroundColor="White"/>
+                                            
+                                            <Label
+                                                Grid.Row="3"
+                                                Text="{Binding MonthDisplay}"
+                                                FontSize="16"
+				                                TextColor="White"
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"/>
+                                        </Grid>
+                                    </Frame>
+
+                                    <Frame
+                                        HasShadow="False"
+                                        CornerRadius="4"
+                                        Padding="5"
+                                        IsClippedToBounds="True"
+                                        BackgroundColor="#242A37"
+                                        IsVisible="{Binding IsDateSelected}">
+                                        <Grid
+                                            RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="5"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Label
+                                                Grid.Row="0"
+                                                Text="{Binding DateDisplay}"
+                                                FontSize="30"
+				                                TextColor="White"
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"/>
+
+                                            <BoxView
+                                                Grid.Row="2"
+                                                Opacity="0.10"
+                                                Margin="10,0,10,0"
+                                                BackgroundColor="White"/>
+
+                                            <Label
+                                                Grid.Row="3"
+                                                Text="{Binding MonthDisplay}"
+                                                FontSize="16"
+                                                Opacity="0.42"
+				                                TextColor="White"
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"/>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>

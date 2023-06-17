@@ -27,12 +27,25 @@ namespace NoffaPlus.ViewModels
         {
             DependencyService.Get<IProgressBar>().Show();
             IPremiumService service = new PremiumService();
-            ProposalsInfo = await service.EmployeeProfessionalServiceProposalsAsync(new Models.EmployeeProfessionalServiceProposalsRequest()
+            var responses = ProposalsInfo = await service.EmployeeProfessionalServiceProposalsAsync(new Models.EmployeeProfessionalServiceProposalsRequest()
             {
                 CompanyId = Helper.Helper.CompanyId,
                 UserId = Helper.Helper.LoggedInUserId,
                 BookingDate = BookingDate
             });
+            if (responses?.Count > 0)
+            {
+                foreach (var item in responses)
+                {
+                    if(item.JobStatus ==0)
+                        item.IsJobStart = true;
+                    else if (item.JobStatus == 1)
+                        item.IsJobFinesh = true;
+                    else if (item.JobStatus == 2)
+                        item.IsJobDone = true;
+                }
+            }
+            ProposalsInfo = responses;
             DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
