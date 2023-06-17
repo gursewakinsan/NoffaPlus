@@ -27,7 +27,7 @@ namespace NoffaPlus.ViewModels
         {
             DependencyService.Get<IProgressBar>().Show();
             IPremiumService service = new PremiumService();
-            var responses = ProposalsInfo = await service.EmployeeProfessionalServiceProposalsAsync(new Models.EmployeeProfessionalServiceProposalsRequest()
+            var responses = await service.EmployeeProfessionalServiceProposalsAsync(new Models.EmployeeProfessionalServiceProposalsRequest()
             {
                 CompanyId = Helper.Helper.CompanyId,
                 UserId = Helper.Helper.LoggedInUserId,

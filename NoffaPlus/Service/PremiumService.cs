@@ -34,5 +34,14 @@ namespace NoffaPlus.Service
                 return res;
             });
         }
+
+        public Task<string> UpdateProfessionalJobStatusAsync(Models.UpdateProfessionalJobStatusRequest request)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateProfessionalJobStatusUrl)), string.Empty, request.ToJson());
+                return res;
+            });
+        }
     }
 }

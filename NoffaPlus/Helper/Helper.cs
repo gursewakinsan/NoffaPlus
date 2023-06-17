@@ -38,6 +38,7 @@ namespace NoffaPlus.Helper
         public static Models.ApartmentCommunityTicketListResponse ApartmentCommunityTicketInfo { get; set; }
         public static string HotelId { get; set; }
         public static int SelectedCleaningJob { get; set; }
+        public static List<Models.EmployeeProfessionalServiceProposalsDatesResponse> ProposalsDates { get; set; }
 
         public static string[] ListIconBgColorList =
 		{

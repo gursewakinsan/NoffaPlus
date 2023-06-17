@@ -29,6 +29,26 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region Update Professional Job Status Command.
+        private ICommand updateProfessionalJobStatusCommand;
+        public ICommand UpdateProfessionalJobStatusCommand
+        {
+            get => updateProfessionalJobStatusCommand ?? (updateProfessionalJobStatusCommand = new Command<string>(async (jobStatus) => await ExecuteUpdateProfessionalJobStatusCommand(jobStatus)));
+        }
+        private async Task ExecuteUpdateProfessionalJobStatusCommand(string jobStatus)
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IPremiumService service = new PremiumService();
+            await service.UpdateProfessionalJobStatusAsync(new Models.UpdateProfessionalJobStatusRequest()
+            {
+                JobId = ProposalsInfoDetails.JobId,
+                JobStatus = jobStatus
+            });
+            await Navigation.PopAsync();
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
+
         #region Properties.
         private Models.EmployeeProfessionalServiceProposalsResponse proposalsInfoDetails;
         public Models.EmployeeProfessionalServiceProposalsResponse ProposalsInfoDetails

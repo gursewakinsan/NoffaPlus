@@ -116,7 +116,8 @@ namespace NoffaPlus.Views.PremiumServices
 
         async void OnProposalsInfoTapped(Models.EmployeeProfessionalServiceProposalsResponse proposals)
         {
-            await Navigation.PushAsync(new ProposalsInfoDetailsPage(proposals, selectedDate));
+            if (!proposals.IsJobDone)
+                await Navigation.PushAsync(new ProposalsInfoDetailsPage(proposals, selectedDate));
         }
         #endregion
     }

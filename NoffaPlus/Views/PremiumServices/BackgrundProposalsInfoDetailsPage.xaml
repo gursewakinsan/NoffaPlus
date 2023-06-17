@@ -203,11 +203,7 @@
 				    TextColor="White"
                     HorizontalTextAlignment="End"
                     VerticalTextAlignment="Center"
-                    FontFamily="PoppinsSemiBoldFontFamily">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding BackgrundProposalsInfoDetailsCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                    FontFamily="PoppinsSemiBoldFontFamily"/>
 
                 <BoxView
                     Grid.ColumnSpan="2"
@@ -224,7 +220,7 @@
                     BackgroundColor="#FF8A5D"
                     IsClippedToBounds="True"
                     VerticalOptions="StartAndExpand">
-                    <Grid ColumnSpacing="0" RowSpacing="0">
+                    <Grid ColumnSpacing="20" RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="5"/>
@@ -242,112 +238,241 @@
 
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="5"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="19"/>
+
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="19"/>
+
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="19"/>
                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
                         <Label
                             Grid.Row="0"
-                            Text="Sub category"
+                            Text="Name"
                             FontSize="13"
-                            Opacity="0.42"
-				            TextColor="White"
+                            Opacity="0.70"
+                            Grid.Column="0"
+				            TextColor="#181A1F"
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily"/>
 
                         <Label
                             Grid.Row="2"
-                            Text="{Binding ProposalsInfoDetails.CategoryName}"
+                            Grid.Column="0"
+                            Text="{Binding PropertyDetail.Name}"
                             FontSize="16"
-				            TextColor="White"
+				            TextColor="Black"
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsBoldFontFamily"/>
 
                         <BoxView
                             Grid.Row="4"
-                            Opacity="0.10"
-                            WidthRequest="121"
-                            HorizontalOptions="StartAndExpand"
-                            BackgroundColor="White"/>
+                            Grid.Column="0"
+                            BackgroundColor="Black"/>
 
                         <Label
                             Grid.Row="6"
-                            Text="Issue"
+                            Text="Address"
                             FontSize="13"
-                            Opacity="0.42"
-				            TextColor="White"
+                            Opacity="0.70"
+                            Grid.Column="0"
+				            TextColor="#181A1F"
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily"/>
 
                         <Label
                             Grid.Row="8"
-                            Text="{Binding ProposalsInfoDetails.SubcategoryName}"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Text="{Binding PropertyDetail.Address}"
                             FontSize="16"
-				            TextColor="White"
+				            TextColor="Black"
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsBoldFontFamily"/>
 
                         <BoxView
                             Grid.Row="10"
-                            Opacity="0.10"
-                            WidthRequest="161"
-                            HorizontalOptions="StartAndExpand"
-                            BackgroundColor="White"/>
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="Black"/>
 
                         <Label
                             Grid.Row="12"
-                            Text="Problem"
+                            Text="Bedrooms"
                             FontSize="13"
-                            Opacity="0.42"
-				            TextColor="White"
+                            Opacity="0.70"
+                            Grid.Column="0"
+				            TextColor="#181A1F"
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily"/>
-
-                        <Frame
-                            Grid.Row="14"
-                            HasShadow="False"
-                            Padding="13"
-                            CornerRadius="8"
-                            BorderColor="White"
-                            Opacity="0.10"
-                            BackgroundColor="Transparent"
-                            IsClippedToBounds="True"
-                            VerticalOptions="StartAndExpand">
-                            <Label
-                                Text="{Binding ProposalsInfoDetails.ProductInformation}"
-                                FontSize="15"
-				                TextColor="Transparent"
-                                HorizontalTextAlignment="Start"
-                                VerticalTextAlignment="Center"
-                                FontFamily="PoppinsRegularFontFamily"/>
-                        </Frame>
 
                         <Label
                             Grid.Row="14"
-                            Margin="13"
-                            Text="{Binding ProposalsInfoDetails.ProductInformation}"
-                            FontSize="15"
-				            TextColor="White"
+                            Grid.Column="0"
+                            Text="{Binding PropertyDetail.BedCount}"
+                            FontSize="16"
+				            TextColor="Black"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsBoldFontFamily"/>
+
+                        <BoxView
+                            Grid.Row="16"
+                            Grid.Column="0"
+                            BackgroundColor="Black"/>
+
+                        <Label
+                            Grid.Row="12"
+                            Text="Bathrooms"
+                            FontSize="13"
+                            Opacity="0.70"
+                            Grid.Column="1"
+				            TextColor="#181A1F"
                             HorizontalTextAlignment="Start"
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Row="14"
+                            Grid.Column="1"
+                            Text="{Binding PropertyDetail.BathCount}"
+                            FontSize="16"
+				            TextColor="Black"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsBoldFontFamily"/>
+
+                        <BoxView
+                            Grid.Row="16"
+                            Grid.Column="1"
+                            BackgroundColor="Black"/>
+
+                        <Label
+                            Grid.Row="18"
+                            Text="Size (kvm)"
+                            FontSize="13"
+                            Opacity="0.70"
+                            Grid.Column="0"
+				            TextColor="#181A1F"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Row="20"
+                            Grid.Column="0"
+                            Text="{Binding PropertyDetail.PropertyLayout}"
+                            FontSize="16"
+				            TextColor="Black"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsBoldFontFamily"/>
+
+                        <BoxView
+                            Grid.Row="22"
+                            Grid.Column="0"
+                            BackgroundColor="Black"/>
+
+                        <Label
+                            Grid.Row="18"
+                            Text="Building floor"
+                            FontSize="13"
+                            Opacity="0.70"
+                            Grid.Column="1"
+				            TextColor="#181A1F"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Row="20"
+                            Grid.Column="1"
+                            Text="{Binding PropertyDetail.FloorsAvailable}"
+                            FontSize="16"
+				            TextColor="Black"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsBoldFontFamily"/>
+
+                        <BoxView
+                            Grid.Row="22"
+                            Grid.Column="1"
+                            BackgroundColor="Black"/>
+
+                        <Label
+                            Grid.Row="24"
+                            Text="Your floor"
+                            FontSize="13"
+                            Opacity="0.70"
+                            Grid.Column="0"
+				            TextColor="#181A1F"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Row="26"
+                            Grid.Column="0"
+                            Text="{Binding PropertyDetail.ApartmentFloor}"
+                            FontSize="16"
+				            TextColor="Black"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsBoldFontFamily"/>
+
+                        <BoxView
+                            Grid.Row="28"
+                            Grid.Column="0"
+                            BackgroundColor="Black"/>
+
+                        <Label
+                            Grid.Row="24"
+                            Text="Entrance floor"
+                            FontSize="13"
+                            Opacity="0.70"
+                            Grid.Column="1"
+				            TextColor="#181A1F"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Row="26"
+                            Grid.Column="1"
+                            Text="{Binding PropertyDetail.EntranceFloor}"
+                            FontSize="16"
+				            TextColor="Black"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsBoldFontFamily"/>
+
+                        <BoxView
+                            Grid.Row="28"
+                            Grid.Column="1"
+                            BackgroundColor="Black"/>
                     </Grid>
                 </Frame>
-
-                <Button
-                    Grid.Row="8"
-                    Text="Done"
-                    FontSize="14"
-                    Grid.ColumnSpan="2"
-                    TextColor="#181A1F"
-                    CornerRadius="12"
-                    Padding="0"
-                    IsVisible="{Binding ProposalsInfoDetails.IsJobDone}"
-                    BackgroundColor="#FF8A5D"
-                    FontFamily="PoppinsSemiBoldFontFamily"/>
 
                 <Button
                     Grid.Row="8"
@@ -357,6 +482,8 @@
                     TextColor="#181A1F"
                     CornerRadius="12"
                     Padding="0"
+                    CommandParameter="2"
+                    Command="{Binding UpdateProfessionalJobStatusCommand}"
                     IsVisible="{Binding ProposalsInfoDetails.IsJobFinesh}"
                     BackgroundColor="#FF8A5D"
                     FontFamily="PoppinsSemiBoldFontFamily"/>
@@ -369,6 +496,8 @@
                     TextColor="#181A1F"
                     CornerRadius="12"
                     Padding="0"
+                    CommandParameter="1"
+                    Command="{Binding UpdateProfessionalJobStatusCommand}"
                     IsVisible="{Binding ProposalsInfoDetails.IsJobStart}"
                     BackgroundColor="#FF8A5D"
                     FontFamily="PoppinsSemiBoldFontFamily"/>

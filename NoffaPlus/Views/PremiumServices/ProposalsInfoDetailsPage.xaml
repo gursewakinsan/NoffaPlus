@@ -339,24 +339,14 @@
 
                 <Button
                     Grid.Row="8"
-                    Text="Done"
-                    FontSize="14"
-                    Grid.ColumnSpan="2"
-                    TextColor="#181A1F"
-                    CornerRadius="12"
-                    Padding="0"
-                    IsVisible="{Binding ProposalsInfoDetails.IsJobDone}"
-                    BackgroundColor="#FF8A5D"
-                    FontFamily="PoppinsSemiBoldFontFamily"/>
-
-                <Button
-                    Grid.Row="8"
                     Text="Finish"
                     FontSize="14"
                     Grid.ColumnSpan="2"
                     TextColor="#181A1F"
                     CornerRadius="12"
                     Padding="0"
+                    CommandParameter="2"
+                    Command="{Binding UpdateProfessionalJobStatusCommand}"
                     IsVisible="{Binding ProposalsInfoDetails.IsJobFinesh}"
                     BackgroundColor="#FF8A5D"
                     FontFamily="PoppinsSemiBoldFontFamily"/>
@@ -369,6 +359,8 @@
                     TextColor="#181A1F"
                     CornerRadius="12"
                     Padding="0"
+                    CommandParameter="1"
+                    Command="{Binding UpdateProfessionalJobStatusCommand}"
                     IsVisible="{Binding ProposalsInfoDetails.IsJobStart}"
                     BackgroundColor="#FF8A5D"
                     FontFamily="PoppinsSemiBoldFontFamily"/>

@@ -17,5 +17,11 @@ namespace NoffaPlus.Views.PremiumServices
             viewModel.ProposalsInfoDetails = proposalsInfo;
             viewModel.ProposalsDates = dates;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.GetPropertyDetailCommand.Execute(null);
+        }
     }
 }

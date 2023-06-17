@@ -67,9 +67,12 @@ namespace NoffaPlus.ViewModels
                 UserId = Helper.Helper.LoggedInUserId,
             });
 			if (responses?.Count > 0)
-				await Navigation.PushAsync(new Views.PremiumServices.CreateNewJobPage(responses));
+			{
+				Helper.Helper.ProposalsDates = responses;
+                await Navigation.PushAsync(new Views.PremiumServices.CreateNewJobPage(responses));
+			}
 			else
-                await Navigation.PushAsync(new Views.PremiumServices.NoJobPage());
+				await Navigation.PushAsync(new Views.PremiumServices.NoJobPage());
             DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
