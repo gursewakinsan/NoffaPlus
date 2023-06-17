@@ -2,7 +2,7 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="NoffaPlus.Views.PremiumServices.ProposalsInfoDetailsPage"
+    x:Class="NoffaPlus.Views.PremiumServices.BackgrundProposalsInfoDetailsPage"
     xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
@@ -92,7 +92,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Grid ColumnSpacing="15" Grid.Row="0" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="84"/>
@@ -189,6 +189,7 @@
                     Text="Event"
                     FontSize="18"
                     Grid.Column="0"
+                    Opacity="0.42"
 				    TextColor="White"
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
@@ -198,7 +199,6 @@
                     Grid.Row="2"
                     Text="Backgrund"
                     FontSize="18"
-                    Opacity="0.70"
                     Grid.Column="1"
 				    TextColor="White"
                     HorizontalTextAlignment="End"
@@ -221,7 +221,7 @@
                     HasShadow="False"
                     Padding="24"
                     CornerRadius="10"
-                    BackgroundColor="#242A37"
+                    BackgroundColor="#FF8A5D"
                     IsClippedToBounds="True"
                     VerticalOptions="StartAndExpand">
                     <Grid ColumnSpacing="0" RowSpacing="0">
