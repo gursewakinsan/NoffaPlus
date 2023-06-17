@@ -1,12 +1,117 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NoffaPlus.Views.PremiumServices.NoJobPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NoffaPlus.Views.PremiumServices.NoJobPage"
+    xmlns:controls="clr-namespace:NoffaPlus.Controls"
+	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Orientation="Horizontal" Grid.Row="0" Spacing="5" Grid.Column="0">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </StackLayout.GestureRecognizers>
+            <Label
+			    Margin="18,0,0,0"
+			    FontFamily="{StaticResource MaterialFontFamily}"
+			    FontSize="25"
+			    HorizontalTextAlignment="Start"
+			    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+			    TextColor="White"
+			    VerticalTextAlignment="Center" 
+                VerticalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+			    FontFamily="PoppinsBoldFontFamily"
+			    FontSize="16"
+                Text="Back"
+			    HorizontalTextAlignment="Start"
+			    TextColor="White"
+                VerticalOptions="CenterAndExpand"
+			    VerticalTextAlignment="Center" />
         </StackLayout>
-    </ContentPage.Content>
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+			FontFamily="CustomFontIconOne"
+			FontSize="25"
+            Margin="0,0,28,0"
+			HorizontalTextAlignment="End"
+			Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Outline_Edit}"
+			TextColor="White"
+			VerticalTextAlignment="Center" 
+            VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+
+        <StackLayout
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Spacing="2"
+            HorizontalOptions="CenterAndExpand">
+            <Label
+		        FontFamily="PoppinsRegularFontFamily"
+		        FontSize="18"
+                Text="It´s empty because"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+		        TextColor="White"/>
+
+            <Label
+		        FontFamily="PoppinsRegularFontFamily"
+		        FontSize="18"
+                Text="no jobs are available"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+		        TextColor="White"/>
+        </StackLayout>
+        
+
+        <Image
+            x:Name="imgNoMissing"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Source="noMissing.png"
+            BackgroundColor="Transparent"
+            Margin="55,71,55,38" 
+            Aspect="AspectFit"/>
+
+        <controls:CustomButton 
+            Grid.Row="4"
+            CornerRadius="30"
+            WidthRequest="255"
+            FontSize="14"
+            Grid.ColumnSpan="2"
+            TextColor="#181A1F"
+            Text="CREATE A JOB"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="White"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            HorizontalOptions="CenterAndExpand"/>
+    </Grid>
 </ContentPage>

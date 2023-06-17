@@ -265,7 +265,7 @@
 
                 <!--Premium Services-->
                 <Frame
-                    Grid.Row="12"
+                    Grid.Row="14"
                     Padding="0"
                     CornerRadius="16"
                     HasShadow="False"

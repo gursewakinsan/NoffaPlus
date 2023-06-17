@@ -15,6 +15,7 @@ namespace NoffaPlus.Views.PremiumServices
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new CreateNewJobPageViewModel(this.Navigation);
             viewModel.ProposalsDates = dates;
+            viewModel.BookingDate = dates[0].BookingDate;
         }
 
         protected override void OnAppearing()

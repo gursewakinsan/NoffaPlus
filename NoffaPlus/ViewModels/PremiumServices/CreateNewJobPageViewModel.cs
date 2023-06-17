@@ -60,7 +60,7 @@ namespace NoffaPlus.ViewModels
             }
         }
 
-        public string BookingDate { get; set; }
+        public int BookingDate { get; set; }
         #endregion
     }
 }

@@ -9,6 +9,6 @@
         public int UserId { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "booking_date")]
-        public string BookingDate { get; set; }
+        public int BookingDate { get; set; }
     }
 }

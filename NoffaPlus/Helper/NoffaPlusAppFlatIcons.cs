@@ -91,5 +91,20 @@
 		public const string BookmarkMinusOutline = "\U000f09cd";
 		public const string FilePlusOutline = "\U000f0eed";
 
-	}
+
+        //CustomFontIconOne 
+        public const string BBQgrill = "\ue906";
+        public const string Cycladichome = "\ue909";
+        public const string Flat_apartment = "\ue904";
+        public const string Kitchen = "\ue903";
+        public const string Outdoordining = "\ue905";
+        public const string Outline_BankCard = "\ue900";
+        public const string Outline_Edit = "\ue90b";
+        public const string Outline_Login = "\ue901";
+        public const string Parking = "\ue908";
+        public const string Shower = "\ue902";
+        public const string TV = "\ue90a";
+        public const string HouseLock = "\ue907";
+
+    }
 }
