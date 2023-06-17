@@ -10,7 +10,7 @@ namespace NoffaPlus.Views.PremiumServices
     public partial class CreateNewJobPage : ContentPage
     {
         CreateNewJobPageViewModel viewModel;
-        string selectedDate = string.Empty;
+        Models.EmployeeProfessionalServiceProposalsDatesResponse selectedDate;
         public CreateNewJobPage(List<Models.EmployeeProfessionalServiceProposalsDatesResponse> dates)
         {
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace NoffaPlus.Views.PremiumServices
             BindingContext = viewModel = new CreateNewJobPageViewModel(this.Navigation);
             dates[0].IsDateSelected = true;
             viewModel.ProposalsDates = dates;
-            selectedDate = dates[0].DateDisplay;
+            selectedDate = dates[0];
             viewModel.BookingDate = dates[0].BookingDate;
         }
 
@@ -55,7 +55,7 @@ namespace NoffaPlus.Views.PremiumServices
 
         void OnProposalsDatesTapped(Models.EmployeeProfessionalServiceProposalsDatesResponse dates)
         {
-            selectedDate = dates.DateDisplay;
+            selectedDate = dates;
             foreach (var item in viewModel.ProposalsDates) 
             {
                 if(item.BookingDate == dates.BookingDate)
@@ -71,7 +71,7 @@ namespace NoffaPlus.Views.PremiumServices
         #region On Proposals Info Tapped.
         private void OnLabelProposalsInfoTapped(object sender, System.EventArgs e)
         {
-            if (DateTime.Today.Day == Convert.ToInt32(selectedDate))
+            if (DateTime.Today.Day == Convert.ToInt32(selectedDate.DateDisplay))
             {
                 Label control = sender as Label;
                 OnProposalsInfoTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsResponse);
@@ -80,7 +80,7 @@ namespace NoffaPlus.Views.PremiumServices
 
         private void OnBoxViewProposalsInfoTapped(object sender, System.EventArgs e)
         {
-            if (DateTime.Today.Day == Convert.ToInt32(selectedDate))
+            if (DateTime.Today.Day == Convert.ToInt32(selectedDate.DateDisplay))
             {
                 BoxView control = sender as BoxView;
                 OnProposalsInfoTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsResponse);
@@ -89,7 +89,7 @@ namespace NoffaPlus.Views.PremiumServices
 
         private void OnButtonProposalsInfoTapped(object sender, System.EventArgs e)
         {
-            if (DateTime.Today.Day == Convert.ToInt32(selectedDate))
+            if (DateTime.Today.Day == Convert.ToInt32(selectedDate.DateDisplay))
             {
                 Button control = sender as Button;
                 OnProposalsInfoTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsResponse);
@@ -98,7 +98,7 @@ namespace NoffaPlus.Views.PremiumServices
 
         private void OnGridProposalsInfoTapped(object sender, System.EventArgs e)
         {
-            if (DateTime.Today.Day == Convert.ToInt32(selectedDate))
+            if (DateTime.Today.Day == Convert.ToInt32(selectedDate.DateDisplay))
             {
                 Grid control = sender as Grid;
                 OnProposalsInfoTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsResponse);
@@ -107,7 +107,7 @@ namespace NoffaPlus.Views.PremiumServices
 
         private void OnFrameProposalsInfoTapped(object sender, System.EventArgs e)
         {
-            if (DateTime.Today.Day == Convert.ToInt32(selectedDate))
+            if (DateTime.Today.Day == Convert.ToInt32(selectedDate.DateDisplay))
             {
                 Frame control = sender as Frame;
                 OnProposalsInfoTapped(control.BindingContext as Models.EmployeeProfessionalServiceProposalsResponse);
@@ -116,7 +116,7 @@ namespace NoffaPlus.Views.PremiumServices
 
         async void OnProposalsInfoTapped(Models.EmployeeProfessionalServiceProposalsResponse proposals)
         {
-            await Navigation.PushAsync(new ProposalsInfoDetailsPage(proposals));
+            await Navigation.PushAsync(new ProposalsInfoDetailsPage(proposals, selectedDate));
         }
         #endregion
     }

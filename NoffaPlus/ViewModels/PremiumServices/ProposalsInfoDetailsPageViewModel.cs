@@ -28,6 +28,17 @@ namespace NoffaPlus.ViewModels
                 OnPropertyChanged("ProposalsInfoDetails");
             }
         }
+
+        private Models.EmployeeProfessionalServiceProposalsDatesResponse proposalsDates;
+        public Models.EmployeeProfessionalServiceProposalsDatesResponse ProposalsDates
+        {
+            get => proposalsDates;
+            set
+            {
+                proposalsDates = value;
+                OnPropertyChanged("ProposalsDates");
+            }
+        }
         #endregion
     }
 }
