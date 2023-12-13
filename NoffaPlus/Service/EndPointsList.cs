@@ -97,5 +97,9 @@
 		public const string EmployeeProfessionalServiceProposalsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/employeeProfessionalServiceProposals";
 		public const string PropertyDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/propertyDetail";
 		public const string UpdateProfessionalJobStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateProfessionalJobStatus";
+
+        //Market Place
+        public const string CompanyMarketplaceListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyMarketplaceList";
+		public const string ProfessionalTodoUpdateUrl = "https://www.qloudid.com/user/index.php/QloudidApp/professionalTodoUpdate";
     }
 }
