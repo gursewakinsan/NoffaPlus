@@ -13,6 +13,7 @@ namespace NoffaPlus.Views.MarketPlace
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = ViewModel = new ProfessionalTodoUpdatePageViewModel(this.Navigation);
+            ViewModel.SelectedCompanyMarketplace = model;
         }
 
         protected override void OnAppearing()

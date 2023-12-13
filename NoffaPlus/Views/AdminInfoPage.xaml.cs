@@ -23,6 +23,8 @@ namespace NoffaPlus.Views
 				await adminInfoPageViewModel.Navigation.PushAsync(new AppStoreInfoPage());
 			else if (info.InfoName.Equals("Resources"))
 				await adminInfoPageViewModel.Navigation.PushAsync(new ContactListPage());
+			else if (info.InfoName.Equals("Market place"))
+				await adminInfoPageViewModel.Navigation.PushAsync(new MarketPlace.MarketPlaceListPage());
 		}
 
 		private async void OnImageButtonClicked(object sender, System.EventArgs e)

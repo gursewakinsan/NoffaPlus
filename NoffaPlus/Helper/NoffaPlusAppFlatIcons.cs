@@ -106,5 +106,8 @@
         public const string TV = "\ue90a";
         public const string HouseLock = "\ue907";
 
-    }
+		public const string CarEstate = "\U000f07a8";
+		public const string CartOutline = "\U000f0111";
+
+	}
 }

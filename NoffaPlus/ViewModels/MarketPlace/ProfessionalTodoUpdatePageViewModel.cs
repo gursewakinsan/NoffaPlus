@@ -13,6 +13,22 @@ namespace NoffaPlus.ViewModels
         public ProfessionalTodoUpdatePageViewModel(INavigation navigation)
         {
             Navigation = navigation;
+            ProfessionalTodoUpdateList = new List<ProfessionalTodoUpdateModel>();
+            ProfessionalTodoUpdateList.Add(new ProfessionalTodoUpdateModel()
+            {
+                Name = "Services",
+                TextIcon = Helper.NoffaPlusAppFlatIcons.CarEstate
+            });
+            ProfessionalTodoUpdateList.Add(new ProfessionalTodoUpdateModel()
+            {
+                Name = "Pricing",
+                TextIcon = Helper.NoffaPlusAppFlatIcons.CartOutline
+            });
+            ProfessionalTodoUpdateList.Add(new ProfessionalTodoUpdateModel()
+            {
+                Name = "Languages",
+                TextIcon = Helper.NoffaPlusAppFlatIcons.MessageOutline
+            });
         }
         #endregion
 
@@ -46,6 +62,23 @@ namespace NoffaPlus.ViewModels
                 OnPropertyChanged("SelectedCompanyMarketplace");
             }
         }
+
+        public List<ProfessionalTodoUpdateModel> professionalTodoUpdateList;
+        public List<ProfessionalTodoUpdateModel> ProfessionalTodoUpdateList
+        {
+            get => professionalTodoUpdateList;
+            set
+            {
+                professionalTodoUpdateList = value;
+                OnPropertyChanged("ProfessionalTodoUpdateList");
+            }
+        }
         #endregion
     }
+}
+
+public class ProfessionalTodoUpdateModel
+{
+    public string TextIcon { get; set; }
+    public string Name { get; set; }
 }

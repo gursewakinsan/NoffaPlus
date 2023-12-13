@@ -20,5 +20,28 @@ namespace NoffaPlus.Views.MarketPlace
             base.OnAppearing();
             ViewModel.CompanyMarketplaceListCommand.Execute(null);
         }
+
+        void OnFrameTapped(System.Object sender, System.EventArgs e)
+        {
+            Frame control = sender as Frame;
+            OnItemTapped(control.BindingContext as Models.CompanyMarketplaceListResponse);
+        }
+
+        void OnGridTapped(System.Object sender, System.EventArgs e)
+        {
+            Grid control = sender as Grid;
+            OnItemTapped(control.BindingContext as Models.CompanyMarketplaceListResponse);
+        }
+
+        void OnLabelTapped(System.Object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnItemTapped(control.BindingContext as Models.CompanyMarketplaceListResponse);
+        }
+
+        async void OnItemTapped(Models.CompanyMarketplaceListResponse model)
+        {
+            await Navigation.PushAsync(new ProfessionalTodoUpdatePage(model));
+        }
     }
 }
