@@ -101,5 +101,7 @@
         //Market Place
         public const string CompanyMarketplaceListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyMarketplaceList";
 		public const string ProfessionalTodoUpdateUrl = "https://www.qloudid.com/user/index.php/QloudidApp/professionalTodoUpdate";
+		public const string CompanyMarketplaceServiceDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyMarketplaceServiceDetail";
+		public const string UpdateCategoryServiceTodoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCategoryServiceTodo";
     }
 }
