@@ -106,7 +106,10 @@
 						<BindableLayout.ItemTemplate>
 							 <DataTemplate>
 								<Grid RowSpacing="0" ColumnSpacing="30">
-									<Grid.RowDefinitions>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridTapped" />
+                                    </Grid.GestureRecognizers>
+                                    <Grid.RowDefinitions>
 										<RowDefinition Height="80"/>
 										<RowDefinition Height="1"/>
 									</Grid.RowDefinitions>
@@ -115,7 +118,8 @@
 										<ColumnDefinition Width="*"/>
 										<ColumnDefinition Width="20"/>
 									</Grid.ColumnDefinitions>
-									<Button
+                                    
+                                    <Button
 										Grid.Row="0"
 										Grid.Column="0"
 										FontFamily="{StaticResource MaterialFontFamily}"
@@ -127,9 +131,10 @@
 										HorizontalOptions="StartAndExpand"
 										VerticalOptions="CenterAndExpand"
 										Text="{Binding TextIcon}"
-										TextColor="#EF793F"/>
+										TextColor="#EF793F"
+                                        Clicked="OnButtonTapped"/>
 
-									<Label
+                                    <Label
 										Grid.Row="0"
 										Grid.Column="1"
 										FontFamily="PoppinsRegularFontFamily"
@@ -139,22 +144,26 @@
 										TextColor="White"
 										MaxLines="1"
 										LineBreakMode="TailTruncation"
-										VerticalTextAlignment="Center"/>
+										VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
-										<Label
-											Grid.Row="0"
-											Grid.Column="2"
-											FontFamily="{StaticResource MaterialFontFamily}"
-											FontSize="25"
-											HorizontalTextAlignment="End"
-											Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
-											TextColor="White"
-											Opacity="0.42"
-											VerticalTextAlignment="Center">
-											<Label.GestureRecognizers>
-												<TapGestureRecognizer />
-											</Label.GestureRecognizers>
-										</Label>
+									<Label
+										Grid.Row="0"
+										Grid.Column="2"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HorizontalTextAlignment="End"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+										TextColor="White"
+										Opacity="0.42"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnLabelTapped" />
+										</Label.GestureRecognizers>
+									</Label>
 
 									<BoxView
 										Grid.Row="1"

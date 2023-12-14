@@ -22,5 +22,23 @@ namespace NoffaPlus.Views.MarketPlace
             base.OnAppearing();
             ViewModel.ProfessionalTodoUpdateCommand.Execute(null);
         }
+
+        void OnGridTapped(System.Object sender, System.EventArgs e)
+        {
+            Grid control = sender as Grid;
+            OnItemTapped(control.BindingContext as Models.ProfessionalTodoUpdateModel);
+        }
+
+        void OnLabelTapped(System.Object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnItemTapped(control.BindingContext as Models.ProfessionalTodoUpdateModel);
+        }
+
+        async void OnItemTapped(Models.ProfessionalTodoUpdateModel model)
+        {
+            if (model.Name.Equals("Services"))
+                await Navigation.PushAsync(new CompanyMarketplaceServiceDetailPage());
+        }
     }
 }
