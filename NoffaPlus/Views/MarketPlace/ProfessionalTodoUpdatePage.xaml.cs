@@ -35,6 +35,12 @@ namespace NoffaPlus.Views.MarketPlace
             OnItemTapped(control.BindingContext as Models.ProfessionalTodoUpdateModel);
         }
 
+        private void OnButtonTapped(object sender, System.EventArgs e)
+        {
+            Button control = sender as Button;
+            OnItemTapped(control.BindingContext as Models.ProfessionalTodoUpdateModel);
+        }
+
         async void OnItemTapped(Models.ProfessionalTodoUpdateModel model)
         {
             if (model.Name.Equals("Services"))
