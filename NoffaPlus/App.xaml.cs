@@ -15,9 +15,7 @@ namespace NoffaPlus
 		{
 			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTIzNzQzQDMxMzkyZTMzMmUzMFBIaTRVTHZ6RSt5ZFl4ZzFkTkhHSWcwTGFnQ0JkUjg4TEJNcnVhSUVZeUE9");
 			InitializeComponent();
-			Helper.Helper.CompanyId = 1;
-			Helper.Helper.DomainId = 1;
-			MainPage = new Views.MarketPlace.CompanyMarketplaceServiceDetailPage();
+			MainPage = new Views.LoginPage();
 		}
 		#endregion
 
