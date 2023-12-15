@@ -32,7 +32,7 @@ namespace NoffaPlus.Models
         public int Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "is_selected")]
-        public int IsSelected { get; set; }
+        public bool IsSelected { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "subcategory_name")]
         public string SubcategoryName { get; set; }
@@ -41,6 +41,10 @@ namespace NoffaPlus.Models
         public int ProfessionalSubcategoryId { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "price_added")]
-        public int PriceAdded { get; set; }
+        public bool PriceAdded { get; set; }
+
+        public bool IsGreenCard { get; set; }
+        public bool IsOrangeCard { get; set; }
+        public bool IsBlackCard { get; set; }
     }
 }

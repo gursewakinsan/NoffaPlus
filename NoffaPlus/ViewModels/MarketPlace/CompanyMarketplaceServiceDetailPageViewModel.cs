@@ -26,11 +26,24 @@ namespace NoffaPlus.ViewModels
         {
             DependencyService.Get<IProgressBar>().Show();
             IMarketPlaceService service = new MarketPlaceService();
-            CompanyMarketplaceServiceDetailList = await service.CompanyMarketplaceServiceDetailAsync(new Models.CompanyMarketplaceServiceDetailRequest()
+            var responses = await service.CompanyMarketplaceServiceDetailAsync(new Models.CompanyMarketplaceServiceDetailRequest()
             {
                 CompanyId = Helper.Helper.CompanyId,
                 DomainId = Helper.Helper.DomainId
             });
+            foreach (var category in responses)
+            {
+                foreach (var subcategory in category.Subcategory)
+                {
+                    if (!subcategory.IsSelected && !subcategory.PriceAdded)
+                        subcategory.IsBlackCard = true;
+                    else if (subcategory.IsSelected && !subcategory.PriceAdded)
+                        subcategory.IsOrangeCard = true;
+                    else if (subcategory.IsSelected && subcategory.PriceAdded)
+                        subcategory.IsGreenCard = true;
+                }
+            }
+            CompanyMarketplaceServiceDetailList = responses;
             DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion

@@ -133,15 +133,49 @@
 														Grid.Row="0"
 														Grid.Column="0"
 														FontFamily="{StaticResource MaterialFontFamily}"
+														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
+														IsVisible="{Binding IsOrangeCard}"
 														FontSize="22"
 														HeightRequest="50"
 														WidthRequest="50"
 														CornerRadius="6"
-														BackgroundColor="#242A37"
+														BackgroundColor="#EF793F"
 														HorizontalOptions="StartAndExpand"
 														VerticalOptions="CenterAndExpand"
-														Text="{Binding TextIcon}"
-														TextColor="#EF793F"/>
+														TextColor="Black"/>
+
+													<Button
+														Grid.Row="0"
+														Grid.Column="0"
+														FontFamily="{StaticResource MaterialFontFamily}"
+														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
+														IsVisible="{Binding IsGreenCard}"
+														FontSize="22"
+														HeightRequest="50"
+														WidthRequest="50"
+														CornerRadius="6"
+														BackgroundColor="#89C99A"
+														HorizontalOptions="StartAndExpand"
+														VerticalOptions="CenterAndExpand"
+														TextColor="Black"/>
+
+													<Button
+														Grid.Row="0"
+														Grid.Column="0"
+														FontFamily="{StaticResource MaterialFontFamily}"
+														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+														IsVisible="{Binding IsBlackCard}"
+														FontSize="22"
+														HeightRequest="50"
+														WidthRequest="50"
+														CornerRadius="6"
+														BorderColor="White"
+														BorderWidth="1"
+														Opacity="0.10"
+														BackgroundColor="Transparent"
+														HorizontalOptions="StartAndExpand"
+														VerticalOptions="CenterAndExpand"
+														TextColor="White"/>
 
 													<StackLayout
 														Grid.Row="0"
