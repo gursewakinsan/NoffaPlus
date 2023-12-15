@@ -43,5 +43,14 @@ namespace NoffaPlus.Service
                 return res;
             });
         }
+
+        public Task<List<Models.CompanyMarketplacePricingDetailResponse>> CompanyMarketplacePricingDetailAsync(Models.CompanyMarketplacePricingDetailRequest request)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<List<Models.CompanyMarketplacePricingDetailResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.CompanyMarketplacePricingDetailUrl)), string.Empty, request.ToJson());
+                return res;
+            });
+        }
     }
 }

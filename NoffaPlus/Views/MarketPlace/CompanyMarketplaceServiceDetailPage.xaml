@@ -117,7 +117,7 @@
 											<DataTemplate>
 												<Grid RowSpacing="0" ColumnSpacing="30">
 													<Grid.GestureRecognizers>
-														<TapGestureRecognizer  />
+                                                        <TapGestureRecognizer Tapped="OnGridTapped" />
 													</Grid.GestureRecognizers>
 													<Grid.RowDefinitions>
 														<RowDefinition Height="80"/>
@@ -135,6 +135,7 @@
 														FontFamily="{StaticResource MaterialFontFamily}"
 														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
 														IsVisible="{Binding IsOrangeCard}"
+                                                        Clicked="OnButtonTapped"
 														FontSize="22"
 														HeightRequest="50"
 														WidthRequest="50"
@@ -150,6 +151,7 @@
 														FontFamily="{StaticResource MaterialFontFamily}"
 														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
 														IsVisible="{Binding IsGreenCard}"
+                                                        Clicked="OnButtonTapped"
 														FontSize="22"
 														HeightRequest="50"
 														WidthRequest="50"
@@ -165,6 +167,7 @@
 														FontFamily="{StaticResource MaterialFontFamily}"
 														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
 														IsVisible="{Binding IsBlackCard}"
+                                                        Clicked="OnButtonTapped"
 														FontSize="22"
 														HeightRequest="50"
 														WidthRequest="50"
@@ -183,6 +186,9 @@
 														Spacing="2"
 														VerticalOptions="CenterAndExpand"
 														HorizontalOptions="StartAndExpand">
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnStackLayoutTapped"/>
+                                                        </StackLayout.GestureRecognizers>
 														<Label
 															FontFamily="PoppinsRegularFontFamily"
 															FontSize="16"
@@ -193,7 +199,7 @@
 															LineBreakMode="TailTruncation"
 															VerticalTextAlignment="Center">
 															<Label.GestureRecognizers>
-																<TapGestureRecognizer  />
+                                                                <TapGestureRecognizer Tapped="OnLabelTapped" />
 															</Label.GestureRecognizers>
 														</Label>
 
@@ -208,7 +214,7 @@
 															LineBreakMode="TailTruncation"
 															VerticalTextAlignment="Center">
 															<Label.GestureRecognizers>
-																<TapGestureRecognizer  />
+                                                                <TapGestureRecognizer  Tapped="OnLabelTapped"/>
 															</Label.GestureRecognizers>
 														</Label>
 													</StackLayout>
@@ -224,7 +230,7 @@
 														Opacity="0.42"
 														VerticalTextAlignment="Center">
 														<Label.GestureRecognizers>
-															<TapGestureRecognizer  />
+                                                            <TapGestureRecognizer Tapped="OnLabelTapped" />
 														</Label.GestureRecognizers>
 													</Label>
 
