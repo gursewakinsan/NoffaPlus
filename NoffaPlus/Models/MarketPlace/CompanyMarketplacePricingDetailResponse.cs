@@ -13,5 +13,7 @@
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "dish_price")]
         public int DishPrice { get; set; }
+
+        public string DisplayPrice => $"${DishPrice}";
     }
 }

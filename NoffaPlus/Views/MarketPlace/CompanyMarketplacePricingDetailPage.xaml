@@ -2,12 +2,218 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="NoffaPlus.Views.MarketPlace.CompanyMarketplacePricingDetailPage">
+    x:Class="NoffaPlus.Views.MarketPlace.CompanyMarketplacePricingDetailPage"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Margin="0,22,0,0" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+				<RowDefinition Height="40" />
+				<RowDefinition Height="50"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="24" />
+				<ColumnDefinition Width="40" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="24" />
+				<ColumnDefinition Width="40" />
+			</Grid.ColumnDefinitions>
+			<Button
+				Grid.Row="0"
+				CornerRadius="8"
+				BorderWidth="1"
+				Opacity="0.2"
+				Grid.Column="1"
+				Command="{Binding CloseCommand}"
+				BackgroundColor="Transparent"
+				BorderColor="White"/>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Center"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<ScrollView
+				Grid.Row="2"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
+				<Grid RowSpacing="0" ColumnSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="41"/>
+						<RowDefinition Height="13"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="60"/>
+						<RowDefinition Height="23"/>
+						<RowDefinition Height="15"/>
+						<RowDefinition Height="1"/>
+						<RowDefinition Height="10"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<Label
+						Grid.Row="0"
+						FontAttributes="Bold"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="33"
+						x:Name="lblHeading"
+						HorizontalTextAlignment="Start"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="2"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="25"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="All prices for this service"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="4"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Opacity="0.70"
+						Text="Pricinglist"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="6"
+						Opacity="0.10"
+						BackgroundColor="White"/>
+
+					<StackLayout 
+						Spacing="0" 
+						Grid.Row="8"
+						VerticalOptions="StartAndExpand"
+						BindableLayout.ItemsSource="{Binding CompanyMarketplacePricingDetailList}">
+						<BindableLayout.ItemTemplate>
+							 <DataTemplate>
+								<Grid RowSpacing="0" ColumnSpacing="30">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer  />
+                                    </Grid.GestureRecognizers>
+                                    <Grid.RowDefinitions>
+										<RowDefinition Height="80"/>
+										<RowDefinition Height="1"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="50"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="20"/>
+									</Grid.ColumnDefinitions>
+                                    
+                                    <Button
+										Grid.Row="0"
+										Grid.Column="0"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="15"
+										HeightRequest="50"
+										WidthRequest="50"
+										CornerRadius="6"
+										BackgroundColor="#89C99A"
+										HorizontalOptions="StartAndExpand"
+										VerticalOptions="CenterAndExpand"
+										Text="{Binding DisplayPrice}"
+										TextColor="Black"/>
+
+									<StackLayout
+										Grid.Row="0"
+										Grid.Column="1"
+										Spacing="2"
+										HorizontalOptions="StartAndExpand"
+										VerticalOptions="CenterAndExpand">
+										<Label
+											FontFamily="PoppinsRegularFontFamily"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											Text="{Binding DishName}"
+											TextColor="White"
+											MaxLines="1"
+											LineBreakMode="TailTruncation"
+											VerticalTextAlignment="Center">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer  />
+											</Label.GestureRecognizers>
+										</Label>
+
+										<Label
+											FontFamily="PoppinsRegularFontFamily"
+											FontSize="13"
+											Opacity="0.42"
+											HorizontalTextAlignment="Start"
+											Text="Booktable"
+											TextColor="White"
+											MaxLines="1"
+											IsVisible="{Binding IsBookable}"
+											LineBreakMode="TailTruncation"
+											VerticalTextAlignment="Center">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer  />
+											</Label.GestureRecognizers>
+										</Label>
+
+										<Label
+											FontFamily="PoppinsRegularFontFamily"
+											FontSize="13"
+											Opacity="0.42"
+											HorizontalTextAlignment="Start"
+											Text="Not booktable"
+											TextColor="White"
+											MaxLines="1"
+											LineBreakMode="TailTruncation"
+											VerticalTextAlignment="Center"
+											IsVisible="{Binding IsBookable, Converter={StaticResource InverseBoolConverter}}">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer  />
+											</Label.GestureRecognizers>
+										</Label>
+									</StackLayout>
+                                    
+
+									<Label
+										Grid.Row="0"
+										Grid.Column="2"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HorizontalTextAlignment="End"
+										Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+										TextColor="White"
+										Opacity="0.42"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<BoxView
+										Grid.Row="1"
+										Grid.Column="1"
+										Grid.ColumnSpan="2"
+										Opacity="0.10"
+										BackgroundColor="White"/>
+								</Grid>
+							</DataTemplate>
+						</BindableLayout.ItemTemplate>
+					</StackLayout>
+				</Grid>
+			</ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

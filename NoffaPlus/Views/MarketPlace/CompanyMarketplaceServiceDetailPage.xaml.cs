@@ -48,8 +48,8 @@ namespace NoffaPlus.Views.MarketPlace
             }
             else if (subcategory.IsSelected && subcategory.PriceAdded)
             {
-                Helper.Helper.ProfessionalSubcategoryId = subcategory.Id;
-                await Navigation.PushAsync(new CompanyMarketplacePricingDetailPage());
+                Helper.Helper.ProfessionalSubcategoryId = subcategory.ProfessionalSubcategoryId;
+                await Navigation.PushAsync(new CompanyMarketplacePricingDetailPage(subcategory.SubcategoryName));
             }
         }
     }

@@ -8,11 +8,12 @@ namespace NoffaPlus.Views.MarketPlace
     public partial class CompanyMarketplacePricingDetailPage : ContentPage
     {
         CompanyMarketplacePricingDetailPageViewModel ViewModel;
-        public CompanyMarketplacePricingDetailPage()
+        public CompanyMarketplacePricingDetailPage(string subCategoryName)
         {
             InitializeComponent(); 
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = ViewModel = new CompanyMarketplacePricingDetailPageViewModel(this.Navigation);
+            lblHeading.Text = subCategoryName;
         }
 
         protected override void OnAppearing()
