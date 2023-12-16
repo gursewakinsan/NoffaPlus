@@ -29,6 +29,7 @@ namespace NoffaPlus.Helper
 		public static int LoggedInUserId { get; set; }
 		public static int CompanyId { get; set; }
         public static int DomainId { get; set; }
+        public static int ProfessionalSubcategoryId { get; set; }
         public static string SessionId { get; set; }
 		public static string CompanyName { get; set; }
 		public static Models.ContactResponse SelectedContact { get; set; }

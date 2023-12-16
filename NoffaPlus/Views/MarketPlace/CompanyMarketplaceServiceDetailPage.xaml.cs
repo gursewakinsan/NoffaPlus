@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoffaPlus.ViewModels;
-using NoffaPlus.Models;
 
 namespace NoffaPlus.Views.MarketPlace
 {
@@ -25,23 +24,23 @@ namespace NoffaPlus.Views.MarketPlace
         private void OnButtonTapped(object sender, System.EventArgs e)
         {
             Button control = sender as Button;
-            CompanyMarketplaceServiceDetailSubcategory model = control.BindingContext as CompanyMarketplaceServiceDetailSubcategory;
+            Models.CompanyMarketplaceServiceDetailSubcategory model = control.BindingContext as Models.CompanyMarketplaceServiceDetailSubcategory;
             ViewModel.UpdateCategoryServiceTodoCommand.Execute(model.Id);
         }
 
         private void OnStackLayoutTapped(object sender, System.EventArgs e)
         {
             StackLayout control = sender as StackLayout;
-            OnItemTapped(control.BindingContext as CompanyMarketplaceServiceDetailSubcategory);
+            OnItemTapped(control.BindingContext as Models.CompanyMarketplaceServiceDetailSubcategory);
         }
 
         private void OnLabelTapped(object sender, System.EventArgs e)
         {
             Label control = sender as Label;
-            OnItemTapped(control.BindingContext as CompanyMarketplaceServiceDetailSubcategory);
+            OnItemTapped(control.BindingContext as Models.CompanyMarketplaceServiceDetailSubcategory);
         }
 
-        void OnItemTapped(CompanyMarketplaceServiceDetailSubcategory subcategory)
+        async void OnItemTapped(Models.CompanyMarketplaceServiceDetailSubcategory subcategory)
         {
             if (subcategory.IsSelected && !subcategory.PriceAdded)
             {
@@ -49,7 +48,8 @@ namespace NoffaPlus.Views.MarketPlace
             }
             else if (subcategory.IsSelected && subcategory.PriceAdded)
             {
-                //Navigate to home all prices page
+                Helper.Helper.ProfessionalSubcategoryId = subcategory.Id;
+                await Navigation.PushAsync(new CompanyMarketplacePricingDetailPage());
             }
         }
     }
