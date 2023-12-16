@@ -26,7 +26,7 @@ namespace NoffaPlus.Models
         public List<CompanyMarketplaceServiceDetailSubcategory> Subcategory { get; set; }
     }
 
-    public class CompanyMarketplaceServiceDetailSubcategory
+    public class CompanyMarketplaceServiceDetailSubcategory : BaseModel
     {
         [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
@@ -43,8 +43,60 @@ namespace NoffaPlus.Models
         [Newtonsoft.Json.JsonProperty(PropertyName = "price_added")]
         public bool PriceAdded { get; set; }
 
-        public bool IsGreenCard { get; set; }
-        public bool IsOrangeCard { get; set; }
-        public bool IsBlackCard { get; set; }
+        private bool isGreenCard;
+        public bool IsGreenCard
+        {
+            get => isGreenCard;
+            set
+            {
+                isGreenCard = value;
+                OnPropertyChanged("IsGreenCard");
+            }
+        }
+
+        private bool isOrangeCard;
+        public bool IsOrangeCard
+        {
+            get => isOrangeCard;
+            set
+            {
+                isOrangeCard = value;
+                OnPropertyChanged("IsOrangeCard");
+            }
+        }
+
+        private bool isBlackCard;
+        public bool IsBlackCard
+        {
+            get => isBlackCard;
+            set
+            {
+                isBlackCard = value;
+                OnPropertyChanged("IsBlackCard");
+            }
+        }
+
+
+        private bool isRightArrow;
+        public bool IsRightArrow
+        {
+            get => isRightArrow;
+            set
+            {
+                isRightArrow = value;
+                OnPropertyChanged("IsRightArrow");
+            }
+        }
+
+        private bool isAddButton;
+        public bool IsAddButton
+        {
+            get => isAddButton;
+            set
+            {
+                isAddButton = value;
+                OnPropertyChanged("IsAddButton");
+            }
+        }
     }
 }

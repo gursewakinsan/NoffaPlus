@@ -53,7 +53,7 @@
 				VerticalScrollBarVisibility="Never">
 				<Grid RowSpacing="0" ColumnSpacing="0">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="33"/>
+						<RowDefinition Height="42"/>
 						<RowDefinition Height="13"/>
 						<RowDefinition Height="30"/>
 						<RowDefinition Height="*"/>
@@ -116,9 +116,6 @@
 										<BindableLayout.ItemTemplate>
 											<DataTemplate>
 												<Grid RowSpacing="0" ColumnSpacing="30">
-													<Grid.GestureRecognizers>
-                                                        <TapGestureRecognizer Tapped="OnGridTapped" />
-													</Grid.GestureRecognizers>
 													<Grid.RowDefinitions>
 														<RowDefinition Height="80"/>
 														<RowDefinition Height="1"/>
@@ -126,7 +123,7 @@
 													<Grid.ColumnDefinitions>
 														<ColumnDefinition Width="50"/>
 														<ColumnDefinition Width="*"/>
-														<ColumnDefinition Width="20"/>
+														<ColumnDefinition Width="30"/>
 													</Grid.ColumnDefinitions>
                                     
 													<Button
@@ -228,6 +225,22 @@
 														Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
 														TextColor="White"
 														Opacity="0.42"
+														IsVisible="{Binding IsRightArrow}"
+														VerticalTextAlignment="Center">
+														<Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelTapped" />
+														</Label.GestureRecognizers>
+													</Label>
+
+													<Label
+														Grid.Row="0"
+														Grid.Column="2"
+														FontFamily="PoppinsRegularFontFamily"
+														FontSize="14"
+														HorizontalTextAlignment="End"
+														Text="Add"
+														IsVisible="{Binding IsAddButton}"
+														TextColor="#EF793F"
 														VerticalTextAlignment="Center">
 														<Label.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="OnLabelTapped" />

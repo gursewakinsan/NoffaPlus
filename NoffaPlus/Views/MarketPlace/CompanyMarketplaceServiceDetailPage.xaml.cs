@@ -22,16 +22,11 @@ namespace NoffaPlus.Views.MarketPlace
             ViewModel.CompanyMarketplaceServiceDetailCommand.Execute(null);
         }
 
-        private void OnGridTapped(object sender, System.EventArgs e)
-        {
-            Grid control = sender as Grid;
-            OnItemTapped(control.BindingContext as CompanyMarketplaceServiceDetailSubcategory);
-        }
-
         private void OnButtonTapped(object sender, System.EventArgs e)
         {
             Button control = sender as Button;
-            OnItemTapped(control.BindingContext as CompanyMarketplaceServiceDetailSubcategory);
+            CompanyMarketplaceServiceDetailSubcategory model = control.BindingContext as CompanyMarketplaceServiceDetailSubcategory;
+            ViewModel.UpdateCategoryServiceTodoCommand.Execute(model.Id);
         }
 
         private void OnStackLayoutTapped(object sender, System.EventArgs e)
@@ -48,7 +43,14 @@ namespace NoffaPlus.Views.MarketPlace
 
         void OnItemTapped(CompanyMarketplaceServiceDetailSubcategory subcategory)
         {
-            
+            if (subcategory.IsSelected && !subcategory.PriceAdded)
+            {
+                //Navigate to add page
+            }
+            else if (subcategory.IsSelected && subcategory.PriceAdded)
+            {
+                //Navigate to home all prices page
+            }
         }
     }
 }
