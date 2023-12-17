@@ -186,6 +186,31 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region At Customer Location Command.
+        private ICommand atCustomerLocationCommand;
+        public ICommand AtCustomerLocationCommand
+        {
+            get => atCustomerLocationCommand ?? (atCustomerLocationCommand = new Command(() => ExecuteAtCustomerLocationCommand()));
+        }
+        private void ExecuteAtCustomerLocationCommand()
+        {
+            IsAtCustomerLocation = !IsAtCustomerLocation;
+        }
+        #endregion
+
+        #region Tour Fee Applicable Command.
+        private ICommand tourFeeApplicableCommand;
+        public ICommand TourFeeApplicableCommand
+        {
+            get => tourFeeApplicableCommand ?? (tourFeeApplicableCommand = new Command(() => ExecuteTourFeeApplicableCommand()));
+        }
+        private void ExecuteTourFeeApplicableCommand()
+        {
+            IsTourFeeApplicable = !IsTourFeeApplicable;
+        }
+        #endregion
+
+        
         #region Properties.
         public string title;
         public string Title
@@ -454,7 +479,7 @@ namespace NoffaPlus.ViewModels
             }
         }
 
-        private bool isAtCustomerLocation = true;
+        private bool isAtCustomerLocation;
         public bool IsAtCustomerLocation
         {
             get => isAtCustomerLocation;
@@ -462,6 +487,19 @@ namespace NoffaPlus.ViewModels
             {
                 isAtCustomerLocation = value;
                 OnPropertyChanged("IsAtCustomerLocation");
+                IsTourFeeApplicableControl = isAtCustomerLocation;
+                IsTravelFeeControl = IsTourFeeApplicable;
+            }
+        }
+
+        private bool isTravelFeeControl;
+        public bool IsTravelFeeControl
+        {
+            get => isTravelFeeControl;
+            set
+            {
+                isTravelFeeControl = value;
+                OnPropertyChanged("IsTravelFeeControl");
             }
         }
 
@@ -756,8 +794,43 @@ namespace NoffaPlus.ViewModels
                 OnPropertyChanged("MaximumEventsPerDay");
             }
         }
+
+        private int travelFee = 1;
+        public int TravelFee
+        {
+            get => travelFee;
+            set
+            {
+                travelFee = value;
+                OnPropertyChanged("TravelFee");
+            }
+        }
+
+        private bool isTourFeeApplicableControl;
+        public bool IsTourFeeApplicableControl
+        {
+            get => isTourFeeApplicableControl;
+            set
+            {
+                isTourFeeApplicableControl = value;
+                OnPropertyChanged("IsTourFeeApplicableControl");
+            }
+        }
+
+        private bool isTourFeeApplicable;
+        public bool IsTourFeeApplicable
+        {
+            get => isTourFeeApplicable;
+            set
+            {
+                isTourFeeApplicable = value;
+                OnPropertyChanged("IsTourFeeApplicable");
+                IsTravelFeeControl = isTourFeeApplicable;
+            }
+        }
         #endregion
         
+
         void ShowHideOnBookableService(bool status)
         {
             if (!status)
