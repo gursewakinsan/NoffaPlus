@@ -269,10 +269,28 @@ namespace NoffaPlus.ViewModels
         {
             DependencyService.Get<IProgressBar>().Show();
             IMarketPlaceService service = new MarketPlaceService();
+            if (string.IsNullOrEmpty(Title))
+                await Helper.Alert.DisplayAlert("Title is required.");
+            else if (Price ==0)
+                await Helper.Alert.DisplayAlert("Price cannot be zero");
+            if (string.IsNullOrEmpty(Descriptions))
+                await Helper.Alert.DisplayAlert("Descriptions is required.");
+
+
+
             await service.AddProfessionalCompanyServiceAsync(new Models.AddProfessionalCompanyServiceRequest()
             {
                 CompanyId = Helper.Helper.CompanyId,
                 DomainId = Helper.Helper.DomainId,
+                //CategoryId
+                SubcategoryId= Helper.Helper.ProfessionalSubcategoryId,
+                DishName = Title,
+                DishPrice = Price,
+                ProductInformation = Descriptions,
+                TimeRequired = SelectedMinimumTime.Id,
+                PreparationTime = SelectedPreparationTime.Id,
+                PostProductionTime = SelectedPostProductionTime.Id,
+                IsBookable = IsBookableService?1:0
             });
             DependencyService.Get<IProgressBar>().Hide();
         }
@@ -290,8 +308,8 @@ namespace NoffaPlus.ViewModels
             }
         }
 
-        public string price;
-        public string Price
+        public int price = 1;
+        public int Price
         {
             get => price;
             set

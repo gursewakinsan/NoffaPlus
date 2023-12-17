@@ -153,6 +153,7 @@
                     FontFamily="PoppinsRegularFontFamily"
                     FontSize="18"
                     Placeholder="Price"
+                    Keyboard="Numeric"
                     PlaceholderColor="Gray"
                     Text="{Binding Price}"
                     TextColor="White" />
