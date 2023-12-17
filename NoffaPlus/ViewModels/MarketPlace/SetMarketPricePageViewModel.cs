@@ -258,7 +258,25 @@ namespace NoffaPlus.ViewModels
             IsTaxIsIncludedInPrice = !IsTaxIsIncludedInPrice;
         }
         #endregion
-        
+
+        #region Add Professional Company Service Command.
+        private ICommand addProfessionalCompanyServiceCommand;
+        public ICommand AddProfessionalCompanyServiceCommand
+        {
+            get => addProfessionalCompanyServiceCommand ?? (addProfessionalCompanyServiceCommand = new Command(async () => await ExecuteAddProfessionalCompanyServiceCommand()));
+        }
+        private async Task ExecuteAddProfessionalCompanyServiceCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IMarketPlaceService service = new MarketPlaceService();
+            await service.AddProfessionalCompanyServiceAsync(new Models.AddProfessionalCompanyServiceRequest()
+            {
+                CompanyId = Helper.Helper.CompanyId,
+                DomainId = Helper.Helper.DomainId,
+            });
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
 
         #region Properties.
         public string title;
@@ -982,8 +1000,8 @@ namespace NoffaPlus.ViewModels
             }
         }
         #endregion
-        
 
+        #region Methods.
         void ShowHideOnBookableService(bool status)
         {
             if (!status)
@@ -1139,5 +1157,6 @@ namespace NoffaPlus.ViewModels
            // IsPricePerX = status;
             
         }
+        #endregion
     }
 }
