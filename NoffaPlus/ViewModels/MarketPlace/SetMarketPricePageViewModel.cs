@@ -58,6 +58,29 @@ namespace NoffaPlus.ViewModels
                 new Models.SharedTypeModel(){Id =3, SharedType="Both"}
             };
             SelectedSharedTypeModel = SharedTypeModel[0];
+
+            SubscriptionType = new List<Models.SubscriptionTypeModel>()
+            {
+                new Models.SubscriptionTypeModel(){Id=1, SubscriptionType ="Hourly"},
+                new Models.SubscriptionTypeModel(){Id=2, SubscriptionType ="Daily"},
+                new Models.SubscriptionTypeModel(){Id=3, SubscriptionType ="Weekly"},
+                new Models.SubscriptionTypeModel(){Id=4, SubscriptionType ="Monthly"},
+                new Models.SubscriptionTypeModel(){Id=5, SubscriptionType ="Every 3 Month"},
+                new Models.SubscriptionTypeModel(){Id=6, SubscriptionType ="Every 6 Month"},
+                new Models.SubscriptionTypeModel(){Id=7, SubscriptionType ="Yearly"},
+                new Models.SubscriptionTypeModel(){Id=8, SubscriptionType ="Custom"}
+            };
+            SelectedSubscriptionType = SubscriptionType[0];
+
+            CustomSubscriptionType = new List<Models.CustomSubscriptionTypeModel>()
+            {
+                new Models.CustomSubscriptionTypeModel(){Id=1, CustomSubscriptionType ="Hourly"},
+                new Models.CustomSubscriptionTypeModel(){Id=2, CustomSubscriptionType ="Daily"},
+                new Models.CustomSubscriptionTypeModel(){Id=3, CustomSubscriptionType ="Weekly"},
+                new Models.CustomSubscriptionTypeModel(){Id=4, CustomSubscriptionType ="Monthly"},
+                new Models.CustomSubscriptionTypeModel(){Id=5, CustomSubscriptionType ="Yearly"}
+            };
+            SelectedCustomSubscriptionType = CustomSubscriptionType[0];
         }
         #endregion
 
@@ -72,6 +95,8 @@ namespace NoffaPlus.ViewModels
             IsBookableService = !IsBookableService;
             if(IsBookableService) 
                 SelectedBookingTypeModel = BookingTypeModel[0];
+            if (!IsBookableService)
+                IsThisSubscriptionControl = true;
         }
         #endregion
 
@@ -210,7 +235,31 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region Is This Subscription Command.
+        private ICommand isThisSubscriptionCommand;
+        public ICommand IsThisSubscriptionCommand
+        {
+            get => isThisSubscriptionCommand ?? (isThisSubscriptionCommand = new Command(() => ExecuteIsThisSubscriptionCommand()));
+        }
+        private void ExecuteIsThisSubscriptionCommand()
+        {
+            IsThisSubscription = !IsThisSubscription;
+        }
+        #endregion
+
+        #region Tax Included In Price Command.
+        private ICommand taxIncludedInPriceCommand;
+        public ICommand TaxIncludedInPriceCommand
+        {
+            get => taxIncludedInPriceCommand ?? (taxIncludedInPriceCommand = new Command(() => ExecuteIsTaxIncludedInPriceCommand()));
+        }
+        private void ExecuteIsTaxIncludedInPriceCommand()
+        {
+            IsTaxIsIncludedInPrice = !IsTaxIsIncludedInPrice;
+        }
+        #endregion
         
+
         #region Properties.
         public string title;
         public string Title
@@ -454,6 +503,66 @@ namespace NoffaPlus.ViewModels
                 selectedSharedTypeModel = value;
                 OnPropertyChanged("SelectedSharedTypeModel");
                 OnSharedTypeSelected(selectedSharedTypeModel.SharedType);
+            }
+        }
+
+        private List<Models.SubscriptionTypeModel> subscriptionType;
+        public List<Models.SubscriptionTypeModel> SubscriptionType
+        {
+            get => subscriptionType;
+            set
+            {
+                subscriptionType = value;
+                OnPropertyChanged("SubscriptionType");
+            }
+        }
+
+        private Models.SubscriptionTypeModel selectedSubscriptionType;
+        public Models.SubscriptionTypeModel SelectedSubscriptionType
+        {
+            get => selectedSubscriptionType;
+            set
+            {
+                selectedSubscriptionType = value;
+                OnPropertyChanged("SelectedSubscriptionType");
+                if (selectedSubscriptionType.SubscriptionType.Equals("Custom"))
+                    IsSubscriptionTypeCustom = true;
+                else
+                    IsSubscriptionTypeCustom = false;
+            }
+        }
+
+
+        private List<Models.CustomSubscriptionTypeModel> customSubscriptionType;
+        public List<Models.CustomSubscriptionTypeModel> CustomSubscriptionType
+        {
+            get => customSubscriptionType;
+            set
+            {
+                customSubscriptionType = value;
+                OnPropertyChanged("CustomSubscriptionType");
+            }
+        }
+
+        private Models.CustomSubscriptionTypeModel selectedCustomSubscriptionType;
+        public Models.CustomSubscriptionTypeModel SelectedCustomSubscriptionType
+        {
+            get => selectedCustomSubscriptionType;
+            set
+            {
+                selectedCustomSubscriptionType = value;
+                OnPropertyChanged("SelectedCustomSubscriptionType");
+            }
+        }
+
+        private bool isSubscriptionTypeCustom;
+        public bool IsSubscriptionTypeCustom
+        {
+            get => isSubscriptionTypeCustom;
+            set
+            {
+                isSubscriptionTypeCustom = value;
+                OnPropertyChanged("IsSubscriptionTypeCustom");
             }
         }
 
@@ -828,6 +937,50 @@ namespace NoffaPlus.ViewModels
                 IsTravelFeeControl = isTourFeeApplicable;
             }
         }
+
+        private bool isThisSubscription = false;
+        public bool IsThisSubscription
+        {
+            get => isThisSubscription;
+            set
+            {
+                isThisSubscription = value;
+                OnPropertyChanged("IsThisSubscription");
+            }
+        }
+
+        private bool isThisSubscriptionControl = false;
+        public bool IsThisSubscriptionControl
+        {
+            get => isThisSubscriptionControl;
+            set
+            {
+                isThisSubscriptionControl = value;
+                OnPropertyChanged("IsThisSubscriptionControl");
+            }
+        }
+
+        private bool isTaxIsIncludedInPrice = true;
+        public bool IsTaxIsIncludedInPrice
+        {
+            get => isTaxIsIncludedInPrice;
+            set
+            {
+                isTaxIsIncludedInPrice = value;
+                OnPropertyChanged("IsTaxIsIncludedInPrice");
+            }
+        }
+
+        private int taxIncludedInPrice=1;
+        public int TaxIncludedInPrice
+        {
+            get => taxIncludedInPrice;
+            set
+            {
+                taxIncludedInPrice = value;
+                OnPropertyChanged("TaxIncludedInPrice");
+            }
+        }
         #endregion
         
 
@@ -886,6 +1039,7 @@ namespace NoffaPlus.ViewModels
                 IsTimeControl = false;
                 IsExtraFeeApplicableControl = false;
                 IsExtraFeeControl = false;
+                IsThisSubscriptionControl = false;
             }
             else
             {
@@ -909,6 +1063,7 @@ namespace NoffaPlus.ViewModels
                 IsTimeControl = false;
                 IsExtraFeeApplicableControl = false;
                 IsExtraFeeControl = false;
+                IsThisSubscriptionControl = true;
             }
         }
 

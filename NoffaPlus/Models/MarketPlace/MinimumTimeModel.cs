@@ -29,4 +29,16 @@
         public int Id { get; set; }
         public string SharedType { get; set; }
     }
+
+    public class SubscriptionTypeModel
+    {
+        public int Id { get; set; }
+        public string SubscriptionType { get; set; }
+    }
+
+    public class CustomSubscriptionTypeModel
+    {
+        public int Id { get; set; }
+        public string CustomSubscriptionType { get; set; }
+    }
 }
