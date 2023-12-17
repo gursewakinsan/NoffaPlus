@@ -162,6 +162,30 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region Extra Fee Applicable Command.
+        private ICommand extraFeeApplicableCommand;
+        public ICommand ExtraFeeApplicableCommand
+        {
+            get => extraFeeApplicableCommand ?? (extraFeeApplicableCommand = new Command(() => ExecuteExtraFeeApplicableCommand()));
+        }
+        private void ExecuteExtraFeeApplicableCommand()
+        {
+            IsExtraFeeControl = !IsExtraFeeControl;
+        }
+        #endregion
+
+        #region More Events Upon Request Command.
+        private ICommand moreEventsUponRequestCommand;
+        public ICommand MoreEventsUponRequestCommand
+        {
+            get => moreEventsUponRequestCommand ?? (moreEventsUponRequestCommand = new Command(() => ExecuteMoreEventsUponRequestCommand()));
+        }
+        private void ExecuteMoreEventsUponRequestCommand()
+        {
+            IsMoreEventsUponRequest = !IsMoreEventsUponRequest;
+        }
+        #endregion
+
         #region Properties.
         public string title;
         public string Title
@@ -449,6 +473,11 @@ namespace NoffaPlus.ViewModels
             {
                 isMoreEventsUponRequest = value;
                 OnPropertyChanged("IsMoreEventsUponRequest");
+                IsMinimumPersonRequiredControl = isMoreEventsUponRequest;
+                IsRequestPeriodControl = isMoreEventsUponRequest;
+                IsTimeControl = isMoreEventsUponRequest;
+                IsExtraFeeApplicableControl= isMoreEventsUponRequest;
+                IsExtraFeeControl= isMoreEventsUponRequest;
             }
         }
 
@@ -627,14 +656,14 @@ namespace NoffaPlus.ViewModels
             }
         }
 
-        private bool isTaxControl;
-        public bool IsTaxControl
+        private bool isMaximumEventsPerDay;
+        public bool IsMaximumEventsPerDay
         {
-            get => isTaxControl;
+            get => isMaximumEventsPerDay;
             set
             {
-                isTaxControl = value;
-                OnPropertyChanged("IsTaxControl");
+                isMaximumEventsPerDay = value;
+                OnPropertyChanged("IsMaximumEventsPerDay");
             }
         }
 
@@ -701,10 +730,34 @@ namespace NoffaPlus.ViewModels
             {
                 isExtraFeeControl = value;
                 OnPropertyChanged("IsExtraFeeControl");
+                IsExtraFeeApplicable = isExtraFeeControl;
+            }
+        }
+
+        private bool isExtraFeeApplicable;
+        public bool IsExtraFeeApplicable
+        {
+            get => isExtraFeeApplicable;
+            set
+            {
+                isExtraFeeApplicable = value;
+                OnPropertyChanged("IsExtraFeeApplicable");
+            }
+        }
+        
+
+        private int maximumEventsPerDay=1;
+        public int MaximumEventsPerDay
+        {
+            get => maximumEventsPerDay;
+            set
+            {
+                maximumEventsPerDay = value;
+                OnPropertyChanged("MaximumEventsPerDay");
             }
         }
         #endregion
-
+        
         void ShowHideOnBookableService(bool status)
         {
             if (!status)
@@ -722,7 +775,7 @@ namespace NoffaPlus.ViewModels
                 IsPricePerX = false;
                 IsPricePerY = false;
                 IsAtCustomerLocationControl = false;
-                IsTaxControl = false;
+                IsMaximumEventsPerDay = false;
                 IsMoreEventsUponRequestControl = false;
                 IsMinimumPersonRequiredControl = false;
                 IsRequestPeriodControl = false;
@@ -753,7 +806,7 @@ namespace NoffaPlus.ViewModels
                 IsPricePerX = true;
                 IsPricePerY = false;
                 IsAtCustomerLocationControl = false;
-                IsTaxControl = false;
+                IsMaximumEventsPerDay = false;
                 IsMoreEventsUponRequestControl = false;
                 IsMinimumPersonRequiredControl = false;
                 IsRequestPeriodControl = false;
@@ -776,7 +829,7 @@ namespace NoffaPlus.ViewModels
                 IsPricePerX = false;
                 IsPricePerY = false;
                 IsAtCustomerLocationControl = false;
-                IsTaxControl = false;
+                IsMaximumEventsPerDay = false;
                 IsMoreEventsUponRequestControl = false;
                 IsMinimumPersonRequiredControl = false;
                 IsRequestPeriodControl = false;
@@ -797,6 +850,16 @@ namespace NoffaPlus.ViewModels
                     IsEventStartTimeControl = false;
                     ShowHideRecurringEvent(true);
                     IsPricePerX = true;
+
+                    IsPricePerY = false;
+                    IsAtCustomerLocationControl = false;
+                    IsMaximumEventsPerDay = false;
+                    IsMoreEventsUponRequestControl = false;
+                    IsMinimumPersonRequiredControl = false;
+                    IsRequestPeriodControl = false;
+                    IsTimeControl = false;
+                    IsExtraFeeApplicableControl = false;
+                    IsExtraFeeControl = false;
                 }
             }
             else if (sharedType.Equals("Private"))
@@ -806,6 +869,15 @@ namespace NoffaPlus.ViewModels
                 IsEventStartTimeControl = false;
                 IsPricePerX = false;
                 ShowHideRecurringEvent(false);
+                IsPricePerY = true;
+                IsAtCustomerLocationControl = true;
+                IsMaximumEventsPerDay = true;
+                IsMoreEventsUponRequestControl = true;
+                IsMinimumPersonRequiredControl = true;
+                IsRequestPeriodControl = true;
+                IsTimeControl = true;
+                IsExtraFeeApplicableControl = true;
+                IsExtraFeeControl = true;
             }
             else if (sharedType.Equals("Both"))
             {
@@ -814,6 +886,15 @@ namespace NoffaPlus.ViewModels
                 IsRecurringEventControl = false;
                 ShowHideRecurringEvent(true);
                 IsPricePerX = true;
+                IsPricePerY = true;
+                IsAtCustomerLocationControl = true;
+                IsMaximumEventsPerDay = true;
+                IsMoreEventsUponRequestControl = true;
+                IsMinimumPersonRequiredControl = true;
+                IsRequestPeriodControl = true;
+                IsTimeControl = true;
+                IsExtraFeeApplicableControl = true;
+                IsExtraFeeControl = true;
             }
         }
 

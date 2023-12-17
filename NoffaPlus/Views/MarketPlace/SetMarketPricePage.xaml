@@ -1841,7 +1841,7 @@
                              RowSpacing="0"
                              Grid.ColumnSpan="3"
                              BackgroundColor="#1B1D24"
-                            IsVisible="{Binding IsTaxControl}">
+                            IsVisible="{Binding IsMaximumEventsPerDay}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -1857,35 +1857,21 @@
                               FontSize="13"
                               HorizontalTextAlignment="Start"
                               Opacity="0.70"
-                              Text="Tax"
+                              Text="Maximum events per day"
                               TextColor="White"
                               VerticalTextAlignment="Center" />
-
-                            <controls:CustomPicker
+                            
+                            <controls:CustomEntry
                                  Grid.Row="1"
-                                 Grid.Column="0"
-                                 Title="Select"
-                                 FontSize="16"
+                                 FontSize="18"
+                                 Grid.ColumnSpan="2"
                                  TextColor="White"
-                                 TitleColor="#797A7D"
-                                 FontFamily="PoppinsRegularFontFamily">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                 FontSize="20"
-                                 Grid.Column="1"
-                                 TextColor="#EF793F"
-                                 Grid.RowSpan="2"
-                                 VerticalTextAlignment="Center"
-                                 HorizontalTextAlignment="End"
-                                 FontFamily="{StaticResource MaterialFontFamily}"
-                                 Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"/>
+                                 Placeholder="Maximum events per day"
+                                 PlaceholderColor="Gray"
+                                Keyboard="Numeric"
+                                 BackgroundColor="Transparent"
+                                 Text="{Binding MaximumEventsPerDay}"
+                                 FontFamily="PoppinsRegularFontFamily"/>
                         </Grid>
 
                         <StackLayout 
@@ -1912,27 +1898,28 @@
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                  TextColor="#89C99A"
-                                 IsVisible="{Binding IsToggleOn}"
+                                 IsVisible="{Binding IsMoreEventsUponRequest}"
                                  VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding MoreEventsUponRequestCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                  Grid.Row="10"
                                  Grid.Column="1"
                                  FontSize="44"
                                  HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                 TextColor="White"
+                                 TextColor="#EF793F"
                                  VerticalTextAlignment="Center"
-                                 IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                 IsVisible="{Binding IsMoreEventsUponRequest, Converter={StaticResource InverseBoolConverter}}">
                                  <Label.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding MoreEventsUponRequestCommand}"/>
                                  </Label.GestureRecognizers>
-                             </Label>-->
+                             </Label>
                         </StackLayout>
 
                         <BoxView
@@ -2111,7 +2098,7 @@
                         <StackLayout 
                              Grid.Row="49"
                              Grid.ColumnSpan="3"
-                            Margin="0,10,0,10"
+                             Margin="0,10,0,10"
                              Orientation="Horizontal"
                             IsVisible="{Binding IsExtraFeeApplicableControl}">
                             <Label
@@ -2132,27 +2119,28 @@
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                  TextColor="#89C99A"
-                                 IsVisible="{Binding IsToggleOn}"
+                                 IsVisible="{Binding IsExtraFeeApplicable}"
                                  VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding ExtraFeeApplicableCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                  Grid.Row="10"
                                  Grid.Column="1"
                                  FontSize="44"
                                  HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                 TextColor="White"
+                                 TextColor="#EF793F"
                                  VerticalTextAlignment="Center"
-                                 IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                 IsVisible="{Binding IsExtraFeeApplicable, Converter={StaticResource InverseBoolConverter}}">
                                  <Label.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding ExtraFeeApplicableCommand}"/>
                                  </Label.GestureRecognizers>
-                             </Label>-->
+                             </Label>
                         </StackLayout>
 
                         <BoxView
