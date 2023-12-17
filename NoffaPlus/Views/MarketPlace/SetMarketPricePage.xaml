@@ -120,6 +120,7 @@
                     Placeholder="Title"
                     PlaceholderColor="Gray"
                     BackgroundColor="Transparent"
+                    Text="{Binding Title}"
                     FontFamily="PoppinsRegularFontFamily"/>
 
                 <BoxView
@@ -146,6 +147,7 @@
                     TextColor="White"
                     Placeholder="Price"
                     PlaceholderColor="Gray"
+                    Text="{Binding Price}"
                     BackgroundColor="Transparent"
                     FontFamily="PoppinsRegularFontFamily"/>
 
@@ -171,8 +173,9 @@
                      FontSize="18"
                      Grid.Column="1"
                      TextColor="White"
-                     Placeholder="Price"
+                     Placeholder="Descriptions"
                      PlaceholderColor="Gray"
+                    Text="{Binding Descriptions}"
                      BackgroundColor="Transparent"
                      FontFamily="PoppinsRegularFontFamily"/>
 
@@ -298,14 +301,10 @@
 					            FontSize="16"
 					            TextColor="White"
 					            TitleColor="#797A7D"
-                                FontFamily="PoppinsRegularFontFamily">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                FontFamily="PoppinsRegularFontFamily"
+                                ItemDisplayBinding="{Binding MinimumTime}"
+                                ItemsSource="{Binding MinimumTime}"
+                                SelectedItem="{Binding SelectedMinimumTime}"/>
 
                             <Label
                                 FontSize="20"
@@ -351,14 +350,10 @@
                                 FontSize="16"
                                 TextColor="White"
                                 TitleColor="#797A7D"
-                                FontFamily="PoppinsRegularFontFamily">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                FontFamily="PoppinsRegularFontFamily"
+                                ItemDisplayBinding="{Binding PreparationTime}"
+                                ItemsSource="{Binding PreparationTime}"
+                                SelectedItem="{Binding SelectedPreparationTime}"/>
 
                             <Label
                                 FontSize="20"
@@ -404,14 +399,10 @@
                                 FontSize="16"
                                 TextColor="White"
                                 TitleColor="#797A7D"
-                                FontFamily="PoppinsRegularFontFamily">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                FontFamily="PoppinsRegularFontFamily"
+                                ItemDisplayBinding="{Binding PostProductionTime}"
+                                ItemsSource="{Binding PostProductionTime}"
+                                SelectedItem="{Binding SelectedPostProductionTime}"/>
 
                             <Label
                                 FontSize="20"
@@ -446,27 +437,28 @@
                                 FontFamily="{StaticResource MaterialFontFamily}"
 	                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
 	                            TextColor="#89C99A"
-                                IsVisible="{Binding IsToggleOn}"
+                                IsVisible="{Binding IsBookableService}"
 	                            VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding IsBookableServiceCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
 	                            Grid.Row="10"
 	                            Grid.Column="1"
 	                            FontSize="44"
 	                            HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                 FontFamily="{StaticResource MaterialFontFamily}"
 	                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-	                            TextColor="White"
+	                            TextColor="#EF793F"
 	                            VerticalTextAlignment="Center"
-                                IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                IsVisible="{Binding IsBookableService, Converter={StaticResource InverseBoolConverter}}">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding IsBookableServiceCommand}"/>
                                 </Label.GestureRecognizers>
-                            </Label>-->
+                            </Label>
                         </StackLayout>
 
                         <BoxView
@@ -508,14 +500,10 @@
                                 FontSize="16"
                                 TextColor="White"
                                 TitleColor="#797A7D"
-                                FontFamily="PoppinsRegularFontFamily">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                FontFamily="PoppinsRegularFontFamily"
+                                ItemDisplayBinding="{Binding BookingType}"
+                                ItemsSource="{Binding BookingTypeModel}"
+                                SelectedItem="{Binding SelectedBookingTypeModel}"/>
 
                             <Label
                                 FontSize="20"
@@ -561,14 +549,10 @@
                                 FontSize="16"
                                 TextColor="White"
                                 TitleColor="#797A7D"
-                                FontFamily="PoppinsRegularFontFamily">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                FontFamily="PoppinsRegularFontFamily"
+                                ItemDisplayBinding="{Binding SharedType}"
+                                ItemsSource="{Binding SharedTypeModel}"
+                                SelectedItem="{Binding SelectedSharedTypeModel}"/>
 
                             <Label
                                 FontSize="20"
@@ -604,27 +588,28 @@
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                  TextColor="#89C99A"
-                                 IsVisible="{Binding IsToggleOn}"
+                                 IsVisible="{Binding IsRecurringEvent}"
                                  VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding IsRecurringEventCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                  Grid.Row="10"
                                  Grid.Column="1"
                                  FontSize="44"
                                  HorizontalTextAlignment="End"
+                                 HorizontalOptions="EndAndExpand"
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                 TextColor="White"
+                                 TextColor="#EF793F"
                                  VerticalTextAlignment="Center"
-                                 IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                 IsVisible="{Binding IsRecurringEvent, Converter={StaticResource InverseBoolConverter}}">
                                  <Label.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding IsRecurringEventCommand}"/>
                                  </Label.GestureRecognizers>
-                             </Label>-->
+                             </Label>
                         </StackLayout>
 
                         <BoxView
@@ -657,27 +642,28 @@
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                  TextColor="#89C99A"
-                                 IsVisible="{Binding IsToggleOn}"
+                                 IsVisible="{Binding IsMonday}"
                                  VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Monday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                  Grid.Row="10"
                                  Grid.Column="1"
                                  FontSize="44"
                                  HorizontalTextAlignment="End"
+                                 HorizontalOptions="EndAndExpand"
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                 TextColor="White"
+                                 TextColor="#EF793F"
                                  VerticalTextAlignment="Center"
-                                 IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                 IsVisible="{Binding IsMonday, Converter={StaticResource InverseBoolConverter}}">
                                  <Label.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Monday" />
                                  </Label.GestureRecognizers>
-                             </Label>-->
+                             </Label>
                         </StackLayout>
 
                         <BoxView
@@ -695,7 +681,7 @@
                             ColumnSpacing="5"
                             RowSpacing="0"
                             Grid.ColumnSpan="3"
-                            IsVisible="False"
+                            IsVisible="{Binding IsMonday}"
                             BackgroundColor="#1B1D24">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -766,27 +752,28 @@
                                   FontFamily="{StaticResource MaterialFontFamily}"
                                   Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                   TextColor="#89C99A"
-                                  IsVisible="{Binding IsToggleOn}"
+                                  IsVisible="{Binding IsTuesday}"
                                   VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Tuesday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                   Grid.Row="10"
                                   Grid.Column="1"
                                   FontSize="44"
                                   HorizontalTextAlignment="End"
+                                  HorizontalOptions="EndAndExpand"
                                   FontFamily="{StaticResource MaterialFontFamily}"
                                   Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                  TextColor="White"
+                                  TextColor="#EF793F"
                                   VerticalTextAlignment="Center"
-                                  IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                  IsVisible="{Binding IsTuesday, Converter={StaticResource InverseBoolConverter}}">
                                   <Label.GestureRecognizers>
-                                      <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Tuesday"/>
                                   </Label.GestureRecognizers>
-                              </Label>-->
+                              </Label>
                         </StackLayout>
 
                         <BoxView
@@ -805,7 +792,7 @@
                              RowSpacing="0"
                              Grid.ColumnSpan="3"
                              BackgroundColor="#1B1D24"
-                             IsVisible="False">
+                             IsVisible="{Binding IsTuesday}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -875,27 +862,28 @@
                                FontFamily="{StaticResource MaterialFontFamily}"
                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                TextColor="#89C99A"
-                               IsVisible="{Binding IsToggleOn}"
+                               IsVisible="{Binding IsWednesday}"
                                VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Wednesday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                    Grid.Row="10"
                                    Grid.Column="1"
                                    FontSize="44"
                                    HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                    FontFamily="{StaticResource MaterialFontFamily}"
                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                   TextColor="White"
+                                   TextColor="#EF793F"
                                    VerticalTextAlignment="Center"
-                                   IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                   IsVisible="{Binding IsWednesday, Converter={StaticResource InverseBoolConverter}}">
                                    <Label.GestureRecognizers>
-                                       <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Wednesday"/>
                                    </Label.GestureRecognizers>
-                               </Label>-->
+                               </Label>
                         </StackLayout>
 
                         <BoxView
@@ -914,7 +902,7 @@
                               RowSpacing="0"
                               Grid.ColumnSpan="3"
                               BackgroundColor="#1B1D24"
-                              IsVisible="False">
+                              IsVisible="{Binding IsWednesday}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -984,27 +972,28 @@
                                    FontFamily="{StaticResource MaterialFontFamily}"
                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                    TextColor="#89C99A"
-                                   IsVisible="{Binding IsToggleOn}"
+                                   IsVisible="{Binding IsThursday}"
                                    VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Thursday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                    Grid.Row="10"
                                    Grid.Column="1"
                                    FontSize="44"
                                    HorizontalTextAlignment="End"
+                                    HorizontalOptions="EndAndExpand"
                                    FontFamily="{StaticResource MaterialFontFamily}"
                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                   TextColor="White"
+                                   TextColor="#EF793F"
                                    VerticalTextAlignment="Center"
-                                   IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                   IsVisible="{Binding IsThursday, Converter={StaticResource InverseBoolConverter}}">
                                    <Label.GestureRecognizers>
-                                       <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Thursday"/>
                                    </Label.GestureRecognizers>
-                               </Label>-->
+                               </Label>
                         </StackLayout>
 
                         <BoxView
@@ -1023,7 +1012,7 @@
                           RowSpacing="0"
                           Grid.ColumnSpan="3"
                           BackgroundColor="#1B1D24"
-                          IsVisible="False">
+                          IsVisible="{Binding IsThursday}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -1093,27 +1082,28 @@
                                 FontFamily="{StaticResource MaterialFontFamily}"
                                 Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                 TextColor="#89C99A"
-                                IsVisible="{Binding IsToggleOn}"
+                                IsVisible="{Binding IsFriday}"
                                 VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Friday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                     Grid.Row="10"
                                     Grid.Column="1"
                                     FontSize="44"
                                     HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                     FontFamily="{StaticResource MaterialFontFamily}"
                                     Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                    TextColor="White"
+                                    TextColor="#EF793F"
                                     VerticalTextAlignment="Center"
-                                    IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                    IsVisible="{Binding IsFriday, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Friday"/>
                                     </Label.GestureRecognizers>
-                                </Label>-->
+                                </Label>
                         </StackLayout>
 
                         <BoxView
@@ -1132,7 +1122,7 @@
                            RowSpacing="0"
                            Grid.ColumnSpan="3"
                            BackgroundColor="#1B1D24"
-                           IsVisible="False">
+                           IsVisible="{Binding IsFriday}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -1202,27 +1192,28 @@
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                  TextColor="#89C99A"
-                                 IsVisible="{Binding IsToggleOn}"
+                                 IsVisible="{Binding IsSaturday}"
                                  VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Saturday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                      Grid.Row="10"
                                      Grid.Column="1"
                                      FontSize="44"
                                      HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                      FontFamily="{StaticResource MaterialFontFamily}"
                                      Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                     TextColor="White"
+                                     TextColor="#EF793F"
                                      VerticalTextAlignment="Center"
-                                     IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                     IsVisible="{Binding IsSaturday, Converter={StaticResource InverseBoolConverter}}">
                                      <Label.GestureRecognizers>
-                                         <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Saturday"/>
                                      </Label.GestureRecognizers>
-                                 </Label>-->
+                                 </Label>
                         </StackLayout>
 
                         <BoxView
@@ -1241,7 +1232,7 @@
                             RowSpacing="0"
                             Grid.ColumnSpan="3"
                             BackgroundColor="#1B1D24"
-                            IsVisible="False">
+                            IsVisible="{Binding IsSaturday}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -1311,31 +1302,32 @@
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
                                  TextColor="#89C99A"
-                                 IsVisible="{Binding IsToggleOn}"
+                                 IsVisible="{Binding IsSunday}"
                                  VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Sunday" />
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!--<Label
+                            <Label
                                  Grid.Row="10"
                                  Grid.Column="1"
                                  FontSize="44"
                                  HorizontalTextAlignment="End"
+                                HorizontalOptions="EndAndExpand"
                                  FontFamily="{StaticResource MaterialFontFamily}"
                                  Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                                 TextColor="White"
+                                 TextColor="#EF793F"
                                  VerticalTextAlignment="Center"
-                                 IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}">
+                                 IsVisible="{Binding IsSunday, Converter={StaticResource InverseBoolConverter}}">
                                  <Label.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Sunday"/>
                                  </Label.GestureRecognizers>
-                             </Label>-->
+                             </Label>
                         </StackLayout>
 
                         <BoxView
-                            Grid.Row="32"
+                            Grid.Row="34"
                             Opacity="0.10"
                             Grid.ColumnSpan="3"
                             HeightRequest="1"
@@ -1345,12 +1337,12 @@
                         <Grid
                             Margin="50,10,0,10"
                             Padding="10,10,10,0"
-                            Grid.Row="33"
+                            Grid.Row="35"
                             ColumnSpacing="5"
                             RowSpacing="0"
                             Grid.ColumnSpan="3"
                             BackgroundColor="#1B1D24"
-                            IsVisible="False">
+                            IsVisible="{Binding IsSunday}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="20"/>
@@ -1398,7 +1390,7 @@
                         </Grid>
 
                         <StackLayout 
-                           Grid.Row="34"
+                           Grid.Row="36"
                            Grid.ColumnSpan="3"
                            Margin="0,10,0,10"
                            Orientation="Horizontal">
@@ -1413,7 +1405,7 @@
                         </StackLayout>
 
                         <BoxView
-                            Grid.Row="35"
+                            Grid.Row="37"
                             Opacity="0.10"
                             Grid.ColumnSpan="3"
                             HeightRequest="1"
@@ -1422,7 +1414,7 @@
                         <Grid
                             Margin="0,10,0,10"
                             Padding="10,10,10,0"
-                            Grid.Row="36"
+                            Grid.Row="38"
                             ColumnSpacing="5"
                             RowSpacing="0"
                             Grid.Column="0"
@@ -1476,7 +1468,7 @@
                         <Grid
                             Margin="0,10,0,10"
                             Padding="10,10,10,0"
-                            Grid.Row="36"
+                            Grid.Row="38"
                             ColumnSpacing="5"
                             RowSpacing="0"
                             Grid.Column="2"
@@ -1528,7 +1520,7 @@
                         </Grid>
 
                         <StackLayout 
-                            Grid.Row="37"
+                            Grid.Row="39"
                             Grid.ColumnSpan="3"
                             Margin="0,10,0,10"
                             Orientation="Horizontal">
@@ -1543,7 +1535,7 @@
                         </StackLayout>
 
                         <BoxView
-                             Grid.Row="38"
+                             Grid.Row="40"
                              Opacity="0.10"
                              Grid.ColumnSpan="3"
                              HeightRequest="1"
@@ -1552,7 +1544,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="39"
+                             Grid.Row="41"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.Column="0"
@@ -1606,7 +1598,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="39"
+                             Grid.Row="41"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.Column="2"
@@ -1658,7 +1650,7 @@
                         </Grid>
 
                             <StackLayout 
-                                 Grid.Row="40"
+                                 Grid.Row="42"
                                  Grid.ColumnSpan="3"
                                 Margin="0,10,0,10"
                                  Orientation="Horizontal">
@@ -1704,7 +1696,7 @@
                         </StackLayout>
 
                         <BoxView
-                            Grid.Row="41"
+                            Grid.Row="43"
                             Opacity="0.10"
                             Grid.ColumnSpan="3"
                             HeightRequest="1"
@@ -1713,7 +1705,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="42"
+                             Grid.Row="44"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.ColumnSpan="3"
@@ -1765,7 +1757,7 @@
                         </Grid>
 
                         <StackLayout 
-                             Grid.Row="43"
+                             Grid.Row="45"
                              Grid.ColumnSpan="3"
                             Margin="0,10,0,10"
                              Orientation="Horizontal">
@@ -1811,7 +1803,7 @@
                         </StackLayout>
 
                         <BoxView
-                            Grid.Row="44"
+                            Grid.Row="46"
                             Opacity="0.10"
                             Grid.ColumnSpan="3"
                             HeightRequest="1"
@@ -1820,7 +1812,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="45"
+                             Grid.Row="47"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.ColumnSpan="3"
@@ -1874,7 +1866,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="46"
+                             Grid.Row="48"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.Column="0"
@@ -1928,7 +1920,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="46"
+                             Grid.Row="48"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.Column="2"
@@ -1980,7 +1972,7 @@
                         </Grid>
 
                         <StackLayout 
-                             Grid.Row="47"
+                             Grid.Row="49"
                              Grid.ColumnSpan="3"
                             Margin="0,10,0,10"
                              Orientation="Horizontal">
@@ -2026,7 +2018,7 @@
                         </StackLayout>
 
                         <BoxView
-                            Grid.Row="48"
+                            Grid.Row="50"
                             Opacity="0.10"
                             Grid.ColumnSpan="3"
                             HeightRequest="1"
@@ -2035,7 +2027,7 @@
                         <Grid
                              Margin="0,10,0,10"
                              Padding="10,10,10,0"
-                             Grid.Row="49"
+                             Grid.Row="51"
                              ColumnSpacing="5"
                              RowSpacing="0"
                              Grid.ColumnSpan="3"
