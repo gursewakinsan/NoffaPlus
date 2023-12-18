@@ -41,4 +41,10 @@
         public int Id { get; set; }
         public string CustomSubscriptionType { get; set; }
     }
+
+    public class CustomMinimumTimeModel
+    {
+        public int Id { get; set; }
+        public string MinimumTime { get; set; }
+    }
 }

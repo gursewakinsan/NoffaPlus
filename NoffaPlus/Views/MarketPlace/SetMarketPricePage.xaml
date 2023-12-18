@@ -78,6 +78,7 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -1522,7 +1523,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -1530,7 +1530,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -1539,31 +1538,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Price"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerX}"
+                                TextColor="White" />
                         </Grid>
 
                         <Grid
@@ -1577,7 +1561,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -1585,7 +1568,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -1594,31 +1576,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Allowed (max)"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerXAllowedMax}"
+                                TextColor="White" />
                         </Grid>
 
                         <StackLayout
@@ -1656,7 +1623,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -1664,7 +1630,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -1673,31 +1638,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Min per event"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerY}"
+                                TextColor="White" />
                         </Grid>
 
                         <Grid
@@ -1711,7 +1661,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -1719,7 +1668,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -1728,31 +1676,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Allowed (max)"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerYAllowedMax}"
+                                TextColor="White" />
                         </Grid>
 
                         <StackLayout
@@ -2008,7 +1941,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -2016,7 +1948,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -2025,31 +1956,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Minimum person required"
+                                PlaceholderColor="Gray"
+                                Text="{Binding MinimumPeopleRequired}"
+                                TextColor="White" />
                         </Grid>
 
                         <Grid
@@ -2063,7 +1979,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -2071,7 +1986,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -2080,31 +1994,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Request period"
+                                PlaceholderColor="Gray"
+                                Text="{Binding MinimumTimeRequired}"
+                                TextColor="White" />
                         </Grid>
 
                         <Grid
@@ -2141,15 +2040,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding MinimumTime}"
+                                ItemsSource="{Binding CustomMinimumTime}"
+                                SelectedItem="{Binding SelectedCustomMinimumTime}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -2229,7 +2124,6 @@
                             RowSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -2237,7 +2131,6 @@
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
-                                Grid.ColumnSpan="2"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="13"
                                 HorizontalTextAlignment="Start"
@@ -2246,31 +2139,16 @@
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
 
-                            <controls:CustomPicker
-                                Title="Select"
+                            <controls:CustomEntry
                                 Grid.Row="1"
-                                Grid.Column="0"
+                                BackgroundColor="Transparent"
                                 FontFamily="PoppinsRegularFontFamily"
-                                FontSize="16"
-                                TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.RowSpan="2"
-                                Grid.Column="1"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-                                FontSize="20"
-                                HorizontalTextAlignment="End"
-                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
-                                TextColor="#EF793F"
-                                VerticalTextAlignment="Center" />
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Extra fee"
+                                PlaceholderColor="Gray"
+                                Text="{Binding ExtraFee}"
+                                TextColor="White" />
                         </Grid>
                     </Grid>
                 </StackLayout>
@@ -2579,6 +2457,19 @@
                         BackgroundColor="White"
                         Opacity="0.10" />
                 </Grid>
+
+                <controls:CustomButton
+                    Grid.Row="23"
+                    Grid.Column="1"
+                    Margin="50"
+                    HeightRequest="50"
+                    BackgroundColor="White"
+                    Command="{Binding AddProfessionalCompanyServiceCommand}"
+                    CornerRadius="12"
+                    FontFamily="PoppinsSemiBoldFontFamily"
+                    FontSize="15"
+                    Text="Submit"
+                    TextColor="Black" />
             </Grid>
         </ScrollView>
     </Grid>

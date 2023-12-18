@@ -83,6 +83,13 @@ namespace NoffaPlus.ViewModels
                 new Models.CustomSubscriptionTypeModel(){Id=5, CustomSubscriptionType ="Yearly"}
             };
             SelectedCustomSubscriptionType = CustomSubscriptionType[0];
+
+            CustomMinimumTime = new List<Models.CustomMinimumTimeModel>()
+            {
+                new Models.CustomMinimumTimeModel(){Id=1, MinimumTime ="Daily"},
+                new Models.CustomMinimumTimeModel(){Id=2, MinimumTime ="Weekly"},
+            };
+            SelectedCustomMinimumTime = CustomMinimumTime[0];
         }
         #endregion
 
@@ -314,66 +321,66 @@ namespace NoffaPlus.ViewModels
             IMarketPlaceService service = new MarketPlaceService();
             if (string.IsNullOrEmpty(Title))
                 await Helper.Alert.DisplayAlert("Title is required.");
-            else if (Price ==0)
+            else if (Price == 0)
                 await Helper.Alert.DisplayAlert("Price cannot be zero");
             else if (string.IsNullOrEmpty(Descriptions))
                 await Helper.Alert.DisplayAlert("Descriptions is required.");
-
-
-
-            await service.AddProfessionalCompanyServiceAsync(new Models.AddProfessionalCompanyServiceRequest()
+            else
             {
-                CompanyId = Helper.Helper.CompanyId,
-                DomainId = Helper.Helper.DomainId,
-                //CategoryId
-                SubcategoryId = Helper.Helper.ProfessionalSubcategoryId,
-                DishName = Title,
-                DishPrice = Price,
-                ProductInformation = Descriptions,
-                TimeRequired = SelectedMinimumTime.Id,
-                PreparationTime = SelectedPreparationTime.Id,
-                PostProductionTime = SelectedPostProductionTime.Id,
-                IsBookable = IsBookableService ? 1 : 0,
-                OneShared = SelectedBookingTypeModel.Id,
-                OneSharedType = SelectedSharedTypeModel.Id,
-                RecurringEvent = IsRecurringEvent ? 1 : 0,
-                WorkingDay1 = IsMonday ? 1 : 0,
-                WorkStartTime1 = SelectedWorkStartTime1.Id,
-                WorkingDay2 = IsTuesday ? 1 : 0,
-                WorkStartTime2 = SelectedWorkStartTime2.Id,
-                WorkingDay3 = IsWednesday ? 1 : 0,
-                WorkStartTime3 = SelectedWorkStartTime3.Id,
-                WorkingDay4 = IsThursday ? 1 : 0,
-                WorkStartTime4 = SelectedWorkStartTime4.Id,
-                WorkingDay5 = IsFriday ? 1 : 0,
-                WorkStartTime5 = SelectedWorkStartTime5.Id,
-                WorkingDay6 = IsSaturday ? 1 : 0,
-                WorkStartTime6 = SelectedWorkStartTime6.Id,
-                WorkingDay7 = IsSunday ? 1 : 0,
-                WorkStartTime7 = SelectedWorkStartTime7.Id,
-                OpenEventDate = $"{SelectedEventDate.Day}/{SelectedEventDate.Month}/{SelectedEventDate.Year}",
-                EventStartTime = SelectedEventStartTime.Id,
-                OpenPricePerPerson = Price,
-                // OpenTotalPerson = Allow(Max)
-                //PrivatePrice =Min per event
-                //PrivateMaxPerson = Allow(Max)
-                EventAtCustomerPlace = IsAtCustomerLocation ? 1 : 0,
-                TourFeeApplicable = IsTourFeeApplicable ? 1 : 0,
-                TourFee = TravelFee,
-                TotalPrivateEvents = MaximumEventsPerDay,
-                MoreEventOnRequest = IsMoreEventsUponRequest ? 1 : 0,
-                //MinimumPeopleRequired = Minimum person required
-                // MinimumTimeRequired = Request period
-                //MinimumTimePeriod =Time
-                MoreEventExtraFee = IsExtraFeeApplicable ? 1 : 0,
-                //ExtraFee = Extra fee
-                TaxIncluded = IsTaxIsIncludedInPrice ? 1 : 0,
-                TaxAmount = TaxIncludedInPrice,
-                SubscriptionInfo = IsThisSubscription ? 1 : 0,
-                RecurringType = SelectedSubscriptionType.Id,
-                TotalTime = Every,
-                RecurringTypec = SelectedCustomSubscriptionType.Id
-            });
+                await service.AddProfessionalCompanyServiceAsync(new Models.AddProfessionalCompanyServiceRequest()
+                {
+                    CompanyId = Helper.Helper.CompanyId,
+                    DomainId = Helper.Helper.DomainId,
+                    //CategoryId
+                    SubcategoryId = Helper.Helper.ProfessionalSubcategoryId,
+                    DishName = Title,
+                    DishPrice = Price,
+                    ProductInformation = Descriptions,
+                    TimeRequired = SelectedMinimumTime.Id,
+                    PreparationTime = SelectedPreparationTime.Id,
+                    PostProductionTime = SelectedPostProductionTime.Id,
+                    IsBookable = IsBookableService ? 1 : 0,
+                    OneShared = SelectedBookingTypeModel.Id,
+                    OneSharedType = SelectedSharedTypeModel.Id,
+                    RecurringEvent = IsRecurringEvent ? 1 : 0,
+                    WorkingDay1 = IsMonday ? 1 : 0,
+                    WorkStartTime1 = SelectedWorkStartTime1.Id,
+                    WorkingDay2 = IsTuesday ? 1 : 0,
+                    WorkStartTime2 = SelectedWorkStartTime2.Id,
+                    WorkingDay3 = IsWednesday ? 1 : 0,
+                    WorkStartTime3 = SelectedWorkStartTime3.Id,
+                    WorkingDay4 = IsThursday ? 1 : 0,
+                    WorkStartTime4 = SelectedWorkStartTime4.Id,
+                    WorkingDay5 = IsFriday ? 1 : 0,
+                    WorkStartTime5 = SelectedWorkStartTime5.Id,
+                    WorkingDay6 = IsSaturday ? 1 : 0,
+                    WorkStartTime6 = SelectedWorkStartTime6.Id,
+                    WorkingDay7 = IsSunday ? 1 : 0,
+                    WorkStartTime7 = SelectedWorkStartTime7.Id,
+                    OpenEventDate = $"{SelectedEventDate.Day}/{SelectedEventDate.Month}/{SelectedEventDate.Year}",
+                    EventStartTime = SelectedEventStartTime.Id,
+                    OpenPricePerPerson = PricePerX,
+                    OpenTotalPerson = PricePerXAllowedMax,
+                    PrivatePrice = PricePerY,
+                    PrivateMaxPerson = PricePerYAllowedMax,
+                    EventAtCustomerPlace = IsAtCustomerLocation ? 1 : 0,
+                    TourFeeApplicable = IsTourFeeApplicable ? 1 : 0,
+                    TourFee = TravelFee,
+                    TotalPrivateEvents = MaximumEventsPerDay,
+                    MoreEventOnRequest = IsMoreEventsUponRequest ? 1 : 0,
+                    MinimumPeopleRequired = MinimumPeopleRequired,
+                    MinimumTimeRequired = MinimumTimeRequired,
+                    MinimumTimePeriod = SelectedCustomMinimumTime.Id,
+                    MoreEventExtraFee = IsExtraFeeApplicable ? 1 : 0,
+                    ExtraFee = ExtraFee,
+                    TaxIncluded = IsTaxIsIncludedInPrice ? 1 : 0,
+                    TaxAmount = TaxIncludedInPrice,
+                    SubscriptionInfo = IsThisSubscription ? 1 : 0,
+                    RecurringType = SelectedSubscriptionType.Id,
+                    TotalTime = Every,
+                    RecurringTypec = SelectedCustomSubscriptionType.Id
+                });
+            }
             DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
@@ -387,6 +394,50 @@ namespace NoffaPlus.ViewModels
             {
                 title = value;
                 OnPropertyChanged("Title");
+            }
+        }
+
+        public int pricePerXAllowedMax = 1;
+        public int PricePerXAllowedMax
+        {
+            get => pricePerXAllowedMax;
+            set
+            {
+                pricePerXAllowedMax = value;
+                OnPropertyChanged("PricePerXAllowedMax");
+            }
+        }
+
+        public int pricePerYAllowedMax = 1;
+        public int PricePerYAllowedMax
+        {
+            get => pricePerYAllowedMax;
+            set
+            {
+                pricePerYAllowedMax = value;
+                OnPropertyChanged("PricePerYAllowedMax");
+            }
+        }
+
+        public int pricePerX = 1;
+        public int PricePerX
+        {
+            get => pricePerX;
+            set
+            {
+                pricePerX = value;
+                OnPropertyChanged("PricePerX");
+            }
+        }
+
+        public int pricePerY = 1;
+        public int PricePerY
+        {
+            get => pricePerY;
+            set
+            {
+                pricePerY = value;
+                OnPropertyChanged("PricePerY");
             }
         }
 
@@ -1033,6 +1084,40 @@ namespace NoffaPlus.ViewModels
             }
         }
 
+        private int minimumPeopleRequired = 1;
+        public int MinimumPeopleRequired
+        {
+            get => minimumPeopleRequired;
+            set
+            {
+                minimumPeopleRequired = value;
+                OnPropertyChanged("MinimumPeopleRequired");
+            }
+        }
+
+        private int minimumTimeRequired = 1;
+        public int MinimumTimeRequired
+        {
+            get => minimumTimeRequired;
+            set
+            {
+                minimumTimeRequired = value;
+                OnPropertyChanged("MinimumTimeRequired");
+            }
+        }
+
+        private int extraFee = 1;
+        public int ExtraFee
+        {
+            get => extraFee;
+            set
+            {
+                extraFee = value;
+                OnPropertyChanged("ExtraFee");
+            }
+        }
+        
+
         private int travelFee = 1;
         public int TravelFee
         {
@@ -1284,6 +1369,28 @@ namespace NoffaPlus.ViewModels
             {
                 selectedEventStartTime = value;
                 OnPropertyChanged("SelectedEventStartTime");
+            }
+        }
+
+        private List<Models.CustomMinimumTimeModel> customMinimumTime;
+        public List<Models.CustomMinimumTimeModel> CustomMinimumTime
+        {
+            get => customMinimumTime;
+            set
+            {
+                customMinimumTime = value;
+                OnPropertyChanged("CustomMinimumTime");
+            }
+        }
+
+        private Models.CustomMinimumTimeModel selectedCustomMinimumTime;
+        public Models.CustomMinimumTimeModel SelectedCustomMinimumTime
+        {
+            get => selectedCustomMinimumTime;
+            set
+            {
+                selectedCustomMinimumTime = value;
+                OnPropertyChanged("SelectedCustomMinimumTime");
             }
         }
 
