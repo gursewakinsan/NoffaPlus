@@ -19,8 +19,8 @@
 				<ColumnDefinition Width="24" />
 				<ColumnDefinition Width="40" />
 				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="24" />
 				<ColumnDefinition Width="40" />
+				<ColumnDefinition Width="24" />
 			</Grid.ColumnDefinitions>
 			<Button
 				Grid.Row="0"
@@ -43,6 +43,30 @@
 				VerticalTextAlignment="Center">
 				<Label.GestureRecognizers>
 					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Button
+				Grid.Row="0"
+				CornerRadius="8"
+				BorderWidth="1"
+				Opacity="0.2"
+				Grid.Column="3"
+				Command="{Binding AddNewCommand}"
+				BackgroundColor="Transparent"
+				BorderColor="White"/>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="3"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Center"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding AddNewCommand}" />
 				</Label.GestureRecognizers>
 			</Label>
 

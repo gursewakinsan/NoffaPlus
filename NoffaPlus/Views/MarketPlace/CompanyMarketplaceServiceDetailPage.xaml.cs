@@ -42,13 +42,15 @@ namespace NoffaPlus.Views.MarketPlace
 
         async void OnItemTapped(Models.CompanyMarketplaceServiceDetailSubcategory subcategory)
         {
+            Helper.Helper.ProfessionalSubcategoryId = subcategory.ProfessionalSubcategoryId;
+            Helper.Helper.CategoryId = subcategory.CategoryId;
+            Helper.Helper.SubcategoryName = subcategory.SubcategoryName;
             if (subcategory.IsSelected && !subcategory.PriceAdded)
             {
-                //Navigate to add page
+                await Navigation.PushAsync(new SetMarketPricePage());
             }
             else if (subcategory.IsSelected && subcategory.PriceAdded)
             {
-                Helper.Helper.ProfessionalSubcategoryId = subcategory.ProfessionalSubcategoryId;
                 await Navigation.PushAsync(new CompanyMarketplacePricingDetailPage(subcategory.SubcategoryName));
             }
         }

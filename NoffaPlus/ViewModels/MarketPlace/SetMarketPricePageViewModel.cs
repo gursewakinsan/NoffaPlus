@@ -317,8 +317,6 @@ namespace NoffaPlus.ViewModels
         }
         private async Task ExecuteAddProfessionalCompanyServiceCommand()
         {
-            DependencyService.Get<IProgressBar>().Show();
-            IMarketPlaceService service = new MarketPlaceService();
             if (string.IsNullOrEmpty(Title))
                 await Helper.Alert.DisplayAlert("Title is required.");
             else if (Price == 0)
@@ -327,11 +325,13 @@ namespace NoffaPlus.ViewModels
                 await Helper.Alert.DisplayAlert("Descriptions is required.");
             else
             {
+                DependencyService.Get<IProgressBar>().Show();
+                IMarketPlaceService service = new MarketPlaceService();
                 await service.AddProfessionalCompanyServiceAsync(new Models.AddProfessionalCompanyServiceRequest()
                 {
                     CompanyId = Helper.Helper.CompanyId,
                     DomainId = Helper.Helper.DomainId,
-                    //CategoryId
+                    CategoryId = Helper.Helper.CategoryId,
                     SubcategoryId = Helper.Helper.ProfessionalSubcategoryId,
                     DishName = Title,
                     DishPrice = Price,
@@ -380,12 +380,20 @@ namespace NoffaPlus.ViewModels
                     TotalTime = Every,
                     RecurringTypec = SelectedCustomSubscriptionType.Id
                 });
+                if (!Helper.Helper.IsAddNew)
+                {
+                    Helper.Helper.IsAddNew = false;
+                    this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 1]);
+                    await Navigation.PushAsync(new Views.MarketPlace.CompanyMarketplacePricingDetailPage(Helper.Helper.SubcategoryName));
+                }
+                await Navigation.PopAsync();
+                DependencyService.Get<IProgressBar>().Hide();
             }
-            DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
 
         #region Properties.
+
         public string title;
         public string Title
         {

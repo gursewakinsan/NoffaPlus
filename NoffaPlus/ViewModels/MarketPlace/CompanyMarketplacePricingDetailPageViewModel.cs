@@ -36,6 +36,19 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region Add New Command.
+        private ICommand addNewCommand;
+        public ICommand AddNewCommand
+        {
+            get => addNewCommand ?? (addNewCommand = new Command(async () => await ExecuteAddNewCommand()));
+        }
+        private async Task ExecuteAddNewCommand()
+        {
+            Helper.Helper.IsAddNew = true;
+            await Navigation.PushAsync(new Views.MarketPlace.SetMarketPricePage());
+        }
+        #endregion
+
         #region Properties.
         public List<Models.CompanyMarketplacePricingDetailResponse> companyMarketplacePricingDetailList;
         public List<Models.CompanyMarketplacePricingDetailResponse> CompanyMarketplacePricingDetailList

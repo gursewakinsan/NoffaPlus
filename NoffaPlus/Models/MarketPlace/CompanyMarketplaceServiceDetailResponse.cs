@@ -36,9 +36,12 @@ namespace NoffaPlus.Models
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "subcategory_name")]
         public string SubcategoryName { get; set; }
-
+        
         [Newtonsoft.Json.JsonProperty(PropertyName = "professional_subcategory_id")]
         public int ProfessionalSubcategoryId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "category_id")]
+        public int CategoryId { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "price_added")]
         public bool PriceAdded { get; set; }

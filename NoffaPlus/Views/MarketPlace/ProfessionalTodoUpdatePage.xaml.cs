@@ -43,7 +43,7 @@ namespace NoffaPlus.Views.MarketPlace
 
         async void OnItemTapped(Models.ProfessionalTodoUpdateModel model)
         {
-            if (model.Name.Equals("Services"))
+            if (model.Name.Equals("Services") || model.Name.Equals("Pricing"))
                 await Navigation.PushAsync(new CompanyMarketplaceServiceDetailPage());
         }
     }
