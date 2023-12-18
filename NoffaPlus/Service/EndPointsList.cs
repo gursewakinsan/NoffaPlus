@@ -106,5 +106,7 @@
 		public const string CompanyMarketplacePricingDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyMarketplacePricingDetail";
 		public const string AddProfessionalCompanyServiceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addProfessionalCompanyService";
 		public const string WorkingHrsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/workingHrs";
+		public const string SelectedAreaDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/selectedAreaDetail";
+		public const string UpdateAreaUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateArea";
     }
 }

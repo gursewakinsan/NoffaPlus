@@ -70,5 +70,23 @@ namespace NoffaPlus.Service
                 return res;
             });
         }
+
+        public Task<List<Models.SelectedAreaDetailResponse>> SelectedAreaDetailAsync(Models.SelectedAreaDetailRequest request)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<List<Models.SelectedAreaDetailResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.SelectedAreaDetailUrl)), string.Empty, request.ToJson());
+                return res;
+            });
+        }
+
+        public Task<string> UpdateAreaAsync(Models.UpdateAreaRequest request)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateAreaUrl)), string.Empty, request.ToJson());
+                return res;
+            });
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace NoffaPlus.Interfaces
         Task<List<Models.CompanyMarketplacePricingDetailResponse>> CompanyMarketplacePricingDetailAsync(Models.CompanyMarketplacePricingDetailRequest request);
         Task<string> AddProfessionalCompanyServiceAsync(Models.AddProfessionalCompanyServiceRequest request);
         Task<List<Models.WorkingHrs>> GetWorkingHrsAsync();
+        Task<List<Models.SelectedAreaDetailResponse>> SelectedAreaDetailAsync(Models.SelectedAreaDetailRequest request);
+        Task<string> UpdateAreaAsync(Models.UpdateAreaRequest request);
     }
 }
