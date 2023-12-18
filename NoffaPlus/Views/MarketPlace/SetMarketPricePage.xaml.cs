@@ -14,5 +14,11 @@ namespace NoffaPlus.Views.MarketPlace
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = ViewModel = new SetMarketPricePageViewModel(this.Navigation);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ViewModel.GetWorkingHrsCommand.Execute(null);
+        }
     }
 }

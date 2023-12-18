@@ -61,5 +61,14 @@ namespace NoffaPlus.Service
                 return res;
             });
         }
+
+        public Task<List<Models.WorkingHrs>> GetWorkingHrsAsync()
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<List<Models.WorkingHrs>>(HttpWebRequest.Create(string.Format(EndPointsList.WorkingHrsUrl)), string.Empty);
+                return res;
+            });
+        }
     }
 }

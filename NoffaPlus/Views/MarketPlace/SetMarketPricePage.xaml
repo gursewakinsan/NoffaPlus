@@ -152,8 +152,8 @@
                     BackgroundColor="Transparent"
                     FontFamily="PoppinsRegularFontFamily"
                     FontSize="18"
-                    Placeholder="Price"
                     Keyboard="Numeric"
+                    Placeholder="Price"
                     PlaceholderColor="Gray"
                     Text="{Binding Price}"
                     TextColor="White" />
@@ -661,9 +661,12 @@
                             <controls:CustomDatePicker
                                 Grid.Row="1"
                                 Grid.Column="0"
+                                Date="{Binding SelectedEventDate}"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
                                 Format="yyyy-MM-dd"
+                                MaximumDate="{Binding BindMaximumDate}"
+                                MinimumDate="{Binding BindMinimumDate}"
                                 Placeholder="Event date"
                                 TextColor="White" />
 
@@ -712,15 +715,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding EventStartTime}"
+                                SelectedItem="{Binding SelectedEventStartTime}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -824,15 +823,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime1}"
+                                SelectedItem="{Binding SelectedWorkStartTime1}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -936,15 +931,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime2}"
+                                SelectedItem="{Binding SelectedWorkStartTime2}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -1048,15 +1039,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime3}"
+                                SelectedItem="{Binding SelectedWorkStartTime3}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -1160,15 +1147,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime4}"
+                                SelectedItem="{Binding SelectedWorkStartTime4}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -1272,15 +1255,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime5}"
+                                SelectedItem="{Binding SelectedWorkStartTime5}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -1384,15 +1363,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime6}"
+                                SelectedItem="{Binding SelectedWorkStartTime6}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
+                                TitleColor="#797A7D" />
 
                             <Label
                                 Grid.RowSpan="2"
@@ -1496,16 +1471,11 @@
                                 Grid.Column="0"
                                 FontFamily="PoppinsRegularFontFamily"
                                 FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime7}"
+                                SelectedItem="{Binding SelectedWorkStartTime7}"
                                 TextColor="White"
-                                TitleColor="#797A7D">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Yes</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </controls:CustomPicker>
-
+                                TitleColor="#797A7D" />
                             <Label
                                 Grid.RowSpan="2"
                                 Grid.Column="1"
@@ -1929,7 +1899,6 @@
                                     TextColor="White" />
                             </Grid>
                         </StackLayout>
-
 
                         <Grid
                             Grid.Row="44"

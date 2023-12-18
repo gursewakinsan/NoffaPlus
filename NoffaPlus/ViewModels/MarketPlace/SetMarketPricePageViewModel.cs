@@ -5,6 +5,8 @@ using NoffaPlus.Interfaces;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using ZXing.QrCode.Internal;
+using System;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace NoffaPlus.ViewModels
 {
@@ -259,6 +261,47 @@ namespace NoffaPlus.ViewModels
         }
         #endregion
 
+        #region Get Working Hrs Command.
+        private ICommand getWorkingHrsCommand;
+        public ICommand GetWorkingHrsCommand
+        {
+            get => getWorkingHrsCommand ?? (getWorkingHrsCommand = new Command(async () => await ExecuteGetWorkingHrsCommand()));
+        }
+        private async Task ExecuteGetWorkingHrsCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IMarketPlaceService service = new MarketPlaceService();
+            var response = await service.GetWorkingHrsAsync();
+            if (response != null)
+            {
+                WorkStartTime1 = response;
+                SelectedWorkStartTime1 = response[0];
+
+                WorkStartTime2 = response;
+                SelectedWorkStartTime2 = response[0];
+
+                WorkStartTime3 = response;
+                SelectedWorkStartTime3 = response[0];
+
+                WorkStartTime4 = response;
+                SelectedWorkStartTime4 = response[0];
+
+                WorkStartTime5 = response;
+                SelectedWorkStartTime5 = response[0];
+
+                WorkStartTime6 = response;
+                SelectedWorkStartTime6 = response[0];
+
+                WorkStartTime7 = response;
+                SelectedWorkStartTime7 = response[0];
+
+                EventStartTime = response;
+                SelectedEventStartTime = response[0];
+            }
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
+
         #region Add Professional Company Service Command.
         private ICommand addProfessionalCompanyServiceCommand;
         public ICommand AddProfessionalCompanyServiceCommand
@@ -273,7 +316,7 @@ namespace NoffaPlus.ViewModels
                 await Helper.Alert.DisplayAlert("Title is required.");
             else if (Price ==0)
                 await Helper.Alert.DisplayAlert("Price cannot be zero");
-            if (string.IsNullOrEmpty(Descriptions))
+            else if (string.IsNullOrEmpty(Descriptions))
                 await Helper.Alert.DisplayAlert("Descriptions is required.");
 
 
@@ -283,14 +326,53 @@ namespace NoffaPlus.ViewModels
                 CompanyId = Helper.Helper.CompanyId,
                 DomainId = Helper.Helper.DomainId,
                 //CategoryId
-                SubcategoryId= Helper.Helper.ProfessionalSubcategoryId,
+                SubcategoryId = Helper.Helper.ProfessionalSubcategoryId,
                 DishName = Title,
                 DishPrice = Price,
                 ProductInformation = Descriptions,
                 TimeRequired = SelectedMinimumTime.Id,
                 PreparationTime = SelectedPreparationTime.Id,
                 PostProductionTime = SelectedPostProductionTime.Id,
-                IsBookable = IsBookableService?1:0
+                IsBookable = IsBookableService ? 1 : 0,
+                OneShared = SelectedBookingTypeModel.Id,
+                OneSharedType = SelectedSharedTypeModel.Id,
+                RecurringEvent = IsRecurringEvent ? 1 : 0,
+                WorkingDay1 = IsMonday ? 1 : 0,
+                WorkStartTime1 = SelectedWorkStartTime1.Id,
+                WorkingDay2 = IsTuesday ? 1 : 0,
+                WorkStartTime2 = SelectedWorkStartTime2.Id,
+                WorkingDay3 = IsWednesday ? 1 : 0,
+                WorkStartTime3 = SelectedWorkStartTime3.Id,
+                WorkingDay4 = IsThursday ? 1 : 0,
+                WorkStartTime4 = SelectedWorkStartTime4.Id,
+                WorkingDay5 = IsFriday ? 1 : 0,
+                WorkStartTime5 = SelectedWorkStartTime5.Id,
+                WorkingDay6 = IsSaturday ? 1 : 0,
+                WorkStartTime6 = SelectedWorkStartTime6.Id,
+                WorkingDay7 = IsSunday ? 1 : 0,
+                WorkStartTime7 = SelectedWorkStartTime7.Id,
+                OpenEventDate = $"{SelectedEventDate.Day}/{SelectedEventDate.Month}/{SelectedEventDate.Year}",
+                EventStartTime = SelectedEventStartTime.Id,
+                OpenPricePerPerson = Price,
+                // OpenTotalPerson = Allow(Max)
+                //PrivatePrice =Min per event
+                //PrivateMaxPerson = Allow(Max)
+                EventAtCustomerPlace = IsAtCustomerLocation ? 1 : 0,
+                TourFeeApplicable = IsTourFeeApplicable ? 1 : 0,
+                TourFee = TravelFee,
+                TotalPrivateEvents = MaximumEventsPerDay,
+                MoreEventOnRequest = IsMoreEventsUponRequest ? 1 : 0,
+                //MinimumPeopleRequired = Minimum person required
+                // MinimumTimeRequired = Request period
+                //MinimumTimePeriod =Time
+                MoreEventExtraFee = IsExtraFeeApplicable ? 1 : 0,
+                //ExtraFee = Extra fee
+                TaxIncluded = IsTaxIsIncludedInPrice ? 1 : 0,
+                TaxAmount = TaxIncludedInPrice,
+                SubscriptionInfo = IsThisSubscription ? 1 : 0,
+                RecurringType = SelectedSubscriptionType.Id,
+                TotalTime = Every,
+                RecurringTypec = SelectedCustomSubscriptionType.Id
             });
             DependencyService.Get<IProgressBar>().Hide();
         }
@@ -305,6 +387,17 @@ namespace NoffaPlus.ViewModels
             {
                 title = value;
                 OnPropertyChanged("Title");
+            }
+        }
+
+        public int every = 1;
+        public int Every
+        {
+            get => every;
+            set
+            {
+                every = value;
+                OnPropertyChanged("Every");
             }
         }
 
@@ -1017,6 +1110,186 @@ namespace NoffaPlus.ViewModels
                 OnPropertyChanged("TaxIncludedInPrice");
             }
         }
+
+        private List<Models.WorkingHrs> workStartTime1;
+        public List<Models.WorkingHrs> WorkStartTime1
+        {
+            get => workStartTime1;
+            set
+            {
+                workStartTime1 = value;
+                OnPropertyChanged("WorkStartTime1");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime1;
+        public Models.WorkingHrs SelectedWorkStartTime1
+        {
+            get => selectedWorkStartTime1;
+            set
+            {
+                selectedWorkStartTime1 = value;
+                OnPropertyChanged("SelectedWorkStartTime1");
+            }
+        }
+
+        private List<Models.WorkingHrs> workStartTime2;
+        public List<Models.WorkingHrs> WorkStartTime2
+        {
+            get => workStartTime2;
+            set
+            {
+                workStartTime2 = value;
+                OnPropertyChanged("WorkStartTime2");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime2;
+        public Models.WorkingHrs SelectedWorkStartTime2
+        {
+            get => selectedWorkStartTime2;
+            set
+            {
+                selectedWorkStartTime2 = value;
+                OnPropertyChanged("SelectedWorkStartTime2");
+            }
+        }
+
+        private List<Models.WorkingHrs> workStartTime3;
+        public List<Models.WorkingHrs> WorkStartTime3
+        {
+            get => workStartTime3;
+            set
+            {
+                workStartTime3 = value;
+                OnPropertyChanged("WorkStartTime3");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime3;
+        public Models.WorkingHrs SelectedWorkStartTime3
+        {
+            get => selectedWorkStartTime3;
+            set
+            {
+                selectedWorkStartTime3 = value;
+                OnPropertyChanged("SelectedWorkStartTime3");
+            }
+        }
+
+        private List<Models.WorkingHrs> workStartTime4;
+        public List<Models.WorkingHrs> WorkStartTime4
+        {
+            get => workStartTime4;
+            set
+            {
+                workStartTime4 = value;
+                OnPropertyChanged("WorkStartTime4");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime4;
+        public Models.WorkingHrs SelectedWorkStartTime4
+        {
+            get => selectedWorkStartTime4;
+            set
+            {
+                selectedWorkStartTime4 = value;
+                OnPropertyChanged("SelectedWorkStartTime4");
+            }
+        }
+
+        private List<Models.WorkingHrs> workStartTime5;
+        public List<Models.WorkingHrs> WorkStartTime5
+        {
+            get => workStartTime5;
+            set
+            {
+                workStartTime5 = value;
+                OnPropertyChanged("WorkStartTime5");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime5;
+        public Models.WorkingHrs SelectedWorkStartTime5
+        {
+            get => selectedWorkStartTime5;
+            set
+            {
+                selectedWorkStartTime5 = value;
+                OnPropertyChanged("SelectedWorkStartTime5");
+            }
+        }
+
+        private List<Models.WorkingHrs> workStartTime6;
+        public List<Models.WorkingHrs> WorkStartTime6
+        {
+            get => workStartTime6;
+            set
+            {
+                workStartTime6 = value;
+                OnPropertyChanged("WorkStartTime6");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime6;
+        public Models.WorkingHrs SelectedWorkStartTime6
+        {
+            get => selectedWorkStartTime6;
+            set
+            {
+                selectedWorkStartTime6 = value;
+                OnPropertyChanged("SelectedWorkStartTime6");
+            }
+        }
+
+        private List<Models.WorkingHrs> workStartTime7;
+        public List<Models.WorkingHrs> WorkStartTime7
+        {
+            get => workStartTime7;
+            set
+            {
+                workStartTime7 = value;
+                OnPropertyChanged("WorkStartTime7");
+            }
+        }
+
+        private Models.WorkingHrs selectedWorkStartTime7;
+        public Models.WorkingHrs SelectedWorkStartTime7
+        {
+            get => selectedWorkStartTime7;
+            set
+            {
+                selectedWorkStartTime7 = value;
+                OnPropertyChanged("SelectedWorkStartTime7");
+            }
+        }
+
+        private List<Models.WorkingHrs> eventStartTime;
+        public List<Models.WorkingHrs> EventStartTime
+        {
+            get => eventStartTime;
+            set
+            {
+                eventStartTime = value;
+                OnPropertyChanged("EventStartTime");
+            }
+        }
+
+        private Models.WorkingHrs selectedEventStartTime;
+        public Models.WorkingHrs SelectedEventStartTime
+        {
+            get => selectedEventStartTime;
+            set
+            {
+                selectedEventStartTime = value;
+                OnPropertyChanged("SelectedEventStartTime");
+            }
+        }
+
+        public DateTime SelectedEventDate { get; set; }
+        public DateTime BindMinimumDate => DateTime.Today;
+        public DateTime BindMaximumDate => DateTime.Today.AddYears(70);
         #endregion
 
         #region Methods.
