@@ -157,5 +157,8 @@
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "recurring_typec")]
         public int RecurringTypec { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "tax_applicable")]
+        public int TaxApplicable { get; set; }
     }
 }

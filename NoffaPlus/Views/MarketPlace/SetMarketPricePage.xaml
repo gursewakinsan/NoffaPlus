@@ -1689,7 +1689,7 @@
                         </Grid>
 
                         <StackLayout
-                            Grid.Row="42"
+                            Grid.Row="43"
                             Grid.ColumnSpan="3"
                             Margin="0,10,0,10"
                             IsVisible="{Binding IsAtCustomerLocationControl}"
@@ -1737,7 +1737,7 @@
                         </StackLayout>
 
                         <StackLayout
-                            Grid.Row="43"
+                            Grid.Row="44"
                             Grid.ColumnSpan="3"
                             IsVisible="{Binding IsAtCustomerLocationControl}">
                             <BoxView
@@ -1834,7 +1834,7 @@
                         </StackLayout>
 
                         <Grid
-                            Grid.Row="44"
+                            Grid.Row="42"
                             Grid.ColumnSpan="3"
                             Margin="0,10,0,10"
                             Padding="10,10,10,0"
@@ -2366,50 +2366,86 @@
                     </Grid>
                 </StackLayout>
 
-                <StackLayout
-                    Grid.Row="20"
-                    Grid.Column="1"
-                    Orientation="Horizontal">
-                    <Label
-                        FontFamily="PoppinsRegularFontFamily"
-                        FontSize="16"
-                        HorizontalTextAlignment="Start"
-                        Opacity="0.70"
-                        Text="If tax is included in price?"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
+                <StackLayout Grid.Row="20" Grid.Column="1">
 
-                    <Label
-                        Grid.Row="10"
-                        Grid.Column="1"
-                        FontFamily="{StaticResource MaterialFontFamily}"
-                        FontSize="44"
-                        HorizontalOptions="EndAndExpand"
-                        HorizontalTextAlignment="End"
-                        IsVisible="{Binding IsTaxIsIncludedInPrice}"
-                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
-                        TextColor="#89C99A"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TaxIncludedInPriceCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                    <Grid
+                        Margin="0,10,0,10"
+                        BackgroundColor="#1B1D24"
+                        RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Tax applicable"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
 
-                    <Label
-                        Grid.Row="10"
-                        Grid.Column="1"
-                        FontFamily="{StaticResource MaterialFontFamily}"
-                        FontSize="44"
-                        HorizontalOptions="EndAndExpand"
-                        HorizontalTextAlignment="End"
-                        IsVisible="{Binding IsTaxIsIncludedInPrice, Converter={StaticResource InverseBoolConverter}}"
-                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
-                        TextColor="#EF793F"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TaxIncludedInPriceCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                        <controls:CustomEntry
+                            Grid.Row="1"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="18"
+                            Keyboard="Numeric"
+                            Placeholder="Tax applicable"
+                            PlaceholderColor="Gray"
+                            Text="{Binding TaxApplicable}"
+                            TextColor="White" />
+
+                        <BoxView
+                            Grid.Row="2"
+                            BackgroundColor="White"
+                            Opacity="0.10" />
+                    </Grid>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="If tax is included in price?"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            FontSize="44"
+                            HorizontalOptions="EndAndExpand"
+                            HorizontalTextAlignment="End"
+                            IsVisible="{Binding IsTaxIsIncludedInPrice}"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                            TextColor="#89C99A"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TaxIncludedInPriceCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            FontSize="44"
+                            HorizontalOptions="EndAndExpand"
+                            HorizontalTextAlignment="End"
+                            IsVisible="{Binding IsTaxIsIncludedInPrice, Converter={StaticResource InverseBoolConverter}}"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                            TextColor="#EF793F"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TaxIncludedInPriceCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
                 </StackLayout>
 
                 <BoxView
@@ -2462,12 +2498,12 @@
                     Grid.Row="23"
                     Grid.Column="1"
                     Margin="50"
-                    HeightRequest="50"
                     BackgroundColor="White"
                     Command="{Binding AddProfessionalCompanyServiceCommand}"
                     CornerRadius="12"
                     FontFamily="PoppinsSemiBoldFontFamily"
                     FontSize="15"
+                    HeightRequest="50"
                     Text="Submit"
                     TextColor="Black" />
             </Grid>

@@ -378,7 +378,8 @@ namespace NoffaPlus.ViewModels
                     SubscriptionInfo = IsThisSubscription ? 1 : 0,
                     RecurringType = SelectedSubscriptionType.Id,
                     TotalTime = Every,
-                    RecurringTypec = SelectedCustomSubscriptionType.Id
+                    RecurringTypec = SelectedCustomSubscriptionType.Id,
+                    TaxApplicable = TaxApplicable
                 });
                 if (!Helper.Helper.IsAddNew)
                 {
@@ -457,6 +458,17 @@ namespace NoffaPlus.ViewModels
             {
                 every = value;
                 OnPropertyChanged("Every");
+            }
+        }
+
+        public int taxApplicable = 1;
+        public int TaxApplicable
+        {
+            get => taxApplicable;
+            set
+            {
+                taxApplicable = value;
+                OnPropertyChanged("TaxApplicable");
             }
         }
 
