@@ -29,6 +29,11 @@ namespace NoffaPlus.ViewModels
                 Name = "Languages",
                 TextIcon = Helper.NoffaPlusAppFlatIcons.MessageOutline
             });
+            ProfessionalTodoUpdateList.Add(new Models.ProfessionalTodoUpdateModel()
+            {
+                Name = "Area",
+                TextIcon = Helper.NoffaPlusAppFlatIcons.Home
+            });
         }
         #endregion
 

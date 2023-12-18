@@ -45,6 +45,8 @@ namespace NoffaPlus.Views.MarketPlace
         {
             if (model.Name.Equals("Services") || model.Name.Equals("Pricing"))
                 await Navigation.PushAsync(new CompanyMarketplaceServiceDetailPage());
+            else if (model.Name.Equals("Area"))
+                await Navigation.PushAsync(new AreaDetailPage());
         }
     }
 }

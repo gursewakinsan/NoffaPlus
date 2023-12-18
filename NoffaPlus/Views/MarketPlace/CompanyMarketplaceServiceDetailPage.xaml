@@ -208,6 +208,39 @@
 															TextColor="White"
 															MaxLines="1"
 															Opacity="0.42"
+															IsVisible="{Binding IsOrangeCard}"
+															LineBreakMode="TailTruncation"
+															VerticalTextAlignment="Center">
+															<Label.GestureRecognizers>
+                                                                <TapGestureRecognizer  Tapped="OnLabelTapped"/>
+															</Label.GestureRecognizers>
+														</Label>
+
+														<Label
+															FontFamily="PoppinsRegularFontFamily"
+															FontSize="13"
+															HorizontalTextAlignment="Start"
+															Text="Selected. And price added"
+															TextColor="White"
+															MaxLines="1"
+															Opacity="0.42"
+															IsVisible="{Binding IsGreenCard}"
+															LineBreakMode="TailTruncation"
+															VerticalTextAlignment="Center">
+															<Label.GestureRecognizers>
+                                                                <TapGestureRecognizer  Tapped="OnLabelTapped"/>
+															</Label.GestureRecognizers>
+														</Label>
+
+														<Label
+															FontFamily="PoppinsRegularFontFamily"
+															FontSize="13"
+															HorizontalTextAlignment="Start"
+															Text="Not selected"
+															TextColor="White"
+															MaxLines="1"
+															Opacity="0.42"
+															IsVisible="{Binding IsBlackCard}"
 															LineBreakMode="TailTruncation"
 															VerticalTextAlignment="Center">
 															<Label.GestureRecognizers>
