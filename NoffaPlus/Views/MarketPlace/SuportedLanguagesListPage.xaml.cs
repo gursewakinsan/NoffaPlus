@@ -20,5 +20,24 @@ namespace NoffaPlus.Views.MarketPlace
             base.OnAppearing();
             ViewModel.SuportedLanguagesListCommand.Execute(null);
         }
+
+        void OnButtonTapped(System.Object sender, System.EventArgs e)
+        {
+            Button control = sender as Button;
+            OnItemTapped(control.BindingContext as Models.SuportedLanguagesListResponse);
+        }
+
+        void OnLabelTapped(System.Object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnItemTapped(control.BindingContext as Models.SuportedLanguagesListResponse);
+        }
+
+        void OnItemTapped(Models.SuportedLanguagesListResponse suported)
+        {
+            suported.IsSelected = !suported.IsSelected;
+            ViewModel.LanguageId = suported.Id;
+            ViewModel.UpdateLanguageAvailableCommand.Execute(null);
+        }
     }
 }
