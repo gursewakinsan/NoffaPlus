@@ -108,5 +108,7 @@
 		public const string WorkingHrsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/workingHrs";
 		public const string SelectedAreaDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/selectedAreaDetail";
 		public const string UpdateAreaUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateArea";
+		public const string SuportedLanguagesListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/suportedLanguagesList";
+		public const string UpdateLanguageAvailableUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateLanguageAvailable";
     }
 }

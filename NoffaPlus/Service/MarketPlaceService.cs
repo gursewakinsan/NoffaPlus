@@ -88,5 +88,23 @@ namespace NoffaPlus.Service
                 return res;
             });
         }
+
+        public Task<List<Models.SuportedLanguagesListResponse>> SuportedLanguagesListAsync(Models.SuportedLanguagesListRequest request)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<List<Models.SuportedLanguagesListResponse>>(HttpWebRequest.Create(string.Format(EndPointsList.SuportedLanguagesListUrl)), string.Empty, request.ToJson());
+                return res;
+            });
+        }
+
+        public Task<string> UpdateLanguageAvailableAsync(Models.UpdateLanguageAvailableRequest request)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLanguageAvailableUrl)), string.Empty, request.ToJson());
+                return res;
+            });
+        }
     }
 }

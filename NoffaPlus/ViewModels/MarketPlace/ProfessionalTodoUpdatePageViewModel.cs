@@ -13,27 +13,29 @@ namespace NoffaPlus.ViewModels
         public ProfessionalTodoUpdatePageViewModel(INavigation navigation)
         {
             Navigation = navigation;
-            ProfessionalTodoUpdateList = new List<Models.ProfessionalTodoUpdateModel>();
-            ProfessionalTodoUpdateList.Add(new Models.ProfessionalTodoUpdateModel()
+            ProfessionalTodoUpdateList = new List<Models.ProfessionalTodoUpdateModel>()
             {
-                Name = "Services",
-                TextIcon = Helper.NoffaPlusAppFlatIcons.CarEstate
-            });
-            ProfessionalTodoUpdateList.Add(new Models.ProfessionalTodoUpdateModel()
-            {
-                Name = "Pricing",
-                TextIcon = Helper.NoffaPlusAppFlatIcons.CartOutline
-            });
-            ProfessionalTodoUpdateList.Add(new Models.ProfessionalTodoUpdateModel()
-            {
-                Name = "Languages",
-                TextIcon = Helper.NoffaPlusAppFlatIcons.MessageOutline
-            });
-            ProfessionalTodoUpdateList.Add(new Models.ProfessionalTodoUpdateModel()
-            {
-                Name = "Area",
-                TextIcon = Helper.NoffaPlusAppFlatIcons.Home
-            });
+                new Models.ProfessionalTodoUpdateModel()
+                {
+                    Name = "Services",
+                    TextIcon = Helper.NoffaPlusAppFlatIcons.CarEstate
+                },
+                new Models.ProfessionalTodoUpdateModel()
+                {
+                    Name = "Pricing",
+                    TextIcon = Helper.NoffaPlusAppFlatIcons.CartOutline
+                },
+                new Models.ProfessionalTodoUpdateModel()
+                {
+                    Name = "Languages",
+                    TextIcon = Helper.NoffaPlusAppFlatIcons.MessageOutline
+                },
+                new Models.ProfessionalTodoUpdateModel()
+                {
+                    Name = "Area",
+                    TextIcon = Helper.NoffaPlusAppFlatIcons.Home
+                },
+            };
         }
         #endregion
 

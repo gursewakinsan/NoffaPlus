@@ -14,5 +14,7 @@ namespace NoffaPlus.Interfaces
         Task<List<Models.WorkingHrs>> GetWorkingHrsAsync();
         Task<List<Models.SelectedAreaDetailResponse>> SelectedAreaDetailAsync(Models.SelectedAreaDetailRequest request);
         Task<string> UpdateAreaAsync(Models.UpdateAreaRequest request);
+        Task<List<Models.SuportedLanguagesListResponse>> SuportedLanguagesListAsync(Models.SuportedLanguagesListRequest request);
+        Task<string> UpdateLanguageAvailableAsync(Models.UpdateLanguageAvailableRequest request);
     }
 }
