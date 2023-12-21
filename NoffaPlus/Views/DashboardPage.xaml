@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="NoffaPlus.Views.DashboardPage"
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:NoffaPlus.Controls"
-	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-	xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
+    x:Class="NoffaPlus.Views.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NoffaPlus.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fontawesome="clr-namespace:NoffaPlus.Helper"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#1B1D24"
     NavigationPage.HasNavigationBar="False">
-	<Grid
+    <Grid
         Margin="0,22,0,0"
         ColumnSpacing="0"
         RowSpacing="0">
@@ -128,99 +128,101 @@
             BackgroundColor="#F4B400" />
 
         <ScrollView
-				Grid.Row="10"
-                Grid.ColumnSpan="5"
+            Grid.Row="10"
+            Grid.ColumnSpan="5"
+            HorizontalScrollBarVisibility="Never"
+            Orientation="Horizontal">
+            <StackLayout
+                Grid.Row="8"
+                BindableLayout.ItemsSource="{Binding CompanyList}"
                 Orientation="Horizontal"
-				HorizontalScrollBarVisibility="Never">
-            <StackLayout 
-						Spacing="0" 
-						Grid.Row="8"
-                Orientation="Horizontal"
-						VerticalOptions="StartAndExpand"
-						BindableLayout.ItemsSource="{Binding CompanyList}">
+                Spacing="0"
+                VerticalOptions="StartAndExpand">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-						 <Frame
-            Padding="20,0,20,0" Margin="20,0,20,0"
-            BackgroundColor="Transparent"
-                    HeightRequest="120" WidthRequest="250"
-                    VerticalOptions="CenterAndExpand"
-            BorderColor="#242A37" HorizontalOptions="CenterAndExpand"
-            CornerRadius="15" HasShadow="False">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnFrameTapped"/>
-                    </Frame.GestureRecognizers>
-            <Grid ColumnSpacing="20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnGridTapped"/>
-                    </Grid.GestureRecognizers>
-                <Button
-                    Grid.Column="0"
-                    BackgroundColor="#89C99A"
-                    CornerRadius="25"
-                    FontFamily="{StaticResource MaterialFontFamily}"
-                    FontSize="22"
-                    HeightRequest="50"
-                    HorizontalOptions="StartAndExpand"
-                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
-                    TextColor="Black"
-                    Clicked="OnButtonTapped"
-                    VerticalOptions="CenterAndExpand"
-                    WidthRequest="50" />
+                        <Frame
+                            Margin="20,0,20,0"
+                            Padding="20,0,20,0"
+                            BackgroundColor="Transparent"
+                            BorderColor="#242A37"
+                            CornerRadius="15"
+                            HasShadow="False"
+                            HeightRequest="120"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="250">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFrameTapped" />
+                            </Frame.GestureRecognizers>
+                            <Grid ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnGridTapped" />
+                                </Grid.GestureRecognizers>
+                                <Button
+                                    Grid.Column="0"
+                                    BackgroundColor="#89C99A"
+                                    Clicked="OnButtonTapped"
+                                    CornerRadius="25"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontSize="22"
+                                    HeightRequest="50"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="50" />
 
-                <StackLayout
-                    Grid.Column="1"
-                    HorizontalOptions="StartAndExpand"
-                    Spacing="5"
-                    VerticalOptions="CenterAndExpand">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnStackLayoutTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Label
-                        FontFamily="PoppinsBoldFontFamily"
-                        FontSize="18"
-                        HorizontalTextAlignment="Start"
-                        LineBreakMode="TailTruncation"
-                        MaxLines="1"
-                        Text="{Binding CompanyName}"
-                        TextColor="White"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnLabelTapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
+                                <StackLayout
+                                    Grid.Column="1"
+                                    HorizontalOptions="StartAndExpand"
+                                    Spacing="5"
+                                    VerticalOptions="CenterAndExpand">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnStackLayoutTapped" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label
+                                        FontFamily="PoppinsBoldFontFamily"
+                                        FontSize="18"
+                                        HorizontalTextAlignment="Start"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1"
+                                        Text="{Binding CompanyName}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
-                    <Label
-                        FontFamily="PoppinsRegularFontFamily"
-                        FontSize="13"
-                        HorizontalTextAlignment="Start"
-                        LineBreakMode="TailTruncation"
-                        MaxLines="1"
-                        Text="Demo Forskola"
-                        TextColor="White"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnLabelTapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-            </Grid>
-        </Frame>
+                                    <Label
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="13"
+                                        HorizontalTextAlignment="Start"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1"
+                                        Text="Demo Forskola"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
         </ScrollView>
-
-       
     </Grid>
 
 
 
-	<!--<ContentPage.Content>
+    <!--<ContentPage.Content>
 		<Grid BackgroundColor="White" RowSpacing="20">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="84" />
