@@ -28,6 +28,8 @@ namespace NoffaPlus.Helper
 
 		public static int LoggedInUserId { get; set; }
 		public static int CompanyId { get; set; }
+        public static string FirstName { get; set; }
+        public static string LastName { get; set; }
         public static int DomainId { get; set; }
         public static int ProfessionalSubcategoryId { get; set; }
 		public static int CategoryId { get; set; }

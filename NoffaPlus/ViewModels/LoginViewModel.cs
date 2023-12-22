@@ -95,7 +95,9 @@ namespace NoffaPlus.ViewModels
 			else if (response.Result == 1)
 			{
 				Helper.Helper.LoggedInUserId = response.UserId;
-				IDashboardService dashboardService = new DashboardService();
+                Helper.Helper.FirstName = response.FirstName;
+				Helper.Helper.LastName = response.LastName;
+                IDashboardService dashboardService = new DashboardService();
 				var companies = await dashboardService.GetCompaniesByIdAsync(Helper.Helper.LoggedInUserId);
 				if (companies == null)
 					Application.Current.MainPage = new NavigationPage(new Views.NoCompanyPage());

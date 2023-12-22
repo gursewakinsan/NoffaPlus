@@ -94,7 +94,9 @@
             FontFamily="SFProDisplayMediumFontFamily"
             FontSize="60"
             HorizontalTextAlignment="Start"
-            Text="Kowaken"
+            LineBreakMode="TailTruncation"
+            MaxLines="1"
+            Text="{Binding FirstName}"
             TextColor="White"
             VerticalTextAlignment="Center" />
 
@@ -105,8 +107,10 @@
             FontFamily="SFProDisplayMediumFontFamily"
             FontSize="60"
             HorizontalTextAlignment="Start"
+            LineBreakMode="TailTruncation"
+            MaxLines="1"
             Opacity="0.42"
-            Text="Ghirmai"
+            Text="{Binding LastName}"
             TextColor="White"
             VerticalTextAlignment="Center" />
 

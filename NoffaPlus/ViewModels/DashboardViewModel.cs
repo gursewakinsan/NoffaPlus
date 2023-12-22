@@ -65,6 +65,8 @@ namespace NoffaPlus.ViewModels
 
 		#region Properties.
 		public ObservableCollection<Models.Company> CompanyList { get; set; }
-		#endregion
-	}
+		public string FirstName => Helper.Helper.FirstName;
+        public string LastName => Helper.Helper.LastName;
+        #endregion
+    }
 }
