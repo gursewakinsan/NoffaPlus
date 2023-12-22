@@ -15,7 +15,7 @@
         ColumnSpacing="0"
         RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="54" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="79" />
             <RowDefinition Height="*" />
             <RowDefinition Height="25" />
@@ -88,7 +88,7 @@
                 FontSize="18"
                 HorizontalTextAlignment="Start"
                 Opacity="0.70"
-                Text="Welcome to"
+                Text="Welcome"
                 TextColor="White"
                 VerticalTextAlignment="Center" />
 
@@ -114,11 +114,11 @@
         <Label
             Grid.Row="3"
             Grid.Column="1"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="5"
             FontFamily="PoppinsSemiBoldFontFamily"
             FontSize="18"
             HorizontalTextAlignment="Start"
-            Text="Select employer"
+            Text="Visit"
             TextColor="#F4B400"
             VerticalTextAlignment="Center" />
 
@@ -131,14 +131,13 @@
 
         <ScrollView
             Grid.Row="7"
-            Grid.Column="1"
-            Grid.ColumnSpan="5"
+            Grid.ColumnSpan="7"
             HorizontalScrollBarVisibility="Never"
             Orientation="Horizontal">
             <StackLayout
                 BindableLayout.ItemsSource="{Binding CompanyList}"
                 Orientation="Horizontal"
-                Spacing="14">
+                Spacing="14" Padding="20,0,20,0">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Frame
@@ -179,7 +178,7 @@
                                     Grid.Column="1"
                                     ClassId="0"
                                     HorizontalOptions="StartAndExpand"
-                                    Spacing="0"
+                                    Spacing="10"
                                     VerticalOptions="CenterAndExpand">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnStackLayoutTapped" />
@@ -203,7 +202,7 @@
                                         FontSize="13"
                                         LineBreakMode="TailTruncation"
                                         MaxLines="1"
-                                        Text="From 5th of April"
+                                        Text="Active"
                                         TextColor="White">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnLabelTapped" />
